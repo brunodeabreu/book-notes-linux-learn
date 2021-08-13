@@ -43,7 +43,7 @@ jobs:
          path: _book/ # optional
      - name: Deploy to GitHub Pages
        with:
-          target_branch: gh-pages
+      #    target_branch: gh-pages
           build_dir: _book
        uses: Cecilapp/GitHub-Pages-deploy@master
        env:

@@ -1,10 +1,10 @@
-fig:nice-fig
-tab:nice-tab
-prerequisites
 intro
-literature
-methods
-math-example
+what-is-linux
+command-line
+and
+to-login-into-another-computer-using-ssh
+executing-commands
+managing-file-system
 applications
 example-one
 example-two

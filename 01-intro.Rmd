@@ -1,4 +1,4 @@
-# What is linux ?  {#intro}
+# What is linux ?  
 
 Modular operations system where you can add components : 
 

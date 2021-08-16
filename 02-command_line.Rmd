@@ -1,0 +1,103 @@
+# Command Line
+
+
+
+## `$` and `#`
+
+Attention on shell when you are on command line:
+
+  * Root user : `#`
+  * Normal user : `$`
+
+
+**Sample of using `-` or `--`**
+
+`-all` : _Shell going to be interpreting all arguments individually _
+
+```{bash}
+
+# Shell going to be interpreting all arguments individually  a, l and l
+ls -all . 
+
+```
+
+`--all` : _Shell will interpreting the entire word_
+
+```{bash}
+# Shell will interpreting the entire word
+ls --all .
+```
+
+
+## To login into another computer using `ssh`
+
+```
+ssh <machine or server>
+```
+
+
+## Executing commands
+
+
+```{bash}
+
+# List the user that you  login
+whoami
+
+# formatting the dates
+date +%F
+
+# Executing one command after the other
+date +%A; uname -r; whoami
+
+
+```
+
+**Conditional commands execution `&&`**
+
+> This is the basic **IF** statement
+
+The `date` command **must** complete successfully than the `uname -r` command will be running and if execute successfully the `whoami` command will be executed
+
+```{bash}
+
+# If with and
+date +%F && uname -r && whoami
+
+echo 
+echo
+# If with or
+ate +%F || uname -r && whoami
+
+```
+
+
+**command  `history`**
+
+  * `!!` : execute the last command 
+  * `!12`: execute the command 12 on history
+  * ctr+r <part of command> 
+
+
+**check type of file**
+
+The `file` command is used to determining the type fo file : 
+
+```{bash}
+file /etc/issue
+
+echo 
+echo
+
+file /bin/bash
+```
+
+
+
+**check content of file**
+
+* `cat` or `tac`
+* `head` or `tail`
+* `wc -l` : count lines of file
+
+

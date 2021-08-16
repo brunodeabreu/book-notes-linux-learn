@@ -1,21 +1,38 @@
-# Introduction {#intro}
+# What is linux ?  {#intro}
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+Modular operations system where you can add components : 
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
-
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/what_is_linux.png", 1))
 ```
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+**Open Source**
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
+  * Copyleft lic
+    * GNU : _General Public License_
+    * LGNU: _Lesser General Public License_
+    
+  * Permissive lic:
+    * MIT
+    * Simplified BSD
+    * Apache Software License
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+**Red Hat** contribute and facilitate open source projects, validating the code and support code that Red Hat validate and test.
+  
+_Sample of Red Hat Products:_
+
+    * Red Hat Enterprise Linux 8
+    * Red Hat Open Shift 4
+    * Red Hat Ansible Automation
+    * Red Hat Ceph Storage
+    * Red Hat OpenStack Platform
+    * Red Hat Virtualization
+    * Red Hat Gluster Storage
+  
+
+Benefits of open source software:
+  
+  * Code can survive the loss of orginal developer or distributor
+  * We can learn from real-world code and develop more effective applications
+  * Red Hat sponsor and integrate open source projects into the Fedora project and participate in upstream projects
+

@@ -9,3 +9,9 @@ applications
 example-one
 example-two
 final-words
+command-line
+section
+important
+and
+to-login-into-another-computer-using-ssh
+executing-commands

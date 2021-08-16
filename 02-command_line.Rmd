@@ -14,7 +14,7 @@ Attention on shell when you are on command line:
 
 `-all` : _Shell going to be interpreting all arguments individually _
 
-```{bash}
+```
 
 # Shell going to be interpreting all arguments individually  a, l and l
 ls -all . 
@@ -23,7 +23,7 @@ ls -all .
 
 `--all` : _Shell will interpreting the entire word_
 
-```{bash}
+```
 # Shell will interpreting the entire word
 ls --all .
 ```

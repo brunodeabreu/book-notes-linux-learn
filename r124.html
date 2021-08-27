@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Note 2 R124 | Notes from Linux course</title>
+  <meta name="description" content="Those notes are for future reference" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Note 2 R124 | Notes from Linux course" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Those notes are for future reference" />
+  <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Note 2 R124 | Notes from Linux course" />
+  
+  <meta name="twitter:description" content="Those notes are for future reference" />
+  
+
+<meta name="author" content="Bruno Machado" />
+
+
+<meta name="date" content="2021-08-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="section.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Learning Linux Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro</a></li>
+<li class="chapter" data-level="2" data-path="r124.html"><a href="r124.html"><i class="fa fa-check"></i><b>2</b> R124</a><ul>
+<li class="chapter" data-level="2.1" data-path="r124.html"><a href="r124.html#what-is-linux"><i class="fa fa-check"></i><b>2.1</b> What is linux ?</a></li>
+<li class="chapter" data-level="2.2" data-path="r124.html"><a href="r124.html#command-line"><i class="fa fa-check"></i><b>2.2</b> Command Line</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="r124.html"><a href="r124.html#and"><i class="fa fa-check"></i><b>2.2.1</b> <code>$</code> and <code>#</code></a></li>
+<li class="chapter" data-level="2.2.2" data-path="r124.html"><a href="r124.html#to-login-into-another-computer-using-ssh"><i class="fa fa-check"></i><b>2.2.2</b> To login into another computer using <code>ssh</code></a></li>
+<li class="chapter" data-level="2.2.3" data-path="r124.html"><a href="r124.html#executing-commands"><i class="fa fa-check"></i><b>2.2.3</b> Executing commands</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r124.html"><a href="r124.html#managing-file-system"><i class="fa fa-check"></i><b>2.3</b> Managing File system</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="r124.html"><a href="r124.html#the-file-system-hierarchy"><i class="fa fa-check"></i><b>2.3.1</b> The file system hierarchy <code>/</code></a></li>
+<li class="chapter" data-level="2.3.2" data-path="r124.html"><a href="r124.html#absolute-and-relative-paths"><i class="fa fa-check"></i><b>2.3.2</b> Absolute and Relative paths</a></li>
+<li class="chapter" data-level="2.3.3" data-path="r124.html"><a href="r124.html#managing-files"><i class="fa fa-check"></i><b>2.3.3</b> Managing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r124.html"><a href="r124.html#help"><i class="fa fa-check"></i><b>2.4</b> Help</a></li>
+<li class="chapter" data-level="2.5" data-path="r124.html"><a href="r124.html#text-files"><i class="fa fa-check"></i><b>2.5</b> Text Files</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="r124.html"><a href="r124.html#vim"><i class="fa fa-check"></i><b>2.5.1</b> vim</a></li>
+<li class="chapter" data-level="2.5.2" data-path="r124.html"><a href="r124.html#changing-shell"><i class="fa fa-check"></i><b>2.5.2</b> Changing shell</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="r124.html"><a href="r124.html#managing-local-users-and-groups"><i class="fa fa-check"></i><b>2.6</b> Managing Local Users and Groups</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="r124.html"><a href="r124.html#users"><i class="fa fa-check"></i><b>2.6.1</b> Users</a></li>
+<li class="chapter" data-level="2.6.2" data-path="r124.html"><a href="r124.html#groups"><i class="fa fa-check"></i><b>2.6.2</b> Groups</a></li>
+<li class="chapter" data-level="2.6.3" data-path="r124.html"><a href="r124.html#gaining-superuser-access"><i class="fa fa-check"></i><b>2.6.3</b> Gaining superuser access</a></li>
+<li class="chapter" data-level="2.6.4" data-path="r124.html"><a href="r124.html#managing-user-passwords"><i class="fa fa-check"></i><b>2.6.4</b> Managing user passwords</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="r124.html"><a href="r124.html#controlling-access-to-files"><i class="fa fa-check"></i><b>2.7</b> Controlling access to files</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="r124.html"><a href="r124.html#default-permissions"><i class="fa fa-check"></i><b>2.7.1</b> Default permissions</a></li>
+<li class="chapter" data-level="2.7.2" data-path="r124.html"><a href="r124.html#umask"><i class="fa fa-check"></i><b>2.7.2</b> umask</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="r124.html"><a href="r124.html#monitoring-and-managing-linux-process"><i class="fa fa-check"></i><b>2.8</b> Monitoring and MAnaging Linux process</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="r124.html"><a href="r124.html#commands-to-monitor"><i class="fa fa-check"></i><b>2.8.1</b> Commands to monitor</a></li>
+<li class="chapter" data-level="2.8.2" data-path="r124.html"><a href="r124.html#controlling-jobs"><i class="fa fa-check"></i><b>2.8.2</b> Controlling jobs</a></li>
+<li class="chapter" data-level="2.8.3" data-path="r124.html"><a href="r124.html#killing-process"><i class="fa fa-check"></i><b>2.8.3</b> Killing process</a></li>
+<li class="chapter" data-level="2.8.4" data-path="r124.html"><a href="r124.html#monitor-process-activity"><i class="fa fa-check"></i><b>2.8.4</b> Monitor process activity</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="r124.html"><a href="r124.html#controlling-services-and-daemons"><i class="fa fa-check"></i><b>2.9</b> Controlling Services and Daemons</a></li>
+<li class="chapter" data-level="2.10" data-path="r124.html"><a href="r124.html#configuring-and-securing-ssh"><i class="fa fa-check"></i><b>2.10</b> Configuring and Securing SSH</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="r124.html"><a href="r124.html#configure-ssh-key-based-authentication"><i class="fa fa-check"></i><b>2.10.1</b> Configure SSH Key-based Authentication</a></li>
+<li class="chapter" data-level="2.10.2" data-path="r124.html"><a href="r124.html#create-a-public-and-private-keypair"><i class="fa fa-check"></i><b>2.10.2</b> Create a public and private keypair</a></li>
+<li class="chapter" data-level="2.10.3" data-path="r124.html"><a href="r124.html#customizing-openssh-service-config"><i class="fa fa-check"></i><b>2.10.3</b> Customizing OpenSSH Service Config</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="r124.html"><a href="r124.html#analysing-and-storing-logs"><i class="fa fa-check"></i><b>2.11</b> Analysing and Storing Logs</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="r124.html"><a href="r124.html#reviewing-system-hournal-entries"><i class="fa fa-check"></i><b>2.11.1</b> Reviewing System Hournal Entries</a></li>
+<li class="chapter" data-level="2.11.2" data-path="r124.html"><a href="r124.html#preserving-the-system-journal"><i class="fa fa-check"></i><b>2.11.2</b> Preserving the system journal</a></li>
+<li class="chapter" data-level="2.11.3" data-path="r124.html"><a href="r124.html#maitaining-accurate-time"><i class="fa fa-check"></i><b>2.11.3</b> Maitaining Accurate time</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="r124.html"><a href="r124.html#managing-networking"><i class="fa fa-check"></i><b>2.12</b> Managing Networking</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="r124.html"><a href="r124.html#tcpip"><i class="fa fa-check"></i><b>2.12.1</b> TCPIP</a></li>
+<li class="chapter" data-level="2.12.2" data-path="r124.html"><a href="r124.html#validating-network-configuration"><i class="fa fa-check"></i><b>2.12.2</b> Validating Network Configuration</a></li>
+<li class="chapter" data-level="2.12.3" data-path="r124.html"><a href="r124.html#configure-networking-from-the-command-line"><i class="fa fa-check"></i><b>2.12.3</b> Configure Networking from the Command Line</a></li>
+<li class="chapter" data-level="2.12.4" data-path="r124.html"><a href="r124.html#editing-network-configuration-files"><i class="fa fa-check"></i><b>2.12.4</b> Editing Network Configuration Files</a></li>
+<li class="chapter" data-level="2.12.5" data-path="r124.html"><a href="r124.html#configuring-hot-names-and-name-resolution"><i class="fa fa-check"></i><b>2.12.5</b> Configuring Hot Names and Name Resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="r124.html"><a href="r124.html#archiving-and-transferring-files"><i class="fa fa-check"></i><b>2.13</b> Archiving and transferring files</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="r124.html"><a href="r124.html#tar"><i class="fa fa-check"></i><b>2.13.1</b> TAR</a></li>
+<li class="chapter" data-level="2.13.2" data-path="r124.html"><a href="r124.html#scp"><i class="fa fa-check"></i><b>2.13.2</b> SCP</a></li>
+<li class="chapter" data-level="2.13.3" data-path="r124.html"><a href="r124.html#sftp"><i class="fa fa-check"></i><b>2.13.3</b> SFTP</a></li>
+<li class="chapter" data-level="2.13.4" data-path="r124.html"><a href="r124.html#synchronizing-files-between-system"><i class="fa fa-check"></i><b>2.13.4</b> Synchronizing Files Between System</a></li>
+</ul></li>
+<li class="chapter" data-level="2.14" data-path="r124.html"><a href="r124.html#intalling-and-updating-software-packages"><i class="fa fa-check"></i><b>2.14</b> Intalling and updating software packages</a><ul>
+<li class="chapter" data-level="2.14.1" data-path="r124.html"><a href="r124.html#package-manager"><i class="fa fa-check"></i><b>2.14.1</b> Package manager</a></li>
+<li class="chapter" data-level="2.14.2" data-path="r124.html"><a href="r124.html#inslalling-and-update-software-packages-with-yum"><i class="fa fa-check"></i><b>2.14.2</b> Inslalling and Update Software Packages with <strong>Yum</strong></a></li>
+<li class="chapter" data-level="2.14.3" data-path="r124.html"><a href="r124.html#enabling-yum-software-repositories"><i class="fa fa-check"></i><b>2.14.3</b> Enabling Yum Software Repositories</a></li>
+<li class="chapter" data-level="2.14.4" data-path="r124.html"><a href="r124.html#managing-packages-module-streams"><i class="fa fa-check"></i><b>2.14.4</b> Managing Packages Module Streams</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>3</b> </a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes from Linux course</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r124" class="section level1">
+<h1><span class="header-section-number">Note 2</span> R124</h1>
+<div id="what-is-linux" class="section level2">
+<h2><span class="header-section-number">2.1</span> What is linux ?</h2>
+<p>Modular operations system where you can add components :</p>
+<p><img src="img/what_is_linux.png" /><!-- --></p>
+<p><strong>Open Source</strong></p>
+<ul>
+<li>Copyleft lic
+<ul>
+<li>GNU : <em>General Public License</em></li>
+<li>LGNU: <em>Lesser General Public License</em></li>
+</ul></li>
+<li>Permissive lic:
+<ul>
+<li>MIT</li>
+<li>Simplified BSD</li>
+<li>Apache Software License</li>
+</ul></li>
+</ul>
+<p><strong>Red Hat</strong> contribute and facilitate open source projects, validating the code and support code that Red Hat validate and test.</p>
+<p><em>Sample of Red Hat Products:</em></p>
+<pre><code>* Red Hat Enterprise Linux 8
+* Red Hat Open Shift 4
+* Red Hat Ansible Automation
+* Red Hat Ceph Storage
+* Red Hat OpenStack Platform
+* Red Hat Virtualization
+* Red Hat Gluster Storage</code></pre>
+<p>Benefits of open source software:</p>
+<ul>
+<li>Code can survive the loss of orginal developer or distributor</li>
+<li>We can learn from real-world code and develop more effective applications</li>
+<li>Red Hat sponsor and integrate open source projects into the Fedora project and participate in upstream projects</li>
+</ul>
+</div>
+<div id="command-line" class="section level2">
+<h2><span class="header-section-number">2.2</span> Command Line</h2>
+<div id="and" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> <code>$</code> and <code>#</code></h3>
+<p>Attention on shell when you are on command line:</p>
+<ul>
+<li>Root user : <code>#</code></li>
+<li>Normal user : <code>$</code></li>
+</ul>
+<p><strong>Sample of using <code>-</code> or <code>--</code></strong></p>
+<p><code>-all</code> : <em>Shell going to be interpreting all arguments individually </em></p>
+<pre><code>
+# Shell going to be interpreting all arguments individually  a, l and l
+ls -all . 
+</code></pre>
+<p><code>--all</code> : <em>Shell will interpreting the entire word</em></p>
+<pre><code># Shell will interpreting the entire word
+ls --all .</code></pre>
+</div>
+<div id="to-login-into-another-computer-using-ssh" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> To login into another computer using <code>ssh</code></h3>
+<pre><code>ssh &lt;machine or server&gt;</code></pre>
+</div>
+<div id="executing-commands" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Executing commands</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="r124.html#cb5-1"></a></span>
+<span id="cb5-2"><a href="r124.html#cb5-2"></a><span class="co"># List the user that you  login</span></span>
+<span id="cb5-3"><a href="r124.html#cb5-3"></a><span class="fu">whoami</span></span>
+<span id="cb5-4"><a href="r124.html#cb5-4"></a></span>
+<span id="cb5-5"><a href="r124.html#cb5-5"></a><span class="co"># formatting the dates</span></span>
+<span id="cb5-6"><a href="r124.html#cb5-6"></a><span class="fu">date</span> +%F</span>
+<span id="cb5-7"><a href="r124.html#cb5-7"></a></span>
+<span id="cb5-8"><a href="r124.html#cb5-8"></a><span class="co"># Executing one command after the other</span></span>
+<span id="cb5-9"><a href="r124.html#cb5-9"></a><span class="fu">date</span> +%A<span class="kw">;</span> <span class="fu">uname</span> -r<span class="kw">;</span> <span class="fu">whoami</span></span></code></pre></div>
+<pre><code>## runner
+## 2021-08-27
+## Friday
+## 19.6.0
+## runner</code></pre>
+<p><strong>Conditional commands execution <code>&amp;&amp;</code></strong></p>
+<blockquote>
+<p>This is the basic <strong>IF</strong> statement</p>
+</blockquote>
+<p>The <code>date</code> command <strong>must</strong> complete successfully than the <code>uname -r</code> command will be running and if execute successfully the <code>whoami</code> command will be executed</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="r124.html#cb7-1"></a></span>
+<span id="cb7-2"><a href="r124.html#cb7-2"></a><span class="co"># If with and</span></span>
+<span id="cb7-3"><a href="r124.html#cb7-3"></a><span class="fu">date</span> +%F <span class="kw">&amp;&amp;</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span>
+<span id="cb7-4"><a href="r124.html#cb7-4"></a></span>
+<span id="cb7-5"><a href="r124.html#cb7-5"></a><span class="bu">echo</span> </span>
+<span id="cb7-6"><a href="r124.html#cb7-6"></a><span class="bu">echo</span></span>
+<span id="cb7-7"><a href="r124.html#cb7-7"></a><span class="co"># If with or</span></span>
+<span id="cb7-8"><a href="r124.html#cb7-8"></a><span class="ex">ate</span> +%F <span class="kw">||</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span></code></pre></div>
+<pre><code>## 2021-08-27
+## 19.6.0
+## runner
+## 
+## 
+## bash: line 7: ate: command not found
+## 19.6.0
+## runner</code></pre>
+<p><strong>command <code>history</code></strong></p>
+<ul>
+<li><code>!!</code> : execute the last command</li>
+<li><code>!12</code>: execute the command 12 on history</li>
+<li>ctr+r <part of command></li>
+</ul>
+<p><strong>check type of file</strong></p>
+<p>The <code>file</code> command is used to determining the type fo file :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="r124.html#cb9-1"></a><span class="fu">file</span> /etc/issue</span>
+<span id="cb9-2"><a href="r124.html#cb9-2"></a></span>
+<span id="cb9-3"><a href="r124.html#cb9-3"></a><span class="bu">echo</span> </span>
+<span id="cb9-4"><a href="r124.html#cb9-4"></a><span class="bu">echo</span></span>
+<span id="cb9-5"><a href="r124.html#cb9-5"></a></span>
+<span id="cb9-6"><a href="r124.html#cb9-6"></a><span class="fu">file</span> /bin/bash</span></code></pre></div>
+<pre><code>## /etc/issue: cannot open `/etc/issue&#39; (No such file or directory)
+## 
+## 
+## /bin/bash: Mach-O 64-bit executable x86_64</code></pre>
+<p><strong>check content of file</strong></p>
+<ul>
+<li><code>cat</code> or <code>tac</code></li>
+<li><code>head</code> or <code>tail</code></li>
+<li><code>wc -l</code> : count lines of file</li>
+</ul>
+</div>
+</div>
+<div id="managing-file-system" class="section level2">
+<h2><span class="header-section-number">2.3</span> Managing File system</h2>
+<p><img src="img/fs_hierarquia.png" /><!-- --></p>
+<div id="the-file-system-hierarchy" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> The file system hierarchy <code>/</code></h3>
+<blockquote>
+<p>Try command <code>tree -d</code></p>
+</blockquote>
+<ul>
+<li><strong>/</strong> : Top of system file system hierarchy</li>
+<li><strong>/usr</strong> : <em>unix system resources</em>, installed software and libraries
+<ul>
+<li><strong>/usr/bin</strong> : regular commands and utilities</li>
+</ul></li>
+<li><strong>/bin</strong> : binaries executable that are usable by normal users</li>
+<li><strong>/sbin</strong> : <em>system binaries</em> executable typically used by root user</li>
+<li><strong>/boot</strong> : component that are necessary to boot file system, like <code>bootloader</code> called grub 2 and linux kernel</li>
+<li><strong>/dev</strong> : device files, represent hardware components</li>
+<li><strong>/etc</strong> : <em>extended text configuration</em> configuration files</li>
+<li><strong>/home</strong> : home dir for normal users</li>
+<li><strong>/run</strong> : runtime data going to be recreate on a reboot</li>
+<li><strong>/var</strong>: variable date that should survive a reboot, log files, database and website files</li>
+<li><strong>/root</strong> : root user home dir</li>
+<li><strong>/tmp</strong> : accommodate temporary files, deleted by 10 days</li>
+<li><strong>/var/tmp</strong> : another temp dir , purge every 30 days</li>
+</ul>
+</div>
+<div id="absolute-and-relative-paths" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Absolute and Relative paths</h3>
+<ul>
+<li>Absolute path, is the complete path, no ambiguity, start with <code>/</code> :</li>
+</ul>
+<pre><code>#sample 
+cat /etc/issue</code></pre>
+<ul>
+<li>Relative path is the path to a file relative the current position, do not start with <code>/</code></li>
+</ul>
+<pre><code>cd /
+cat etc/issue</code></pre>
+</div>
+<div id="managing-files" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Managing Files</h3>
+<ul>
+<li><code>mkdir -p</code> : create the parents that do not exists</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="r124.html#cb13-1"></a><span class="bu">pwd</span></span>
+<span id="cb13-2"><a href="r124.html#cb13-2"></a><span class="fu">mkdir</span> -p dirA/dirB/dirc</span>
+<span id="cb13-3"><a href="r124.html#cb13-3"></a><span class="fu">ls</span> -R dirA</span></code></pre></div>
+<pre><code>## /Users/runner/work/book-notes-linux-learn/book-notes-linux-learn
+## dirB
+## 
+## dirA/dirB:
+## dirc
+## 
+## dirA/dirB/dirc:</code></pre>
+<p><strong>Commands</strong></p>
+<ul>
+<li><code>cp -r</code> : copy dir</li>
+<li><code>rm -i</code> : show to you msg to confirm</li>
+<li><code>rmdir</code> : remove dir</li>
+<li><code>rm -r</code> : delete dir recursive</li>
+<li><code>mv</code> : move</li>
+<li><code>touch</code> : create files</li>
+</ul>
+<p><strong>Links</strong></p>
+<p><strong>Index Node</strong> ((inode_): How files are identified, keep track of:
+* permissions
+* ownership
+* date &amp; time stamps
+* paths to data on file system</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="r124.html#cb15-1"></a><span class="fu">ls</span> -li LICENSE</span></code></pre></div>
+<pre><code>## 12896309715 -rw-r--r--  1 runner  staff  6556 Aug 27 16:28 LICENSE</code></pre>
+<ul>
+<li>40652348 : file ID (<em>inode</em>)</li>
+<li>1 : means one name using this iNode right now</li>
+</ul>
+<p><strong>Hard Link</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="r124.html#cb17-1"></a><span class="fu">ln</span> LICENSE LIC2</span>
+<span id="cb17-2"><a href="r124.html#cb17-2"></a><span class="fu">ls</span> -li LIC*</span></code></pre></div>
+<pre><code>## ln: LIC2: File exists
+## 12896309714 -rw-r--r--  1 runner  staff  6556 Aug 27 16:28 LIC2
+## 12896309715 -rw-r--r--  1 runner  staff  6556 Aug 27 16:28 LICENSE</code></pre>
+<ul>
+<li>Both LIC2 and LICENSE have the same iNode but the number right now is <strong>2</strong>, not able to identify which one was create first, this is a <strong>hard link</strong></li>
+</ul>
+<p><strong>Soft Link</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="r124.html#cb19-1"></a><span class="fu">ln</span> -s README.md README_2.md</span>
+<span id="cb19-2"><a href="r124.html#cb19-2"></a><span class="fu">ls</span> -li READ*</span></code></pre></div>
+<pre><code>## ln: README_2.md: File exists
+## 12896309716 -rw-r--r--  1 runner  staff  741 Aug 27 16:28 README.md
+## 12896309717 lrwxr-xr-x  1 runner  staff    9 Aug 27 16:28 README_2.md -&gt; README.md</code></pre>
+<ul>
+<li>Both have different iNode number, so they are two different files, the permission there are a <code>l</code> meaning link, this is a <strong>soft link</strong>, if we delete file 3 we have a broken link</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="r124.html#cb21-1"></a></span>
+<span id="cb21-2"><a href="r124.html#cb21-2"></a><span class="co"># create tmp files</span></span>
+<span id="cb21-3"><a href="r124.html#cb21-3"></a><span class="fu">mkdir</span> -p tmp <span class="kw">;</span><span class="bu">cd</span> tmp <span class="kw">;</span><span class="fu">touch</span> 1file 2file 3file 4file able alfa baker bravo cast easy echo _src</span>
+<span id="cb21-4"><a href="r124.html#cb21-4"></a></span>
+<span id="cb21-5"><a href="r124.html#cb21-5"></a><span class="co"># List files that match this case</span></span>
+<span id="cb21-6"><a href="r124.html#cb21-6"></a><span class="bu">echo</span></span>
+<span id="cb21-7"><a href="r124.html#cb21-7"></a><span class="bu">echo</span> <span class="st">&quot;List files that match this case Xfile&quot;</span></span>
+<span id="cb21-8"><a href="r124.html#cb21-8"></a><span class="fu">ls</span> ?file</span>
+<span id="cb21-9"><a href="r124.html#cb21-9"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-10"><a href="r124.html#cb21-10"></a></span>
+<span id="cb21-11"><a href="r124.html#cb21-11"></a><span class="co"># list files that begin with a or c or e </span></span>
+<span id="cb21-12"><a href="r124.html#cb21-12"></a><span class="bu">echo</span></span>
+<span id="cb21-13"><a href="r124.html#cb21-13"></a><span class="bu">echo</span> <span class="st">&quot;List files that begin with a or c or e &quot;</span></span>
+<span id="cb21-14"><a href="r124.html#cb21-14"></a><span class="fu">ls</span> [ace]*</span>
+<span id="cb21-15"><a href="r124.html#cb21-15"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-16"><a href="r124.html#cb21-16"></a></span>
+<span id="cb21-17"><a href="r124.html#cb21-17"></a></span>
+<span id="cb21-18"><a href="r124.html#cb21-18"></a><span class="co"># List files that do not start with a c or e</span></span>
+<span id="cb21-19"><a href="r124.html#cb21-19"></a><span class="bu">echo</span></span>
+<span id="cb21-20"><a href="r124.html#cb21-20"></a><span class="bu">echo</span> <span class="st">&quot;List files that do not start with a c or e&quot;</span></span>
+<span id="cb21-21"><a href="r124.html#cb21-21"></a><span class="fu">ls</span> [^ace]*  <span class="co"># or ls [!ace]*</span></span>
+<span id="cb21-22"><a href="r124.html#cb21-22"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-23"><a href="r124.html#cb21-23"></a></span>
+<span id="cb21-24"><a href="r124.html#cb21-24"></a></span>
+<span id="cb21-25"><a href="r124.html#cb21-25"></a><span class="co"># List all file that begin with an alphabetical character</span></span>
+<span id="cb21-26"><a href="r124.html#cb21-26"></a><span class="bu">echo</span></span>
+<span id="cb21-27"><a href="r124.html#cb21-27"></a><span class="bu">echo</span> <span class="st">&quot;List all file that begin with an alphabetical character&quot;</span></span>
+<span id="cb21-28"><a href="r124.html#cb21-28"></a><span class="fu">ls</span> [[:alpha:]]*</span>
+<span id="cb21-29"><a href="r124.html#cb21-29"></a></span>
+<span id="cb21-30"><a href="r124.html#cb21-30"></a><span class="co"># List all files that begin with digit</span></span>
+<span id="cb21-31"><a href="r124.html#cb21-31"></a><span class="bu">echo</span></span>
+<span id="cb21-32"><a href="r124.html#cb21-32"></a><span class="bu">echo</span> <span class="st">&quot;List all files that begin with digi&quot;</span></span>
+<span id="cb21-33"><a href="r124.html#cb21-33"></a><span class="fu">ls</span> [[:digit:]]*</span>
+<span id="cb21-34"><a href="r124.html#cb21-34"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-35"><a href="r124.html#cb21-35"></a></span>
+<span id="cb21-36"><a href="r124.html#cb21-36"></a><span class="co"># List all files that match digit or alphabetical char</span></span>
+<span id="cb21-37"><a href="r124.html#cb21-37"></a><span class="bu">echo</span></span>
+<span id="cb21-38"><a href="r124.html#cb21-38"></a><span class="bu">echo</span> <span class="st">&quot;List all files that match digit or alphabetical char&quot;</span></span>
+<span id="cb21-39"><a href="r124.html#cb21-39"></a><span class="fu">ls</span> [[:alnum:]]*</span>
+<span id="cb21-40"><a href="r124.html#cb21-40"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-41"><a href="r124.html#cb21-41"></a></span>
+<span id="cb21-42"><a href="r124.html#cb21-42"></a></span>
+<span id="cb21-43"><a href="r124.html#cb21-43"></a><span class="co"># List all files that begin with punctuation </span></span>
+<span id="cb21-44"><a href="r124.html#cb21-44"></a><span class="bu">echo</span></span>
+<span id="cb21-45"><a href="r124.html#cb21-45"></a><span class="bu">echo</span> <span class="st">&quot; List all files that begin with punctuation&quot;</span></span>
+<span id="cb21-46"><a href="r124.html#cb21-46"></a><span class="fu">ls</span> [[:punct:]]*</span>
+<span id="cb21-47"><a href="r124.html#cb21-47"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-48"><a href="r124.html#cb21-48"></a></span>
+<span id="cb21-49"><a href="r124.html#cb21-49"></a><span class="co"># clean</span></span>
+<span id="cb21-50"><a href="r124.html#cb21-50"></a><span class="bu">cd</span> ..</span>
+<span id="cb21-51"><a href="r124.html#cb21-51"></a><span class="fu">rm</span> -rf tmp</span></code></pre></div>
+<pre><code>## 
+## List files that match this case Xfile
+## 1file
+## 2file
+## 3file
+## 4file
+## ----
+## 
+## List files that begin with a or c or e 
+## able
+## alfa
+## cast
+## easy
+## echo
+## ----
+## 
+## List files that do not start with a c or e
+## 1file
+## 2file
+## 3file
+## 4file
+## _src
+## baker
+## bravo
+## ----
+## 
+## List all file that begin with an alphabetical character
+## able
+## alfa
+## baker
+## bravo
+## cast
+## easy
+## echo
+## 
+## List all files that begin with digi
+## 1file
+## 2file
+## 3file
+## 4file
+## ----
+## 
+## List all files that match digit or alphabetical char
+## 1file
+## 2file
+## 3file
+## 4file
+## able
+## alfa
+## baker
+## bravo
+## cast
+## easy
+## echo
+## ----
+## 
+##  List all files that begin with punctuation
+## _src
+## ----</code></pre>
+<p><strong>Brace expansion</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="r124.html#cb23-1"></a><span class="fu">mkdir</span> -p tmp <span class="kw">;</span><span class="bu">cd</span> tmp</span>
+<span id="cb23-2"><a href="r124.html#cb23-2"></a><span class="bu">echo</span> <span class="dt">{Sun,Mon,Tues,Wednes}</span>day.log</span>
+<span id="cb23-3"><a href="r124.html#cb23-3"></a></span>
+<span id="cb23-4"><a href="r124.html#cb23-4"></a><span class="co"># create dirs</span></span>
+<span id="cb23-5"><a href="r124.html#cb23-5"></a><span class="fu">mkdir</span> -p RHEL<span class="dt">{6,7,8}</span><span class="kw">;</span> <span class="fu">ls</span> RHEL*</span>
+<span id="cb23-6"><a href="r124.html#cb23-6"></a></span>
+<span id="cb23-7"><a href="r124.html#cb23-7"></a><span class="co"># create sequence of files using ..</span></span>
+<span id="cb23-8"><a href="r124.html#cb23-8"></a><span class="fu">touch</span> song<span class="dt">{1..5}</span>.mp3 <span class="kw">;</span> <span class="fu">ls</span> *.mp3</span>
+<span id="cb23-9"><a href="r124.html#cb23-9"></a></span>
+<span id="cb23-10"><a href="r124.html#cb23-10"></a><span class="co">#clean</span></span>
+<span id="cb23-11"><a href="r124.html#cb23-11"></a><span class="bu">cd</span> ..</span>
+<span id="cb23-12"><a href="r124.html#cb23-12"></a><span class="fu">rm</span> -rf tmp</span></code></pre></div>
+<pre><code>## Sunday.log Monday.log Tuesday.log Wednesday.log
+## RHEL6:
+## 
+## RHEL7:
+## 
+## RHEL8:
+## song1.mp3
+## song2.mp3
+## song3.mp3
+## song4.mp3
+## song5.mp3</code></pre>
+<p><strong>Variable</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="r124.html#cb25-1"></a><span class="va">SOMETHING=</span>value</span>
+<span id="cb25-2"><a href="r124.html#cb25-2"></a><span class="bu">echo</span> <span class="va">$SOMETHING</span></span>
+<span id="cb25-3"><a href="r124.html#cb25-3"></a></span>
+<span id="cb25-4"><a href="r124.html#cb25-4"></a></span>
+<span id="cb25-5"><a href="r124.html#cb25-5"></a><span class="co"># command substitution</span></span>
+<span id="cb25-6"><a href="r124.html#cb25-6"></a><span class="bu">echo</span> <span class="st">&quot;Today is </span><span class="va">$(</span><span class="fu">date</span> +%A<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<pre><code>## value
+## Today is Friday</code></pre>
+</div>
+</div>
+<div id="help" class="section level2">
+<h2><span class="header-section-number">2.4</span> Help</h2>
+<p>All man pages are on <code>/usr/share/man</code></p>
+<p><strong>Commands</strong></p>
+<ul>
+<li><code>man</code></li>
+<li><code>pinfo</code></li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="r124.html#cb27-1"></a><span class="fu">man</span> -k cron</span></code></pre></div>
+<pre><code>## cron(8)                  - daemon to execute scheduled commands (Vixie Cron)
+## crontab(1)               - maintain crontab files for individual users (V3)
+## crontab(5)               - tables for driving cron</code></pre>
+<p>To go direct to a section , belo example of command to go direct to session 5</p>
+<pre><code>man 5 crontab</code></pre>
+</div>
+<div id="text-files" class="section level2">
+<h2><span class="header-section-number">2.5</span> Text Files</h2>
+<p><img src="img/std_inputs_outputs.png" /><!-- --></p>
+<p><strong>Channels</strong></p>
+<ul>
+<li>0 : stdin , read only used by keyboard</li>
+<li>1 : stdout, write only, terminal</li>
+<li>2 : stderr, write only, terminal</li>
+<li>3+ : file name, read and write</li>
+</ul>
+<p>We can direct errors to a specific file like below I do not have the file or dir abc</p>
+<pre><code>ls abc file1 2&gt; errors.log
+
+# output
+file1
+
+# on errors.log
+ls: cannot access &#39;abc&#39;: No such file or directory
+
+</code></pre>
+<p>We also can send both to the same file</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="r124.html#cb31-1"></a><span class="fu">ls</span> /show /boot <span class="op">&amp;&gt;</span> combine.log</span>
+<span id="cb31-2"><a href="r124.html#cb31-2"></a><span class="co"># another option </span></span>
+<span id="cb31-3"><a href="r124.html#cb31-3"></a><span class="co"># ls /show /boot &gt; combine.log 2&gt;&amp;1</span></span>
+<span id="cb31-4"><a href="r124.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="r124.html#cb31-5"></a><span class="fu">cat</span> combine.log</span>
+<span id="cb31-6"><a href="r124.html#cb31-6"></a><span class="fu">rm</span> combine.log</span></code></pre></div>
+<pre><code>## ls: /boot: No such file or directory
+## ls: /show: No such file or directory</code></pre>
+<p>Another usage when we have an output with lot of errors and can only the the results, all the errors message was sent to <code>/dev/null</code></p>
+<pre><code>find / -iname passwd 2&gt; /dev/null
+
+#output
+/usr/share/bash-completion/completions/passwd
+/usr/share/doc/passwd
+/usr/share/lintian/overrides/passwd
+/usr/bin/passwd
+/etc/passwd
+/etc/pam.d/passwd</code></pre>
+<p>A good usage is send successfully output to an <code>output.log</code> file and the errors to <code>errors.log</code> file</p>
+<pre><code>ls /shoe /boot &gt;&gt; output.log 2&gt;&gt; errors.log
+</code></pre>
+<p>Send emails with content of file, the <code>&lt;</code> will direct the content of file to email to <code>&lt;user&gt;</code></p>
+<pre><code>mail -s &quot;Subject text&quot; &lt;user&gt;  &lt; file</code></pre>
+<p><strong>Pipe</strong></p>
+<p>The <code>resolv.conf</code> have 6 lines in total but we can see the lines without comment <code>#</code> and direct the output using pipe <code>|</code></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="r124.html#cb36-1"></a><span class="fu">wc</span> -l /etc/resolv.conf</span>
+<span id="cb36-2"><a href="r124.html#cb36-2"></a></span>
+<span id="cb36-3"><a href="r124.html#cb36-3"></a><span class="bu">echo</span></span>
+<span id="cb36-4"><a href="r124.html#cb36-4"></a></span>
+<span id="cb36-5"><a href="r124.html#cb36-5"></a><span class="co"># check the lines without comment</span></span>
+<span id="cb36-6"><a href="r124.html#cb36-6"></a><span class="fu">grep</span> ^[^#] /etc/resolv.conf</span>
+<span id="cb36-7"><a href="r124.html#cb36-7"></a></span>
+<span id="cb36-8"><a href="r124.html#cb36-8"></a><span class="bu">echo</span></span>
+<span id="cb36-9"><a href="r124.html#cb36-9"></a><span class="co"># combine the grep with pipe</span></span>
+<span id="cb36-10"><a href="r124.html#cb36-10"></a><span class="fu">grep</span> ^[^#] /etc/resolv.conf <span class="kw">|</span> <span class="fu">wc</span> -l</span></code></pre></div>
+<pre><code>##       18 /etc/resolv.conf
+## 
+## nameserver 8.8.8.8
+## nameserver 208.67.222.222
+## nameserver 8.26.56.26
+## 
+##        3</code></pre>
+<p>Another way is get the output and save on file using <code>pipe |</code> and <code>tee</code></p>
+<pre><code>find / -iname passwd 2&gt; /dev/null | tee find.out
+</code></pre>
+<div id="vim" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> vim</h3>
+<p>Modes :</p>
+<ul>
+<li>Insert : <code>i</code></li>
+<li>Command : <code>default</code>
+<ul>
+<li><code>yy</code> : Copy</li>
+<li><code>p</code> : paste</li>
+<li><code>5p</code> : paste 5 times</li>
+<li><code>dd</code> : delete</li>
+<li><code>ZZ</code> : save and quite</li>
+<li><code>cw</code> : change word</li>
+<li><code>x</code> : delete character</li>
+<li><code>r</code> : replace character</li>
+<li><code>a</code> : append</li>
+</ul></li>
+<li>Extend command : <code>:</code>
+<ul>
+<li><code>q!</code> : exit without save</li>
+<li><code>wq</code> : save and exit</li>
+</ul></li>
+<li>Visual : <code>v</code>
+<ul>
+<li><code>crt + v</code> : block column to manipulate column</li>
+<li><code>shift + v</code>: line mode to select line</li>
+<li><code>x</code> : delete</li>
+<li><code>u</code> : undo</li>
+</ul></li>
+</ul>
+</div>
+<div id="changing-shell" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Changing shell</h3>
+<ul>
+<li>Setting a editor</li>
+</ul>
+<pre><code># To set
+env EDITOR=nano crontab -e
+
+# To unset
+expor -n EDITOR
+</code></pre>
+<p>The crotab will open on nano editor instead of vi or vim</p>
+<p>Also can set the variable <code>EDITOR</code> to nano and the same will hapens if we call <code>crontab é</code></p>
+<pre><code># using export
+export EDITOR=nano</code></pre>
+<p><strong>Some .bash* files and adjust</strong></p>
+<ul>
+<li>All the history are saved on <code>.bash_history</code></li>
+<li><code>.bashrc</code> user specific env for example:
+<ul>
+<li>we can add more lines on history add the variable <code>export HISTFILESIZE=2000</code></li>
+<li>add <code>export HISTTIMEFORMAT="%F %T "</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="managing-local-users-and-groups" class="section level2">
+<h2><span class="header-section-number">2.6</span> Managing Local Users and Groups</h2>
+<ul>
+<li><p><code>whoami</code> : Show your user</p></li>
+<li><p><code>id</code> : show your user, groups</p></li>
+<li><p>Type of users*</p>
+<ul>
+<li>Super User <strong>root</strong></li>
+<li>Account users, not used by people</li>
+<li>Regular users</li>
+</ul></li>
+</ul>
+<div id="users" class="section level3">
+<h3><span class="header-section-number">2.6.1</span> Users</h3>
+<ul>
+<li><code>/etc/passwd</code> : file with user info</li>
+</ul>
+<pre><code>grep bruno /etc/passwd
+
+#output
+bruno:x:1000:1000:bruno,,,:/home/bruno:/bin/bash</code></pre>
+<ul>
+<li><p>User : Bruno</p></li>
+<li><p>x : long time ago where password where stored</p></li>
+<li><p>1000 : User ID</p></li>
+<li><p>1000 : group ID</p></li>
+<li><p>Comment</p></li>
+<li><p>User home dir : /home/bruno:/bin/bash</p></li>
+<li><p>The password is stored on <code>/etc/shadow</code>, only root can access this file</p>
+<ul>
+<li>Sample : <code>6$CSsXcYG1L/4ZfHr/$2W6evvJahUfzfHpc9X.45Jc6H30E...output omitted..</code>
+<ul>
+<li><strong>6</strong> : Hash algorithm used , SHA-512</li>
+<li><strong>CSsXcYG1L/4ZfHr/</strong> Used by cript info</li>
+<li><strong>W6evvJahUfzfHpc9X.45Jc6H30E</strong> has password</li>
+</ul></li>
+</ul></li>
+<li><p>Another way to list and return user info is using <code>getent</code> command</p></li>
+</ul>
+<pre><code>getent passwd bruno
+
+#output
+bruno:x:1000:1000:bruno,,,:/home/bruno:/bin/bash</code></pre>
+<ul>
+<li><code>useradd</code> : create new user, sample : <code>useradd kano</code></li>
+<li><code>userdel</code> : remove user
+<ul>
+<li>sample 1: <code>userdel kano</code>, but do not remove the data and home dir</li>
+<li>sample 2: <code>userdel -r kano</code>, delete user and data/home dir</li>
+</ul></li>
+<li><code>usermod -c</code> : add comments to user
+<ul>
+<li><code>usermod -a -G &lt;user&gt;</code>
+<ul>
+<li><strong>-a</strong> : append to the secondary group membership, <strong>if do not use a overwritten</strong> the current info</li>
+<li><strong>-G</strong> : group name</li>
+</ul></li>
+<li><code>usermod -g &lt;group&gt; &lt;user&gt;</code>
+<ul>
+<li><strong>-g</strong> : change the primary group info</li>
+</ul></li>
+</ul></li>
+<li><code>usermod -L &lt;user&gt;</code> : Lock a user account</li>
+<li><code>usermod -U &lt;user&gt;</code> : Unlock a user account</li>
+</ul>
+</div>
+<div id="groups" class="section level3">
+<h3><span class="header-section-number">2.6.2</span> Groups</h3>
+<ul>
+<li><code>/etc/group</code> : file with group info</li>
+</ul>
+<pre><code>grep bruno /etc/group 
+
+#output
+Show in New Window
+/etc/issue: ASCII text
+
+
+adm:x:4:syslog,bruno
+cdrom:x:24:bruno
+sudo:x:27:bruno
+dip:x:30:bruno
+plugdev:x:46:bruno
+lpadmin:x:113:bruno
+bruno:x:1000:
+sambashare:x:130:bruno</code></pre>
+<ul>
+<li>bruno : group name</li>
+<li>x : pwd info that is not used</li>
+<li>1000 : group id</li>
+<li>Members : of group</li>
+</ul>
+<blockquote>
+<p>Show groups from my users using command <code>groups</code>.</p>
+</blockquote>
+<ul>
+<li><code>groupadd</code> : add new group (GID &gt; 1000)
+<ul>
+<li><strong>-g</strong> : specify the GID, <code>groupadd -g 1000 group1</code></li>
+<li><strong>-r</strong> : create the system group (GID 0-999)</li>
+</ul></li>
+<li><code>groupdel</code> : remove group <code>groupdel &lt;group_name&gt;</code></li>
+<li><code>groupmod</code> : modify the group
+<ul>
+<li><strong>-n</strong> : change the group name, <code>groupmod -n &lt;new_name&gt; &lt;old_name&gt;</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="gaining-superuser-access" class="section level3">
+<h3><span class="header-section-number">2.6.3</span> Gaining superuser access</h3>
+<ul>
+<li><code>su</code> : change to root super user, without set the profile, the path still your regular user</li>
+<li><code>su -</code> : change to root user and set the profile and env of root</li>
+<li><code>sudo</code> : allow run commands as another user</li>
+<li><code>sudo visudo</code> : sudoers file
+<ul>
+<li>Line :
+<em>if you are member the group wheel you can be logged in from any computer and you can run all cmds as all users</em></li>
+</ul>
+<pre><code># Allows people in group wheel to run all commands
+%wheel  ALL=(ALL) ALL  </code></pre>
+<ul>
+<li><code>%</code> indicate a group</li>
+</ul></li>
+<li><code>sudo -i</code> or <code>sudo su -</code> : assume as root user</li>
+<li><code>/etc/sudoers.d/&lt;user&gt;</code> : drop config into that on dir <code>/etc/sudores.d</code> as if you are editing the <code>/etc/sudoers</code></li>
+</ul>
+<p><strong>Tip</strong></p>
+<p>To create <code>/etc/sudoers.d/admin</code> file and grant all members of <em>admin</em> group total privileges</p>
+<pre><code>echo &quot;%admin ALL=(ALL) ALL&quot; &gt;&gt; /etc/sudoers.d/admin</code></pre>
+</div>
+<div id="managing-user-passwords" class="section level3">
+<h3><span class="header-section-number">2.6.4</span> Managing user passwords</h3>
+<p>We no longer store password on <code>/etc/passwd</code>, the password are stored on <code>/etc/shadow</code><br />
+* <code>chage</code> : used to change the aging info for a user password
+* Sample : <code>chage -m 1 -M 26 -W 4 -I 3 -E (2019-05-31) &lt;user&gt;</code>
+* <strong>-m</strong> : min wait time before user can change the pwd again, in this case 1 day
+* <strong>-M</strong> : when they have to changed the pwd, in this case in 26 days need to change
+* <strong>-W</strong> : warning of 4 days
+* <strong>-I</strong> : once the pwd expire they have 3 more days to login and change the pwd
+* <strong>-E</strong> : expiration date</p>
+<ul>
+<li><p><code>chage -l</code> : show all the info</p></li>
+<li><p><code>/etc/login.defs</code> : Define info of login such <strong>PASS_MAX_DAYS</strong>, <strong>PASSMIN_DAYS</strong>, etc</p></li>
+<li><p>Add user with <code>nologin</code> shell</p>
+<ul>
+<li><code>useradd -s &lt;user&gt; -s /sbin/nologin</code></li>
+</ul></li>
+</ul>
+<p><strong>Tip</strong></p>
+<p><em>Change the user and update expiration to more 180 days</em></p>
+<pre><code>chage -E $(date -d + 180days +%Y-%m-%d) &lt;user&gt;</code></pre>
+</div>
+</div>
+<div id="controlling-access-to-files" class="section level2">
+<h2><span class="header-section-number">2.7</span> Controlling access to files</h2>
+<p><strong>drwxrwxrwx</strong></p>
+<ul>
+<li>d : dir, can be l link, etc</li>
+<li>r | 4 : read</li>
+<li>w | 2 : write</li>
+<li>x | 1 : execute</li>
+</ul>
+<p>Owning User : first 3 rwx
+Owning Group : next 3
+Other : last 3</p>
+<p><strong>Commands</strong></p>
+<ul>
+<li><code>chmod</code> : change the permission mod
+<ul>
+<li><code>chmod 740 &lt;file or dir&gt;</code> or</li>
+<li><code>chmod o+rw &lt;file or dir&gt;</code></li>
+</ul></li>
+<li><code>chown</code> : change ownership
+<ul>
+<li><code>chmod user:group &lt;file or dir&gt;</code></li>
+<li><code>chmod :group &lt;file or dir&gt;</code> or</li>
+<li><code>chmod user &lt;file or dir&gt;</code></li>
+</ul></li>
+</ul>
+<p><strong>Tip</strong></p>
+<p><em>Give you read and execute permission do dir but no execute on files inside the dir, i.e, we can list the content but not execute files inside</em></p>
+<pre><code>chmod -R a=rX</code></pre>
+<div id="default-permissions" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Default permissions</h3>
+<p><strong>Sticky bit</strong> : <em>In a collaborative dir you can create files on the dir and only delete files that you have created</em></p>
+<ul>
+<li>Sticky bit — directories <strong>o+t</strong>
+<ul>
+<li>To set <code>o+t</code> or <code>1</code>
+<ul>
+<li><code>chmod o+t &lt;dir&gt;</code> or</li>
+<li><code>chmod 1770 &lt;dir&gt;</code></li>
+</ul></li>
+<li>To remove <code>o-t</code> or <code>0</code>
+<ul>
+<li><code>chmod o-t &lt;dir&gt;</code> or</li>
+<li><code>chmod 0770 &lt;dir&gt;</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="r124.html#cb48-1"></a><span class="co"># To set sticky bit</span></span>
+<span id="cb48-2"><a href="r124.html#cb48-2"></a><span class="fu">chmod</span> o+t dirA</span>
+<span id="cb48-3"><a href="r124.html#cb48-3"></a><span class="fu">ls</span> -ld dirA</span>
+<span id="cb48-4"><a href="r124.html#cb48-4"></a></span>
+<span id="cb48-5"><a href="r124.html#cb48-5"></a><span class="co"># To remove sticky bit</span></span>
+<span id="cb48-6"><a href="r124.html#cb48-6"></a><span class="co">#chmod o-t dirA</span></span></code></pre></div>
+<pre><code>## drwxr-xr-x  3 runner  staff  96 Aug 27 16:36 dirA</code></pre>
+<p><em><code>s</code> : Files created on the dir will have the same owning group of dir</em></p>
+<ul>
+<li>Set grid to dirs or files <strong>g+s</strong>
+<ul>
+<li>To set <code>g+s</code>
+<ul>
+<li><code>chmod g+s &lt;dir&gt;</code></li>
+</ul></li>
+<li>To unset <code>g-s</code>
+<ul>
+<li><code>chmod g-s &lt;dir&gt;</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="r124.html#cb50-1"></a><span class="co"># To set</span></span>
+<span id="cb50-2"><a href="r124.html#cb50-2"></a><span class="fu">chmod</span> g+s dirA</span>
+<span id="cb50-3"><a href="r124.html#cb50-3"></a><span class="fu">ls</span> -ld dirA</span>
+<span id="cb50-4"><a href="r124.html#cb50-4"></a></span>
+<span id="cb50-5"><a href="r124.html#cb50-5"></a><span class="co"># To remove </span></span>
+<span id="cb50-6"><a href="r124.html#cb50-6"></a><span class="co"># chmod g-s dirA</span></span></code></pre></div>
+<pre><code>## drwxr-sr-x  3 runner  staff  96 Aug 27 16:36 dirA</code></pre>
+<ul>
+<li>Set uid to files <strong>u+s</strong>
+<ul>
+<li>To set <code>u+s</code>
+<ul>
+<li><code>chmod u+s &lt;file&gt;</code></li>
+</ul></li>
+<li>To unset <code>u-s</code>
+<ul>
+<li><code>chmod u-s &lt;file&gt;</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="umask" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> umask</h3>
+<ul>
+<li><code>umask</code> : show umask info</li>
+<li><code>umask 0000</code> : set the umask to 0000 or 777 to new dirs</li>
+</ul>
+<p>To change the user umask we can update the <code>.bashrc</code> file</p>
+<p>0022:
+* The permissions of files going to be 755</p>
+</div>
+</div>
+<div id="monitoring-and-managing-linux-process" class="section level2">
+<h2><span class="header-section-number">2.8</span> Monitoring and MAnaging Linux process</h2>
+<p>Process state description</p>
+<p><img src="img/process_state.png" /><!-- --></p>
+<div id="commands-to-monitor" class="section level3">
+<h3><span class="header-section-number">2.8.1</span> Commands to monitor</h3>
+<ul>
+<li><code>top</code>
+<ul>
+<li>%CPU</li>
+<li>load average</li>
+<li>tasks</li>
+</ul></li>
+<li><code>ps aux</code> , <code>ps -ef</code>
+<ul>
+<li>PID : process ID</li>
+<li>PPID: Parent process ID</li>
+<li>Time</li>
+<li>CMD</li>
+<li>TTY : from where the process is running</li>
+</ul></li>
+<li><code>htop</code></li>
+</ul>
+</div>
+<div id="controlling-jobs" class="section level3">
+<h3><span class="header-section-number">2.8.2</span> Controlling jobs</h3>
+<p>sample : <code>gnome-calculator &amp;</code></p>
+<p>Command :
+* <code>jobs</code> : list all jobs
+* <code>fg %&lt;job_number&gt;</code> : Bring the job to foreground :
+* <code>Ctrl+z</code> : suspend/stop the job
+* <code>ps j</code> : show the info relate jobs
+* <code>bg %&lt;job_number&gt;</code> : restart job
+* <code>Ctrl+c</code> : terminate job</p>
+</div>
+<div id="killing-process" class="section level3">
+<h3><span class="header-section-number">2.8.3</span> Killing process</h3>
+<p>Signals</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="r124.html#cb52-1"></a><span class="bu">kill</span> -l</span></code></pre></div>
+<pre><code>##  1) SIGHUP    2) SIGINT   3) SIGQUIT  4) SIGILL
+##  5) SIGTRAP   6) SIGABRT  7) SIGEMT   8) SIGFPE
+##  9) SIGKILL  10) SIGBUS  11) SIGSEGV 12) SIGSYS
+## 13) SIGPIPE  14) SIGALRM 15) SIGTERM 16) SIGURG
+## 17) SIGSTOP  18) SIGTSTP 19) SIGCONT 20) SIGCHLD
+## 21) SIGTTIN  22) SIGTTOU 23) SIGIO   24) SIGXCPU
+## 25) SIGXFSZ  26) SIGVTALRM   27) SIGPROF 28) SIGWINCH
+## 29) SIGINFO  30) SIGUSR1 31) SIGUSR2 </code></pre>
+<ul>
+<li>default <code>kill -15 &lt;process&gt;</code></li>
+<li>die right now <code>kill -9 &lt;process&gt;</code></li>
+<li>stop <code>kill -19 &lt;process&gt;</code></li>
+<li>continue <code>kill -18 &lt;process&gt;</code></li>
+<li>kill with -15 several with same name <code>killall &lt;name&gt;</code></li>
+<li><code>pkill -t pts/2</code> : terminate the user logged on pts/2*<br />
+</li>
+<li><code>pkill -SIGTERM tail</code> : will kill the tail process running</li>
+<li><code>pstree</code> : display tree view of process</li>
+<li><code>pgrep -l -u &lt;user&gt;</code> : identify the process that going to be killed by pkill</li>
+</ul>
+</div>
+<div id="monitor-process-activity" class="section level3">
+<h3><span class="header-section-number">2.8.4</span> Monitor process activity</h3>
+<p><strong>Load Average</strong></p>
+<ul>
+<li><code>uptime</code> command review the load average</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="r124.html#cb54-1"></a><span class="fu">uptime</span></span></code></pre></div>
+<pre><code>## 16:36  up 11 mins, 1 user, load averages: 2.00 2.79 2.15</code></pre>
+<ul>
+<li>1,24 : Last min</li>
+<li>1,07 : Last 5 min</li>
+<li>0,93 : Last 15min</li>
+</ul>
+<p>To analyze the load average need to know how many CPU’s do we have</p>
+<pre><code>lscpu | grep -i &#39;CPU(s)&#39;
+
+#or
+echo
+echo &quot;========Number of CPUs=====&quot; : 
+cat /proc/cpuinfo | grep &quot;model name&quot; | wc -l
+
+#output
+
+CPU(s):                          8
+On-line CPU(s) list:             0-7
+NUMA node0 CPU(s):               0-7
+
+========Number of CPUs===== :
+8
+
+</code></pre>
+<p>So <strong>1,24 / 8</strong> is <strong>0,155</strong> , what means that my CPU is busy 15% of the time on last min</p>
+<p>On last 15min my cpu is 11% (0,93/8) last 15min and 13%(1,07/8) last 5min.</p>
+<p>To know if the CPU is overload the results show be 1.13 what means that my CPU is overload by 13% on that particular time</p>
+<p>Another example</p>
+<pre><code>
+#From lscpu, the system has four logical CPUs, so divide
+#                                   load average: 2.92, 4.48, 5.20
+#divide by number of logical CPUs:                  4     4     4
+                                                   ---- ---- ----
+                          per-CPU load average:    0.73 1.12 1.30
+                              
+# This system&#39;s load average appears to be decreasing.
+# With a load average of 2.92 on four CPUs, all CPUs were in use ~73% of the time.
+# During the last 5 minutes, the system was overloaded by ~12%.
+# During the last 15 minutes, the system was overloaded by ~30%</code></pre>
+<ul>
+<li><code>top</code> is another command that can be used to monitor the system
+<ul>
+<li><code>k</code> : ask by the PID to be terminated</li>
+<li><code>M</code> : sort by memory</li>
+<li><code>h</code> : help</li>
+<li><code>shift + w</code> : write the top config on <code>/home/&lt;user&gt;/.config/procps/toprc</code></li>
+</ul></li>
+<li>On top :
+<ul>
+<li>PID : process ID</li>
+<li>PR : Priority</li>
+<li>VIRT : Virtual memory that process is using</li>
+<li>RES : Physical RAM used</li>
+<li>SHR : Shared memory</li>
+<li>%CPU</li>
+<li>%MEN</li>
+<li>Time : how long it is running</li>
+<li>Command</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="controlling-services-and-daemons" class="section level2">
+<h2><span class="header-section-number">2.9</span> Controlling Services and Daemons</h2>
+<p>The <strong>systemd</strong> is responsable for initializing the system and uses <em>units</em> that represent daemons:
+* service : database, web service, tc
+* target : collection of units
+* device
+* socket</p>
+<pre><code>systemctl list-units  | head -n 10
+
+# or
+# systemctl
+# systemctl list-units --type=service
+# systemctl list-units --type=target
+</code></pre>
+<p><strong>status</strong></p>
+<ul>
+<li>Status of sshd : <code>systemctl status sshd</code></li>
+</ul>
+<pre><code>#systemctl list-units --type=service
+
+systemctl status bluetooth.service
+
+
+#output
+
+● bluetooth.service - Bluetooth service
+     Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2021-08-22 08:50:54 -03; 5 days ago
+       Docs: man:bluetoothd(8)
+   Main PID: 906 (bluetoothd)
+     Status: &quot;Running&quot;
+      Tasks: 1 (limit: 18970)
+     Memory: 2.7M
+     CGroup: /system.slice/bluetooth.service
+             └─906 /usr/lib/bluetooth/bluetooth</code></pre>
+<ul>
+<li>Stop : <code>systemctl stop &lt;service&gt;</code></li>
+<li>Start : <code>systemctl start &lt;service&gt;</code></li>
+<li>Restart: <code>systemctl restart &lt;service&gt;</code></li>
+<li>Reload : <code>systemctl reload &lt;service&gt;</code></li>
+<li>ask : <code>systemctl is-active &lt;service&gt;</code> or <code>...is-enable...</code>, <code>is-failed</code></li>
+<li>disable: <code>systemctl disable &lt;service&gt;</code>, the service will not start when the system is started</li>
+<li>list dependency : <code>systemcl list-dependecies &lt;service&gt;</code></li>
+<li>mask : <code>systemctl mask &lt;service&gt;</code> prevent service to be started</li>
+<li>unmask: <code>systemctl unmask &lt;service&gt;</code></li>
+</ul>
+</div>
+<div id="configuring-and-securing-ssh" class="section level2">
+<h2><span class="header-section-number">2.10</span> Configuring and Securing SSH</h2>
+<p>On RHEL8 we have OpenSSH which implement not only the SSH daemon but also SSH command line tool</p>
+<ul>
+<li><p><strong>~/.ssh/known_hosts</strong> stores the fingerprint sent by server to future communication</p></li>
+<li><p>To define the <strong>StrictHostKeyChecking</strong> we can edit the file <code>~/.ssh/config</code> or <code>/etc/ssh/ssh_config</code></p></li>
+</ul>
+<div id="configure-ssh-key-based-authentication" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Configure SSH Key-based Authentication</h3>
+<ul>
+<li><strong>private - decrypt</strong>
+<ul>
+<li>When you connect to ssh server using private key the remote machine will generate a challenge (encrypted with your public key), if you are able to decrypt that encrypted challenge then yo are allowed to make a connection</li>
+</ul></li>
+<li><strong>public - encrypt</strong>
+<ul>
+<li>when you ssh to a server the public key is saved on the SSH server</li>
+</ul></li>
+</ul>
+</div>
+<div id="create-a-public-and-private-keypair" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> Create a public and private keypair</h3>
+<ol style="list-style-type: decimal">
+<li><p>Issue to start and create the Key : <code>ssh-keygen</code></p></li>
+<li><p>Enter the file name</p></li>
+<li><p>Create a paraphrase</p></li>
+</ol>
+<p><em>Result</em>: We going to have a public and private key created</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Install the key on server</li>
+</ol>
+<pre><code>ssh-copy-id -i .ssh/&lt;public key name&gt; &lt;hostname&gt;</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Test</li>
+</ol>
+<pre><code>ssh -i .ssh/&lt;public key name&gt; &lt;hostname&gt;</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Add the private key to agent</li>
+</ol>
+<pre><code># start the agent
+eval $(ssh-agent)  
+
+# add the key
+ssh-add .ssh/&lt;public key name&gt;</code></pre>
+</div>
+<div id="customizing-openssh-service-config" class="section level3">
+<h3><span class="header-section-number">2.10.3</span> Customizing OpenSSH Service Config</h3>
+<ul>
+<li>Disable the root ability to login on <code>/etc/ssh/sshd_config</code> to modify the daemon config and change the <strong>PermitRootLogin</strong> to <strong>no</strong></li>
+</ul>
+<p>Tecniques to avoid password</p>
+<ul>
+<li>Create a sshusers group and configure <code>/etc/ssh/sshd_config</code> 4
+allowGroups, or</li>
+<li>Create a private key and public key</li>
+</ul>
+</div>
+</div>
+<div id="analysing-and-storing-logs" class="section level2">
+<h2><span class="header-section-number">2.11</span> Analysing and Storing Logs</h2>
+<blockquote>
+<p>Systemd is the heart of RHEL8 system and need to analyse how it is working</p>
+</blockquote>
+<p>The journal collects messages from several sources (booting, daemons, etc) and we can query using <code>journalctl</code> but this is not persistent by default.</p>
+<p>There are another process <code>rsyslog</code> that read syslog and receive systemd-journal and save it on <strong>/var/log</strong></p>
+<p><strong>Facility</strong> is one of the following keywords : auth, authpriv, cron, daemon, kern, lpr, mail, mark, news, security, syslog, user, uucp, local0 to local7.</p>
+<p><strong>Priority</strong> is one of the following keywords : debug, info, notice, warning, warn, err, error, crit, alert, emerg, panic</p>
+<ul>
+<li><p><code>/var/log/messages</code> : Store most of syslog messages</p></li>
+<li><p><code>/var/log/secure</code> : store syslog messages related to security and authentication operations</p></li>
+<li><p><code>rsyslog</code> : service that organize syslog messages into <code>/var/log</code></p></li>
+<li><p><code>/var/log</code> : directory of syslog files</p></li>
+<li><p><code>/var/log/maillog</code> : store syslog messages related mail server</p></li>
+<li><p><code>/var/log/cron</code> : store syslog messages related to the schedule jobs</p></li>
+<li><p><code>/var/log/boot.log</code> : store console message related to system startup</p>
+<ul>
+<li><p>Syslog codes</p>
+<ul>
+<li>0 - emerg</li>
+<li>1 - alert</li>
+<li>2 - crit</li>
+<li>3 - err</li>
+<li>4 - warning</li>
+<li>5 - notice</li>
+<li>6 - info</li>
+<li>7 - debug</li>
+</ul></li>
+<li><p>The message is organized as facility.priority and we can configure to direct it to particular file like <em>authpriv.notice</em> and send to <em>/var/log/foo</em></p></li>
+<li><p>Config file : <code>/etc/rsyslog.conf</code>, where we can add all rules</p>
+<ul>
+<li>Avoid edit the main config file <code>/etc/rsyslog.conf</code> and use drop-in directory <code>/etc/rsyslog.d</code></li>
+</ul></li>
+<li><p>Log rotate <em>prune framework</em></p>
+<ul>
+<li><code>/etc/logrotate.conf</code> : Config file</li>
+<li><code>/etc/logrotate.d</code> : drop-in dir</li>
+</ul></li>
+<li><p>Manual messages to syslog
+<em>sample :</em></p>
+<pre><code>logger -p local7.notice &quot;log entry created on host&quot;</code></pre></li>
+</ul></li>
+</ul>
+<div id="reviewing-system-hournal-entries" class="section level3">
+<h3><span class="header-section-number">2.11.1</span> Reviewing System Hournal Entries</h3>
+<p>Journal is not persistent and can find the logs on <code>/run/log/journal</code></p>
+<ul>
+<li>systemd-journald - command <code>journalctl</code>
+<ul>
+<li><code>journalctl -r</code> : reverse the log message, last page of msg show first</li>
+<li><code>journalctl -u &lt;unit&gt;</code> : show logs from unit such as sshd.service</li>
+<li><code>journalctl -u &lt;unit&gt; --since today</code> : show today message of particular unit</li>
+<li><code>journalctl -u &lt;unit&gt; --since "2019-04-15 09:00:00" --until "2019-04-15 11:00:00" -p warning</code> : Show the warning message of unit in particular time</li>
+<li><code>journalctl --since "2019-04-15 09:00:00" --until "2019-04-15 11:00:00" -p warning</code> : Show ALL warning message in particular time</li>
+<li>since request all warning we also going to see the err, crit, alert and emerg messages</li>
+<li><code>journalctl -p err</code> : show the errors</li>
+<li><code>journalctl -f</code> : to monitor the system</li>
+<li><code>journalctl -n 50</code> : to show the last 50 messages</li>
+<li><code>journalctl _SYSTEM_UNIT=sshd.service _PID=xx</code> : will show to you message about this unit and PID</li>
+<li><code>journalctl -b -1</code> : show the data related one boot if the journal is persistent</li>
+</ul></li>
+</ul>
+</div>
+<div id="preserving-the-system-journal" class="section level3">
+<h3><span class="header-section-number">2.11.2</span> Preserving the system journal</h3>
+<p>By default the journal is not persistent on <code>/run/log/journal</code> and after reboot we lose all data. To preserve the journal we need to create the dir <code>/var/log/journal</code>, also by default journal are not allow to get more than 10% of file system or leave less than 15% of the file system free. The configuration are on <code>/etc/journald.conf</code></p>
+</div>
+<div id="maitaining-accurate-time" class="section level3">
+<h3><span class="header-section-number">2.11.3</span> Maitaining Accurate time</h3>
+<blockquote>
+<p>Have system in sync is important</p>
+</blockquote>
+<p><strong>Checking time</strong></p>
+<pre><code>
+timedatectl
+
+#output
+
+               Local time: Fri 2021-08-27 13:24:50 -03   
+           Universal time: Fri 2021-08-27 16:24:50 UTC   
+                 RTC time: Fri 2021-08-27 16:24:50       
+                Time zone: America/Sao_Paulo (-03, -0300)
+System clock synchronized: yes                           
+              NTP service: n/a                           
+          RTC in local TZ: no  
+</code></pre>
+<p>To <strong>list the timezones</strong> we can use the command <code>timedatectl list-timezones</code> and set with command:</p>
+<pre><code>timedatectl set-timezone &lt;timezone&gt; </code></pre>
+<p>The system will use <strong>NTP</strong> (<em>Network Time Protocol</em>) to synchronize the time with a machine to perform that we can set it to True</p>
+<pre><code>timedatectl set-ntp true</code></pre>
+<p>RedHat 7 and 8 use the <strong>chronyd.service</strong> to synchronize the time and inside of <code>/etc/chrony.conf</code> we going to find the list of servers that are in sync and can check the sources with <code>chronyc sources</code></p>
+</div>
+</div>
+<div id="managing-networking" class="section level2">
+<h2><span class="header-section-number">2.12</span> Managing Networking</h2>
+<p><strong>TCP/IP layers</strong> :</p>
+<ul>
+<li><strong>Application</strong> : How clients communicate across plataforms, sample Web browser talking withWeb server
+<ul>
+<li><em>SSH</em> : remote login</li>
+<li><em>HTPS</em> : web</li>
+<li><em>NFS</em> or <em>CIFS</em> : file share</li>
+<li><em>SMTP</em> : emal</li>
+</ul></li>
+<li><strong>Transport</strong> : How packets are sent and received like
+<ul>
+<li><em>TCP</em> : connection-oriented bi-direction form of <strong>guaranteed</strong> messaging</li>
+<li><em>UDP</em> : connectionless unidirectional and <strong>non-guaranteed</strong> messaging</li>
+</ul></li>
+<li><strong>Internet</strong> : Specify how packets are routed acrosss network</li>
+<li><strong>Link layers</strong> : physical askpects of networking
+<ul>
+<li>MAC</li>
+</ul></li>
+</ul>
+<p><img src="img/tcp_osi_model.png" /><!-- --></p>
+<p><strong>Devices</strong> :</p>
+<p><em>The name dependes on where and how the device is connected</em></p>
+<ul>
+<li>EN : Ethernet devices
+<ul>
+<li>ENO1 : Onboard Ethernet Interface with index number 1</li>
+<li>ENS3 : Ethernet device in hotplug slot 3</li>
+</ul></li>
+<li>WLAN : Wireless LAN devices</li>
+<li>WWAN : Wireless AN devices</li>
+<li>WLP4S0 : PCI buss number 4 connect on slot 0</li>
+</ul>
+<div id="tcpip" class="section level3">
+<h3><span class="header-section-number">2.12.1</span> TCPIP</h3>
+<p><strong>IPV4</strong></p>
+<ul>
+<li><strong>IP</strong>
+<ul>
+<li><strong>IP Address</strong> : 32bits divided up into 4 octets, this is the interface unique identity on the network</li>
+<li><strong>Subnet mask</strong> : divide the IP address into the host portion as well as the network portion and that is used to facilitate routing
+<ul>
+<li><em>Notation</em> : 255.255.255.0 or /24</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>IPV6</strong></p>
+<p><em>“New implementation of IP”</em> : Allow every single person to have its own unique IP Address</p>
+<ul>
+<li><strong>IPV6</strong> is 128-bit number with 8 colon separated groups of 4 hexadecimal nibbles, also use subnet mask and normally make use of /64, i.e, 64 bits</li>
+</ul>
+<p><img src="img/ipv6_subnet.png" /><!-- --></p>
+<ul>
+<li><p>Common ipv6 address</p>
+<ul>
+<li><strong>::1/28</strong> : localhost</li>
+<li><strong>::/0</strong> : default route</li>
+<li><strong>fe80::/10</strong> : link-local (<em>start with fe80</em>), those link are not routable, when we have IPV6 enable the link-local will be allocated automatically and allow to communicate with other machines using IPV6 on the same local segment</li>
+</ul></li>
+</ul>
+<pre><code>ip a
+
+#output
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp3s0f1: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 80:fa:5b:4d:16:6d brd ff:ff:ff:ff:ff:ff
+3: wlp4s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether f8:94:c2:74:dc:04 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.15.8/24 brd 192.168.15.255 scope global dynamic noprefixroute wlp4s0
+       valid_lft 35492sec preferred_lft 35492sec
+    inet6 fe80::19da:6be7:d851:7ea9/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+</code></pre>
+<ul>
+<li>The IPV6 : <strong>inet6 fe80::19da:6be7:d851:7ea9/64 scope link</strong></li>
+<li>Interface : <strong>enp3s0f1</strong></li>
+<li>MAC : <strong>link/ether 80:fa:5b:4d:16:6d brd ff:ff:ff:ff:ff:ff</strong></li>
+<li>IPV4 : <strong>inet 192.168.15.8/24 brd 192.168.15.255 scope global dynamic </strong></li>
+</ul>
+<p>Commands
+* PING tool for IPV6 : <code>ping6 &lt;ipv6&gt;%&lt;interface&gt;</code>
+* Show IPv4 table : <code>ip route</code>
+* Show IPv6 table : <code>ip -6 route</code>
+* Show specific interface : <code>ip a s &lt;interface</code>
+* Properties of interface : <code>ip link show</code>
+* Link statistics : ip -s link show</p>
+<p><strong>Files</strong></p>
+<ul>
+<li><strong>/etc/hosts</strong> : There are number of names that resolve ip address</li>
+<li><strong>/etc/services</strong> : List of commonly used services</li>
+<li><strong>/etc/resolv.conf</strong> : Wejre DNS service are defined</li>
+</ul>
+</div>
+<div id="validating-network-configuration" class="section level3">
+<h3><span class="header-section-number">2.12.2</span> Validating Network Configuration</h3>
+<p>Commands to review IP config</p>
+<pre><code>ip a
+</code></pre>
+<p><strong>Tools</strong></p>
+<ul>
+<li>ip : to list ip config</li>
+<li>netstat : check ports and process</li>
+<li>tracepath : work similar traceourte <code>tracepath access.redhat.com</code></li>
+<li>ss : information about process that are opening up listening
+<ul>
+<li>sample : <code>ss -plunt</code></li>
+<li>sample2 : <code>ss -lt</code> : What is listening, <code>t</code> for TCP</li>
+</ul></li>
+</ul>
+</div>
+<div id="configure-networking-from-the-command-line" class="section level3">
+<h3><span class="header-section-number">2.12.3</span> Configure Networking from the Command Line</h3>
+<p>Tool: <strong>nmcli</strong> an interface to the <em>Network Manager daemon</em> that supoprt tab complition</p>
+<ul>
+<li><p>Config on : <code>/etc/sysconfig/network-scripts</code></p></li>
+<li><p>High level of how network is configured :</p></li>
+</ul>
+<pre><code>nmcli
+
+#output
+Show in New Window
+/etc/issue: ASCII text
+
+
+/bin/bash: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=a6cb40078351e05121d46daa768e271846d5cc54, for GNU/Linux 3.2.0, stripped
+Show in New Window
+40652348 -rw-rw-r-- 2 bruno bruno 6556 Aug 12 21:50 LICENSE
+Show in New Window
+wlp4s0: connected to Auto ALMAX-BRUNO
+    &quot;Intel Wireless-AC 3168NGW&quot;
+    wifi (iwlwifi), F8:94:C2:74:DC:04, hw, mtu 1500
+    ip4 default, ip6 default
+    inet4 192.168.15.8/24
+    route4 0.0.0.0/0
+    route4 169.254.0.0/16
+    route4 192.168.15.0/24
+    inet6 fe80::19da:6be7:d851:7ea9/64
+    route6 fe80::/64
+    route6 ::/0
+
+p2p-dev-wlp4s0: disconnected
+    &quot;p2p-dev-wlp4s0&quot;
+    wifi-p2p, hw
+
+enp3s0f1: unavailable
+    &quot;Realtek RTL8111/8168/8411&quot;
+    ethernet (r8169), 80:FA:5B:4D:16:6D, hw, mtu 1500
+
+lo: unmanaged
+    &quot;lo&quot;
+    loopback (unknown), 00:00:00:00:00:00, sw, mtu 65536
+
+DNS configuration:
+    servers: 192.168.15.1
+    interface: wlp4s0
+
+    servers: fe80::aec6:62ff:fefc:7110
+    interface: wlp4s0
+
+Use &quot;nmcli device show&quot; to get complete information about known devices and
+&quot;nmcli connection show&quot; to get an overview on active connection profiles.
+
+Consult nmcli(1) and nmcli-examples(7) manual pages for complete usage details.</code></pre>
+<ul>
+<li>Connection show :</li>
+</ul>
+<pre><code>nmcli connection show
+
+
+#output
+NAME                UUID                                  TYPE      DEVICE 
+Auto ALMAX-BRUNO    72e81729-a7a7-473b-8577-013339a4420b  wifi      wlp4s0 
+Wired connection 1  44945eb1-1b88-305b-84c0-c0c13d340a0a  ethernet  --     </code></pre>
+<ul>
+<li><p>Details about connections : <code>nmcli connection show "Auto ALMAX-BRUNO"</code></p></li>
+<li><p>Sample of modify profile <strong>ipv4.dns</strong></p></li>
+</ul>
+<pre><code># modify the dns 
+ncli con mod &lt;connection name&gt; ipv4.dns &lt;New DNS Name&gt;
+
+# or append, in this case we will have two values of dns
+ncli con mod &lt;connection name&gt; +ipv4.dns &lt;New DNS Name&gt;
+
+# grep
+nmcli con show &lt;name&gt; | grep dns
+
+# reinitialize the profile
+ncli con up &lt;connection name&gt;
+
+# check /etc/resolv.conf
+cat /etc/resolv.conf</code></pre>
+<ul>
+<li>Status:</li>
+</ul>
+<pre><code>nmcli dev status
+
+#output
+DEVICE          TYPE      STATE         CONNECTION       
+wlp4s0          wifi      connected     Auto ALMAX-BRUNO 
+p2p-dev-wlp4s0  wifi-p2p  disconnected  --               
+enp3s0f1        ethernet  unavailable   --               
+lo              loopback  unmanaged     -- </code></pre>
+<ul>
+<li>Add conn</li>
+</ul>
+<p><em>sample</em></p>
+<pre><code>nmcli con add con-name &lt;name of connection&gt; type ethernet ifname &lt;name of connection&gt;</code></pre>
+<ul>
+<li>Up and Disconnect</li>
+</ul>
+<pre><code># Activate connection interface
+nmcli con up &lt;connection_name&gt;
+
+# disconect interface
+nmcli dev dis &lt;device&gt;</code></pre>
+<ul>
+<li>Delete , reload and modify</li>
+</ul>
+<pre><code># Delete
+nmcli con del &lt;device&gt;
+
+# reload
+nmcli con reload
+
+# modify
+nmcli con mod &lt;name&gt;</code></pre>
+<ul>
+<li>List</li>
+</ul>
+<pre><code># show NetworkManager of all Net Interface
+nmcli dev status
+
+# show connections
+nmcli con show
+
+# show config
+nmcli con show &lt;name&gt;
+</code></pre>
+</div>
+<div id="editing-network-configuration-files" class="section level3">
+<h3><span class="header-section-number">2.12.4</span> Editing Network Configuration Files</h3>
+<p><strong>Files :</strong></p>
+<p>We can modify the config file and perform reload <code>nmcli con reload</code> and <code>nmcli con up &lt;name&gt;</code> or use the nmcli commands</p>
+<ul>
+<li>Every <strong>Device</strong> have a config file into <code>/etc/sysconfig/network-scripts/ifcfg-*</code>, where there are the hardware address, ipaddr, gateway, domain, etc</li>
+</ul>
+<p><em>Sample after update ifcf-* file</em></p>
+<pre><code>nmcli con reload
+mcli con down &quot;static-ens3&quot;
+nmcli con up &quot;static-ens3&quot;</code></pre>
+</div>
+<div id="configuring-hot-names-and-name-resolution" class="section level3">
+<h3><span class="header-section-number">2.12.5</span> Configuring Hot Names and Name Resolution</h3>
+<ul>
+<li><p>Command</p>
+<ul>
+<li><code>hostname</code></li>
+<li><code>hostnamectl</code></li>
+<li><code>hostnamectl status</code></li>
+</ul></li>
+</ul>
+<pre><code>hostnamectl status
+
+
+#output
+   Static hostname: turing
+         Icon name: computer-laptop
+           Chassis: laptop
+        Machine ID: bbada5cfcc9a4a80ac8dc5ce6d9f53aa
+           Boot ID: cf3c63ed65874b238e2f825055abbf1f
+  Operating System: Linux Mint 20.2
+            Kernel: Linux 5.4.0-81-generic
+      Architecture: x86-64</code></pre>
+<ul>
+<li>To update hostname</li>
+</ul>
+<pre><code>hostnamectl set-hostname &lt;new_name&gt;
+
+# check
+cat /etc/hostname</code></pre>
+<p><strong>Name</strong> resolution are om <code>/etc/hosts</code> , the order of resolution are on <code>/etc/nsswitch.conf</code></p>
+<ul>
+<li>Adding additional DNS search and IP Address for IPv4 similar we can perform for IPv6</li>
+</ul>
+<p><em>sample</em></p>
+<pre><code># add 
+nmcli con mod &lt;connection name&gt; +ipv4.dns &lt;IP&gt; +ipv4.dns-search &lt;name&gt;
+
+# up the connection
+nmcli con up &lt;connection name&gt;
+
+# check
+cat /etc/resolv.conf</code></pre>
+</div>
+</div>
+<div id="archiving-and-transferring-files" class="section level2">
+<h2><span class="header-section-number">2.13</span> Archiving and transferring files</h2>
+<div id="tar" class="section level3">
+<h3><span class="header-section-number">2.13.1</span> TAR</h3>
+<ul>
+<li>Create tar file</li>
+</ul>
+<pre><code>tar -cf etc.tar /etc</code></pre>
+<ul>
+<li>Test</li>
+</ul>
+<pre><code>tar -tf etc.tar</code></pre>
+<ul>
+<li>Extract</li>
+</ul>
+<pre><code>tar -xf etc.tar
+
+# Extract one file
+tar -xf etc.tar etc/hosts</code></pre>
+<p><strong>compression and tar</strong></p>
+<ul>
+<li>Create tar file and compress with gzip2</li>
+</ul>
+<pre><code>tar -czf etc-backup-$(date +%F).tar.gz /etc</code></pre>
+<ul>
+<li>Create a tar file and compress with bzip2</li>
+</ul>
+<pre><code>tar -cjf etc-backup-$(date +%F).tar.bz /etc</code></pre>
+<ul>
+<li>Create a tar file and compress with Xzip</li>
+</ul>
+<pre><code>tar -cJf etc-backup-$(date +%F).tar.xz /etc
+</code></pre>
+</div>
+<div id="scp" class="section level3">
+<h3><span class="header-section-number">2.13.2</span> SCP</h3>
+<blockquote>
+<p>Securely transfer files between systems</p>
+</blockquote>
+<ul>
+<li>Copy dir and files from another system</li>
+</ul>
+<p><em>copy xf dir from servera to current dir ‘.’ </em></p>
+<pre><code>scp -r user@servera:/xf . </code></pre>
+<ul>
+<li>Copy without password</li>
+</ul>
+<pre><code># create keygen
+ssh-keygen -N &#39;&#39;
+
+# copy id
+ssh-copy-id servera
+
+# run scp command
+scp -r user@servera:/xf . </code></pre>
+</div>
+<div id="sftp" class="section level3">
+<h3><span class="header-section-number">2.13.3</span> SFTP</h3>
+<pre><code># connect
+sftp user@servera
+
+# list
+sftp&gt; ls
+
+# create dir
+mkdir backup
+cd backup
+
+# local change dir
+sftp&gt; lcd /etc
+
+# upload hosts file
+sftp&gt; put hosts
+</code></pre>
+</div>
+<div id="synchronizing-files-between-system" class="section level3">
+<h3><span class="header-section-number">2.13.4</span> Synchronizing Files Between System</h3>
+<ul>
+<li>Transfer using <code>rsync</code></li>
+</ul>
+<pre><code>rsync -Par servera:/xf . </code></pre>
+<p>If we update the data into servera on xf dir next time we perform <code>rsync</code> it will perform incremental receiving and download only the difference</p>
+</div>
+</div>
+<div id="intalling-and-updating-software-packages" class="section level2">
+<h2><span class="header-section-number">2.14</span> Intalling and updating software packages</h2>
+<p>To have the Red Hat software update and donwload the bins from RedHat vendor we need a subscription, there are 4 basics elements :</p>
+<ol style="list-style-type: decimal">
+<li>You have to register the server with Red Hat or in fact a satellite server</li>
+<li>After that need to subscribe the server to entitle it to update</li>
+<li>Enable repositories</li>
+<li>Go to lifecycle manamgent to track and manage entitlements via portal or <strong>subscription asset manager tool</strong></li>
+</ol>
+<p><strong>Commands</strong></p>
+<ul>
+<li>Status : <code>subscription-manager status</code></li>
+<li>Register : <code>subscription-manager register</code></li>
+<li>Attach to subscription : <code>subscription-manager attach --auto</code></li>
+<li>Enable repos : <code>subscription-manager repos --disable='*'--enable='repos_name'</code></li>
+</ul>
+<div id="package-manager" class="section level3">
+<h3><span class="header-section-number">2.14.1</span> Package manager</h3>
+<blockquote>
+<p><code>rpm</code> : Red Hat Package Manager is a popular format for installing software</p>
+</blockquote>
+<ul>
+<li><p>rpm database : keep track of what software is installed and versions</p>
+<ul>
+<li>Query the rpm database to list all packages installed</li>
+</ul></li>
+</ul>
+<pre><code>rpm -qa</code></pre>
+<ul>
+<li>Query a particular package</li>
+</ul>
+<pre><code>rpm -q &lt;package&gt;
+
+#or 
+
+rpm -qi &lt;package&gt;</code></pre>
+<ul>
+<li>List files associate with packages</li>
+</ul>
+<pre><code>rpm -ql &lt;package&gt;</code></pre>
+<ul>
+<li>Show the config files</li>
+</ul>
+<pre><code>rpm -qc &lt;package&gt;</code></pre>
+<ul>
+<li>Show de documentation</li>
+</ul>
+<pre><code>rpm -qd &lt;package&gt;</code></pre>
+<ul>
+<li>Show the script that going to be executed</li>
+</ul>
+<pre><code>rpm -q -p --scripts &lt;package&gt;.rpm</code></pre>
+<ul>
+<li>Install
+<em>Limitations : </em> Cannot manage dependency<br />
+</li>
+</ul>
+<pre><code>rpm -i &lt;package&gt;</code></pre>
+<ul>
+<li>Which package provide a particular file</li>
+</ul>
+<pre><code>rpm -qf &lt;file&gt;</code></pre>
+<ul>
+<li>Download using <strong>yumdownloader</strong></li>
+</ul>
+<pre><code>yumdownloader &lt;package&gt;</code></pre>
+<ul>
+<li>Query on rpm file, listing a list of files provided by this package</li>
+</ul>
+<pre><code>rpm -qpl &lt;file&gt;.rpm</code></pre>
+<ul>
+<li>Query the config files into the rpm file</li>
+</ul>
+<pre><code>rpm -qpc file.rpm</code></pre>
+<ul>
+<li>Extract all the files and dirs that are inside a RPM file using <strong>rpm2cio</strong></li>
+</ul>
+<pre><code>rpm2cpio &lt;file&gt;.rpm | cpio -duim</code></pre>
+</div>
+<div id="inslalling-and-update-software-packages-with-yum" class="section level3">
+<h3><span class="header-section-number">2.14.2</span> Inslalling and Update Software Packages with <strong>Yum</strong></h3>
+<ul>
+<li>Search or get info on current repos</li>
+</ul>
+<pre><code>yum search &lt;pacakge&gt;
+
+yum info &lt;pacakge&gt;</code></pre>
+<ul>
+<li>Query RPM files without have to download using <strong>repoquery</strong></li>
+</ul>
+<pre><code>repoquery -l &lt;package&gt;</code></pre>
+<ul>
+<li>Find out what package provide a particular file</li>
+</ul>
+<pre><code>yum provides &lt;file like /etc/fstab&gt;
+
+yum profides *bin/authconfig</code></pre>
+<ul>
+<li>Install
+<em>yum</em> resolve all dependencies</li>
+</ul>
+<pre><code>sudo yum install &lt;package&gt;</code></pre>
+<ul>
+<li>Update</li>
+</ul>
+<pre><code>sudo yum update &lt;package&gt;</code></pre>
+<ul>
+<li>Remove
+<strong>Tip</strong> : do not use <code>-y</code> to review what going to be removed</li>
+</ul>
+<pre><code>sudo yum remove &lt;package&gt;</code></pre>
+<ul>
+<li>Check groups</li>
+</ul>
+<pre><code>yum group list</code></pre>
+<ul>
+<li>Check packages associate with a group for example <em>Development Tools</em> group</li>
+</ul>
+<pre><code>yum group info &quot;Development Tool&quot;</code></pre>
+<ul>
+<li>Install in a particular group</li>
+</ul>
+<pre><code>yum group install &quot;Development Tool</code></pre>
+<ul>
+<li>Log can be checked on <strong>/var/log/dnf.rpm.log</strong> and we can see the history</li>
+</ul>
+<pre><code>yum history</code></pre>
+<ul>
+<li>We can undo a transaction on history</li>
+</ul>
+<pre><code>sudo yum history undo &lt;number_of_line&gt;</code></pre>
+</div>
+<div id="enabling-yum-software-repositories" class="section level3">
+<h3><span class="header-section-number">2.14.3</span> Enabling Yum Software Repositories</h3>
+<ul>
+<li>List the repositories that we are connected and repo definition path are on <strong>/etc/yum.repos.d/</strong></li>
+</ul>
+<pre><code>yum repolist all</code></pre>
+<ul>
+<li>Enable and disable repos using <strong>yum-config-manager</strong></li>
+</ul>
+<pre><code>yum-config-manager --disable &lt;repo_name&gt;
+
+yum-config-manager --enable &lt;repo_name&gt;</code></pre>
+<ul>
+<li>List subscription manager repos list</li>
+</ul>
+<pre><code>subscription-manager-repos --list</code></pre>
+</div>
+<div id="managing-packages-module-streams" class="section level3">
+<h3><span class="header-section-number">2.14.4</span> Managing Packages Module Streams</h3>
+<p><img src="img/repo_modules.png" /><!-- --></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-RH124.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

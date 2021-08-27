@@ -186,14 +186,14 @@ knitr::include_graphics(rep("img/fs_hierarquia.png", 1))
 
 * Absolute path, is the complete path,  no ambiguity, start with `/`  : 
 
-```{bash}
+```
 #sample 
 cat /etc/issue
 ```
 
 * Relative path is the path to a file relative the current position, do not start with `/`
 
-```{bash}
+```
 cd /
 cat etc/issue
 ```

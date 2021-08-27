@@ -201,6 +201,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.14.3" data-path="r124.html"><a href="r124.html#enabling-yum-software-repositories"><i class="fa fa-check"></i><b>2.14.3</b> Enabling Yum Software Repositories</a></li>
 <li class="chapter" data-level="2.14.4" data-path="r124.html"><a href="r124.html#managing-packages-module-streams"><i class="fa fa-check"></i><b>2.14.4</b> Managing Packages Module Streams</a></li>
 </ul></li>
+<li class="chapter" data-level="2.15" data-path="r124.html"><a href="r124.html#accessing-linux-file-systems"><i class="fa fa-check"></i><b>2.15</b> Accessing Linux File Systems</a><ul>
+<li class="chapter" data-level="2.15.1" data-path="r124.html"><a href="r124.html#mount-and-unmounting-file-systems"><i class="fa fa-check"></i><b>2.15.1</b> Mount and Unmounting File systems</a></li>
+<li class="chapter" data-level="2.15.2" data-path="r124.html"><a href="r124.html#locating-files-on-the-system"><i class="fa fa-check"></i><b>2.15.2</b> Locating Files on the System</a></li>
+</ul></li>
+<li class="chapter" data-level="2.16" data-path="r124.html"><a href="r124.html#analysing-server-and-getting-support"><i class="fa fa-check"></i><b>2.16</b> Analysing Server and Getting Support</a><ul>
+<li class="chapter" data-level="2.16.1" data-path="r124.html"><a href="r124.html#deteting-and-resolving-issues-with-red-hat-insights"><i class="fa fa-check"></i><b>2.16.1</b> Deteting and Resolving issues with Red Hat Insights</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>3</b> </a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -417,7 +424,7 @@ cat etc/issue</code></pre>
 * date &amp; time stamps
 * paths to data on file system</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="r124.html#cb15-1"></a><span class="fu">ls</span> -li LICENSE</span></code></pre></div>
-<pre><code>## 12896309715 -rw-r--r--  1 runner  staff  6556 Aug 27 16:28 LICENSE</code></pre>
+<pre><code>## 12896309338 -rw-r--r--  1 runner  staff  6556 Aug 27 21:22 LICENSE</code></pre>
 <ul>
 <li>40652348 : file ID (<em>inode</em>)</li>
 <li>1 : means one name using this iNode right now</li>
@@ -426,8 +433,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="r124.html#cb17-1"></a><span class="fu">ln</span> LICENSE LIC2</span>
 <span id="cb17-2"><a href="r124.html#cb17-2"></a><span class="fu">ls</span> -li LIC*</span></code></pre></div>
 <pre><code>## ln: LIC2: File exists
-## 12896309714 -rw-r--r--  1 runner  staff  6556 Aug 27 16:28 LIC2
-## 12896309715 -rw-r--r--  1 runner  staff  6556 Aug 27 16:28 LICENSE</code></pre>
+## 12896309337 -rw-r--r--  1 runner  staff  6556 Aug 27 21:22 LIC2
+## 12896309338 -rw-r--r--  1 runner  staff  6556 Aug 27 21:22 LICENSE</code></pre>
 <ul>
 <li>Both LIC2 and LICENSE have the same iNode but the number right now is <strong>2</strong>, not able to identify which one was create first, this is a <strong>hard link</strong></li>
 </ul>
@@ -435,8 +442,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="r124.html#cb19-1"></a><span class="fu">ln</span> -s README.md README_2.md</span>
 <span id="cb19-2"><a href="r124.html#cb19-2"></a><span class="fu">ls</span> -li READ*</span></code></pre></div>
 <pre><code>## ln: README_2.md: File exists
-## 12896309716 -rw-r--r--  1 runner  staff  741 Aug 27 16:28 README.md
-## 12896309717 lrwxr-xr-x  1 runner  staff    9 Aug 27 16:28 README_2.md -&gt; README.md</code></pre>
+## 12896309339 -rw-r--r--  1 runner  staff  741 Aug 27 21:22 README.md
+## 12896309340 lrwxr-xr-x  1 runner  staff    9 Aug 27 21:22 README_2.md -&gt; README.md</code></pre>
 <ul>
 <li>Both have different iNode number, so they are two different files, the permission there are a <code>l</code> meaning link, this is a <strong>soft link</strong>, if we delete file 3 we have a broken link</li>
 </ul>
@@ -930,7 +937,7 @@ Other : last 3</p>
 <span id="cb48-4"><a href="r124.html#cb48-4"></a></span>
 <span id="cb48-5"><a href="r124.html#cb48-5"></a><span class="co"># To remove sticky bit</span></span>
 <span id="cb48-6"><a href="r124.html#cb48-6"></a><span class="co">#chmod o-t dirA</span></span></code></pre></div>
-<pre><code>## drwxr-xr-x  3 runner  staff  96 Aug 27 16:36 dirA</code></pre>
+<pre><code>## drwxr-xr-x  3 runner  staff  96 Aug 27 21:22 dirA</code></pre>
 <p><em><code>s</code> : Files created on the dir will have the same owning group of dir</em></p>
 <ul>
 <li>Set grid to dirs or files <strong>g+s</strong>
@@ -951,7 +958,7 @@ Other : last 3</p>
 <span id="cb50-4"><a href="r124.html#cb50-4"></a></span>
 <span id="cb50-5"><a href="r124.html#cb50-5"></a><span class="co"># To remove </span></span>
 <span id="cb50-6"><a href="r124.html#cb50-6"></a><span class="co"># chmod g-s dirA</span></span></code></pre></div>
-<pre><code>## drwxr-sr-x  3 runner  staff  96 Aug 27 16:36 dirA</code></pre>
+<pre><code>## drwxr-sr-x  3 runner  staff  96 Aug 27 21:22 dirA</code></pre>
 <ul>
 <li>Set uid to files <strong>u+s</strong>
 <ul>
@@ -1044,7 +1051,7 @@ Other : last 3</p>
 <li><code>uptime</code> command review the load average</li>
 </ul>
 <div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="r124.html#cb54-1"></a><span class="fu">uptime</span></span></code></pre></div>
-<pre><code>## 16:36  up 11 mins, 1 user, load averages: 2.00 2.79 2.15</code></pre>
+<pre><code>## 21:22  up 3 mins, 1 user, load averages: 8.15 5.44 2.41</code></pre>
 <ul>
 <li>1,24 : Last min</li>
 <li>1,07 : Last 5 min</li>
@@ -1793,7 +1800,11 @@ yum profides *bin/authconfig</code></pre>
 <li>Install
 <em>yum</em> resolve all dependencies</li>
 </ul>
-<pre><code>sudo yum install &lt;package&gt;</code></pre>
+<pre><code>sudo yum install &lt;package&gt;
+
+#or
+
+sudo yum localinstall &lt;package&gt;.rpm</code></pre>
 <ul>
 <li>Update</li>
 </ul>
@@ -1843,7 +1854,140 @@ yum-config-manager --enable &lt;repo_name&gt;</code></pre>
 </div>
 <div id="managing-packages-module-streams" class="section level3">
 <h3><span class="header-section-number">2.14.4</span> Managing Packages Module Streams</h3>
+<blockquote>
+<p>Module is a set of RPM packages</p>
+</blockquote>
 <p><img src="img/repo_modules.png" /><!-- --></p>
+<ul>
+<li>List modules and get info</li>
+</ul>
+<pre><code>yum module list &lt;package/module like perl&gt;
+
+
+yum module info &lt;package/module like perl&gt;
+
+
+# List installed modules
+yum module list --installed</code></pre>
+<ul>
+<li>Install module stream</li>
+</ul>
+<pre><code>yum module install &lt;package/module like perl&gt;</code></pre>
+<ul>
+<li>Remove stream</li>
+</ul>
+<pre><code>yum module remove &lt;package/module like perl&gt;</code></pre>
+<ul>
+<li>Disable stream</li>
+</ul>
+<pre><code>yum module disable perl</code></pre>
+</div>
+</div>
+<div id="accessing-linux-file-systems" class="section level2">
+<h2><span class="header-section-number">2.15</span> Accessing Linux File Systems</h2>
+<ul>
+<li><code>df -h</code> : overview of various file systems</li>
+<li><code>blkid /dev/vda1</code> : show the UUID (<em>universally-unique identifier</em>) of file system</li>
+<li><code>findmnt</code> : tree overview of file system starting at roots</li>
+<li><code>lsblk</code> : show overview of the various block devices like <em>/dev/vda</em> or <em>/dev/sda</em></li>
+<li><code>lsblk -fp /dev/vdb</code> check the UUID</li>
+</ul>
+<pre><code>lsblk
+
+#Output
+
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 931,5G  0 disk 
+├─sda1   8:1    0   512M  0 part /boot/efi
+├─sda2   8:2    0 915,1G  0 part /run/timeshift/backup
+└─sda3   8:3    0  15,9G  0 part [SWAP]</code></pre>
+<ul>
+<li>Check the entire disk</li>
+</ul>
+<pre><code>$ls -l /dev/sda
+brw-rw---- 1 root disk 8, 0 Aug 22 08:50 /dev/sda
+[SWAP]</code></pre>
+<ul>
+<li><p><em>b</em> : Indicate that this is a block based device</p></li>
+<li><p><code>du -sh</code> : check space that has being occupied by a directory</p>
+<ul>
+<li><em>s</em> : summary</li>
+<li><em>h</em> : human read format</li>
+</ul></li>
+</ul>
+<pre><code>$du -sh /var/log
+1,3G    /var/log
+</code></pre>
+<div id="mount-and-unmounting-file-systems" class="section level3">
+<h3><span class="header-section-number">2.15.1</span> Mount and Unmounting File systems</h3>
+<p><strong>To Mount</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Check the UUID of block device using <code>blkid /dev/vb1</code> for instance</p></li>
+<li><p>Create directory : <code>mkdir -p &lt;path&gt;</code></p></li>
+<li><p>Mount : <code>mount UUID="XXX" /&lt;path&gt;</code></p></li>
+<li><p>Check the return code <code>echo $?</code> (<em>0 means successfully</em>)</p></li>
+<li><p>Check with <code>df -h</code> or <code>mount</code> command</p></li>
+</ol>
+<p><strong>To Unmounting</strong></p>
+<ul>
+<li><code>umount &lt;/dev/vdb1&gt;</code></li>
+</ul>
+</div>
+<div id="locating-files-on-the-system" class="section level3">
+<h3><span class="header-section-number">2.15.2</span> Locating Files on the System</h3>
+<p><strong>find</strong></p>
+<p>Basic <em>find</em> syntax :</p>
+<ul>
+<li><code>find &lt;where&gt; &lt;how&gt; &lt;what is lokking for&gt;</code></li>
+</ul>
+<p>Some examples :</p>
+<ul>
+<li><code>find / -name ssh_config</code> : looking for particular name</li>
+<li><code>find / -iname ssh_config</code>: using <em>i</em> going to use case insensitive search</li>
+<li><code>find /usr -iname "*.pdf"</code> : looking all files that end with pdf</li>
+<li><code>find / -user &lt;user_name&gt;</code> : find files for a particular user</li>
+<li><code>find / -user &lt;user_name&gt; -delete</code> : find and delete</li>
+<li><code>find / -type f -user rick -size 10M</code> : find files from user rick with 10MB (<em>+10M more than 10MB , -10M less than 10MB</em>)</li>
+<li><code>find /home -size +10M -exec ls -lh {} \;</code> : find on home files more than 10MB and list with <em>ls -lh</em></li>
+<li><code>find /home -size +10M iname "*.mkv" -exec rm -f {} \;</code> : find files on home with more than 10MB ending with <em>.mkv</em> and execute rm -f on each file, similar find /home -size +10M iname "*.mkv" -delete`</li>
+<li><code>find /home -type f -perm /111</code> : find files on home that have execute permission (<em>111</em>)</li>
+<li><code>find /home -min -60</code> : find files modified in last 60min</li>
+</ul>
+<p><strong>locate</strong></p>
+<p><em>pre-req</em> : run the command <code>updatedb</code> to create an index of the files on file system</p>
+<ul>
+<li><code>locate &lt;file&gt;</code> : basic locate a file</li>
+</ul>
+</div>
+</div>
+<div id="analysing-server-and-getting-support" class="section level2">
+<h2><span class="header-section-number">2.16</span> Analysing Server and Getting Support</h2>
+<p><strong>cockpit</strong> service used to analysing and managing remote servers, this is a web user interface that use TCP 9090</p>
+<ul>
+<li>Enable : <code>systemctl enable --now cokpit.socket</code></li>
+<li>Reload firewall daemon and set permanent : <code>firewall-cm --add-service cockpit --permanent</code> and <code>firewall-cmd --reload</code></li>
+<li>link : <a href="https://" class="uri">https://</a><server_name>:9090/system</li>
+</ul>
+<div id="deteting-and-resolving-issues-with-red-hat-insights" class="section level3">
+<h3><span class="header-section-number">2.16.1</span> Deteting and Resolving issues with Red Hat Insights</h3>
+<blockquote>
+<p>It is a form of AI which is available as a software as a service</p>
+</blockquote>
+<p><strong>Install Insights</strong></p>
+<ol style="list-style-type: decimal">
+<li>Register and attach the server on subscription-manager</li>
+</ol>
+<pre><code>sudo subscription-manager register --auto-attach</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Install client Insights and register</li>
+</ol>
+<pre><code>sudo yum install -y insights-client 
+
+sudo insights-client --register
+</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Go to insights dashboard <a href="cloud.readhat.com/insight">cloud.readhat.com/insight</a></li>
+</ol>
 
 </div>
 </div>

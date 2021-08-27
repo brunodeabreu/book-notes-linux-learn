@@ -52,3 +52,8 @@ inslalling-and-update-software-packages-with-yum
 section
 enabling-yum-software-repositories
 managing-packages-module-streams
+accessing-linux-file-systems
+mount-and-unmounting-file-systems
+locating-files-on-the-system
+analysing-server-and-getting-support
+deteting-and-resolving-issues-with-red-hat-insights

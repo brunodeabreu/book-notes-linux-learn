@@ -376,7 +376,6 @@ man 5 crontab
 
 
 
-
 ## Text Files
 
 
@@ -1788,6 +1787,10 @@ yum profides *bin/authconfig
   
 ```
 sudo yum install <package>
+
+#or
+
+sudo yum localinstall <package>.rpm
 ```
 
   *  Update
@@ -1838,8 +1841,6 @@ sudo yum history undo <number_of_line>
 
 
 
-
-
 ### Enabling Yum Software Repositories
 
 
@@ -1866,10 +1867,178 @@ subscription-manager-repos --list
 
 ### Managing Packages Module Streams
 
-
+> Module is a set of RPM packages
 
 
 ```{r, echo = FALSE}
 knitr::include_graphics(rep("img/repo_modules.png", 1))
 ```
+
+  * List modules and get info
+  
+```
+yum module list <package/module like perl>
+
+
+yum module info <package/module like perl>
+
+
+# List installed modules
+yum module list --installed
+```
+
+  * Install module stream
+  
+```
+yum module install <package/module like perl>
+```
+
+
+  * Remove stream
+
+```
+yum module remove <package/module like perl>
+```
+
+  * Disable stream
+  
+```
+yum module disable perl
+```
+
+
+
+
+
+## Accessing Linux File Systems
+
+
+
+* `df -h` : overview of various file systems
+* `blkid /dev/vda1` : show the UUID (_universally-unique identifier_) of file system
+* `findmnt` : tree overview of file system starting at roots
+* `lsblk` : show overview of the various block devices like */dev/vda* or */dev/sda*
+* `lsblk -fp /dev/vdb` check the UUID
+
+```
+lsblk
+
+#Output
+
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 931,5G  0 disk 
+├─sda1   8:1    0   512M  0 part /boot/efi
+├─sda2   8:2    0 915,1G  0 part /run/timeshift/backup
+└─sda3   8:3    0  15,9G  0 part [SWAP]
+```
+
+* Check the entire disk
+
+```
+$ls -l /dev/sda
+brw-rw---- 1 root disk 8, 0 Aug 22 08:50 /dev/sda
+[SWAP]
+```
+  * _b_ : Indicate that this is a block based device
+
+* `du -sh` : check space that has being occupied by a directory
+  * _s_ : summary
+  * _h_ : human read format
+
+```
+$du -sh /var/log
+1,3G	/var/log
+
+```
+
+
+### Mount and Unmounting File systems
+
+**To Mount**
+
+1.  Check the UUID of block device using `blkid /dev/vb1` for instance
+
+2. Create directory : `mkdir -p <path>`
+
+3. Mount : `mount UUID="XXX" /<path>`
+
+4. Check the return code  `echo $?`  (_0 means successfully_)
+
+5.  Check with `df -h` or `mount` command
+
+
+
+**To Unmounting**
+
+  * `umount </dev/vdb1>`
+
+
+### Locating Files on the System
+
+**find**
+
+Basic _find_ syntax :
+
+  * `find <where> <how> <what is lokking for>`
+  
+  
+Some examples : 
+
+  * `find / -name ssh_config` : looking for particular name
+  * `find / -iname ssh_config`: using *i* going to use case insensitive search
+  * `find /usr -iname "*.pdf"` : looking all files that end with pdf
+  * `find / -user <user_name>` : find files for a particular user
+  * `find / -user <user_name> -delete` : find and delete
+  * `find / -type f -user rick -size 10M` : find files from user rick with 10MB (_+10M more than 10MB ,  -10M less than 10MB_)
+  * `find /home -size +10M -exec ls -lh {} \;` : find on home files more than 10MB and list with _ls -lh_
+  * `find /home -size +10M iname "*.mkv" -exec rm -f {} \;` : find files on home with more than 10MB ending with _.mkv_ and execute rm -f on each file, similar find /home -size +10M iname "*.mkv" -delete`
+  * `find /home -type f -perm /111` : find files on home that have execute permission (_111_)
+  * `find /home -min -60` : find files modified in last 60min
+
+
+**locate**
+
+_pre-req_ : run the command `updatedb` to create an index of the files on file system
+
+  * `locate <file>` : basic locate a file
+
+
+
+
+
+## Analysing Server and Getting Support
+
+**cockpit** service used to analysing and managing remote servers, this is a web user interface that use TCP 9090
+
+  * Enable :  `systemctl enable --now cokpit.socket`
+  * Reload firewall daemon and set permanent : `firewall-cm --add-service cockpit --permanent` and `firewall-cmd --reload`
+  * link : https://<server_name>:9090/system
+
+
+### Deteting and Resolving issues with Red Hat Insights
+
+> It is a form of AI which is available as a software as a service
+
+**Install Insights**
+
+1. Register and attach the server on subscription-manager
+
+```
+sudo subscription-manager register --auto-attach
+```
+
+2. Install client Insights and register
+
+```
+sudo yum install -y insights-client 
+
+sudo insights-client --register
+
+```
+
+3. Go to insights dashboard [cloud.readhat.com/insight](cloud.readhat.com/insight)
+
+
+
+
 

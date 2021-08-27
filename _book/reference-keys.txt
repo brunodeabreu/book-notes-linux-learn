@@ -51,3 +51,4 @@ package-manager
 inslalling-and-update-software-packages-with-yum
 section
 enabling-yum-software-repositories
+managing-packages-module-streams

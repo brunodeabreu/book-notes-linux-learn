@@ -563,8 +563,11 @@ export EDITOR=nano
 ### Users
 
 * `/etc/passwd` : file with user info
-```{bash}
+```
 grep bruno /etc/passwd
+
+#output
+bruno:x:1000:1000:bruno,,,:/home/bruno:/bin/bash
 ```
   * User : Bruno
   * x : long time ago where password where stored
@@ -581,8 +584,11 @@ grep bruno /etc/passwd
 
 * Another way to list and return user info is using `getent` command
 
-```{bash}
+```
 getent passwd bruno
+
+#output
+bruno:x:1000:1000:bruno,,,:/home/bruno:/bin/bash
 ```
 
 
@@ -602,8 +608,23 @@ getent passwd bruno
 ### Groups
 
 * `/etc/group` : file with group info
-```{bash}
+
+```
 grep bruno /etc/group 
+
+#output
+Show in New Window
+/etc/issue: ASCII text
+
+
+adm:x:4:syslog,bruno
+cdrom:x:24:bruno
+sudo:x:27:bruno
+dip:x:30:bruno
+plugdev:x:46:bruno
+lpadmin:x:113:bruno
+bruno:x:1000:
+sambashare:x:130:bruno
 ```
   * bruno : group name
   * x : pwd info that is not used
@@ -850,13 +871,24 @@ uptime
 
 To analyze the load average need to know how many CPU's do we have
 
-```{bash}
+```
 lscpu | grep -i 'CPU(s)'
 
 #or
 echo
 echo "========Number of CPUs=====" : 
 cat /proc/cpuinfo | grep "model name" | wc -l
+
+#output
+
+CPU(s):                          8
+On-line CPU(s) list:             0-7
+NUMA node0 CPU(s):               0-7
+
+========Number of CPUs===== :
+8
+
+
 ```
 
 So **1,24 / 8** is **0,155** , what means that my CPU is busy 15% of the time on last min
@@ -923,7 +955,7 @@ The **systemd** is responsable for initializing the system and uses _units_ that
   * device
   * socket
   
-```{bash}
+```
 systemctl list-units  | head -n 10
 
 # or
@@ -938,11 +970,26 @@ systemctl list-units  | head -n 10
 
   * Status of sshd : `systemctl status sshd`
 
-```{bash}
+```
 #systemctl list-units --type=service
 
 systemctl status bluetooth.service
+
+
+#output
+
+● bluetooth.service - Bluetooth service
+     Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2021-08-22 08:50:54 -03; 5 days ago
+       Docs: man:bluetoothd(8)
+   Main PID: 906 (bluetoothd)
+     Status: "Running"
+      Tasks: 1 (limit: 18970)
+     Memory: 2.7M
+     CGroup: /system.slice/bluetooth.service
+             └─906 /usr/lib/bluetooth/bluetooth
 ```
+
   * Stop : `systemctl stop <service>`
   * Start : `systemctl start <service>`
   * Restart: `systemctl restart <service>`
@@ -1101,9 +1148,20 @@ By default the journal is not persistent on `/run/log/journal` and after reboot 
 
 **Checking time**
 
-```{bash}
+```
 
 timedatectl
+
+#output
+
+               Local time: Fri 2021-08-27 13:24:50 -03   
+           Universal time: Fri 2021-08-27 16:24:50 UTC   
+                 RTC time: Fri 2021-08-27 16:24:50       
+                Time zone: America/Sao_Paulo (-03, -0300)
+System clock synchronized: yes                           
+              NTP service: n/a                           
+          RTC in local TZ: no  
+
 ```
 
 To **list the timezones** we can use the command `timedatectl list-timezones` and set with command: 
@@ -1187,8 +1245,26 @@ knitr::include_graphics(rep("img/ipv6_subnet.png", 1))
   * **fe80::/10** : link-local (_start with fe80_), those link are not routable, when we have IPV6 enable the link-local will be allocated automatically and allow to communicate with other machines using IPV6 on the same local segment  
 
 
-```{bash}
+```
 ip a
+
+#output
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp3s0f1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 80:fa:5b:4d:16:6d brd ff:ff:ff:ff:ff:ff
+3: wlp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether f8:94:c2:74:dc:04 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.15.8/24 brd 192.168.15.255 scope global dynamic noprefixroute wlp4s0
+       valid_lft 35492sec preferred_lft 35492sec
+    inet6 fe80::19da:6be7:d851:7ea9/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+
 ```
  * The IPV6 : **inet6 fe80::19da:6be7:d851:7ea9/64 scope link**
  * Interface : **enp3s0f1**
@@ -1216,9 +1292,8 @@ ip a
 ### Validating Network Configuration
 
 Commands to review IP config 
-```{bash}
+```
 ip a
-
 
 ```
 
@@ -1241,14 +1316,65 @@ Tool: **nmcli** an interface to the _Network Manager daemon_ that supoprt tab co
   * Config on : `/etc/sysconfig/network-scripts`
 
   * High level of how network is configured : 
-```{bash}
+```
 nmcli
+
+#output
+Show in New Window
+/etc/issue: ASCII text
+
+
+/bin/bash: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=a6cb40078351e05121d46daa768e271846d5cc54, for GNU/Linux 3.2.0, stripped
+Show in New Window
+40652348 -rw-rw-r-- 2 bruno bruno 6556 Aug 12 21:50 LICENSE
+Show in New Window
+wlp4s0: connected to Auto ALMAX-BRUNO
+	"Intel Wireless-AC 3168NGW"
+	wifi (iwlwifi), F8:94:C2:74:DC:04, hw, mtu 1500
+	ip4 default, ip6 default
+	inet4 192.168.15.8/24
+	route4 0.0.0.0/0
+	route4 169.254.0.0/16
+	route4 192.168.15.0/24
+	inet6 fe80::19da:6be7:d851:7ea9/64
+	route6 fe80::/64
+	route6 ::/0
+
+p2p-dev-wlp4s0: disconnected
+	"p2p-dev-wlp4s0"
+	wifi-p2p, hw
+
+enp3s0f1: unavailable
+	"Realtek RTL8111/8168/8411"
+	ethernet (r8169), 80:FA:5B:4D:16:6D, hw, mtu 1500
+
+lo: unmanaged
+	"lo"
+	loopback (unknown), 00:00:00:00:00:00, sw, mtu 65536
+
+DNS configuration:
+	servers: 192.168.15.1
+	interface: wlp4s0
+
+	servers: fe80::aec6:62ff:fefc:7110
+	interface: wlp4s0
+
+Use "nmcli device show" to get complete information about known devices and
+"nmcli connection show" to get an overview on active connection profiles.
+
+Consult nmcli(1) and nmcli-examples(7) manual pages for complete usage details.
 ```
 
   * Connection show : 
 
-```{bash}
+```
 nmcli connection show
+
+
+#output
+NAME                UUID                                  TYPE      DEVICE 
+Auto ALMAX-BRUNO    72e81729-a7a7-473b-8577-013339a4420b  wifi      wlp4s0 
+Wired connection 1  44945eb1-1b88-305b-84c0-c0c13d340a0a  ethernet  --     
 ```
 
   * Details about connections : `nmcli connection show "Auto ALMAX-BRUNO"`
@@ -1274,8 +1400,15 @@ cat /etc/resolv.conf
 
   * Status:
 
-```{bash}
+```
 nmcli dev status
+
+#output
+DEVICE          TYPE      STATE         CONNECTION       
+wlp4s0          wifi      connected     Auto ALMAX-BRUNO 
+p2p-dev-wlp4s0  wifi-p2p  disconnected  --               
+enp3s0f1        ethernet  unavailable   --               
+lo              loopback  unmanaged     -- 
 ```
 
   * Add conn
@@ -1355,8 +1488,19 @@ nmcli con up "static-ens3"
   * `hostnamectl`
   * `hostnamectl status`
   
-```{bash}
+```
 hostnamectl status
+
+
+#output
+   Static hostname: turing
+         Icon name: computer-laptop
+           Chassis: laptop
+        Machine ID: bbada5cfcc9a4a80ac8dc5ce6d9f53aa
+           Boot ID: cf3c63ed65874b238e2f825055abbf1f
+  Operating System: Linux Mint 20.2
+            Kernel: Linux 5.4.0-81-generic
+      Architecture: x86-64
 ```
 
   * To update hostname
@@ -1718,5 +1862,14 @@ yum-config-manager --enable <repo_name>
   
 ```
 subscription-manager-repos --list
+```
+
+### Managing Packages Module Streams
+
+
+
+
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/repo_modules.png", 1))
 ```
 

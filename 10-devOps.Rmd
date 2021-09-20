@@ -1,0 +1,302 @@
+# DevOps
+
+
+## Azure
+
+
+
+
+## AWS
+
+
+
+
+## Docker
+
+[Livro Descomplicando Docker](https://livro.descomplicandodocker.com.br/chapters/chapter_00.html)
+
+[Github](https://github.com/badtuxx/DescomplicandoDocker)
+
+
+### Part 1
+
+#### O que é container ? 
+
+Container não é virtualização e sim isolamento
+
+  * Isolamento lógico _Responsável Namesapace_
+    * parte usuaŕios e processos
+    * como se tivessemos isolado um pedaço da máquina para o container
+    * dentro do container tenho isolamento de network, cada container tem sua interface
+  * Isolamento de físico _"_Responsável Cgroup"_
+    * recursos : CPU, RAM, IO rede, IO de bloco, etc
+  
+  
+#### O que é o Docker ? 
+
+  * Uma **imagem** de container é divida em camadas e so se escreve na última camanda , as abaixo são somente leitura
+
+
+
+  * Instalar
+  
+```
+curl -fsSL https://get.docker.com | bash
+```
+
+  * Versão instalada
+  
+```
+root@turing:~# docker version
+Client: Docker Engine - Community
+ Version:           20.10.8
+ API version:       1.41
+ Go version:        go1.16.6
+ Git commit:        3967b7d
+ Built:             Fri Jul 30 19:54:22 2021
+ OS/Arch:           linux/amd64
+ Context:           default
+ Experimental:      true
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          20.10.8
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.16.6
+  Git commit:       75249d8
+  Built:            Fri Jul 30 19:52:31 2021
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.4.9
+  GitCommit:        e25210fe30a0a703442421b0f60afac609f950a3
+ runc:
+  Version:          1.0.1
+  GitCommit:        v1.0.1-0-g4144b63
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+root@turing:~# 
+```
+
+
+  * Adicionar usuário ao grupo do docker
+  
+  
+  
+```
+usermod -aG docker <user>
+```
+
+
+  * Listar os containers
+  
+```
+docker container ls
+```
+
+
+
+
+  * Hello World
+  
+```
+docker container run -ti hello-world
+```
+
+  * Steps that docker perform on docker container run ....: 
+    
+```
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+```
+
+
+#### Commandos básicos
+
+  * Listar todas as imagens : 
+  
+```
+docker container ls -a
+```
+  
+
+  * Lista todos os containers rodando : 
+  
+```
+docker container ls
+```
+
+  * Exemplo criar um container 
+    * `-ti` : Terminal e interatividade
+    * `Ctrl D ` : mata o bash o principal processo do container e o container é finalizado
+    * `Ctrl q p `: Para sair do container sem encerrar o bash e container 
+    * `-d ` : Para colocar o container como daemon
+    
+```
+docker run -it ubuntu bash
+```
+  
+  * Reconectar ao container : 
+  
+```
+docker container attach <Container ID ou  nome>
+```
+  
+  * Remover o container : 
+  
+```
+docker container rm <ID ou nome>
+```
+
+  * Stop / Start / Restart / Pause container : 
+    * Stop : `docker container stop <container ID ou nome>`
+    * Start: `docker container start <container ID ou nome>`
+    * Restart : `docker container restart <container ID ou nome>`
+    * Pause : `docker container pause <container ID ou nome>`
+    * Unpause : `docker container unpause <container ID ou nome>`
+    
+
+ 
+    
+  * Informações do container : 
+
+```  
+docker container inspect <container ID ou nome>
+```
+
+
+  * Logs : 
+  
+```
+docker container logs -f <ID ou nome>
+```
+
+  * Update para fazer atualização em um container em execução
+  
+```
+docker container update
+```
+  
+  
+  * Listar as imagens
+  
+```
+docker image ls
+```
+  
+
+#### CPU and RAM - containers
+
+
+  * Para verificar o quanto o docker esta utilizando de recursos
+
+```
+docker container stats <container ID>
+```
+
+
+  * Verificar os processos 
+  
+```
+docker container top <container ID>
+```
+
+
+  * Liminar o máximo de memória que o container **nginx** pode utilizar com parametro `m`
+  
+```
+# Limitando a memória em 128M
+docker container run -d -m 128M nginx
+```
+
+
+  * Limitar a CPU
+  
+```
+# Limitando a CPU em 50% ou meio CPU
+docker container run -d -m 128M --cpus 0.5 nginx
+```
+
+
+
+  * Para fazer teste de stress utilizando pacote *stress* do linux
+  
+```
+# Para instalar o stress
+apt-get update && apt-get install -y stress
+
+
+stress -cpu 1 -vm 1 --vm-bytes 64M
+```
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Docker file _Basic_
+
+**sample of simple docker file**
+
+```
+FROM debian     
+
+LABEL app="Giro"
+ENV VAR_1="sample variable"
+
+
+RUN apt-get update && apt-get install -y stress && apt-get clean
+
+CMD = stress --cpu 1 --vm-bytes 64M --vm 1
+
+```
+
+**To build**
+
+```
+docker image build`-t <nome>:<versao> .
+
+```
+
+**To run**
+
+```
+docker container run -d <nome>:<versao>
+```
+
+
+
+### Part 2
+

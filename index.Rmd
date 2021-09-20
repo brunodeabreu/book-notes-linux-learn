@@ -1,5 +1,5 @@
 --- 
-title: "Notes from Linux course"
+title: "Training notes : Linux, Devops, entre outros"
 author: "Bruno Machado"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

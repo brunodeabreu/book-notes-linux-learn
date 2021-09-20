@@ -677,6 +677,7 @@ echo "%admin ALL=(ALL) ALL" >> /etc/sudoers.d/admin
 ### Managing user passwords
 
 We no longer store password on `/etc/passwd`, the password are stored on `/etc/shadow`  
+
 * `chage` : used to change the aging info for a user password
   * Sample : `chage -m 1 -M 26 -W 4 -I 3 -E (2019-05-31) <user>`
     * **-m** : min wait time before user can change the pwd again, in this case 1 day

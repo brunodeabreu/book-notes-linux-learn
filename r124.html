@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Note 2 R124 | Notes from Linux course</title>
+  <title>Note 2 R124 | Training notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Note 2 R124 | Notes from Linux course" />
+  <meta property="og:title" content="Note 2 R124 | Training notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Note 2 R124 | Notes from Linux course" />
+  <meta name="twitter:title" content="Note 2 R124 | Training notes : Linux, Devops, entre outros" />
   
   <meta name="twitter:description" content="Those notes are for future reference" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-08-27" />
+<meta name="date" content="2021-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,8 +32,9 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="section.html"/>
+<link rel="next" href="rh134.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -209,8 +209,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.16.1" data-path="r124.html"><a href="r124.html#deteting-and-resolving-issues-with-red-hat-insights"><i class="fa fa-check"></i><b>2.16.1</b> Deteting and Resolving issues with Red Hat Insights</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>3</b> </a></li>
+<li class="chapter" data-level="3" data-path="rh134.html"><a href="rh134.html"><i class="fa fa-check"></i><b>3</b> RH134</a><ul>
+<li class="chapter" data-level="3.1" data-path="rh134.html"><a href="rh134.html#improving-command-line-productivity"><i class="fa fa-check"></i><b>3.1</b> Improving Command Line Productivity</a></li>
+<li class="chapter" data-level="3.2" data-path="rh134.html"><a href="rh134.html#scheduling-future-tasks"><i class="fa fa-check"></i><b>3.2</b> Scheduling Future Tasks</a></li>
+<li class="chapter" data-level="3.3" data-path="rh134.html"><a href="rh134.html#tuning-system-performance"><i class="fa fa-check"></i><b>3.3</b> Tuning System Performance</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="rh134.html"><a href="rh134.html#profiles"><i class="fa fa-check"></i><b>3.3.1</b> Profiles</a></li>
+<li class="chapter" data-level="3.3.2" data-path="rh134.html"><a href="rh134.html#managing-profiles-from-command-line"><i class="fa fa-check"></i><b>3.3.2</b> Managing profiles from command line</a></li>
+<li class="chapter" data-level="3.3.3" data-path="rh134.html"><a href="rh134.html#influencing-process-scheduling"><i class="fa fa-check"></i><b>3.3.3</b> Influencing Process Scheduling</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="rh134.html"><a href="rh134.html#controling-access-to-files-with-acls"><i class="fa fa-check"></i><b>3.4</b> Controling Access to Files with ACLs</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="4" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>4</b> DevOps</a><ul>
+<li class="chapter" data-level="4.1" data-path="devops.html"><a href="devops.html#azure"><i class="fa fa-check"></i><b>4.1</b> Azure</a></li>
+<li class="chapter" data-level="4.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>4.2</b> AWS</a></li>
+<li class="chapter" data-level="4.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>4.3</b> Docker</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>4.3.1</b> Part 1</a></li>
+<li class="chapter" data-level="4.3.2" data-path="devops.html"><a href="devops.html#part-2"><i class="fa fa-check"></i><b>4.3.2</b> Part 2</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -223,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes from Linux course</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Training notes : Linux, Devops, entre outros</a>
           </h1>
         </div>
 
@@ -302,8 +319,8 @@ ls --all .</code></pre>
 <span id="cb5-8"><a href="r124.html#cb5-8"></a><span class="co"># Executing one command after the other</span></span>
 <span id="cb5-9"><a href="r124.html#cb5-9"></a><span class="fu">date</span> +%A<span class="kw">;</span> <span class="fu">uname</span> -r<span class="kw">;</span> <span class="fu">whoami</span></span></code></pre></div>
 <pre><code>## runner
-## 2021-08-27
-## Friday
+## 2021-09-20
+## Monday
 ## 19.6.0
 ## runner</code></pre>
 <p><strong>Conditional commands execution <code>&amp;&amp;</code></strong></p>
@@ -319,7 +336,7 @@ ls --all .</code></pre>
 <span id="cb7-6"><a href="r124.html#cb7-6"></a><span class="bu">echo</span></span>
 <span id="cb7-7"><a href="r124.html#cb7-7"></a><span class="co"># If with or</span></span>
 <span id="cb7-8"><a href="r124.html#cb7-8"></a><span class="ex">ate</span> +%F <span class="kw">||</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span></code></pre></div>
-<pre><code>## 2021-08-27
+<pre><code>## 2021-09-20
 ## 19.6.0
 ## runner
 ## 
@@ -424,7 +441,7 @@ cat etc/issue</code></pre>
 * date &amp; time stamps
 * paths to data on file system</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="r124.html#cb15-1"></a><span class="fu">ls</span> -li LICENSE</span></code></pre></div>
-<pre><code>## 12896309338 -rw-r--r--  1 runner  staff  6556 Aug 27 21:22 LICENSE</code></pre>
+<pre><code>## 12896201349 -rw-r--r--  1 runner  staff  6556 Sep 20 16:13 LICENSE</code></pre>
 <ul>
 <li>40652348 : file ID (<em>inode</em>)</li>
 <li>1 : means one name using this iNode right now</li>
@@ -433,8 +450,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="r124.html#cb17-1"></a><span class="fu">ln</span> LICENSE LIC2</span>
 <span id="cb17-2"><a href="r124.html#cb17-2"></a><span class="fu">ls</span> -li LIC*</span></code></pre></div>
 <pre><code>## ln: LIC2: File exists
-## 12896309337 -rw-r--r--  1 runner  staff  6556 Aug 27 21:22 LIC2
-## 12896309338 -rw-r--r--  1 runner  staff  6556 Aug 27 21:22 LICENSE</code></pre>
+## 12896201348 -rw-r--r--  1 runner  staff  6556 Sep 20 16:13 LIC2
+## 12896201349 -rw-r--r--  1 runner  staff  6556 Sep 20 16:13 LICENSE</code></pre>
 <ul>
 <li>Both LIC2 and LICENSE have the same iNode but the number right now is <strong>2</strong>, not able to identify which one was create first, this is a <strong>hard link</strong></li>
 </ul>
@@ -442,8 +459,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="r124.html#cb19-1"></a><span class="fu">ln</span> -s README.md README_2.md</span>
 <span id="cb19-2"><a href="r124.html#cb19-2"></a><span class="fu">ls</span> -li READ*</span></code></pre></div>
 <pre><code>## ln: README_2.md: File exists
-## 12896309339 -rw-r--r--  1 runner  staff  741 Aug 27 21:22 README.md
-## 12896309340 lrwxr-xr-x  1 runner  staff    9 Aug 27 21:22 README_2.md -&gt; README.md</code></pre>
+## 12896201350 -rw-r--r--  1 runner  staff  741 Sep 20 16:13 README.md
+## 12896201351 lrwxr-xr-x  1 runner  staff    9 Sep 20 16:13 README_2.md -&gt; README.md</code></pre>
 <ul>
 <li>Both have different iNode number, so they are two different files, the permission there are a <code>l</code> meaning link, this is a <strong>soft link</strong>, if we delete file 3 we have a broken link</li>
 </ul>
@@ -589,7 +606,7 @@ cat etc/issue</code></pre>
 <span id="cb25-5"><a href="r124.html#cb25-5"></a><span class="co"># command substitution</span></span>
 <span id="cb25-6"><a href="r124.html#cb25-6"></a><span class="bu">echo</span> <span class="st">&quot;Today is </span><span class="va">$(</span><span class="fu">date</span> +%A<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
 <pre><code>## value
-## Today is Friday</code></pre>
+## Today is Monday</code></pre>
 </div>
 </div>
 <div id="help" class="section level2">
@@ -863,15 +880,19 @@ sambashare:x:130:bruno</code></pre>
 </div>
 <div id="managing-user-passwords" class="section level3">
 <h3><span class="header-section-number">2.6.4</span> Managing user passwords</h3>
-<p>We no longer store password on <code>/etc/passwd</code>, the password are stored on <code>/etc/shadow</code><br />
-* <code>chage</code> : used to change the aging info for a user password
-* Sample : <code>chage -m 1 -M 26 -W 4 -I 3 -E (2019-05-31) &lt;user&gt;</code>
-* <strong>-m</strong> : min wait time before user can change the pwd again, in this case 1 day
-* <strong>-M</strong> : when they have to changed the pwd, in this case in 26 days need to change
-* <strong>-W</strong> : warning of 4 days
-* <strong>-I</strong> : once the pwd expire they have 3 more days to login and change the pwd
-* <strong>-E</strong> : expiration date</p>
+<p>We no longer store password on <code>/etc/passwd</code>, the password are stored on <code>/etc/shadow</code></p>
 <ul>
+<li><p><code>chage</code> : used to change the aging info for a user password</p>
+<ul>
+<li>Sample : <code>chage -m 1 -M 26 -W 4 -I 3 -E (2019-05-31) &lt;user&gt;</code>
+<ul>
+<li><strong>-m</strong> : min wait time before user can change the pwd again, in this case 1 day</li>
+<li><strong>-M</strong> : when they have to changed the pwd, in this case in 26 days need to change</li>
+<li><strong>-W</strong> : warning of 4 days</li>
+<li><strong>-I</strong> : once the pwd expire they have 3 more days to login and change the pwd</li>
+<li><strong>-E</strong> : expiration date</li>
+</ul></li>
+</ul></li>
 <li><p><code>chage -l</code> : show all the info</p></li>
 <li><p><code>/etc/login.defs</code> : Define info of login such <strong>PASS_MAX_DAYS</strong>, <strong>PASSMIN_DAYS</strong>, etc</p></li>
 <li><p>Add user with <code>nologin</code> shell</p>
@@ -937,7 +958,7 @@ Other : last 3</p>
 <span id="cb48-4"><a href="r124.html#cb48-4"></a></span>
 <span id="cb48-5"><a href="r124.html#cb48-5"></a><span class="co"># To remove sticky bit</span></span>
 <span id="cb48-6"><a href="r124.html#cb48-6"></a><span class="co">#chmod o-t dirA</span></span></code></pre></div>
-<pre><code>## drwxr-xr-x  3 runner  staff  96 Aug 27 21:22 dirA</code></pre>
+<pre><code>## drwxr-xr-x  3 runner  staff  96 Sep 20 16:14 dirA</code></pre>
 <p><em><code>s</code> : Files created on the dir will have the same owning group of dir</em></p>
 <ul>
 <li>Set grid to dirs or files <strong>g+s</strong>
@@ -958,7 +979,7 @@ Other : last 3</p>
 <span id="cb50-4"><a href="r124.html#cb50-4"></a></span>
 <span id="cb50-5"><a href="r124.html#cb50-5"></a><span class="co"># To remove </span></span>
 <span id="cb50-6"><a href="r124.html#cb50-6"></a><span class="co"># chmod g-s dirA</span></span></code></pre></div>
-<pre><code>## drwxr-sr-x  3 runner  staff  96 Aug 27 21:22 dirA</code></pre>
+<pre><code>## drwxr-sr-x  3 runner  staff  96 Sep 20 16:14 dirA</code></pre>
 <ul>
 <li>Set uid to files <strong>u+s</strong>
 <ul>
@@ -1051,7 +1072,7 @@ Other : last 3</p>
 <li><code>uptime</code> command review the load average</li>
 </ul>
 <div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="r124.html#cb54-1"></a><span class="fu">uptime</span></span></code></pre></div>
-<pre><code>## 21:22  up 3 mins, 1 user, load averages: 8.15 5.44 2.41</code></pre>
+<pre><code>## 16:14  up 4 mins, 1 user, load averages: 6.21 4.11 1.87</code></pre>
 <ul>
 <li>1,24 : Last min</li>
 <li>1,07 : Last 5 min</li>
@@ -1998,11 +2019,10 @@ sudo insights-client --register
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="section.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rh134.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2043,7 +2063,7 @@ gitbook.start({
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Training notes : Linux, Devops, entre outros</title>
+  <title>Note 3 RH134 | Training notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Training notes : Linux, Devops, entre outros" />
+  <meta property="og:title" content="Note 3 RH134 | Training notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Training notes : Linux, Devops, entre outros" />
+  <meta name="twitter:title" content="Note 3 RH134 | Training notes : Linux, Devops, entre outros" />
   
   <meta name="twitter:description" content="Those notes are for future reference" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="r124.html"/>
+<link rel="prev" href="r124.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -248,23 +248,529 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Training notes : Linux, Devops, entre outros</h1>
-<p class="author"><em>Bruno Machado</em></p>
-<p class="date"><em>2021-09-20</em></p>
-</div>
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Note 1</span> Intro</h1>
-<p>During some Linux courses I usually take notes for future reference, so I use this notes to organize my notes for study and future projects.</p>
+<div id="rh134" class="section level1">
+<h1><span class="header-section-number">Note 3</span> RH134</h1>
+<div id="improving-command-line-productivity" class="section level2">
+<h2><span class="header-section-number">3.1</span> Improving Command Line Productivity</h2>
+<p><strong>Writing Simple Bash Scripts</strong></p>
+<p>The Bash interpreter start in the first line of script with <strong>#! /bin/bash</strong> and to run the script we need :</p>
+<ol style="list-style-type: decimal">
+<li><p>Config the execute permission on script</p></li>
+<li><p>Have the script on <code>$HOME/bin</code> and call the script name or any other bin path inside your <code>$PATH</code></p></li>
+</ol>
+<p><strong>LOOPS</strong></p>
+<p><em>Syntax</em> of bash <strong>for loop</strong></p>
+<pre><code>for &lt;VARIABLE&gt; in &lt;LIST&gt;; do
+&lt;COMMAND&gt; &lt;VARIABLE&gt;
+done</code></pre>
+<p>Sample:</p>
+<pre><code>#1 
+for HOST in host1 host2 host3; do echo $HOST; done
 
+#2
+for HOST in host{1,2,3}; do echo $HOST; done
+
+
+#3
+for HOST in host{1..3}; do echo $HOST; done
+
+#4
+for FILE in file* ; do ls $FILE; done
+
+#5
+for FILE in file{a..c}; do ls $FILE; done
+
+#6
+for PACKAGE in $(rpm -qa | grep kernel); \
+do echo &quot;$PACKAGE was installed on \
+$(date -d @$(rpm -q -qqf &quot;%{INSTALLTIME} \n&quot; $PACKAGE))&quot;; done
+</code></pre>
+<p><strong>Sequence</strong></p>
+<p>Sample :</p>
+<pre><code>#1
+seq 2 2 10
+
+output
+2
+4
+6
+8
+10
+
+
+#2
+for EVEN in $(seq 2 2 10); do &quot;$EVEN&quot;;done</code></pre>
+<p><strong>Exit Codes</strong></p>
+<ul>
+<li><p>0 : successfully</p></li>
+<li><blockquote>
+<p>0 : not successfully</p>
+</blockquote></li>
+<li><p>0 to 255 : range</p></li>
+<li><p>To display the exit code</p></li>
+</ul>
+<pre><code>echo $?</code></pre>
+<p><strong>IF / THEN</strong></p>
+<pre><code>
+#1
+if &lt;condition&gt;; then
+    &lt;STATEMENT&gt;
+    ...
+    &lt;STATEMENT&gt;
+  else
+    &lt;STATEMENT&gt;
+    ...
+    &lt;STATEMENT&gt;
+fi
+
+
+
+#2
+if &lt;condition&gt;; then
+    &lt;STATEMENT&gt;
+    ...
+    &lt;STATEMENT&gt;
+  elif &lt;condition&gt;; then
+    &lt;STATEMENT&gt;
+    ...
+    &lt;STATEMENT&gt;
+  else
+    &lt;STATEMENT&gt;
+fi
+
+
+</code></pre>
+<p><strong>Sample</strong></p>
+<pre><code>systemctl is-active psacct &gt; /dev/null 2&gt;&amp;1
+if [ $? -ne 0 ] ; then
+sudo systemctl start psacct
+else
+sudo systemctl stop psacct
+fi</code></pre>
+<p><strong>Regex to match text in command outputs</strong></p>
+<blockquote>
+<p>Regex can be used with command as vim, grep and less</p>
+</blockquote>
+<p>There are several options below some samples :</p>
+<ul>
+<li>Show me lines that starts with <em>cat</em> using <code>^</code></li>
+</ul>
+<pre><code>grep &#39;^cat&#39; &lt;FILE&gt;</code></pre>
+<ul>
+<li>Show me lines that ends with <em>cat</em> using <code>$</code></li>
+</ul>
+<pre><code>grep &#39;cat$&#39; &lt;FILE&gt;</code></pre>
+<ul>
+<li>Show me lines that start and end with <em>cat</em> using <code>^</code> and <code>$</code></li>
+</ul>
+<pre><code>grep &#39;^cat$&#39; &lt;FILE&gt;</code></pre>
+<ul>
+<li>Whildcard for any character <em>c.t</em></li>
+</ul>
+<pre><code>grep &#39;^c.t$&#39; &lt;FILE&gt;
+
+Output
+cat
+cit
+cot
+cpt
+cst
+</code></pre>
+<ul>
+<li>Show me lines with one character of list in [xxx]</li>
+</ul>
+<pre><code>grep &#39;^c[aou]t$&#39; &lt;FILE&gt;
+
+output
+cat
+cot
+cut</code></pre>
+<ul>
+<li>Show me lines with <em>c</em> + <code>&lt;characters&gt;</code> + <em>t</em></li>
+</ul>
+<pre><code>grep &#39;c.*t&#39; &lt;FILE&gt;
+
+output
+cat
+zuchetto
+zymochemistry
+</code></pre>
+<ul>
+<li>Show me lines with <em>c</em> + <code>&lt;2  characters&gt;</code> + <em>t</em></li>
+</ul>
+<p><em>Simple way ‘c..t’</em> but we can use modifiers :</p>
+<pre><code>grep &#39;c.\{2\}t&#39; &lt;FILE&gt;
+
+#output
+Yacolt
+Zacynthus
+zoocultural</code></pre>
+<ul>
+<li>Show me lines that starts with <em>c</em> + <code>&lt;starts with 2 up to 3 characters&gt;</code> + <em>t</em></li>
+</ul>
+<pre><code>grep &#39;c.\{2,3\}t&#39; &lt;FILE&gt;
+
+#output
+zirconate
+zoophysicist
+zuchetto
+zygocactus
+zoocyst
+</code></pre>
+<p><strong>grep Options</strong></p>
+<ul>
+<li><p><code>-i</code> case insensitivity</p></li>
+<li><p><code>-v</code> invert the search</p></li>
+<li><p><code>-E</code> search for ln and nx in particular file <code>grep -E 'ln|nx file'</code></p></li>
+<li><p>Do not show lines that starts with <em>#</em> <code>^#</code> or <em>blank lines</em> <code>^$</code></p></li>
+</ul>
+<pre><code>grep -vE &#39;^#|^$&#39; file</code></pre>
+<ul>
+<li>Do not show lines that starts with <em>#</em> or <em>;</em></li>
+</ul>
+<pre><code>grep -v &#39;^[#;]&#39; file</code></pre>
+</div>
+<div id="scheduling-future-tasks" class="section level2">
+<h2><span class="header-section-number">3.2</span> Scheduling Future Tasks</h2>
+<p><strong>One time Job</strong> : <code>at</code> command</p>
+<ul>
+<li><code>at</code> <em>TIMESPEC</em> command to schedule a new job
+<em>Samples</em>
+<ul>
+<li><code>at now + 5min</code></li>
+<li><code>at teatime tomorrow</code> (<em>teatime is 16:00</em>)</li>
+<li><code>at noon + 4 days</code></li>
+<li><code>at 5pm august 3 2021</code></li>
+</ul>
+<em>Cool options</em>
+<ul>
+<li><code>-g</code> specify a queue <strong>g</strong> , queue goes a to z</li>
+</ul></li>
+</ul>
+<p>*<code>atq</code> to check the jobs schedules on my queue</p>
+<ul>
+<li>To inspect all info about job</li>
+</ul>
+<pre><code>at -c &lt;job number&gt;</code></pre>
+<ul>
+<li>To remove a job</li>
+</ul>
+<pre><code>atrm &lt;job number&gt; </code></pre>
+<ul>
+<li>To monitor a job or queue</li>
+</ul>
+<pre><code>watch atq</code></pre>
+<p><strong>Recurring Jobs</strong> <code>cron</code> command</p>
+<p><strong>USER</strong></p>
+<p>Basic commands :</p>
+<ul>
+<li><code>crontab -l</code> : list the jobs for the current user</li>
+<li>`crontab -r`` : Remove all jobs from current user</li>
+<li><code>crontab -e</code> : Edit jobs</li>
+<li><code>crontab &lt;filename&gt;</code> : Remove all jobs and replace with the job read from filename, if no file is specified <em>stdin</em> is used</li>
+</ul>
+<p>Once the job is schedule will have a file on <em>/var/spool/cron/</em></p>
+<p>To check the structure of contrab schedule we can check the file <em>/etc/crontab</em></p>
+<pre><code>cat /etc/crontab
+
+
+#output
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+
+</code></pre>
+<ul>
+<li>Other options</li>
+</ul>
+<pre><code># every 5min
+*/5 * * * * &lt;xxx&gt;   
+
+# every 5min, between 9am and 5pm Sun and Wed in July
+*/5 9-16 * Jul sun, wed  
+
+</code></pre>
+<ul>
+<li><strong>Logs</strong> : Can check the cron jobs logs on <strong>/var/log/cron</strong></li>
+</ul>
+<p><br></p>
+<p><strong>SYSTEM</strong> cron jobs</p>
+<p>There are some ways to have a system cron jobs</p>
+<ul>
+<li><strong>/etc/crontab</strong>
+<ul>
+<li>Simple add the job on file</li>
+</ul></li>
+<li><strong>/etc/cron.d/</strong>
+<ul>
+<li>Add a file with job schedule on this path</li>
+</ul></li>
+<li><strong>/etc/cron/<path></strong>
+<ul>
+<li>run the command to check <code>ls /etc/cron\.*</code> we can have folders with cron job files or <strong>scripts</strong></li>
+</ul></li>
+</ul>
+<p>The backup mechanism of cron files is <strong>anacron</strong> and it is configured on <strong>/etc/anacrontab</strong> and the purpose is make sure that all important jobs always run</p>
+<ul>
+<li>There are different files on <strong>/var/spool/anacron</strong> for each daily, weekly and monthly jobs with timestamps based on schedule if there were a job that should be perform and machine is offline the job will be triggered</li>
+</ul>
+<p><br></p>
+<p><strong>Systemd Timer Unit</strong></p>
+<p>This is a new scheduling function introduced on RHEL7, sample :</p>
+<p>The <code>sysstat</code> package provides a <em>systemd timer unit</em> called <strong>sysstat-collect.timer</strong> to collect system statistics every 10 minutes. The following output shows the configuration lines of <strong>/usr/lib/systemd/system/sysstat-collect.timer</strong>.</p>
+<pre><code>...output omitted...
+[Unit]
+Description=Run system activity accounting tool every 10 minutes
+
+[Timer]
+OnCalendar=*:00/10
+
+[Install]
+WantedBy=sysstat.service</code></pre>
+<ul>
+<li>To check the timers on system</li>
+</ul>
+<pre><code>systemctl --type timer</code></pre>
+<p>If need to modify we can do on <strong>/etc/systemd/system</strong> and after change the timer unit config files need to reload the daemon and activate the timer unit</p>
+<pre><code># Reload
+systemctl daemon-reload
+
+# Activate
+systemctl enable --now &lt;unitname&gt;.timr
+</code></pre>
+<p><strong>Managing Temporary Files</strong></p>
+<p>We can configure <em>timers</em> that manages temporary files.</p>
+<ul>
+<li>Some applications use <strong>/tmp</strong> to hold temp data</li>
+<li>Others use use specific locations such as daemon and user-specific volatile dirs under <strong>/run</strong>, when system reboot those volatile store will be gone.</li>
+</ul>
+<p>The tool <strong>systemd-tmpfiles</strong> provide structured and configurable method to manage temp dirs and files</p>
+<p>When <strong>systemd</strong> starts a system, one of the first service units launched is <strong>systemd-tmpfiles-setup</strong>. This service runs the command</p>
+<pre><code>systemd-tmpfiles --create --remove</code></pre>
+<p>This command reads configuration files from :</p>
+<ul>
+<li>/usr/lib/tmpfiles.d/*.conf,</li>
+<li>/run/tmpfiles.d/*.conf, and</li>
+<li>/etc/tmpfiles.d/*.conf.</li>
+</ul>
+<p>Any files and directories marked for deletion in those
+configuration files is removed, and any files and directories marked for creation (or permission fixes) will be created with the correct permissions if necessary.</p>
+<ul>
+<li>Cleaning Temporary Files with a Systemd Timer</li>
+</ul>
+<p>The <strong>systemd</strong> timer unit called <strong>systemd-tmpfiles-clean.timer</strong> triggered <strong>systemd-tmpfiles-clean.service</strong> on regular interval, which executes the command to clean</p>
+<pre><code>systemd-tmpfiles --clean</code></pre>
+<p>To view the contents of the <strong>systemd-tmpfiles-clean.timer</strong> config files:</p>
+<pre><code>systemctl cat systemd-tmpfiles-clean.timer</code></pre>
+<p>If need to check the parameter frequence of clean up we need to make sure to reload and enable the timer</p>
+<pre><code>systemctl daemon-reload
+
+systemctl enable --now systemd-tmpfiles.clean.timer</code></pre>
+<ul>
+<li>Cleaning Temporary Files Manually</li>
+</ul>
+<p>Command :</p>
+<pre><code>systemd-tmpfiles --clean</code></pre>
+<p><em>this command wll purge all files which have not been accessed, changed, or modified more recently than max age defined on config file</em></p>
+<p>The format of config file <strong>systemd-tmpfiles</strong> is detailed in the <strong>tmpfiles.d</strong> manual page</p>
+<p>Sample:</p>
+<p>create the /run/systemd/seats directory if it does not yet exist, owned by the user root and the group root, with permissions set to rwxr-xr-x. This directory will not be automatically purged.</p>
+<pre><code>#Type, Path, Mode, UID, GID, Age, and Argument
+d /run/systemd/seats 0755 root root -
+</code></pre>
+<p>Create the /home/student directory if it does not yet exist. If it does exist, empty it of all contents. When systemd-tmpfiles –clean is run, remove all files which have not been accessed, changed, or modified in more than one day.</p>
+<pre><code>#Type, Path, Mode, UID, GID, Age, and Argument
+D /home/student 0700 student student 1d</code></pre>
+<p>Create the symbolic link /run/fstablink pointing to /etc/fstab. #Never automatically purge this line.</p>
+<pre><code>#Type, Path, Mode, UID, GID, Age, and Argument
+L /run/fstablink - root root - /etc/fstab</code></pre>
+<ul>
+<li>Configuration File Precedence</li>
+</ul>
+<p>The config file can exists in three places:</p>
+<ul>
+<li>/etc/tmpfiles.d/*.conf
+<ul>
+<li>provided by the relevant RPM packages, should not edit</li>
+</ul></li>
+<li>/run/tmpfiles.d/*.conf
+<ul>
+<li>volatile files, used by daemons</li>
+</ul></li>
+<li>/usr/lib/tmpfiles.d/*.conf</li>
+</ul>
+</div>
+<div id="tuning-system-performance" class="section level2">
+<h2><span class="header-section-number">3.3</span> Tuning System Performance</h2>
+<blockquote>
+<p><strong>tuned</strong> daemon allow us optmize system performance by selection a tunning profile</p>
+</blockquote>
+<ul>
+<li>To install and enable <strong>tuned</strong></li>
+</ul>
+<pre><code>yum install tuned
+systemctl enable --now tuned</code></pre>
+<div id="profiles" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Profiles</h3>
+<ul>
+<li><p><strong>balanced</strong> : Ideal for systems that require a compromise between power saving and performance.</p></li>
+<li><p><strong>desktop</strong> : Derived from the balanced profile. Provides faster response of interactive applications.</p></li>
+<li><p><strong>throughput-performance</strong> : Tunes the system for maximum throughput.</p></li>
+<li><p><strong>latency-performance</strong> : Ideal for server systems that require low latency at the
+expense of power consumption.</p></li>
+<li><p><strong>network-latency</strong> : Derived from the latency-performance profile. It enables additional network tuning parameters to provide low network latency.</p></li>
+<li><p><strong>network-throughput</strong> : Derived from the throughput-performance profile. Additional network tuning parameters are applied for maximum network throughput.</p></li>
+<li><p><strong>powersave</strong> : Tunes the system for maximum power saving.</p></li>
+<li><p><strong>oracle</strong> : Optimized for Oracle database loads based on the throughput-performance profile.</p></li>
+<li><p><strong>virtual-guest</strong> : Tunes the system for maximum performance if it runs on a virtual machine.</p></li>
+<li><p><strong>virtual-host</strong> : Tunes the system for maximum performance if it acts as a host for virtual machines</p></li>
+</ul>
+</div>
+<div id="managing-profiles-from-command-line" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Managing profiles from command line</h3>
+<ul>
+<li>To active</li>
+</ul>
+<pre><code>tuned-adm active</code></pre>
+<ul>
+<li>To List all available profiles</li>
+</ul>
+<pre><code>tuned-adm list</code></pre>
+<ul>
+<li>To switch the active profile to a different one</li>
+</ul>
+<pre><code>tuned-adm profile &lt;profile_name&gt;
+tuned-adm active</code></pre>
+<ul>
+<li>To have a recommendation of profile</li>
+</ul>
+<pre><code>tuned-adm recommened</code></pre>
+<ul>
+<li>To deactivate</li>
+</ul>
+<pre><code>tuned-adm off
+tuned-adm active</code></pre>
+</div>
+<div id="influencing-process-scheduling" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Influencing Process Scheduling</h3>
+<blockquote>
+<p>Prioritize or de-prioritize specific process with <strong>nice</strong> and <strong>renice</strong></p>
+</blockquote>
+<ul>
+<li>Nice values
+<ul>
+<li>19 : Nicest (lowest priority)</li>
+<li>0 : Neutral</li>
+<li>-20: Least nice (highest priority)</li>
+</ul></li>
+</ul>
+<p><img src="img/nice_renice.png" /><!-- --></p>
+<ul>
+<li>Display Nice Levels from the command line</li>
+</ul>
+<pre><code>ps axo pid, comm, nice, cls --sort=-nice</code></pre>
+<ul>
+<li>Start process with different Nice levels</li>
+</ul>
+<pre><code># default nice is 10
+nice sha1sum /dev/zero &amp;
+
+# setting to 15
+nice -n 15 sha1sum &amp;</code></pre>
+<ul>
+<li>Change the Nice level of existing process</li>
+</ul>
+<pre><code>renice -n &lt;level&gt; &lt;process number&gt;</code></pre>
+</div>
+</div>
+<div id="controling-access-to-files-with-acls" class="section level2">
+<h2><span class="header-section-number">3.4</span> Controling Access to Files with ACLs</h2>
+<blockquote>
+<p>ACLs <em>Access Control List</em> are extention of permissions</p>
+</blockquote>
+<ul>
+<li>To check if file have ACL we going to see a <code>+</code> on long list ouput</li>
+</ul>
+<pre><code>-rwxrw----+ 1 user operators 130 Mar 19 23:56 reports.txt</code></pre>
+<ul>
+<li>The group permission on <code>ls -l</code> is masked, will not be the real permission of this file need to check ACL settings</li>
+</ul>
+<blockquote>
+<p>Changing group permissions on a file with an ACL by using <strong>chmod</strong> does not change
+the group owner permissions, but does change the ACL mask. Use <strong>setfacl -m
+g::perms file</strong> if the intent is to update the file’s group owner permissions.</p>
+</blockquote>
+<p><br></p>
+<ul>
+<li>View File or Directory ACLs using <strong>getfacl <File or Dir></strong> command</li>
+</ul>
+<pre><code>[user@host content]$ getfacl reports.txt
+# file: reports.txt
+# owner: user
+# group: operators
+user::rwx
+user:consultant3:---
+user:1005:rwx          #effective:rw-
+group::rwx             #effective:rw-
+group:consultant1:r--
+group:2210:rwx         #effective:rw-
+mask::rw-
+other::---</code></pre>
+<ul>
+<li>The ACL MASK</li>
+</ul>
+<p>Defines the maximum permissions that you can grant. It does not restrict permissions of the file owner or other user. all files and directories that implement ACL will have an ACL mask.</p>
+<p>By default , the mask is recalculated whenever any of the affected ACLs are added, modified or deleted</p>
+<ul>
+<li>Changing ACL file permissions <strong>setfacl</strong></li>
+</ul>
+<pre><code>$ setfacl -m u:name:rX file</code></pre>
+<ul>
+<li><code>-m</code> : modify ,
+<ul>
+<li><code>x</code> delete</li>
+</ul></li>
+<li><code>u</code> : user,
+<ul>
+<li><code>g</code> for group,<br />
+</li>
+<li><code>o</code> for others</li>
+</ul></li>
+<li><code>name</code>: name of user</li>
+<li><code>rX</code> : permission
+<ul>
+<li><code>X</code> uppercase can be used to indicate that execute permission should only be set on dir and not regular files, unless the file already has the relevant execute permission.</li>
+</ul></li>
+<li>ACL recursive modifications</li>
+</ul>
+<pre><code>$ setfacl -R -m u:name:rX directory</code></pre>
+<ul>
+<li>Deleting ACL</li>
+</ul>
+<pre><code>$ setfacl -x u:name,g:name file</code></pre>
+<ul>
+<li>Delete all ACL entries</li>
+</ul>
+<pre><code>$ setfacl -b file</code></pre>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="r124.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r124.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -295,7 +801,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-RH134.Rmd",
 "text": "Edit"
 },
 "history": {

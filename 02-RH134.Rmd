@@ -724,8 +724,25 @@ $ setfacl -m u:name:rX file
     * `X` uppercase can be used to indicate that execute permission should only be set on dir and not regular files, unless the file already has the relevant execute permission.
     
     
+* ACL recursive modifications
+
+```
+$ setfacl -R -m u:name:rX directory
+```
 
 
+* Deleting ACL
+
+```
+$ setfacl -x u:name,g:name file
+```
+
+
+* Delete all ACL entries
+
+```
+$ setfacl -b file
+```
 
 
 

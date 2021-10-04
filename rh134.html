@@ -24,7 +24,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-09-20" />
+<meta name="date" content="2021-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -218,6 +218,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.3" data-path="rh134.html"><a href="rh134.html#influencing-process-scheduling"><i class="fa fa-check"></i><b>3.3.3</b> Influencing Process Scheduling</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="rh134.html"><a href="rh134.html#controling-access-to-files-with-acls"><i class="fa fa-check"></i><b>3.4</b> Controling Access to Files with ACLs</a></li>
+<li class="chapter" data-level="3.5" data-path="rh134.html"><a href="rh134.html#managing-selinux-security"><i class="fa fa-check"></i><b>3.5</b> Managing SELinux Security</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="rh134.html"><a href="rh134.html#controlling-selinux-file-contexts"><i class="fa fa-check"></i><b>3.5.1</b> Controlling SELinux File Contexts</a></li>
+<li class="chapter" data-level="3.5.2" data-path="rh134.html"><a href="rh134.html#adjusting-selinux-policy-with-booleans"><i class="fa fa-check"></i><b>3.5.2</b> Adjusting SELinux Policy with Booleans</a></li>
+<li class="chapter" data-level="3.5.3" data-path="rh134.html"><a href="rh134.html#investigating-and-resolving-selinux-issues"><i class="fa fa-check"></i><b>3.5.3</b> Investigating and REsolving SELinux issues</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="rh134.html"><a href="rh134.html#managing-basic-storage"><i class="fa fa-check"></i><b>3.6</b> Managing Basic Storage</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="rh134.html"><a href="rh134.html#adding-partition-file-systems-and-persistent-mounts"><i class="fa fa-check"></i><b>3.6.1</b> Adding Partition, File Systems and Persistent Mounts</a></li>
+<li class="chapter" data-level="3.6.2" data-path="rh134.html"><a href="rh134.html#managing-swap-space"><i class="fa fa-check"></i><b>3.6.2</b> Managing Swap Space</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="rh134.html"><a href="rh134.html#managing-logical-volumes"><i class="fa fa-check"></i><b>3.7</b> Managing Logical Volumes</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="rh134.html"><a href="rh134.html#creating-logical-volumes"><i class="fa fa-check"></i><b>3.7.1</b> Creating Logical Volumes</a></li>
+<li class="chapter" data-level="3.7.2" data-path="rh134.html"><a href="rh134.html#extending-and-reducing-logical-volumes"><i class="fa fa-check"></i><b>3.7.2</b> Extending and Reducing Logical Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="rh134.html"><a href="rh134.html#implementing-advanced-storage-features"><i class="fa fa-check"></i><b>3.8</b> Implementing Advanced Storage Features</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="rh134.html"><a href="rh134.html#managing-storage-with-stratis"><i class="fa fa-check"></i><b>3.8.1</b> Managing Storage with Stratis</a></li>
+<li class="chapter" data-level="3.8.2" data-path="rh134.html"><a href="rh134.html#compressing-and-deduplicating-storage-with-vdo"><i class="fa fa-check"></i><b>3.8.2</b> Compressing and Deduplicating Storage with VDO</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="rh134.html"><a href="rh134.html#accessing-network-attached-storage"><i class="fa fa-check"></i><b>3.9</b> Accessing Network-Attached Storage</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="rh134.html"><a href="rh134.html#mounting-network-attached-storage-with-nfs"><i class="fa fa-check"></i><b>3.9.1</b> Mounting Network-Attached Storage with NFS</a></li>
+<li class="chapter" data-level="3.9.2" data-path="rh134.html"><a href="rh134.html#automounting-network-attached-storage"><i class="fa fa-check"></i><b>3.9.2</b> Automounting Network-Attached Storage</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="rh134.html"><a href="rh134.html#controlling-the-boot-process"><i class="fa fa-check"></i><b>3.10</b> Controlling The Boot Process</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="rh134.html"><a href="rh134.html#selecting-the-boot-target"><i class="fa fa-check"></i><b>3.10.1</b> Selecting the boot target</a></li>
+<li class="chapter" data-level="3.10.2" data-path="rh134.html"><a href="rh134.html#resetting-the-root-password"><i class="fa fa-check"></i><b>3.10.2</b> Resetting the Root Password</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="4" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>4</b> DevOps</a><ul>
@@ -761,7 +786,909 @@ other::---</code></pre>
 <li>Delete all ACL entries</li>
 </ul>
 <pre><code>$ setfacl -b file</code></pre>
+</div>
+<div id="managing-selinux-security" class="section level2">
+<h2><span class="header-section-number">3.5</span> Managing SELinux Security</h2>
+<blockquote>
+<p>Security Enhanced Linux (<em>SELinux</em>) is an additional layer of system security. The primary goal of SELinux is to <strong>protect user data</strong> from system services that have been compromised</p>
+</blockquote>
+<p><strong>Targeted policy</strong> <em>default</em></p>
+<p>SELinux consists of sets of policies, defined by the application developers, that declare exactly
+what actions and accesses are proper and allowed for each binary executable, configuration
+file, and data file used by an application.</p>
+<ul>
+<li><em>Modes</em>
+<ul>
+<li><strong>Enforcing</strong> : SELinux is enforcing access control rules. Computers generally run in this mode.</li>
+<li><strong>Permissive</strong> : SELinux is active but instead of enforcing access control rules, it records warnings of rules that have been violated. This mode is used primarily for <strong>testing</strong> and <strong>troubleshooting</strong></li>
+<li><strong>Disabled</strong> : SELinux is turned off entirely: no SELinux violations are denied, nor even recorded. <strong>Discouraged!</strong></li>
+</ul></li>
+<li>To show SELinux information <code>ls -lZ</code></li>
+</ul>
+<p><img src="img/SELinux.png" /><!-- --></p>
+<ul>
+<li>Checking the current state</li>
+</ul>
+<pre><code>[user@host ~]# getenforce
+Enforcing</code></pre>
+<ul>
+<li>Check the persistently state</li>
+</ul>
+<pre><code>cat /etc/selinux/config</code></pre>
+<ul>
+<li>Set enforce mode</li>
+</ul>
+<pre><code>[user@host ~]# setenforce
+usage: setenforce [ Enforcing | Permissive | 1 | 0 ]
+[user@host ~]# setenforce 0
+[user@host ~]# getenforce
+Permissive</code></pre>
+<ul>
+<li>Check status</li>
+</ul>
+<pre><code>sestatus</code></pre>
+<div id="controlling-selinux-file-contexts" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Controlling SELinux File Contexts</h3>
+<ul>
+<li>When <strong>copy</strong> a file or <strong>create</strong> a new file the file <strong>inherits</strong> the SELinux <strong>context</strong> of the directory</li>
+<li>If I <strong>move</strong> a file it <strong>retain</strong> the SELinux <strong>context</strong></li>
+</ul>
+<p><strong>Change context of a file</strong></p>
+<ul>
+<li>Commands
+<ul>
+<li><strong>semanage</strong> : create the role, a create page is <code>man semanage-fcontext</code> , sample of rule :</li>
+</ul>
+<pre><code># create the rule
+semanage fcontext -a -t httpd_sys_content_t &quot;/web(/.*)?&quot;
 
+# apply a new rule
+restorecon -R -v /web</code></pre>
+<ul>
+<li><strong>fcontext</strong> : used to list and see changes</li>
+</ul>
+<pre><code># l : list
+# C : change
+semage fcontext -lC</code></pre>
+<ul>
+<li><strong>restorecon</strong> : use when the file already in the correct location, for example, if someone moved the file from A to B and B is the correct location, using the command <code>restorecon &lt;file&gt;</code> will restore the context</li>
+<li><strong>chcon</strong> : It is not persistent , does not survive restorecon or relable, <strong>avoid</strong></li>
+</ul></li>
+</ul>
+</div>
+<div id="adjusting-selinux-policy-with-booleans" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Adjusting SELinux Policy with Booleans</h3>
+<blockquote>
+<p>SELinux booleans are switches that change the behavior of the SELinux policy. SELinux booleans
+are rules that can be enabled or disabled.</p>
+</blockquote>
+<ul>
+<li>Check booleans</li>
+</ul>
+<pre><code>[user@host ~]$ getsebool -a
+abrt_anon_write --&gt; off
+abrt_handle_event --&gt; off
+abrt_upload_watch_anon_write --&gt; on
+antivirus_can_scan_system --&gt; off
+antivirus_use_jit --&gt; off
+...output omitted...
+
+
+[user@host ~]$ getsebool httpd_enable_homedirs
+httpd_enable_homedirs --&gt; off
+
+
+# list booleans 
+[user@host ~]$ sudo semanage boolean -l | grep httpd_enable_homedirs
+httpd_enable_homedirs  (on,on) Allow httpd to enable homedirs</code></pre>
+<ul>
+<li>write pending values to policy, P(<em>persistence</em>)</li>
+</ul>
+<pre><code>setsebool -P httpd_enable_homedirs on</code></pre>
+<ul>
+<li>list booleans with current state and diff from default state</li>
+</ul>
+<pre><code>[user@host ~]$ sudo semanage boolean -l -C
+SELinux boolean       State Default Description
+cron_can_relabel        (off,on)  Allow cron to can relab</code></pre>
+</div>
+<div id="investigating-and-resolving-selinux-issues" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Investigating and REsolving SELinux issues</h3>
+<ul>
+<li><strong>sealert</strong> display info during SELinux troubleshooting</li>
+</ul>
+<p><em>Guide to troubleshooting SELinux issues:</em></p>
+<ol style="list-style-type: decimal">
+<li><p>Before thinking of making any adjustments, consider that SELinux may be doing its job
+correctly by prohibiting the attempted access.</p></li>
+<li><p>The most common SELinux issue is an incorrect file context, <em>“when we move files”</em>.</p></li>
+<li><p>Another remedy for overly restrictive access could be the adjustment of a Boolean.</p></li>
+<li><p>It is possible that the SELinux policy has a bug that prevents a legitimate access.</p></li>
+</ol>
+<p><strong>Monitor SELinux Violations</strong></p>
+<p>If we have the package <code>setroubleshoot-serve</code> installed</p>
+<ul>
+<li><strong>/var/log/audit/audit.log</strong> : received log messages related SELinux violations</li>
+<li><strong>/var/log/messages</strong> : short summary of SELinux violations messages</li>
+</ul>
+</div>
+</div>
+<div id="managing-basic-storage" class="section level2">
+<h2><span class="header-section-number">3.6</span> Managing Basic Storage</h2>
+<div id="adding-partition-file-systems-and-persistent-mounts" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Adding Partition, File Systems and Persistent Mounts</h3>
+<ul>
+<li><strong>MBR Partitioning Schema</strong>
+<ul>
+<li>The <em>Master Boot Record (MBR)</em> partitioning schema dictated how disks are partitioned on system running BIOS firmware
+<ul>
+<li>Can have manimum of four primary partition</li>
+<li>Maximum disk and partition size of 2TiB</li>
+<li>Using extended and logical partitions we can create a maximum of 15 partitions</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="img/mbr.png" /><!-- --></p>
+<ul>
+<li><strong>GPT Partitioning Schema</strong>
+<ul>
+<li>The <em>Unified Extensible Firmware Interface (UEFI)</em> firmware is a standard laying out
+<ul>
+<li>Does not have limit of 2TB</li>
+<li>Maximum of 128 partitions</li>
+<li>Maximum of 8ZiB zebibytes</li>
+<li>have a backup on the end of the disk</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="img/gpt.png" /><!-- --></p>
+<ul>
+<li><strong>Managing Partitions with Parted</strong></li>
+</ul>
+<p>Partition editors are programs which allow admin to make changes to a disk’s</p>
+<p><strong>parted</strong> command</p>
+<ul>
+<li>Display info of <code>/dev/vda</code> with subcommand <strong>print</strong>
+<ul>
+<li>if do not provide subcommand will open an interactive session</li>
+<li>we can change the display to KB, MB, GB, TB or S for sector using <code>unit s</code> argument</li>
+<li><strong>parted</strong> makes the change immediately</li>
+</ul></li>
+</ul>
+<pre><code>[root@host ~]# parted /dev/vda print
+Model: Virtio Block Device (virtblk)
+Disk /dev/vda: 53.7GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start       End       Size        Type     File system    Flags  
+1       1049kB      10.7GB    10.7GB    primary     xfs           boot
+2       10.7GB      53.7GB    42.9GB    primary     xfs
+</code></pre>
+<p><strong>Writing the partition table on a NEW DISK</strong></p>
+<p><em>MBR</em></p>
+<pre><code>[root@host ~]# parted /dev/vdb mklabel msdos</code></pre>
+<p><em>GPT</em></p>
+<pre><code>[root@host ~]# parted /dev/vdb mklabel gpt</code></pre>
+<blockquote>
+<p>The <strong>mklabel</strong> subcommand wipes the existing partition table. Only use mklabel
+when the intent is to reuse the disk without regard to the existing data. If a new
+label changes the partition boundaries, <strong>all data in existing file systems will become
+inaccessible</strong>.</p>
+</blockquote>
+<p><br></p>
+<p><strong>Creating MBR Partitions</strong></p>
+<ol style="list-style-type: decimal">
+<li>Specify the disk device to create the partition on using <strong>parted </dev/xxx></strong></li>
+</ol>
+<pre><code># parted /dev/vdb</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Use the <strong>mpart</strong> subcommand to create new primary or extented partition</li>
+</ol>
+<pre><code>(parted) mkpart
+Partition type?
+primary/extended? primary</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Indicate the file-system type, to get the list of all types use <code>parted /dev/vdb help mkpart</code></li>
+</ol>
+<pre><code>File system type? [ext2]? xfs</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Specify the sector on disk</li>
+</ol>
+<pre><code>Start? 2048s</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Specify where the new partition will end</li>
+</ol>
+<pre><code>End? 1000MB</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Exit using <code>quit</code></p></li>
+<li><p>Run the <strong>udevadm settle</strong> for the system detect the new partition</p></li>
+</ol>
+<p><em>Option</em>: if we have all the details we can use only one command to perform all actions</p>
+<pre><code>[root@host ~]# parted /dev/vdb mkpart primary xfs 2048s 1000MB</code></pre>
+<p><br></p>
+<p><strong>Creating GPT Partitions</strong></p>
+<ol style="list-style-type: decimal">
+<li>Specificy the disk device to create the partition on</li>
+</ol>
+<pre><code># parted /dev/vdb</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Use the <strong>mkpart</strong> to start creating the new partition, with GPT each partition is given a <em>name</em></li>
+</ol>
+<pre><code>(parted) mkpart
+Partition name?  []? usersdata</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Indicate the type</li>
+</ol>
+<pre><code>File system type? [ext2]? xfs</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Specify the sector on disk that the new partition starts on</li>
+</ol>
+<pre><code>Start? 2048s</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Specify the end</li>
+</ol>
+<pre><code>End? 1000MB</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Exit using <code>quit</code></p></li>
+<li><p>Run the <strong>udevadm settle</strong> for the system detect the new partition</p></li>
+</ol>
+<p><em>Option</em>: if we have all the details we can use only one command to perform all actions</p>
+<pre><code>[root@host ~]# parted /dev/vdb mkpart usersdata xfs 2048s 1000MB</code></pre>
+<p><br></p>
+<p><strong>Deleting Partitions</strong></p>
+<ol style="list-style-type: decimal">
+<li>Specify the disk</li>
+</ol>
+<pre><code>[root@host ~]# parted /dev/vdb</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Identify the partition number of the partition to delete</li>
+</ol>
+<pre><code>(parted) print
+</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Delete using <code>rm</code> subcomand</li>
+</ol>
+<p><em>The rm subcommand immediately deletes the partition from the partition table on the disk.</em></p>
+<pre><code>(parted) rm &lt;number&gt;</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Exit using <code>quit</code></li>
+</ol>
+<p><br></p>
+<p><strong>Creating File Systems</strong></p>
+<ul>
+<li>Check if <code>fdisk</code> for MBR and <code>gdisk</code> for GPT are installed</li>
+</ul>
+<pre><code>$ which fdisk
+
+# check the package
+$ rpm -qf /sbin/fdisk
+
+
+# install gdisk
+yum -y install gdisk
+</code></pre>
+<ul>
+<li>Sample of using <strong>gdisk</strong></li>
+</ul>
+<pre><code>$ gdisk /dev/vdd
+</code></pre>
+<ul>
+<li><p><code>?</code> : help</p></li>
+<li><p><code>p</code> : print</p></li>
+<li><p><code>n</code> : new partition</p></li>
+<li><p>Specify the partition number, First sector and Last sector or size</p></li>
+<li><p>Specify the GUID Label</p>
+<ul>
+<li><code>L</code> : show all label codes</li>
+</ul></li>
+<li><p>print to check</p></li>
+<li><p><code>c</code> : change the partition name</p></li>
+<li><p><code>w</code> : write</p></li>
+<li><p>Confirm</p></li>
+<li><p>Check with <code>lsblk</code></p></li>
+<li><p>Create the file system using <strong>mkfs.xfs</strong></p></li>
+</ul>
+<pre><code>$ mkfs.xfs /dev/vdb1</code></pre>
+<ul>
+<li>To check the file system creation using <strong>blkid</strong> will show the <em>UUID</em></li>
+</ul>
+<pre><code>$ blkid</code></pre>
+<ul>
+<li>To mount
+<ul>
+<li>temporarily mount</li>
+</ul>
+<pre><code>mount /dev/vdb1 /mnt</code></pre>
+<ul>
+<li>Persistently mount
+<ol style="list-style-type: decimal">
+<li>update <strong>/etc/fstab</strong></li>
+<li>Reload the daemon <code>systemctl daemon-reload</code></li>
+<li>check fs <code>lsblk --fs</code></li>
+<li>create the dir <code>mkdir &lt;dir&gt;</code></li>
+<li>mount the fs <code>mount &lt;fs&gt;</code></li>
+</ol></li>
+</ul></li>
+</ul>
+</div>
+<div id="managing-swap-space" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Managing Swap Space</h3>
+<p>A <em>swap space</em> is an area of a disk under the control of the Linux kernel memory management
+subsystem. The kernel uses swap space to supplement the system RAM by holding inactive pages
+of memory. The combined system RAM plus swap space is called <em>virtual memory</em>.</p>
+<p><img src="img/swap.png" /><!-- --></p>
+<p><br></p>
+<p><strong>Creating a Swap Space</strong></p>
+<ul>
+<li>Create a partition with a file system type of <strong>linux-swap</strong></li>
+<li>Run <code>udevadm settle</code></li>
+<li>Formatting the device</li>
+</ul>
+<pre><code>mkswap /dev/vdb2</code></pre>
+<ul>
+<li>Add on <strong>/etc/fstab</strong></li>
+</ul>
+<pre><code>#sample
+UUID=39e2667a-9458-42fe-9665-c5c854605881  swap  swap  defaults  0 0</code></pre>
+<ul>
+<li>Activate the swap</li>
+</ul>
+<pre><code>swappon /dev/vdb2
+
+# activate all the swap spaces
+swapon -a
+
+# check swap
+swapon -s
+</code></pre>
+<ul>
+<li>Setting Swap Space Priority
+<ul>
+<li>default is <strong>-2</strong></li>
+<li>Update <strong>/etc/fstab</strong> and specify <strong>pri=priority number</strong> instead of defaults</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="managing-logical-volumes" class="section level2">
+<h2><span class="header-section-number">3.7</span> Managing Logical Volumes</h2>
+<div id="creating-logical-volumes" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> Creating Logical Volumes</h3>
+<p>Using Logical volumes is easier to manage disk space, we can allocate to logical volume free space from volume group and file system can be resized</p>
+<p>LVM Definitions</p>
+<p><em>Physical devices</em>
+* Storage devices used to save data stored in a lofical volume
+* Could be a disk partition, whole disk, RAID arrays or SAN Disk
+* Device must be initialized as an LVM</p>
+<p><em>Physical volumes (PVs)</em>
+* “Physical” storage used with LVM
+* We must initilize a device as a physical volume before use as LVM
+* PV can only be allocated to a single VG</p>
+<p><em>Volume group (VGs)</em>
+* <strong>Storage pool</strong> made up of one or more physical volumes
+* A VG can consiste of unused space an any number of logical Volumes</p>
+<p><em>Logical volumes (LVs)</em>
+* Create from free physical extents in a volume group and provide the storage used by applications, users and OS
+* Collection of logical extents (LEs), which map to physical extents</p>
+<p><img src="img/logical_volumes.png" /><!-- --></p>
+<p><br></p>
+<p><strong>Steps to create logical volumes</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Use <strong>lsblk</strong>, <strong>blkid</strong> or <strong>cat /proc/partition</strong> to identify the devices</p></li>
+<li><p>Prepare the physical device</p></li>
+</ol>
+<ul>
+<li>Use <strong>parted</strong>, <strong>gdisk</strong> or <strong>fdisk</strong> tp create a new partition for use with LVM</li>
+<li>Type of <strong>Linux LVM</strong> on LVM partitions</li>
+<li>Use <strong>0x8e</strong> for MBR</li>
+<li>Use <strong>partprobe</strong> to register the new partition with the kernel</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Create a physical volume</li>
+</ol>
+<ul>
+<li><strong>pvcreate</strong> to label the partition as a physical volume, it divides the physical volume into physical extents (PEs) of fixed size of 4MB block.</li>
+</ul>
+<pre><code>pvcreate /dev/vdb2 /dev/vdb1</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Create the volume group</li>
+</ol>
+<ul>
+<li><strong>vgcreate</strong> used to collect one or more physical volumes into a volume group. It is equivalent of hard disk</li>
+</ul>
+<pre><code>vgcreate vg01 /dev/vdb2 /dev/vdb1</code></pre>
+<p><em>This creates a VG called vg01 that is the combined size, in PE units, of the two PVs /dev/vdb2 and /dev/vdb1</em></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Create a logical volume</li>
+</ol>
+<ul>
+<li>Use <strong>lvcreate</strong> to create a new logical volume from available physical extents in a volume group
+<ul>
+<li><code>-n</code> : to set the LV name</li>
+<li><code>-L</code> : to set the LV size in bytes</li>
+<li><code>-l</code> : to set the LV size in extents</li>
+</ul></li>
+</ul>
+<pre><code>lvcreate -n lv01 -L 700M vg01</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Add the file system</li>
+</ol>
+<ul>
+<li>Use <strong>mkfs</strong> to create an <strong>XFS</strong> file system on the new logical volume</li>
+</ul>
+<pre><code># create FS
+mkfs -t xfs /dev/vg01/lv01
+
+# create dir mount point
+mkdir /mnt/data
+
+# Update /etc/fstab
+/dev/vg01/lv01 /mnt/data xfs defaults 1 2
+
+# mount
+mount /mnt/data
+</code></pre>
+<p><br></p>
+<p><strong>Remove a Logical Volume</strong></p>
+<ol style="list-style-type: decimal">
+<li>Umount the fs and remove the info from /etc/fstab</li>
+</ol>
+<pre><code>umount /mnt/data</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Remove the logical volume</li>
+</ol>
+<pre><code>lvremove /dev/vg01/lv01
+</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Remove the volume group</li>
+</ol>
+<pre><code>vgremove vg01</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Remove the physical volumes</li>
+</ol>
+<pre><code>pvremove /dev/vdb2 /dev/vdb1</code></pre>
+<p><br></p>
+<p><strong>Review LVM Status Info</strong></p>
+<ul>
+<li>Physical Volumes</li>
+</ul>
+<pre><code>pvdisplay /dev/vdb1</code></pre>
+<ul>
+<li>Volumes Groups</li>
+</ul>
+<pre><code>vgdisplay vg01</code></pre>
+<ul>
+<li>Logical Volumes</li>
+</ul>
+<pre><code>lvdisplay /dev/vg01/lv01</code></pre>
+</div>
+<div id="extending-and-reducing-logical-volumes" class="section level3">
+<h3><span class="header-section-number">3.7.2</span> Extending and Reducing Logical Volumes</h3>
+<p><strong>Extending Volume groups</strong> : We can add more disk space to a volume group by adding additional physical volumes. Then assign the new physical extents to logical volumes.</p>
+<p><strong>Reducing the volume group</strong> : We also can remove unused physical volume from a volume group
+* First use <code>pvmove</code> to move data from extents on one physical volume to extents on another physical extents</p>
+<p><br></p>
+<p><strong>Extending a Volume group</strong></p>
+<ol style="list-style-type: decimal">
+<li>Prepare the physical device and create the physical volume</li>
+</ol>
+<pre><code>[root@host ~]# parted -s /dev/vdb mkpart primary 1027MiB 1539MiB
+[root@host ~]# parted -s /dev/vdb set 3 lvm on
+[root@host ~]# pvcreate /dev/vdb3</code></pre>
+<p><em>A PV only needs to be created if there are no PVs free to extend the VG.</em></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Use <strong>vgextend</strong> to add the new physical volume to the volume group</li>
+</ol>
+<pre><code>[root@host ~]# vgextend vg01 /dev/vdb3</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>vgdisplay</strong> to confirm the additional physical extents are available</li>
+</ol>
+<pre><code>[root@host ~]# vgdisplay vg01</code></pre>
+<p><em>Inspect the <strong>Free PE / Size</strong></em></p>
+<p><br></p>
+<p><strong>Reducing a Volume Group</strong></p>
+<ol style="list-style-type: decimal">
+<li>Use <strong>pvmode PV_DEVICE_NAME</strong> to relocate any physical extents</li>
+</ol>
+<pre><code>[root@host ~]# pvmove /dev/vdb3</code></pre>
+<ul>
+<li><em>This command moves the PEs from /dev/vdb3 to other PVs with free PEs in the same VG.</em></li>
+<li><em>Always backup the data before <strong>pvmove</strong></em></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Reduce the volume using <strong>vgreduce</strong></li>
+</ol>
+<pre><code>[root@host ~]# vgreduce vg01 /dev/vdb3</code></pre>
+<p><em>This removes the /dev/vdb3 PV from the vg01 VG and it can now be added to another VG. Alternatively, <strong>pvremove</strong> can be used to permanently stop using the device as a PV</em></p>
+<p><br></p>
+<p><strong>Extending a Logical Volume and XFS File System</strong></p>
+<ol style="list-style-type: decimal">
+<li>Verify that the volume group has space available.</li>
+</ol>
+<pre><code>[root@host ~]# vgdisplay vg01</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Extend the logical volume with <strong>lvextendLV_DEVICE_NAME</strong></li>
+</ol>
+<pre><code>[root@host ~]# lvextend -L +300M /dev/vg01/lv01</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Extend the file system using <strong>xfs_growfs mountpoint</strong></li>
+</ol>
+<pre><code>[root@host ~]# xfs_growfs /mnt/data</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Verify the new size of file system</li>
+</ol>
+<pre><code>[root@host ~]# df -h /mountpoint</code></pre>
+<p><br></p>
+<p><strong>Extending a Logical Volume and ext4 File System</strong></p>
+<ol style="list-style-type: decimal">
+<li>Verify that the volume group has space available.</li>
+</ol>
+<pre><code>[root@host ~]# vgdisplay vg01</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Extend the logical volume with <strong>lvextend LV_DEVICE_NAME</strong></li>
+</ol>
+<pre><code>[root@host ~]# lvextend -L +300M /dev/vg01/lv01</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Extend the file system</li>
+</ol>
+<pre><code>[root@host ~]# resize2fs /dev/vg01/lv01</code></pre>
+<p><br></p>
+<p><strong>Extend a logical volume and swap space</strong></p>
+<ol style="list-style-type: decimal">
+<li>Verify that the volume group has space available.</li>
+</ol>
+<pre><code>[root@host ~]# vgdisplay vg01</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Deactivate the swap space.</li>
+</ol>
+<pre><code>swapoff -v /dev/vgname/lvname</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Extend the logical volume with <strong>lvextend LV_DEVICE_NAME</strong></li>
+</ol>
+<pre><code>[root@host ~]# lvextend -L +300M /dev/vg01/lv01</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Format the logical volume as swap space.</li>
+</ol>
+<pre><code>mkswap /dev/vgname/lvname</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Activate the swap space</li>
+</ol>
+<pre><code>swapon -va /dev/vgname/lvname</code></pre>
+</div>
+</div>
+<div id="implementing-advanced-storage-features" class="section level2">
+<h2><span class="header-section-number">3.8</span> Implementing Advanced Storage Features</h2>
+<div id="managing-storage-with-stratis" class="section level3">
+<h3><span class="header-section-number">3.8.1</span> Managing Storage with Stratis</h3>
+<blockquote>
+<p><strong>STRATIS</strong> is a new storage-management solution for Linux, runs as a service that manages pools of physical storage devices and transparently creates and manages volumes for the newly created file system.</p>
+</blockquote>
+<ul>
+<li><p>Instead of immediately allocating physical storage space to the file system when it is created, Stratis dynamically allocates that space from the pool as the file system stores more data</p></li>
+<li><p>We can create multiple pools from different storage devices.</p></li>
+<li><p>File systems created by Stratis should only be reconfigured with Stratis tools and
+commands.</p></li>
+</ul>
+<p><img src="img/stratis.png" /><!-- --></p>
+<p>To use we need to install the <strong>stratis-cli</strong> and <strong>stratisd</strong></p>
+<p><strong>To install Stratis</strong></p>
+<pre><code>[root@host ~]# yum install stratis-cli stratisd
+[root@host ~]# systemctl enable --now stratisd</code></pre>
+<ul>
+<li><strong>Create pools</strong> of one or more block devices using the stratis pool create command.</li>
+</ul>
+<pre><code>[root@host ~]# stratis pool create pool1 /dev/vdb</code></pre>
+<ul>
+<li>To view the list of available pools</li>
+</ul>
+<pre><code>[root@host ~]# stratis pool list</code></pre>
+<ul>
+<li>To add additional block devices to a pool</li>
+</ul>
+<pre><code>[root@host ~]# stratis pool add-data pool1 /dev/vdc</code></pre>
+<ul>
+<li>To view the block devices of a pool</li>
+</ul>
+<pre><code>[root@host ~]# stratis blockdev list pool1</code></pre>
+<ul>
+<li>To create a file system from a pool</li>
+</ul>
+<pre><code>[root@host ~]# stratis filesystem create pool1 fs1</code></pre>
+<ul>
+<li>To view the list of available file systems</li>
+</ul>
+<pre><code>[root@host ~]# stratis filesystem list</code></pre>
+<ul>
+<li>To create a snapshot</li>
+</ul>
+<pre><code>[root@host ~]# stratis filesystem snapshot pool1 fs1 snapshot1</code></pre>
+<ul>
+<li>To mount the Stratis file system persistently</li>
+</ul>
+<pre><code># get UID
+[root@host ~]# lsblk --output=UUID /stratis/pool1/fs1
+
+# add on /etc/fstab
+UUID=31b9363b-add8-4b46-a4bf-c199cd478c55 /dir1 xfs defaults,x-systemd.requires=stratisd.service 0 0</code></pre>
+<p><em>The <strong>x-systemd.requires=stratisd.service</strong> mount option delays mounting the file system
+until after <strong>systemd</strong> starts the <strong>stratisd.service</strong> during the boot process</em></p>
+</div>
+<div id="compressing-and-deduplicating-storage-with-vdo" class="section level3">
+<h3><span class="header-section-number">3.8.2</span> Compressing and Deduplicating Storage with VDO</h3>
+<p>Virtual Data Optimizer (VDO) is a Linux device mapper driver that reduces disk space usage on block devices, and minimizes the replication of data.</p>
+<ul>
+<li><em>Kernel modules</em>
+<ul>
+<li><strong>kvdo</strong> : Control data compression</li>
+<li><strong>uds</strong> : Deduplication</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>VDO <strong>phases to reduce</strong> the footprint on storage</p>
+<ol style="list-style-type: decimal">
+<li><em>Zero-block Elimination</em> filter out data that contain only zeros</li>
+<li><em>Deduplication</em> eliminate redudant blocks</li>
+<li><em>Compression</em> the <strong>kvdo</strong> compress the data block using LZ4</li>
+</ol>
+<p><br></p>
+<ul>
+<li>Install the <em>vdo</em> and <em>kmod-kvdo</em></li>
+</ul>
+<pre><code>[root@host ~]# yum install vdo kmod-kvdo</code></pre>
+<ul>
+<li>Check status of vdo service</li>
+</ul>
+<pre><code>systemctl status vdo</code></pre>
+<ul>
+<li>Creating VDO volume</li>
+</ul>
+<pre><code>[root@host ~]# vdo create --name=vdo1 --device=/dev/vdd --vdoLogicalSize=50G</code></pre>
+<ul>
+<li>Analyzing a VDO Volume</li>
+</ul>
+<pre><code>[root@host ~]# vdo status --name=vdo1</code></pre>
+<ul>
+<li>Display the list of VDO</li>
+</ul>
+<pre><code>vdo list</code></pre>
+<ul>
+<li>Stop / Start vdo</li>
+</ul>
+<pre><code>vdo stop
+vdo start</code></pre>
+<blockquote>
+<p>When the logical size of a VDO volume is more than the actual physical size, you should proactively monitor the volume statistics to view the actual usage using the <strong>vdostats –verbose</strong> command.</p>
+</blockquote>
+<pre><code>vdostats --human-readable</code></pre>
+<p><br></p>
+<p><strong>TIPS</strong></p>
+<ul>
+<li>To test we might need to create a 2G file, below a sample</li>
+</ul>
+<pre><code>dd if=/dev/urandom of=&lt;path&gt;/&lt;file_name&gt; bs=1M count=2048</code></pre>
+<ul>
+<li>If made a mistake on fstab and need to access the server with root and root home dir is mounted as read only we can remount using below command</li>
+</ul>
+<pre><code>mount -o remount, rw /</code></pre>
+</div>
+</div>
+<div id="accessing-network-attached-storage" class="section level2">
+<h2><span class="header-section-number">3.9</span> Accessing Network-Attached Storage</h2>
+<div id="mounting-network-attached-storage-with-nfs" class="section level3">
+<h3><span class="header-section-number">3.9.1</span> Mounting Network-Attached Storage with NFS</h3>
+<p>NFS servers export shares (directories). NFS clients mount an exported share to a local mount
+point (directory), which must exist. NFS shares can be mounted a number of ways:</p>
+<ul>
+<li>Manually, using the <strong>mount</strong> command</li>
+<li>Automatically at boot time using <strong>/etc/fstab</strong></li>
+<li>On demand, using <strong>autofs</strong> or <strong>systemd.automount</strong>.</li>
+</ul>
+<p><br></p>
+<p><strong>Mounting NFS Shares</strong></p>
+<ol style="list-style-type: decimal">
+<li><strong>Identify</strong> NFS Shares</li>
+</ol>
+<pre><code>[user@host ~]$ sudo mkdir mountpoint
+[user@host ~]$ sudo mount serverb:/ mountpoint
+[user@host ~]$ sudo ls mountpoint</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Mount point</strong> use mkdir to create a mount point</li>
+</ol>
+<pre><code>[user@host ~]$ mkdir -p mountpoint</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Mount</strong></li>
+</ol>
+<p><em>Temporarily</em></p>
+<pre><code>[user@host ~]$ sudo mount -t nfs -o rw,sync serverb:/share mountpoint</code></pre>
+<ul>
+<li><code>-t nfs</code> : file system type for NFS Share</li>
+<li><code>-o sync</code>: immediately sync write operations with server</li>
+</ul>
+<p><em>Persistently</em></p>
+<ul>
+<li>Configure <strong>/etc/fstab</strong></li>
+</ul>
+<pre><code>[user@host ~]$ sudo vim /etc/fstab
+serverb:/share /mountpoint nfs rw,soft 0 0</code></pre>
+<ul>
+<li>Mount the NFS Share</li>
+</ul>
+<pre><code>[user@host ~]$ sudo mount /mountpoint</code></pre>
+<p><strong>Unmounting NFS Shares</strong></p>
+<pre><code>[user@host ~]$ sudo umount mountpoint</code></pre>
+</div>
+<div id="automounting-network-attached-storage" class="section level3">
+<h3><span class="header-section-number">3.9.2</span> Automounting Network-Attached Storage</h3>
+<blockquote>
+<p>The automounter is a service (<strong>autofs</strong>) that automatically mounts NFS shares <em>“on-demand”</em>, and will automatically unmount NFS shares when they are no longer being used.</p>
+</blockquote>
+<ul>
+<li>Create an automount</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Install <em>autofs</em></li>
+</ol>
+<pre><code>[user@host ~]$ sudo yum install autofs</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Add a <em>master map</em> file to <strong>/etc/auto.master.d</strong></li>
+</ol>
+<pre><code>[user@host ~]$ sudo vim /etc/auto.master.d/demo.autofs
+
+## add
+/shares /etc/auto.demo</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Create the mapping files</li>
+</ol>
+<pre><code>[user@host ~]$ sudo vim /etc/auto.demo
+
+# add
+work -rw,sync serverb:/shares/work</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Start and enable the automounter service</li>
+</ol>
+<pre><code>[user@host ~]$ sudo systemctl enable --now autofs</code></pre>
+<p><br></p>
+<ul>
+<li>Direct Maps</li>
+</ul>
+<p><em>Direct maps are used to map an NFS share to an existing absolute path mount point.</em></p>
+<ul>
+<li>To use the master map file should be like :</li>
+</ul>
+<pre><code>/- /etc/auto.direct
+</code></pre>
+<ul>
+<li>The content for the <strong>/etc/auto.direct</strong> will be :</li>
+</ul>
+<pre><code>/mnt/docs -rw,sync serverb:/shares/docs</code></pre>
+<p><br></p>
+<ul>
+<li>Indirect Wildcard Maps</li>
+</ul>
+<pre><code>* -rw,sync serverb:/shares/&amp;</code></pre>
+</div>
+</div>
+<div id="controlling-the-boot-process" class="section level2">
+<h2><span class="header-section-number">3.10</span> Controlling The Boot Process</h2>
+<div id="selecting-the-boot-target" class="section level3">
+<h3><span class="header-section-number">3.10.1</span> Selecting the boot target</h3>
+<p><strong>Describing the Red Hat Enterprise Linux 8 Boot Process</strong></p>
+<ul>
+<li>The machine is powered on the UEFI or BIOS runs <em>Power On Self Test (POST)</em> and start, <strong>F2</strong> or some system <strong>Esc</strong> usually to access configuartion and <strong>E</strong> to edit</li>
+<li>Firmware search for a bootable device</li>
+<li>The firmware read a boot loader and passes control of system to the boot loader, in RHEL 8 <em>GRand Unified Bootloader version 2 (GRUB2)</em> configured using <strong>grub2-install</strong></li>
+<li>GRUB2 load the config from <strong>/boot/grub2/grub.cfg</strong> and display the menu, where we can select the kernel. Configured using the <strong>/etc/grub.d/</strong> directory, the <strong>/etc/default/grub</strong> file, and the <strong>grub2-mkconfig</strong> command to generate the <strong>/boot/grub2/grub.cfg</strong> file</li>
+<li>After timeout or select the kernel boot loader load the kernel and <strong>initramfs</strong> set of initialization configured on <strong>/etc/dracut.conf.d/</strong> using <strong>dracut</strong> and <strong>lsinitrd</strong> command</li>
+<li>Kernel initializes all hardware and execute the <strong>/sbin/init</strong> from <strong>initramfs</strong> as PID 1.</li>
+<li>The <strong>systemd</strong> execute all instances for the <strong>initrd.target</strong> such as mount root file system.</li>
+</ul>
+<p><strong>Rebooting and Shutting Down</strong></p>
+<ul>
+<li><p><code>systemctl poweroff</code> : Stops all running services, unmounts all file system and power down the system</p></li>
+<li><p><code>systemctl reboot</code> : Stops all running services, unmount al file system and then reboot the system</p></li>
+<li><p><code>systemctl halt</code> : Stop the system, but do not power off the system</p></li>
+</ul>
+<p><strong>Selecting a System Target</strong></p>
+<ul>
+<li><strong>systemd</strong> targets is a set of systemd units that system should start to reach the desired state
+<ul>
+<li><strong>graphical.target</strong> : supports multiple users, graphical-and text logins</li>
+<li><strong>multi-user.target</strong>: system supports multiple users, text logins only</li>
+<li><strong>rescue.target</strong> : <strong>sulogin</strong> prompt, basic system initialization completed</li>
+<li><strong>emergency.target</strong>: <strong>sulogin</strong> prompt, <strong>initramfs</strong> pivot complete and system root mounted on <strong>/</strong> read only</li>
+</ul></li>
+<li>List dependencies for graphical.target</li>
+</ul>
+<pre><code>systemctl list-dependencies graphical.target | grep target
+
+# output
+
+graphical.target
+● └─multi-user.target
+●   ├─basic.target
+●   │ ├─paths.target
+●   │ ├─slices.target
+●   │ ├─sockets.target
+●   │ ├─sysinit.target
+●   │ │ ├─cryptsetup.target
+●   │ │ ├─local-fs.target
+●   │ │ └─swap.target
+●   │ └─timers.target
+●   ├─getty.target
+●   └─remote-fs.target</code></pre>
+<ul>
+<li>To list the available targets :</li>
+</ul>
+<pre><code>systemctl list-units --type=target --all  </code></pre>
+<ul>
+<li>Switch to a different target using <strong>systemctl isolate</strong></li>
+</ul>
+<pre><code>[root@host ~]# systemctl isolate multi-user.target</code></pre>
+<p><em>Isolating a target stops all services not required by that target (and its dependencies), and starts any required services not yet started</em></p>
+<ul>
+<li>Get the default target</li>
+</ul>
+<pre><code>[root@host ~]# systemctl get-default</code></pre>
+<ul>
+<li>Setting a Default Target</li>
+</ul>
+<pre><code>[root@host ~]# systemctl set-default graphical.target</code></pre>
+<ul>
+<li>To select a different target at boot time
+<ol style="list-style-type: decimal">
+<li>Boot the system</li>
+<li>Interrupt the boot loader</li>
+<li>Move cursor to kernel entry</li>
+<li>Press <strong>e</strong> to edit</li>
+<li>Move the cursos to the line that starts with <strong>linux</strong></li>
+<li>append the option for instance <strong>systemd.unit=emergency.target</strong></li>
+<li>Ctrl+x to boot with changes</li>
+</ol></li>
+</ul>
+</div>
+<div id="resetting-the-root-password" class="section level3">
+<h3><span class="header-section-number">3.10.2</span> Resetting the Root Password</h3>
+<p><strong>Option 1</strong></p>
+<ul>
+<li>Boot the system using a Live CD</li>
+<li>Mount the root file system</li>
+<li>Edit <strong>/etc/shadow</strong></li>
+</ul>
+<p><strong>Option 2</strong></p>
+<ul>
+<li>Reboot the system</li>
+<li>Interrupt the boot loader</li>
+<li>Move the cursor to the kernel</li>
+<li>Press <strong>e</strong> to edit</li>
+<li>Move the cursor to kernel command line, starting with <strong>linux</strong></li>
+<li>Append <strong>rd.break</strong></li>
+<li>Press Ctrl+x to boot</li>
+<li>System will presents a root shell</li>
+<li>Change the root file system to read/write <code>switch_root:/# mount -o remount,rw /sysroot</code></li>
+<li>Switch into a <strong>chroot</strong> <code>switch_root:/# chroot /sysroot</code></li>
+<li>Set the new PWD <code>passwd root</code></li>
+<li>run <code>sh-4.4# touch /.autorelabel</code> to include <strong>/etc/shadow</strong></li>
+<li>Exit to system continue the boot</li>
+</ul>
+<p><strong>Option 3</strong></p>
+<ul>
+<li>Reboot the system</li>
+<li>Interrupt the boot loader</li>
+<li>Move the cursor to the kernel</li>
+<li>Press <strong>e</strong> to edit</li>
+<li>Move the cursor to kernel command line, starting with <strong>linux</strong></li>
+<li>Enable the debug using <code>systemctl enable debug-shell.service</code> or during boot <code>systemd.unit=debig.target</code></li>
+<li>Append <code>systemd.unit=rescue.target</code> or <code>systemd.unit=emergency.target</code>
+<ul>
+<li>Emergency keep the root file system as read only, remount as read write <code>mount -o remount,rw /</code></li>
+</ul></li>
+<li>Change the password</li>
+<li>Remove the debug <code>systemctl stop debug-shell.service,</code></li>
+</ul>
+
+</div>
 </div>
 </div>
             </section>

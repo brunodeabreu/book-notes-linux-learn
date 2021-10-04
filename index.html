@@ -24,7 +24,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-09-20" />
+<meta name="date" content="2021-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -218,6 +218,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.3" data-path="rh134.html"><a href="rh134.html#influencing-process-scheduling"><i class="fa fa-check"></i><b>3.3.3</b> Influencing Process Scheduling</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="rh134.html"><a href="rh134.html#controling-access-to-files-with-acls"><i class="fa fa-check"></i><b>3.4</b> Controling Access to Files with ACLs</a></li>
+<li class="chapter" data-level="3.5" data-path="rh134.html"><a href="rh134.html#managing-selinux-security"><i class="fa fa-check"></i><b>3.5</b> Managing SELinux Security</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="rh134.html"><a href="rh134.html#controlling-selinux-file-contexts"><i class="fa fa-check"></i><b>3.5.1</b> Controlling SELinux File Contexts</a></li>
+<li class="chapter" data-level="3.5.2" data-path="rh134.html"><a href="rh134.html#adjusting-selinux-policy-with-booleans"><i class="fa fa-check"></i><b>3.5.2</b> Adjusting SELinux Policy with Booleans</a></li>
+<li class="chapter" data-level="3.5.3" data-path="rh134.html"><a href="rh134.html#investigating-and-resolving-selinux-issues"><i class="fa fa-check"></i><b>3.5.3</b> Investigating and REsolving SELinux issues</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="rh134.html"><a href="rh134.html#managing-basic-storage"><i class="fa fa-check"></i><b>3.6</b> Managing Basic Storage</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="rh134.html"><a href="rh134.html#adding-partition-file-systems-and-persistent-mounts"><i class="fa fa-check"></i><b>3.6.1</b> Adding Partition, File Systems and Persistent Mounts</a></li>
+<li class="chapter" data-level="3.6.2" data-path="rh134.html"><a href="rh134.html#managing-swap-space"><i class="fa fa-check"></i><b>3.6.2</b> Managing Swap Space</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="rh134.html"><a href="rh134.html#managing-logical-volumes"><i class="fa fa-check"></i><b>3.7</b> Managing Logical Volumes</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="rh134.html"><a href="rh134.html#creating-logical-volumes"><i class="fa fa-check"></i><b>3.7.1</b> Creating Logical Volumes</a></li>
+<li class="chapter" data-level="3.7.2" data-path="rh134.html"><a href="rh134.html#extending-and-reducing-logical-volumes"><i class="fa fa-check"></i><b>3.7.2</b> Extending and Reducing Logical Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="rh134.html"><a href="rh134.html#implementing-advanced-storage-features"><i class="fa fa-check"></i><b>3.8</b> Implementing Advanced Storage Features</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="rh134.html"><a href="rh134.html#managing-storage-with-stratis"><i class="fa fa-check"></i><b>3.8.1</b> Managing Storage with Stratis</a></li>
+<li class="chapter" data-level="3.8.2" data-path="rh134.html"><a href="rh134.html#compressing-and-deduplicating-storage-with-vdo"><i class="fa fa-check"></i><b>3.8.2</b> Compressing and Deduplicating Storage with VDO</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="rh134.html"><a href="rh134.html#accessing-network-attached-storage"><i class="fa fa-check"></i><b>3.9</b> Accessing Network-Attached Storage</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="rh134.html"><a href="rh134.html#mounting-network-attached-storage-with-nfs"><i class="fa fa-check"></i><b>3.9.1</b> Mounting Network-Attached Storage with NFS</a></li>
+<li class="chapter" data-level="3.9.2" data-path="rh134.html"><a href="rh134.html#automounting-network-attached-storage"><i class="fa fa-check"></i><b>3.9.2</b> Automounting Network-Attached Storage</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="rh134.html"><a href="rh134.html#controlling-the-boot-process"><i class="fa fa-check"></i><b>3.10</b> Controlling The Boot Process</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="rh134.html"><a href="rh134.html#selecting-the-boot-target"><i class="fa fa-check"></i><b>3.10.1</b> Selecting the boot target</a></li>
+<li class="chapter" data-level="3.10.2" data-path="rh134.html"><a href="rh134.html#resetting-the-root-password"><i class="fa fa-check"></i><b>3.10.2</b> Resetting the Root Password</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="4" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>4</b> DevOps</a><ul>
@@ -251,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Training notes : Linux, Devops, entre outros</h1>
 <p class="author"><em>Bruno Machado</em></p>
-<p class="date"><em>2021-09-20</em></p>
+<p class="date"><em>2021-10-04</em></p>
 </div>
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Note 1</span> Intro</h1>

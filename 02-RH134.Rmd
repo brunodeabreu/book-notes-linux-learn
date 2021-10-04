@@ -748,3 +748,1203 @@ $ setfacl -b file
 
 
 
+
+## Managing SELinux Security
+
+> Security Enhanced Linux (_SELinux_) is an additional layer of system security. The primary goal of SELinux is to **protect user data** from system services that have been compromised
+
+
+**Targeted policy** _default_
+
+SELinux consists of sets of policies, defined by the application developers, that declare exactly
+what actions and accesses are proper and allowed for each binary executable, configuration
+file, and data file used by an application.
+
+* _Modes_
+  * **Enforcing** : SELinux is enforcing access control rules. Computers generally run in this mode.
+  * **Permissive** : SELinux is active but instead of enforcing access control rules, it records warnings of rules that have been violated. This mode is used primarily for **testing** and **troubleshooting**
+  * **Disabled** : SELinux is turned off entirely: no SELinux violations are denied, nor even recorded. **Discouraged!**
+  
+* To show SELinux information  `ls -lZ`
+
+
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/SELinux.png", 1))
+```
+
+
+* Checking the current state
+
+```
+[user@host ~]# getenforce
+Enforcing
+```
+
+* Check the persistently  state
+
+```
+cat /etc/selinux/config
+```
+
+* Set enforce mode
+
+```
+[user@host ~]# setenforce
+usage: setenforce [ Enforcing | Permissive | 1 | 0 ]
+[user@host ~]# setenforce 0
+[user@host ~]# getenforce
+Permissive
+```
+
+* Check status
+
+```
+sestatus
+```
+
+
+### Controlling SELinux File Contexts
+
+
+* When **copy** a file or **create** a new file the file **inherits** the SELinux **context** of the directory
+* If I **move** a file it **retain** the SELinux **context**
+
+
+
+**Change context of a file**
+
+* Commands
+  * **semanage** : create the role, a create page is `man semanage-fcontext` , sample of rule :
+  ```
+  # create the rule
+  semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
+  
+  # apply a new rule
+  restorecon -R -v /web
+  ```
+  * **fcontext** : used to list and see changes
+  ```
+  # l : list
+  # C : change
+  semage fcontext -lC
+  ```
+  * **restorecon** : use when the file already in the correct location, for example, if someone moved the file from A to B and B is the correct location, using the command `restorecon <file>` will restore the context
+  * **chcon** : It is not persistent , does not survive restorecon or relable, **avoid**
+  
+  
+
+
+### Adjusting SELinux Policy with Booleans
+
+
+> SELinux booleans are switches that change the behavior of the SELinux policy. SELinux booleans
+are rules that can be enabled or disabled.
+
+
+*  Check booleans
+
+```
+[user@host ~]$ getsebool -a
+abrt_anon_write --> off
+abrt_handle_event --> off
+abrt_upload_watch_anon_write --> on
+antivirus_can_scan_system --> off
+antivirus_use_jit --> off
+...output omitted...
+
+
+[user@host ~]$ getsebool httpd_enable_homedirs
+httpd_enable_homedirs --> off
+
+
+# list booleans 
+[user@host ~]$ sudo semanage boolean -l | grep httpd_enable_homedirs
+httpd_enable_homedirs  (on,on) Allow httpd to enable homedirs
+```
+
+* write pending values to policy, P(_persistence_) 
+
+```
+setsebool -P httpd_enable_homedirs on
+```
+
+
+* list booleans with current state and diff from default state
+```
+[user@host ~]$ sudo semanage boolean -l -C
+SELinux boolean       State Default Description
+cron_can_relabel        (off,on)  Allow cron to can relab
+```
+
+
+### Investigating and REsolving SELinux issues
+
+* **sealert** display info during SELinux troubleshooting
+
+
+
+_Guide to troubleshooting SELinux issues:_
+
+1. Before thinking of making any adjustments, consider that SELinux may be doing its job
+correctly by prohibiting the attempted access.
+
+2. The most common SELinux issue is an incorrect file context, _"when we move files"_.
+
+3. Another remedy for overly restrictive access could be the adjustment of a Boolean.
+
+4. It is possible that the SELinux policy has a bug that prevents a legitimate access.
+
+
+
+**Monitor SELinux Violations**
+
+If we have the package `setroubleshoot-serve` installed
+
+* **/var/log/audit/audit.log** : received log messages related SELinux violations
+* **/var/log/messages** : short summary of SELinux violations messages
+
+
+
+## Managing Basic Storage
+
+### Adding Partition, File Systems and Persistent Mounts
+
+* **MBR Partitioning Schema**
+  * The _Master Boot Record (MBR)_ partitioning schema dictated how disks are partitioned on system running BIOS firmware
+    * Can have manimum of four primary partition
+    * Maximum disk and partition size of 2TiB
+    * Using extended and logical partitions we can create a maximum of 15 partitions
+    
+    
+    
+    
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/mbr.png", 1))
+```
+
+
+* **GPT Partitioning Schema**
+  * The _Unified Extensible Firmware Interface (UEFI)_ firmware is a standard laying out
+    * Does not have limit of 2TB
+    * Maximum of 128 partitions
+    * Maximum of 8ZiB zebibytes
+    * have a backup on the end of the disk
+    
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/gpt.png", 1))
+```
+
+    
+* **Managing Partitions with Parted**
+
+Partition editors are programs which allow admin to make changes to a disk's
+
+**parted** command
+  
+  * Display info of `/dev/vda` with subcommand **print**
+    * if do not provide subcommand will open an interactive session
+    * we can change the display to KB, MB, GB, TB or S for sector using `unit s` argument
+    * **parted** makes the change immediately
+  
+```
+[root@host ~]# parted /dev/vda print
+Model: Virtio Block Device (virtblk)
+Disk /dev/vda: 53.7GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start       End       Size        Type     File system    Flags  
+1       1049kB      10.7GB    10.7GB    primary     xfs           boot
+2       10.7GB      53.7GB    42.9GB    primary     xfs
+
+```
+
+**Writing the partition table on a NEW DISK**
+
+_MBR_
+
+```
+[root@host ~]# parted /dev/vdb mklabel msdos
+```
+
+_GPT_
+
+```
+[root@host ~]# parted /dev/vdb mklabel gpt
+```
+
+> The **mklabel** subcommand wipes the existing partition table. Only use mklabel
+when the intent is to reuse the disk without regard to the existing data. If a new
+label changes the partition boundaries, **all data in existing file systems will become
+inaccessible**.
+
+
+<br>
+
+**Creating MBR Partitions**
+
+1. Specify the disk device to create the partition on using **parted </dev/xxx>**
+
+```
+# parted /dev/vdb
+```
+
+2. Use the **mpart** subcommand to create new primary or extented partition
+
+```
+(parted) mkpart
+Partition type?
+primary/extended? primary
+```
+  
+3. Indicate the file-system type, to get the list of all types use `parted /dev/vdb help mkpart`
+
+```
+File system type? [ext2]? xfs
+```
+
+4. Specify the sector on disk
+
+```
+Start? 2048s
+```
+
+5. Specify where the new partition will end
+
+```
+End? 1000MB
+```
+
+
+6. Exit using `quit`
+
+
+7. Run the **udevadm settle** for the system detect the new partition 
+
+
+_Option_: if we have all the details we can use only one command to perform all actions
+
+```
+[root@host ~]# parted /dev/vdb mkpart primary xfs 2048s 1000MB
+```
+
+
+<br>
+
+**Creating GPT Partitions**
+
+1. Specificy the disk device to create the partition on
+
+```
+# parted /dev/vdb
+```
+
+2. Use the **mkpart** to start creating the new partition, with GPT each partition is given a _name_
+
+```
+(parted) mkpart
+Partition name?  []? usersdata
+``` 
+
+
+3. Indicate the type
+
+```
+File system type? [ext2]? xfs
+```
+
+
+4. Specify the sector on disk that the new partition starts on
+
+```
+Start? 2048s
+```
+
+5. Specify the end
+
+```
+End? 1000MB
+``` 
+
+
+6. Exit using `quit`
+
+
+7. Run the **udevadm settle** for the system detect the new partition 
+
+
+_Option_: if we have all the details we can use only one command to perform all actions
+
+```
+[root@host ~]# parted /dev/vdb mkpart usersdata xfs 2048s 1000MB
+```
+
+
+
+<br>
+
+**Deleting Partitions**
+
+
+1. Specify the disk
+
+```
+[root@host ~]# parted /dev/vdb
+```
+
+2. Identify the partition number of the partition to delete
+
+```
+(parted) print
+
+```
+
+3. Delete using `rm` subcomand
+
+_The rm subcommand immediately deletes the partition from the partition table on the disk._
+
+```
+(parted) rm <number>
+```
+
+
+4. Exit using `quit`
+
+
+
+<br>
+
+
+
+**Creating File Systems**
+
+
+* Check if `fdisk` for MBR and `gdisk` for GPT are installed
+
+```
+$ which fdisk
+
+# check the package
+$ rpm -qf /sbin/fdisk
+
+
+# install gdisk
+yum -y install gdisk
+
+```
+
+
+* Sample of using **gdisk**
+
+```
+$ gdisk /dev/vdd
+
+```
+  * `?` : help
+  * `p` : print
+  * `n` : new partition
+  * Specify the partition number, First sector and Last sector or size
+  * Specify the GUID Label
+    * `L` : show all label codes
+  * print to check
+  * `c` : change the partition name 
+  * `w` : write
+  * Confirm
+  * Check with `lsblk`
+  
+  
+* Create the file system using **mkfs.xfs**
+
+```
+$ mkfs.xfs /dev/vdb1
+```
+
+* To check the file system creation using **blkid** will show the _UUID_
+
+```
+$ blkid
+```
+
+* To mount
+  * temporarily mount
+  ```
+  mount /dev/vdb1 /mnt
+  ```
+  * Persistently mount
+    1) update **/etc/fstab**
+    2) Reload the daemon `systemctl daemon-reload`
+    3) check fs `lsblk --fs`
+    4) create the dir `mkdir <dir>`
+    5) mount the fs  `mount <fs>`
+ 
+    
+  
+  
+  
+  
+
+
+
+
+
+
+### Managing Swap Space
+
+A _swap space_ is an area of a disk under the control of the Linux kernel memory management
+subsystem. The kernel uses swap space to supplement the system RAM by holding inactive pages
+of memory. The combined system RAM plus swap space is called _virtual memory_.
+
+
+
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/swap.png", 1))
+```
+
+<br>
+
+**Creating a Swap Space**
+
+
+  * Create a partition with a file system type of **linux-swap**
+  * Run `udevadm settle`
+  * Formatting the device
+  ```
+  mkswap /dev/vdb2
+  ```
+  * Add on **/etc/fstab**
+  ```
+  #sample
+  UUID=39e2667a-9458-42fe-9665-c5c854605881  swap  swap  defaults  0 0
+  ```
+  * Activate the swap
+  ```
+  swappon /dev/vdb2
+  
+  # activate all the swap spaces
+  swapon -a
+  
+  # check swap
+  swapon -s
+  
+  ```
+
+
+
+* Setting Swap Space Priority
+  * default is **-2**
+  * Update **/etc/fstab** and specify **pri=priority number** instead of defaults
+  
+  
+  
+
+
+## Managing Logical Volumes
+
+
+### Creating Logical Volumes
+
+Using Logical volumes is easier to manage disk space, we can allocate to logical volume free space from volume group and file system can be resized
+
+LVM Definitions
+
+_Physical devices_
+  * Storage devices used to save data stored in a lofical volume
+  * Could be a disk partition, whole disk, RAID arrays or SAN Disk
+  * Device must be initialized as an LVM
+  
+_Physical volumes (PVs)_
+  * "Physical" storage used with LVM
+  * We must initilize a device as a physical volume before use as LVM
+  * PV can only be allocated to a single VG
+  
+_Volume group (VGs)_
+  * **Storage pool** made up of one or more physical volumes
+  * A VG can consiste of unused space an any number of logical Volumes
+  
+_Logical volumes (LVs)_
+  * Create from free physical extents in a volume group and provide the storage used by applications, users and OS
+  * Collection of logical extents (LEs), which map to physical extents
+  
+
+
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/logical_volumes.png", 1))
+```
+
+
+<br>
+
+**Steps to create logical volumes**
+
+1. Use **lsblk**, **blkid** or **cat /proc/partition** to identify the devices
+
+2. Prepare the physical device
+
+  * Use **parted**, **gdisk** or **fdisk** tp create a new partition for use with LVM
+  * Type of **Linux LVM** on LVM partitions
+  * Use **0x8e** for MBR
+  * Use **partprobe** to register the new partition with the kernel
+
+3. Create a physical volume
+
+  * **pvcreate** to label the partition as a physical volume, it divides the physical volume into physical extents (PEs) of fixed size of 4MB block.
+  
+  ```
+  pvcreate /dev/vdb2 /dev/vdb1
+  ```
+  
+  
+4. Create the volume group
+
+  * **vgcreate** used to collect one or more physical volumes into a volume group. It is equivalent of hard disk
+  
+  ```
+  vgcreate vg01 /dev/vdb2 /dev/vdb1
+  ```
+  _This creates a VG called vg01 that is the combined size, in PE units, of the two PVs /dev/vdb2 and /dev/vdb1_
+  
+5. Create a logical volume
+
+  * Use **lvcreate** to create a new logical volume from available physical extents in a volume group
+    * `-n` : to set the LV name
+    * `-L` : to set the LV size in bytes
+    * `-l` : to set the LV size in extents
+    
+  ```
+  lvcreate -n lv01 -L 700M vg01
+  ```
+  
+  
+6. Add the file system
+
+  * Use **mkfs** to create an **XFS** file system on the new logical volume
+  
+  ```
+  # create FS
+  mkfs -t xfs /dev/vg01/lv01
+  
+  # create dir mount point
+  mkdir /mnt/data
+  
+  # Update /etc/fstab
+  /dev/vg01/lv01 /mnt/data xfs defaults 1 2
+  
+  # mount
+  mount /mnt/data
+  
+  ```
+  
+  
+  
+<br>
+  
+**Remove a Logical Volume**
+
+
+1. Umount the fs and remove the info from /etc/fstab
+
+```
+umount /mnt/data
+```
+
+
+2. Remove the logical volume
+
+```
+lvremove /dev/vg01/lv01
+
+```
+
+3. Remove the volume group
+
+```
+vgremove vg01
+```
+
+4. Remove the physical volumes
+
+```
+pvremove /dev/vdb2 /dev/vdb1
+```
+
+
+<br>
+
+
+**Review LVM Status Info**
+
+
+* Physical Volumes
+
+```
+pvdisplay /dev/vdb1
+```
+
+
+* Volumes Groups
+
+```
+vgdisplay vg01
+```
+
+
+* Logical Volumes
+
+```
+lvdisplay /dev/vg01/lv01
+```
+
+
+### Extending and Reducing Logical Volumes
+
+
+**Extending Volume groups** : We can add more disk space to a volume group by adding additional physical volumes. Then assign the new physical extents to logical volumes.
+
+**Reducing the volume group** : We also can remove unused physical volume from a volume group
+  * First use `pvmove` to move data from extents on one physical volume to extents on another physical extents
+ 
+
+<br>  
+
+**Extending a Volume group**
+
+
+1. Prepare the physical device and create the physical volume
+
+```
+[root@host ~]# parted -s /dev/vdb mkpart primary 1027MiB 1539MiB
+[root@host ~]# parted -s /dev/vdb set 3 lvm on
+[root@host ~]# pvcreate /dev/vdb3
+```
+_A PV only needs to be created if there are no PVs free to extend the VG._
+
+
+2. Use **vgextend** to add the new physical volume to the volume group
+
+```
+[root@host ~]# vgextend vg01 /dev/vdb3
+```
+
+
+3. **vgdisplay** to confirm the additional physical extents are available
+
+```
+[root@host ~]# vgdisplay vg01
+```
+_Inspect the **Free PE / Size**_
+
+<br>
+
+**Reducing a Volume Group**
+
+1. Use **pvmode PV_DEVICE_NAME** to relocate any physical extents 
+
+```
+[root@host ~]# pvmove /dev/vdb3
+```
+  * _This command moves the PEs from /dev/vdb3 to other PVs with free PEs in the same VG._
+  * _Always backup the data before **pvmove**_
+
+
+2. Reduce the volume using **vgreduce**
+
+```
+[root@host ~]# vgreduce vg01 /dev/vdb3
+```
+_This removes the /dev/vdb3 PV from the vg01 VG and it can now be added to another VG. Alternatively, **pvremove** can be used to permanently stop using the device as a PV_
+
+
+<br>
+
+
+**Extending a Logical Volume and XFS File System**
+
+
+1. Verify that the volume group has space available.
+
+```
+[root@host ~]# vgdisplay vg01
+```
+
+2. Extend the logical volume with **lvextendLV_DEVICE_NAME**
+
+```
+[root@host ~]# lvextend -L +300M /dev/vg01/lv01
+```
+
+
+
+3. Extend the file system using **xfs_growfs  mountpoint**
+
+```
+[root@host ~]# xfs_growfs /mnt/data
+```
+
+
+
+4. Verify the new size of file system
+
+```
+[root@host ~]# df -h /mountpoint
+```
+
+
+<br>
+
+**Extending a Logical Volume and ext4 File System**
+
+
+1. Verify that the volume group has space available.
+
+```
+[root@host ~]# vgdisplay vg01
+```
+
+2. Extend the logical volume with **lvextend LV_DEVICE_NAME**
+
+```
+[root@host ~]# lvextend -L +300M /dev/vg01/lv01
+```
+
+
+3.  Extend the file system
+
+```
+[root@host ~]# resize2fs /dev/vg01/lv01
+```
+
+
+<br>
+
+**Extend a logical volume and swap space**
+
+
+1. Verify that the volume group has space available.
+
+```
+[root@host ~]# vgdisplay vg01
+```
+
+
+2. Deactivate the swap space.
+
+```
+swapoff -v /dev/vgname/lvname
+```
+
+3. Extend the logical volume with **lvextend LV_DEVICE_NAME**
+
+```
+[root@host ~]# lvextend -L +300M /dev/vg01/lv01
+```
+
+4. Format the logical volume as swap space.
+
+```
+mkswap /dev/vgname/lvname
+```
+
+
+5. Activate the swap space
+
+```
+swapon -va /dev/vgname/lvname
+```
+
+## Implementing Advanced Storage Features
+
+
+### Managing Storage with Stratis
+
+> **STRATIS** is a new storage-management solution for Linux, runs as a service that manages pools of physical storage devices and transparently creates and manages volumes for the newly created file system. 
+
+* Instead of immediately allocating physical storage space to the file system when it is created, Stratis dynamically allocates that space from the pool as the file system stores more data
+
+* We can create multiple pools from different storage devices.
+
+* File systems created by Stratis should only be reconfigured with Stratis tools and
+commands.
+
+
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/stratis.png", 1))
+```
+
+
+To use we need to install the **stratis-cli** and **stratisd**
+
+
+**To install Stratis** 
+
+```
+[root@host ~]# yum install stratis-cli stratisd
+[root@host ~]# systemctl enable --now stratisd
+``` 
+
+
+* **Create pools** of one or more block devices using the stratis pool create command.
+
+```
+[root@host ~]# stratis pool create pool1 /dev/vdb
+```
+
+* To view the list of available pools
+
+```
+[root@host ~]# stratis pool list
+```
+
+
+* To add additional block devices to a pool 
+
+```
+[root@host ~]# stratis pool add-data pool1 /dev/vdc
+```
+
+* To view the block devices of a pool
+
+```
+[root@host ~]# stratis blockdev list pool1
+```
+
+* To create a file system from a pool
+
+```
+[root@host ~]# stratis filesystem create pool1 fs1
+```
+
+* To view the list of available file systems
+
+```
+[root@host ~]# stratis filesystem list
+```
+
+* To create a snapshot 
+
+```
+[root@host ~]# stratis filesystem snapshot pool1 fs1 snapshot1
+```
+
+* To mount the Stratis file system persistently
+
+```
+# get UID
+[root@host ~]# lsblk --output=UUID /stratis/pool1/fs1
+
+# add on /etc/fstab
+UUID=31b9363b-add8-4b46-a4bf-c199cd478c55 /dir1 xfs defaults,x-systemd.requires=stratisd.service 0 0
+```
+
+_The **x-systemd.requires=stratisd.service** mount option delays mounting the file system
+until after **systemd** starts the **stratisd.service** during the boot process_
+
+
+### Compressing and Deduplicating Storage with VDO
+
+
+Virtual Data Optimizer (VDO) is a Linux device mapper driver that reduces disk space usage on block devices, and minimizes the replication of data.
+  
+* _Kernel modules_
+  * **kvdo** : Control data compression
+  * **uds**  : Deduplication
+  
+<br>
+  
+VDO **phases to reduce** the footprint on storage
+
+  1. _Zero-block Elimination_ filter out data that contain only zeros
+  2. _Deduplication_ eliminate redudant blocks
+  3. _Compression_ the **kvdo** compress the data block using LZ4
+ 
+<br>
+
+* Install the _vdo_ and _kmod-kvdo_
+
+```
+[root@host ~]# yum install vdo kmod-kvdo
+```
+
+* Check status of vdo service
+
+```
+systemctl status vdo
+```
+
+
+* Creating VDO volume
+
+```
+[root@host ~]# vdo create --name=vdo1 --device=/dev/vdd --vdoLogicalSize=50G
+```
+
+* Analyzing a VDO Volume
+
+```
+[root@host ~]# vdo status --name=vdo1
+```
+
+* Display the list of VDO
+
+```
+vdo list
+```
+
+* Stop / Start vdo
+
+```
+vdo stop
+vdo start
+```
+
+> When the logical size of a VDO volume is more than the actual physical size, you should proactively monitor the volume statistics to view the actual usage using the **vdostats --verbose** command.
+
+```
+vdostats --human-readable
+```
+
+<br>
+
+**TIPS**
+
+
+* To test we might need to create a 2G file, below a sample
+
+```
+dd if=/dev/urandom of=<path>/<file_name> bs=1M count=2048
+```
+
+
+* If made a mistake on fstab and need to access the server with root and root home dir is mounted as read only we can remount using below command
+
+```
+mount -o remount, rw /
+```
+
+
+
+## Accessing Network-Attached Storage
+
+### Mounting Network-Attached Storage with NFS
+
+NFS servers export shares (directories). NFS clients mount an exported share to a local mount
+point (directory), which must exist. NFS shares can be mounted a number of ways:
+
+* Manually, using the **mount** command
+* Automatically at boot time using **/etc/fstab**
+* On demand, using **autofs** or **systemd.automount**.
+
+<br>
+
+**Mounting NFS Shares**
+
+1. **Identify** NFS Shares
+
+```
+[user@host ~]$ sudo mkdir mountpoint
+[user@host ~]$ sudo mount serverb:/ mountpoint
+[user@host ~]$ sudo ls mountpoint
+```
+
+
+2. **Mount point** use mkdir to create a mount point
+
+```
+[user@host ~]$ mkdir -p mountpoint
+```
+
+
+3. **Mount** 
+
+_Temporarily_
+
+```
+[user@host ~]$ sudo mount -t nfs -o rw,sync serverb:/share mountpoint
+```
+  * `-t nfs` : file system type for NFS Share
+  * `-o sync`: immediately sync write operations with server
+
+
+_Persistently_
+
+* Configure **/etc/fstab**
+```
+[user@host ~]$ sudo vim /etc/fstab
+serverb:/share /mountpoint nfs rw,soft 0 0
+```
+
+* Mount the NFS Share
+
+```
+[user@host ~]$ sudo mount /mountpoint
+```
+
+
+
+**Unmounting NFS Shares**
+
+```
+[user@host ~]$ sudo umount mountpoint
+```
+
+### Automounting Network-Attached Storage
+
+> The automounter is a service (**autofs**) that automatically mounts NFS shares _"on-demand"_, and will automatically unmount NFS shares when they are no longer being used.
+
+* Create an automount
+
+1. Install _autofs_
+
+```
+[user@host ~]$ sudo yum install autofs
+```
+
+2. Add a _master map_ file to **/etc/auto.master.d** 
+
+```
+[user@host ~]$ sudo vim /etc/auto.master.d/demo.autofs
+
+## add
+/shares /etc/auto.demo
+```
+
+3. Create the mapping files
+
+```
+[user@host ~]$ sudo vim /etc/auto.demo
+
+# add
+work -rw,sync serverb:/shares/work
+```
+
+4. Start and enable the automounter service
+
+```
+[user@host ~]$ sudo systemctl enable --now autofs
+```
+
+
+<br>
+
+* Direct Maps
+
+_Direct maps are used to map an NFS share to an existing absolute path mount point._
+
+  *  To use the master map file should be like :
+
+```
+/- /etc/auto.direct
+
+```
+  
+  * The content for the **/etc/auto.direct** will be : 
+  
+```
+/mnt/docs -rw,sync serverb:/shares/docs
+```
+
+<br>
+
+* Indirect Wildcard Maps
+
+
+```
+* -rw,sync serverb:/shares/&
+```
+
+
+## Controlling The Boot Process
+
+### Selecting the boot target
+
+**Describing the Red Hat Enterprise Linux 8 Boot Process**
+
+* The machine is powered on the UEFI or BIOS runs _Power On Self Test (POST)_ and start, **F2** or some system **Esc** usually to access configuartion and **E** to edit
+* Firmware search for a bootable device
+* The firmware read a boot loader and passes control of system to the boot loader, in RHEL 8 _GRand Unified Bootloader version 2 (GRUB2)_ configured using **grub2-install**
+* GRUB2 load the config from **/boot/grub2/grub.cfg** and display the menu, where we can select the kernel. Configured using the **/etc/grub.d/** directory, the **/etc/default/grub** file, and the **grub2-mkconfig** command to generate the **/boot/grub2/grub.cfg** file
+* After timeout or select the kernel boot loader load the kernel and **initramfs**  set of initialization  configured on **/etc/dracut.conf.d/** using **dracut** and **lsinitrd** command
+* Kernel initializes all hardware and execute the **/sbin/init** from **initramfs** as PID 1.
+* The **systemd** execute all instances for the **initrd.target** such as mount root file system.
+
+
+**Rebooting and Shutting Down**
+
+* `systemctl poweroff` : Stops all running services, unmounts all file system and power down the system
+
+* `systemctl reboot` : Stops all running services, unmount al file system and then reboot the system
+
+* `systemctl halt` : Stop the system, but do not power off the system
+
+
+**Selecting a System Target**
+
+* **systemd** targets is a set of systemd units that system should start to reach the desired state
+  * **graphical.target** : supports multiple users, graphical-and text logins
+  * **multi-user.target**: system supports multiple users, text logins only
+  * **rescue.target** : **sulogin** prompt, basic system initialization completed
+  * **emergency.target**: **sulogin** prompt, **initramfs** pivot complete and system root mounted on **/** read only
+  
+
+* List dependencies for graphical.target
+
+```{bash}
+systemctl list-dependencies graphical.target | grep target
+```
+
+* To list the available targets :   
+  
+```
+systemctl list-units --type=target --all  
+```
+
+
+
+* Switch to a different target using **systemctl isolate**
+
+```
+[root@host ~]# systemctl isolate multi-user.target
+```
+_Isolating a target stops all services not required by that target (and its dependencies), and starts any required services not yet started_
+
+
+* Get the default target
+
+```
+[root@host ~]# systemctl get-default
+```
+
+
+* Setting a Default Target
+
+```
+[root@host ~]# systemctl set-default graphical.target
+```
+  
+  
+  
+* To select a different target at boot time
+  1. Boot the system
+  2. Interrupt the boot loader
+  3. Move cursor to kernel entry
+  4. Press **e** to edit
+  5. Move the cursos to the line that starts with **linux**
+  6. append the option for instance **systemd.unit=emergency.target**
+  7. Ctrl+x to boot with changes
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

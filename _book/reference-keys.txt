@@ -93,3 +93,4 @@ mounting-network-attached-storage-with-nfs
 automounting-network-attached-storage
 controlling-the-boot-process
 selecting-the-boot-target
+resetting-the-root-password

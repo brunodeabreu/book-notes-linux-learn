@@ -1888,8 +1888,24 @@ _Direct maps are used to map an NFS share to an existing absolute path mount poi
 
 * List dependencies for graphical.target
 
-```{bash}
+```
 systemctl list-dependencies graphical.target | grep target
+
+# output
+
+graphical.target
+● └─multi-user.target
+●   ├─basic.target
+●   │ ├─paths.target
+●   │ ├─slices.target
+●   │ ├─sockets.target
+●   │ ├─sysinit.target
+●   │ │ ├─cryptsetup.target
+●   │ │ ├─local-fs.target
+●   │ │ └─swap.target
+●   │ └─timers.target
+●   ├─getty.target
+●   └─remote-fs.target
 ```
 
 * To list the available targets :   
@@ -1936,6 +1952,43 @@ _Isolating a target stops all services not required by that target (and its depe
   
   
   
+### Resetting the Root Password
+
+**Option 1**
+
+  * Boot the system using a Live CD
+  * Mount the root file system
+  * Edit **/etc/shadow**
+
+
+**Option 2**
+
+  * Reboot the system
+  * Interrupt the boot loader
+  * Move the cursor to the kernel
+  * Press **e** to edit 
+  * Move the cursor to kernel command line, starting with **linux**
+  * Append **rd.break** 
+  * Press Ctrl+x to boot
+  * System will presents a root shell
+  * Change the root file system to read/write `switch_root:/# mount -o remount,rw /sysroot`
+  * Switch into a **chroot** `switch_root:/# chroot /sysroot`
+  * Set the new PWD `passwd root`
+  * run `sh-4.4# touch /.autorelabel` to include **/etc/shadow**
+  * Exit to system continue the boot
+  
+**Option 3**
+
+  * Reboot the system
+  * Interrupt the boot loader
+  * Move the cursor to the kernel
+  * Press **e** to edit 
+  * Move the cursor to kernel command line, starting with **linux**
+  * Enable the debug using `systemctl enable debug-shell.service` or during boot `systemd.unit=debig.target`
+  * Append `systemd.unit=rescue.target` or `systemd.unit=emergency.target`
+    * Emergency keep the root file system as read only, remount as read write `mount -o remount,rw /`
+  * Change the password 
+  * Remove the debug `systemctl stop debug-shell.service,`
   
   
   

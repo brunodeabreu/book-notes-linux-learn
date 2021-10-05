@@ -1973,9 +1973,9 @@ _Isolating a target stops all services not required by that target (and its depe
   * System will presents a root shell
   * Change the root file system to read/write `switch_root:/# mount -o remount,rw /sysroot`
   * Switch into a **chroot** `switch_root:/# chroot /sysroot`
-  * Set the new PWD `passwd root`
+  * Set the new password `passwd root`
   * run `sh-4.4# touch /.autorelabel` to include **/etc/shadow**
-  * Exit to system continue the boot
+  * Exit;Exit to system continue the boot
   
 **Option 3**
 
@@ -1984,11 +1984,11 @@ _Isolating a target stops all services not required by that target (and its depe
   * Move the cursor to the kernel
   * Press **e** to edit 
   * Move the cursor to kernel command line, starting with **linux**
-  * Enable the debug using `systemctl enable debug-shell.service` or during boot `systemd.unit=debig.target`
-  * Append `systemd.unit=rescue.target` or `systemd.unit=emergency.target`
-    * Emergency keep the root file system as read only, remount as read write `mount -o remount,rw /`
+  * Enable the debug using adding `systemd.debug-shell` option
+  * Press Ctrl+x to boot
+  * On login page **Crtl+Alt+F9** and we will be on root shell
   * Change the password 
-  * Remove the debug `systemctl stop debug-shell.service,`
+  * Remove the debug `sudo systemctl stop debug-shell.service`
   
   
   
@@ -2001,3 +2001,615 @@ _Isolating a target stops all services not required by that target (and its depe
   
   
   
+
+### Repairing File system Issues at Boot
+
+> Errors in **/etc/fstab** and corrupt file systems can stop a system from booting.
+
+Common File system issues:
+
+  * Corrupt file system
+  * Nonexistent device or UUID referenced in /etc/fstab
+  * Nonexistent mount point in / etc/fstab
+  * Incorrect mount option specified in /etc/fstab
+
+## Managing Network Security
+### Managing Server Firewall
+
+* **netfilter** allows other kernel modules to interface with kernel's network stack. Any incoming, outgoing, or forwarded network packet can be inspected, modified, dropped, or routed programmatically before reaching user space components or applications.
+
+* **nftables** : a new filter and packet classification subsystem that has enhanced portions of netfilter's code. Nftables uses the single **nft** user-space utility, allowing all protocol management to occur through a single interface, eliminating historical contention caused by diverse front ends and multiple netfilter interfaces.
+
+* **firewalld** : a dynamic firewall manager. With firewalld, firewall management is simplified by classifying all network traffic into zones. Each zone has its own list of ports and services that are either open or closed.
+
+**Pre-defined Zones**
+
+_all zones permit any incoming traffic which is part of a communication initiated by the system, and all outgoing traffic_
+
+  * trusted
+  * home
+  * internal
+  * work
+  * public
+  * external
+  * dmz
+  * block
+  * drop
+  
+  
+**Pre-defined Services**
+
+_These service definitions help you identify particular network services to configure._
+
+  * ssh
+  * dhcpv6-client
+  * ipp-client
+  * samba-client
+  * mdns
+  
+* To list services:
+
+```
+firewall-cmd --get-services
+```
+
+
+**Configure the Firewall from the Command Line**
+
+
+
+**firwewall-cmd** interacts with **firewalld** dynamic firewall manager, most of commands will work on the runtime config, unless the **--permanent** option is specified, we also must activate the setting using **firewall-cmd --reload**
+
+
+Some commanda:
+
+  * --get-default-zone : query the current default zone
+  * --set-default-zone=ZONE
+  * --get-zones
+  * --get-active-zones
+  * --add-source=CIDR [--zone=ZONE]
+  * --remove-source=CIDR  [--zone=ZONE]
+  * --add-interface=INTERFACE [--zone=ZONE]
+  * ---change-interface=INTERFACE [--zone=ZONE]
+  * --list-all [--zone=ZONE]
+  * --list-all-zones
+  * --reload
+
+
+Sample of commands setting the default zone to **dmz**, assign all traffic coming from the **192.168.0.0/24** network to the **internal** zone, and open the network ports from the **mysql** service on the **internal** zone
+
+
+```
+[root@host ~]# firewall-cmd --set-default-zone=dmz
+[root@host ~]# firewall-cmd --permanent --zone=internal --add-source=192.168.0.0/24
+[root@host ~]# firewall-cmd --permanent --zone=internal --add-service=mysql
+[root@host ~]# firewall-cmd --reload
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Controlling SELinux Port Labeling
+
+> One of the methods that SELinux uses for controlling network traffic is labeling network ports
+
+* Get list of all current port label assignements 
+
+```
+semanage port -l
+```
+
+* To add a port to an existing port label (type)
+
+```
+semanage port -a -t port_label -p tcp|udp PORTNUMBER
+```
+
+* To allow a gopher service to listen on port 71/TCP
+
+```
+semanage port -a -t gopher_port_t -p tcp 71
+```
+
+* To remove the binding of port 71/TCP to gopher_port_t:
+
+```
+semanage port -d -t gopher_port_t -p tcp 71
+```
+
+
+* To view local changes to the default policy
+
+```
+semanage port -l -C
+```
+
+* To modify port 71/TCP from gopher_port_t to http_port_t
+
+```
+semanage port -m -t http_port_t -p tcp 71
+```
+
+
+* Service specific SELinux man pages found in the _selinux-policy-doc_ package include
+documentation on SELinux types, booleans, and port types. If these man pages are
+not yet installed on your system, follow this procedure:
+
+```
+[root@host ~]# yum -y install selinux-policy-doc
+[root@host ~]# man -k _selinux
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Installing Red Hat Enterprise Linux
+
+### Installing Red Hat Enterprise Linux
+
+Supported processor architectures: x86 64-bit (AMDand Intel), IBM Power Systems (Little Endian), IBM Z, and ARM 64-bit. 
+
+After downloading, create bootable installation media based on the [instructions](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#making-media_preparing-for-your-installation)
+
+
+### Automating Installation with Kickstart
+
+* Text file with specification of how the machine should be configured
+* Using _Kickstart_, you specify everything Anaconda needs to complete an installation, including
+disk partitioning, network interface configuration, package selection, and other parameters, in a
+Kickstart text file.
+* The _%packages_ section specifies the software to be installed on the target system
+* There are two additional sections, %pre and %post, which contain shell scripting commands that further configure the system.
+* You must specify the primary Kickstart commands before the _%pre_, _%post_, and _%packages_
+sections, but otherwise, you can place these sections in any order in the file
+
+
+_Sample:_
+
+```
+#version=RHEL8
+ignoredisk --only-use=vda
+# System bootloader configuration
+bootloader --append="console=ttyS0 console=ttyS0,115200n8 no_timer_check
+net.ifnames=0 crashkernel=auto" --location=mbr --timeout=1 --boot-drive=vda
+# Clear the Master Boot Record
+zerombr
+# Partition clearing information
+clearpart --all --initlabel
+# Use text mode install
+text
+repo --name="appstream" --baseurl=http://classroom.example.com/content/rhel8.2/
+x86_64/dvd/AppStream/
+# Use network installation
+url --url="http://classroom.example.com/content/rhel8.2/x86_64/dvd/"
+# Keyboard layouts
+# old format: keyboard us
+
+# new format:
+keyboard --vckeymap=us --xlayouts=''
+# System language
+lang en_US.UTF-8
+# Root password
+rootpw --plaintext redhat
+# System authorization information
+auth --enableshadow --passalgo=sha512
+# SELinux configuration
+selinux --enforcing
+firstboot --disable
+# Do not configure the X Window System
+skipx
+# System services
+services --disabled="kdump,rhsmcertd" --enabled="sshd,rngd,chronyd"
+# System timezone
+timezone America/New_York --isUtc
+# Disk partitioning information
+part / --fstype="xfs" --ondisk=vda --size=10000
+
+%packages
+@core
+chrony
+cloud-init
+dracut-config-generic
+dracut-norescue
+firewalld
+grub2
+kernel
+rsync
+tar
+-plymouth
+%end
+
+
+%post --erroronfail
+# For cloud images, 'eth0' _is_ the predictable device name, since
+# we don't want to be tied to specific virtual (!) hardware
+rm -f /etc/udev/rules.d/70*
+ln -s /dev/null /etc/udev/rules.d/80-net-name-slot.rules
+# simple eth0 config, again not hard-coded to the build hardware
+cat > /etc/sysconfig/network-scripts/ifcfg-eth0 << EOF
+DEVICE="eth0"
+BOOTPROTO="dhcp"
+ONBOOT="yes"
+TYPE="Ethernet"
+USERCTL="yes"
+PEERDNS="yes"
+IPV6INIT="no"
+EOF
+%end
+
+```
+
+* The [Kickstart Generator website](https://access.redhat.com/labs/kickstartconfig/) at  presents dialog boxes for user inputs, and creates a Kickstart directives text file with the user's choices. Each dialog box corresponds to the configurable items in the
+Anaconda installer.
+
+* **ksvalidator** is a utility that checks for syntax errors in a Kickstart file. The _pykickstart_ package provides ksvalidator.
+
+  * To find the provides of **ksvalidation**
+  
+  ```
+  yum provides */ksvalidator
+  ```
+
+  * We will see the pykickstart and install
+  
+  ```
+  yum -y install pykickstart
+  ```
+
+  * Checking for packages that have the kickstart in the name
+  
+  ```
+  rpm -qad '*kickstart'
+  
+  ...
+  ...
+  /usr/share/doc/python3-kickstart/kickstart-docs.txt
+  
+  ```
+  _In this file **kickstart-docs.txt** we going to have all docs about kickstart_
+  
+  
+  
+
+* To boot anaconda and point it to the kickstart file, press **TAB** and add **inst.ks=LOCATION**
+
+
+### Installing and Configuring Virtual Machine
+
+> Red Hat Enterprise Linux 8 supports KVM (Kernel-based Virtual Machine), a full virtualization
+solution built into the standard Linux kernel. KVM can run multiple Windows and Linux guest
+operating systems
+
+
+
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/kvm.png", 1))
+```
+<br>
+
+
+* **virsh** command is used to manage KVM
+* **Red Hat Virtualization (RHV)** provides a centralized web interface that allows administrators to manage an entire virtual infrastructure
+* **Red Hat OpenStack Platform (RHOSP)** provides the foundation to create, deploy, and scale a
+public or a private cloud
+
+<br>
+
+
+* Install the virtualizaation tools
+
+```
+yum module list virt
+yum module install virt
+```
+
+* Verify the system requirements
+
+```
+virt-host-validate
+```
+
+<br>
+
+**To Manage virtual machines with cockpit**
+
+* Install the **cockpit-machines** package to add the Virtual Machines menu to Cockpit.
+
+```
+yum install cockpit-machines
+```
+
+* Start and enable cockpit
+
+```
+systemctl enable --now cockpit.socket
+```
+
+## Running Containers
+### Intro
+
+
+Containers and Virtual Machines are different in the way they interact with hardware and the
+underlying operating system
+
+
+
+
+```{r, echo = FALSE}
+knitr::include_graphics(rep("img/container.png", 1))
+```
+
+**Virtualization**:
+
+  * Enables multiple operating systems to run simultaneously on a single hardware platform.
+  * Uses a hypervisor to divide hardware into multiple virtual hardware systems, allowing multiple operating systems to run side by side
+  * Requires a complete operating system environment to support the application
+  
+**Containers**:
+
+  * Run directly on the operating system, sharing hardware and OS resources across all containers
+on the system. This enables applications to stay lightweight and run swiftly in parallel.
+  * Share the same operating system kernel, isolate the containerized application processes from
+the rest of the system, and use any software compatible with that kernel
+  * Require far fewer hardware resources than virtual machines, which also makes them quick to
+start and stop and reduces storage requirements
+
+
+**Running Containers from Container Images**
+
+  * Container images are unchangeable, or immutable, files that include all the required code and dependencies to run a container
+  * Container images are built according to specifications, such as the Open Container Initiative (OCI) image format specification
+  
+  
+**Managing Containers with Podman**
+
+* **podman** : manage containers and container image
+* **skopeo** : used to inspect, copy, delete and sign images
+* **buildah**: used to create new container images
+
+_These tools are compatible with the Open Container Initiative (OCI). They can be used to manage any Linux containers created by OCI-compatible container engines, such as Docker_
+
+
+
+### Running a Basic Conatiner
+
+
+The Red Hat Container Catalog (https://access.redhat.com/containers) provides a web-based interface that you can use to search these registries for certified content.
+
+
+* The Container naming conventions **registry_name/user_name/image_name:tag**
+  * **registry_name** : name of the registry storing the image
+  * **user_name** : represents the user or organization to which the image belongs
+  * **image_name** : must be unique in the user namespace
+  * **tag** : image version
+
+
+* Installing Container Managemnt Tools
+
+```
+[root@host ~]# yum module install container-tools
+```
+
+
+* To pull a container image
+
+```
+podman pull registry.access.redhat.com/ubi8/ubi:latest
+```
+  
+  
+* To retrieval, podman stores images
+
+```
+podman images
+```
+
+* To run a conatiner from image
+
+```
+podman run -it registry.access.redhat.com/ubi8/ubi:latest
+```
+
+
+* To run and delete the image after use using **podman run --rm**
+
+```
+[user@host ~]$ podman run --rm registry.access.redhat.com/ubi8/ubi cat /etc/os-release
+```
+
+
+
+
+
+
+
+### Finding and Managing Container Images
+
+Podman uses a registreis.conf file :
+
+```
+grep ^[^#] /etc/containers/registreis.conf
+```
+
+* **podman info** command displays configuration information for Podman
+
+```
+podman info
+```
+
+* Search command to search conatiner registreis for a specific container image
+
+  * --no-trunc : option to see longer image descriptions
+
+```
+podman search registry.redhat.io/rhel8
+```
+
+
+* Inspect images
+
+```
+skopeo inspect docker://registry.redhat.io/rhel8/python-36
+
+podman inspect registry.redhat.io/rhel8/python-36
+```
+
+* remove image
+
+```
+podman rmi registry.redhat.io/rhel8/python-36:latest
+```
+
+### Performing Advanced Container Management
+
+* Mapping Container Hosts Ports to the container using `-p`
+
+```
+[user@host ~]$ podman run -d -p 8000:8080 registry.redhat.io/rhel8/httpd-24
+```
+
+* List the ports of cntainer
+
+```
+[user@host ~]$ podman port -a
+```
+
+* Make sure that firewall on container allow external clients
+
+```
+[root@host ~]# firewall-cmd --add-port=8000/tcp
+```
+
+* Check the logs of container
+
+```
+podman logs <container id>
+```
+
+* Stop / restart
+
+```
+podman [stop | restart] <container id>
+```
+
+* Delete container
+
+```
+podman run <container id>
+```
+
+* Passing parameters with `-e`, `-d` to detach, `-p` to specify ports
+
+```
+odman run -d --name container_name -e MYSQL_USER=user_name -e MYSQL_PASSWORD=user_password -e MYSQL_DATABASE=database_name -e MYSQL_ROOT_PASSWORD=mysql_root_password -p 3306:3306 registry.redhat.io/rhel8/mariadb-103:1-102
+
+# checking
+mysql -h127.0.0.1 -udupsy -pbongle -P3306
+show databases;
+```
+
+ 
+
+### Attaching Persistent Storage to a Container
+
+* Mounting Volume
+
+```
+--volume host_dir:container_dir:Z
+```
+
+For example, to use the **/home/user/dbfiles** host directory for MariaDB database files as **/var/lib/mysql** inside the container, use the following command. The following podman run
+command is very long and should be entered as a single line.
+
+```
+podman run -d --name mydb -v /home/user/dbfiles:/var/lib/mysql:Z -e MYSQL_USER=user -e MYSQL_PASSWORD=redhat -e MYSQL_DATABASE=inventory registry.redhat.io/rhel8/mariadb-103:1-102
+```
+
+
+The dir must have the SELinux context **container_file_t** mke sure to use `:Z`
+
+
+### Managing Containers as Service
+
+* Creaate a dir to store the unit files
+
+```
+mkdir -pv ~/.config/systemd/user/
+```
+
+* use `--user` to control new user services
+
+```
+[user@host ~]$ ls ~/.config/systemd/user/
+myapp.service
+
+[user@host ~]$ systemctl --user daemon-reload
+[user@host ~]$ systemctl --user enable myapp.service
+[user@host ~]$ systemctl --user start myapp.service
+
+```
+
+* Use **loginctl** to enable and disable the services to start with the server and stop during shutdown
+
+```
+[user@host ~]$ loginctl enable-linger
+[user@host ~]$ loginctl show-user user
+...output omitted...
+Linger=yes
+[user@host ~]$ loginctl disable-linger
+[user@host ~]$ loginctl show-user user
+...output omitted...
+Linger=n
+```

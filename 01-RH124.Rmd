@@ -1842,6 +1842,23 @@ sudo yum history undo <number_of_line>
 
 
 
+**Tip**
+
+1. List if the package are installed
+
+```
+sudo yum list httpd mod_ssl
+```
+
+2. Install
+
+```
+^list^-y install
+```
+
+
+
+
 ### Enabling Yum Software Repositories
 
 

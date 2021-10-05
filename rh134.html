@@ -24,7 +24,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-10-04" />
+<meta name="date" content="2021-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -242,6 +242,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.10" data-path="rh134.html"><a href="rh134.html#controlling-the-boot-process"><i class="fa fa-check"></i><b>3.10</b> Controlling The Boot Process</a><ul>
 <li class="chapter" data-level="3.10.1" data-path="rh134.html"><a href="rh134.html#selecting-the-boot-target"><i class="fa fa-check"></i><b>3.10.1</b> Selecting the boot target</a></li>
 <li class="chapter" data-level="3.10.2" data-path="rh134.html"><a href="rh134.html#resetting-the-root-password"><i class="fa fa-check"></i><b>3.10.2</b> Resetting the Root Password</a></li>
+<li class="chapter" data-level="3.10.3" data-path="rh134.html"><a href="rh134.html#repairing-file-system-issues-at-boot"><i class="fa fa-check"></i><b>3.10.3</b> Repairing File system Issues at Boot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="rh134.html"><a href="rh134.html#managing-network-security"><i class="fa fa-check"></i><b>3.11</b> Managing Network Security</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="rh134.html"><a href="rh134.html#managing-server-firewall"><i class="fa fa-check"></i><b>3.11.1</b> Managing Server Firewall</a></li>
+<li class="chapter" data-level="3.11.2" data-path="rh134.html"><a href="rh134.html#controlling-selinux-port-labeling"><i class="fa fa-check"></i><b>3.11.2</b> Controlling SELinux Port Labeling</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="rh134.html"><a href="rh134.html#installing-red-hat-enterprise-linux"><i class="fa fa-check"></i><b>3.12</b> Installing Red Hat Enterprise Linux</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="rh134.html"><a href="rh134.html#installing-red-hat-enterprise-linux-1"><i class="fa fa-check"></i><b>3.12.1</b> Installing Red Hat Enterprise Linux</a></li>
+<li class="chapter" data-level="3.12.2" data-path="rh134.html"><a href="rh134.html#automating-installation-with-kickstart"><i class="fa fa-check"></i><b>3.12.2</b> Automating Installation with Kickstart</a></li>
+<li class="chapter" data-level="3.12.3" data-path="rh134.html"><a href="rh134.html#installing-and-configuring-virtual-machine"><i class="fa fa-check"></i><b>3.12.3</b> Installing and Configuring Virtual Machine</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="rh134.html"><a href="rh134.html#running-containers"><i class="fa fa-check"></i><b>3.13</b> Running Containers</a><ul>
+<li class="chapter" data-level="3.13.1" data-path="rh134.html"><a href="rh134.html#intro-1"><i class="fa fa-check"></i><b>3.13.1</b> Intro</a></li>
+<li class="chapter" data-level="3.13.2" data-path="rh134.html"><a href="rh134.html#running-a-basic-conatiner"><i class="fa fa-check"></i><b>3.13.2</b> Running a Basic Conatiner</a></li>
+<li class="chapter" data-level="3.13.3" data-path="rh134.html"><a href="rh134.html#finding-and-managing-container-images"><i class="fa fa-check"></i><b>3.13.3</b> Finding and Managing Container Images</a></li>
+<li class="chapter" data-level="3.13.4" data-path="rh134.html"><a href="rh134.html#performing-advanced-container-management"><i class="fa fa-check"></i><b>3.13.4</b> Performing Advanced Container Management</a></li>
+<li class="chapter" data-level="3.13.5" data-path="rh134.html"><a href="rh134.html#attaching-persistent-storage-to-a-container"><i class="fa fa-check"></i><b>3.13.5</b> Attaching Persistent Storage to a Container</a></li>
+<li class="chapter" data-level="3.13.6" data-path="rh134.html"><a href="rh134.html#managing-containers-as-service"><i class="fa fa-check"></i><b>3.13.6</b> Managing Containers as Service</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -1668,9 +1686,9 @@ graphical.target
 <li>System will presents a root shell</li>
 <li>Change the root file system to read/write <code>switch_root:/# mount -o remount,rw /sysroot</code></li>
 <li>Switch into a <strong>chroot</strong> <code>switch_root:/# chroot /sysroot</code></li>
-<li>Set the new PWD <code>passwd root</code></li>
+<li>Set the new password <code>passwd root</code></li>
 <li>run <code>sh-4.4# touch /.autorelabel</code> to include <strong>/etc/shadow</strong></li>
-<li>Exit to system continue the boot</li>
+<li>Exit;Exit to system continue the boot</li>
 </ul>
 <p><strong>Option 3</strong></p>
 <ul>
@@ -1679,14 +1697,437 @@ graphical.target
 <li>Move the cursor to the kernel</li>
 <li>Press <strong>e</strong> to edit</li>
 <li>Move the cursor to kernel command line, starting with <strong>linux</strong></li>
-<li>Enable the debug using <code>systemctl enable debug-shell.service</code> or during boot <code>systemd.unit=debig.target</code></li>
-<li>Append <code>systemd.unit=rescue.target</code> or <code>systemd.unit=emergency.target</code>
-<ul>
-<li>Emergency keep the root file system as read only, remount as read write <code>mount -o remount,rw /</code></li>
-</ul></li>
+<li>Enable the debug using adding <code>systemd.debug-shell</code> option</li>
+<li>Press Ctrl+x to boot</li>
+<li>On login page <strong>Crtl+Alt+F9</strong> and we will be on root shell</li>
 <li>Change the password</li>
-<li>Remove the debug <code>systemctl stop debug-shell.service,</code></li>
+<li>Remove the debug <code>sudo systemctl stop debug-shell.service</code></li>
 </ul>
+</div>
+<div id="repairing-file-system-issues-at-boot" class="section level3">
+<h3><span class="header-section-number">3.10.3</span> Repairing File system Issues at Boot</h3>
+<blockquote>
+<p>Errors in <strong>/etc/fstab</strong> and corrupt file systems can stop a system from booting.</p>
+</blockquote>
+<p>Common File system issues:</p>
+<ul>
+<li>Corrupt file system</li>
+<li>Nonexistent device or UUID referenced in /etc/fstab</li>
+<li>Nonexistent mount point in / etc/fstab</li>
+<li>Incorrect mount option specified in /etc/fstab</li>
+</ul>
+</div>
+</div>
+<div id="managing-network-security" class="section level2">
+<h2><span class="header-section-number">3.11</span> Managing Network Security</h2>
+<div id="managing-server-firewall" class="section level3">
+<h3><span class="header-section-number">3.11.1</span> Managing Server Firewall</h3>
+<ul>
+<li><p><strong>netfilter</strong> allows other kernel modules to interface with kernel’s network stack. Any incoming, outgoing, or forwarded network packet can be inspected, modified, dropped, or routed programmatically before reaching user space components or applications.</p></li>
+<li><p><strong>nftables</strong> : a new filter and packet classification subsystem that has enhanced portions of netfilter’s code. Nftables uses the single <strong>nft</strong> user-space utility, allowing all protocol management to occur through a single interface, eliminating historical contention caused by diverse front ends and multiple netfilter interfaces.</p></li>
+<li><p><strong>firewalld</strong> : a dynamic firewall manager. With firewalld, firewall management is simplified by classifying all network traffic into zones. Each zone has its own list of ports and services that are either open or closed.</p></li>
+</ul>
+<p><strong>Pre-defined Zones</strong></p>
+<p><em>all zones permit any incoming traffic which is part of a communication initiated by the system, and all outgoing traffic</em></p>
+<ul>
+<li>trusted</li>
+<li>home</li>
+<li>internal</li>
+<li>work</li>
+<li>public</li>
+<li>external</li>
+<li>dmz</li>
+<li>block</li>
+<li>drop</li>
+</ul>
+<p><strong>Pre-defined Services</strong></p>
+<p><em>These service definitions help you identify particular network services to configure.</em></p>
+<ul>
+<li><p>ssh</p></li>
+<li><p>dhcpv6-client</p></li>
+<li><p>ipp-client</p></li>
+<li><p>samba-client</p></li>
+<li><p>mdns</p></li>
+<li><p>To list services:</p></li>
+</ul>
+<pre><code>firewall-cmd --get-services</code></pre>
+<p><strong>Configure the Firewall from the Command Line</strong></p>
+<p><strong>firwewall-cmd</strong> interacts with <strong>firewalld</strong> dynamic firewall manager, most of commands will work on the runtime config, unless the <strong>–permanent</strong> option is specified, we also must activate the setting using <strong>firewall-cmd –reload</strong></p>
+<p>Some commanda:</p>
+<ul>
+<li>–get-default-zone : query the current default zone</li>
+<li>–set-default-zone=ZONE</li>
+<li>–get-zones</li>
+<li>–get-active-zones</li>
+<li>–add-source=CIDR [–zone=ZONE]</li>
+<li>–remove-source=CIDR [–zone=ZONE]</li>
+<li>–add-interface=INTERFACE [–zone=ZONE]</li>
+<li>—change-interface=INTERFACE [–zone=ZONE]</li>
+<li>–list-all [–zone=ZONE]</li>
+<li>–list-all-zones</li>
+<li>–reload</li>
+</ul>
+<p>Sample of commands setting the default zone to <strong>dmz</strong>, assign all traffic coming from the <strong>192.168.0.0/24</strong> network to the <strong>internal</strong> zone, and open the network ports from the <strong>mysql</strong> service on the <strong>internal</strong> zone</p>
+<pre><code>[root@host ~]# firewall-cmd --set-default-zone=dmz
+[root@host ~]# firewall-cmd --permanent --zone=internal --add-source=192.168.0.0/24
+[root@host ~]# firewall-cmd --permanent --zone=internal --add-service=mysql
+[root@host ~]# firewall-cmd --reload</code></pre>
+</div>
+<div id="controlling-selinux-port-labeling" class="section level3">
+<h3><span class="header-section-number">3.11.2</span> Controlling SELinux Port Labeling</h3>
+<blockquote>
+<p>One of the methods that SELinux uses for controlling network traffic is labeling network ports</p>
+</blockquote>
+<ul>
+<li>Get list of all current port label assignements</li>
+</ul>
+<pre><code>semanage port -l</code></pre>
+<ul>
+<li>To add a port to an existing port label (type)</li>
+</ul>
+<pre><code>semanage port -a -t port_label -p tcp|udp PORTNUMBER</code></pre>
+<ul>
+<li>To allow a gopher service to listen on port 71/TCP</li>
+</ul>
+<pre><code>semanage port -a -t gopher_port_t -p tcp 71</code></pre>
+<ul>
+<li>To remove the binding of port 71/TCP to gopher_port_t:</li>
+</ul>
+<pre><code>semanage port -d -t gopher_port_t -p tcp 71</code></pre>
+<ul>
+<li>To view local changes to the default policy</li>
+</ul>
+<pre><code>semanage port -l -C</code></pre>
+<ul>
+<li>To modify port 71/TCP from gopher_port_t to http_port_t</li>
+</ul>
+<pre><code>semanage port -m -t http_port_t -p tcp 71</code></pre>
+<ul>
+<li>Service specific SELinux man pages found in the <em>selinux-policy-doc</em> package include
+documentation on SELinux types, booleans, and port types. If these man pages are
+not yet installed on your system, follow this procedure:</li>
+</ul>
+<pre><code>[root@host ~]# yum -y install selinux-policy-doc
+[root@host ~]# man -k _selinux</code></pre>
+</div>
+</div>
+<div id="installing-red-hat-enterprise-linux" class="section level2">
+<h2><span class="header-section-number">3.12</span> Installing Red Hat Enterprise Linux</h2>
+<div id="installing-red-hat-enterprise-linux-1" class="section level3">
+<h3><span class="header-section-number">3.12.1</span> Installing Red Hat Enterprise Linux</h3>
+<p>Supported processor architectures: x86 64-bit (AMDand Intel), IBM Power Systems (Little Endian), IBM Z, and ARM 64-bit.</p>
+<p>After downloading, create bootable installation media based on the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#making-media_preparing-for-your-installation">instructions</a></p>
+</div>
+<div id="automating-installation-with-kickstart" class="section level3">
+<h3><span class="header-section-number">3.12.2</span> Automating Installation with Kickstart</h3>
+<ul>
+<li>Text file with specification of how the machine should be configured</li>
+<li>Using <em>Kickstart</em>, you specify everything Anaconda needs to complete an installation, including
+disk partitioning, network interface configuration, package selection, and other parameters, in a
+Kickstart text file.</li>
+<li>The <em>%packages</em> section specifies the software to be installed on the target system</li>
+<li>There are two additional sections, %pre and %post, which contain shell scripting commands that further configure the system.</li>
+<li>You must specify the primary Kickstart commands before the <em>%pre</em>, <em>%post</em>, and <em>%packages</em>
+sections, but otherwise, you can place these sections in any order in the file</li>
+</ul>
+<p><em>Sample:</em></p>
+<pre><code>#version=RHEL8
+ignoredisk --only-use=vda
+# System bootloader configuration
+bootloader --append=&quot;console=ttyS0 console=ttyS0,115200n8 no_timer_check
+net.ifnames=0 crashkernel=auto&quot; --location=mbr --timeout=1 --boot-drive=vda
+# Clear the Master Boot Record
+zerombr
+# Partition clearing information
+clearpart --all --initlabel
+# Use text mode install
+text
+repo --name=&quot;appstream&quot; --baseurl=http://classroom.example.com/content/rhel8.2/
+x86_64/dvd/AppStream/
+# Use network installation
+url --url=&quot;http://classroom.example.com/content/rhel8.2/x86_64/dvd/&quot;
+# Keyboard layouts
+# old format: keyboard us
+
+# new format:
+keyboard --vckeymap=us --xlayouts=&#39;&#39;
+# System language
+lang en_US.UTF-8
+# Root password
+rootpw --plaintext redhat
+# System authorization information
+auth --enableshadow --passalgo=sha512
+# SELinux configuration
+selinux --enforcing
+firstboot --disable
+# Do not configure the X Window System
+skipx
+# System services
+services --disabled=&quot;kdump,rhsmcertd&quot; --enabled=&quot;sshd,rngd,chronyd&quot;
+# System timezone
+timezone America/New_York --isUtc
+# Disk partitioning information
+part / --fstype=&quot;xfs&quot; --ondisk=vda --size=10000
+
+%packages
+@core
+chrony
+cloud-init
+dracut-config-generic
+dracut-norescue
+firewalld
+grub2
+kernel
+rsync
+tar
+-plymouth
+%end
+
+
+%post --erroronfail
+# For cloud images, &#39;eth0&#39; _is_ the predictable device name, since
+# we don&#39;t want to be tied to specific virtual (!) hardware
+rm -f /etc/udev/rules.d/70*
+ln -s /dev/null /etc/udev/rules.d/80-net-name-slot.rules
+# simple eth0 config, again not hard-coded to the build hardware
+cat &gt; /etc/sysconfig/network-scripts/ifcfg-eth0 &lt;&lt; EOF
+DEVICE=&quot;eth0&quot;
+BOOTPROTO=&quot;dhcp&quot;
+ONBOOT=&quot;yes&quot;
+TYPE=&quot;Ethernet&quot;
+USERCTL=&quot;yes&quot;
+PEERDNS=&quot;yes&quot;
+IPV6INIT=&quot;no&quot;
+EOF
+%end
+</code></pre>
+<ul>
+<li><p>The <a href="https://access.redhat.com/labs/kickstartconfig/">Kickstart Generator website</a> at presents dialog boxes for user inputs, and creates a Kickstart directives text file with the user’s choices. Each dialog box corresponds to the configurable items in the
+Anaconda installer.</p></li>
+<li><p><strong>ksvalidator</strong> is a utility that checks for syntax errors in a Kickstart file. The <em>pykickstart</em> package provides ksvalidator.</p>
+<ul>
+<li>To find the provides of <strong>ksvalidation</strong></li>
+</ul>
+<pre><code>yum provides */ksvalidator</code></pre>
+<ul>
+<li>We will see the pykickstart and install</li>
+</ul>
+<pre><code>yum -y install pykickstart</code></pre>
+<ul>
+<li>Checking for packages that have the kickstart in the name</li>
+</ul>
+<pre><code>rpm -qad &#39;*kickstart&#39;
+
+...
+...
+/usr/share/doc/python3-kickstart/kickstart-docs.txt
+</code></pre>
+<p><em>In this file <strong>kickstart-docs.txt</strong> we going to have all docs about kickstart</em></p></li>
+<li><p>To boot anaconda and point it to the kickstart file, press <strong>TAB</strong> and add <strong>inst.ks=LOCATION</strong></p></li>
+</ul>
+</div>
+<div id="installing-and-configuring-virtual-machine" class="section level3">
+<h3><span class="header-section-number">3.12.3</span> Installing and Configuring Virtual Machine</h3>
+<blockquote>
+<p>Red Hat Enterprise Linux 8 supports KVM (Kernel-based Virtual Machine), a full virtualization
+solution built into the standard Linux kernel. KVM can run multiple Windows and Linux guest
+operating systems</p>
+</blockquote>
+<p><img src="img/kvm.png" /><!-- -->
+<br></p>
+<ul>
+<li><strong>virsh</strong> command is used to manage KVM</li>
+<li><strong>Red Hat Virtualization (RHV)</strong> provides a centralized web interface that allows administrators to manage an entire virtual infrastructure</li>
+<li><strong>Red Hat OpenStack Platform (RHOSP)</strong> provides the foundation to create, deploy, and scale a
+public or a private cloud</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Install the virtualizaation tools</li>
+</ul>
+<pre><code>yum module list virt
+yum module install virt</code></pre>
+<ul>
+<li>Verify the system requirements</li>
+</ul>
+<pre><code>virt-host-validate</code></pre>
+<p><br></p>
+<p><strong>To Manage virtual machines with cockpit</strong></p>
+<ul>
+<li>Install the <strong>cockpit-machines</strong> package to add the Virtual Machines menu to Cockpit.</li>
+</ul>
+<pre><code>yum install cockpit-machines</code></pre>
+<ul>
+<li>Start and enable cockpit</li>
+</ul>
+<pre><code>systemctl enable --now cockpit.socket</code></pre>
+</div>
+</div>
+<div id="running-containers" class="section level2">
+<h2><span class="header-section-number">3.13</span> Running Containers</h2>
+<div id="intro-1" class="section level3">
+<h3><span class="header-section-number">3.13.1</span> Intro</h3>
+<p>Containers and Virtual Machines are different in the way they interact with hardware and the
+underlying operating system</p>
+<p><img src="img/container.png" /><!-- --></p>
+<p><strong>Virtualization</strong>:</p>
+<ul>
+<li>Enables multiple operating systems to run simultaneously on a single hardware platform.</li>
+<li>Uses a hypervisor to divide hardware into multiple virtual hardware systems, allowing multiple operating systems to run side by side</li>
+<li>Requires a complete operating system environment to support the application</li>
+</ul>
+<p><strong>Containers</strong>:</p>
+<ul>
+<li>Run directly on the operating system, sharing hardware and OS resources across all containers
+on the system. This enables applications to stay lightweight and run swiftly in parallel.</li>
+<li>Share the same operating system kernel, isolate the containerized application processes from
+the rest of the system, and use any software compatible with that kernel</li>
+<li>Require far fewer hardware resources than virtual machines, which also makes them quick to
+start and stop and reduces storage requirements</li>
+</ul>
+<p><strong>Running Containers from Container Images</strong></p>
+<ul>
+<li>Container images are unchangeable, or immutable, files that include all the required code and dependencies to run a container</li>
+<li>Container images are built according to specifications, such as the Open Container Initiative (OCI) image format specification</li>
+</ul>
+<p><strong>Managing Containers with Podman</strong></p>
+<ul>
+<li><strong>podman</strong> : manage containers and container image</li>
+<li><strong>skopeo</strong> : used to inspect, copy, delete and sign images</li>
+<li><strong>buildah</strong>: used to create new container images</li>
+</ul>
+<p><em>These tools are compatible with the Open Container Initiative (OCI). They can be used to manage any Linux containers created by OCI-compatible container engines, such as Docker</em></p>
+</div>
+<div id="running-a-basic-conatiner" class="section level3">
+<h3><span class="header-section-number">3.13.2</span> Running a Basic Conatiner</h3>
+<p>The Red Hat Container Catalog (<a href="https://access.redhat.com/containers" class="uri">https://access.redhat.com/containers</a>) provides a web-based interface that you can use to search these registries for certified content.</p>
+<ul>
+<li>The Container naming conventions <strong>registry_name/user_name/image_name:tag</strong>
+<ul>
+<li><strong>registry_name</strong> : name of the registry storing the image</li>
+<li><strong>user_name</strong> : represents the user or organization to which the image belongs</li>
+<li><strong>image_name</strong> : must be unique in the user namespace</li>
+<li><strong>tag</strong> : image version</li>
+</ul></li>
+<li>Installing Container Managemnt Tools</li>
+</ul>
+<pre><code>[root@host ~]# yum module install container-tools</code></pre>
+<ul>
+<li>To pull a container image</li>
+</ul>
+<pre><code>podman pull registry.access.redhat.com/ubi8/ubi:latest</code></pre>
+<ul>
+<li>To retrieval, podman stores images</li>
+</ul>
+<pre><code>podman images</code></pre>
+<ul>
+<li>To run a conatiner from image</li>
+</ul>
+<pre><code>podman run -it registry.access.redhat.com/ubi8/ubi:latest</code></pre>
+<ul>
+<li>To run and delete the image after use using <strong>podman run –rm</strong></li>
+</ul>
+<pre><code>[user@host ~]$ podman run --rm registry.access.redhat.com/ubi8/ubi cat /etc/os-release</code></pre>
+</div>
+<div id="finding-and-managing-container-images" class="section level3">
+<h3><span class="header-section-number">3.13.3</span> Finding and Managing Container Images</h3>
+<p>Podman uses a registreis.conf file :</p>
+<pre><code>grep ^[^#] /etc/containers/registreis.conf</code></pre>
+<ul>
+<li><strong>podman info</strong> command displays configuration information for Podman</li>
+</ul>
+<pre><code>podman info</code></pre>
+<ul>
+<li><p>Search command to search conatiner registreis for a specific container image</p>
+<ul>
+<li>–no-trunc : option to see longer image descriptions</li>
+</ul></li>
+</ul>
+<pre><code>podman search registry.redhat.io/rhel8</code></pre>
+<ul>
+<li>Inspect images</li>
+</ul>
+<pre><code>skopeo inspect docker://registry.redhat.io/rhel8/python-36
+
+podman inspect registry.redhat.io/rhel8/python-36</code></pre>
+<ul>
+<li>remove image</li>
+</ul>
+<pre><code>podman rmi registry.redhat.io/rhel8/python-36:latest</code></pre>
+</div>
+<div id="performing-advanced-container-management" class="section level3">
+<h3><span class="header-section-number">3.13.4</span> Performing Advanced Container Management</h3>
+<ul>
+<li>Mapping Container Hosts Ports to the container using <code>-p</code></li>
+</ul>
+<pre><code>[user@host ~]$ podman run -d -p 8000:8080 registry.redhat.io/rhel8/httpd-24</code></pre>
+<ul>
+<li>List the ports of cntainer</li>
+</ul>
+<pre><code>[user@host ~]$ podman port -a</code></pre>
+<ul>
+<li>Make sure that firewall on container allow external clients</li>
+</ul>
+<pre><code>[root@host ~]# firewall-cmd --add-port=8000/tcp</code></pre>
+<ul>
+<li>Check the logs of container</li>
+</ul>
+<pre><code>podman logs &lt;container id&gt;</code></pre>
+<ul>
+<li>Stop / restart</li>
+</ul>
+<pre><code>podman [stop | restart] &lt;container id&gt;</code></pre>
+<ul>
+<li>Delete container</li>
+</ul>
+<pre><code>podman run &lt;container id&gt;</code></pre>
+<ul>
+<li>Passing parameters with <code>-e</code>, <code>-d</code> to detach, <code>-p</code> to specify ports</li>
+</ul>
+<pre><code>odman run -d --name container_name -e MYSQL_USER=user_name -e MYSQL_PASSWORD=user_password -e MYSQL_DATABASE=database_name -e MYSQL_ROOT_PASSWORD=mysql_root_password -p 3306:3306 registry.redhat.io/rhel8/mariadb-103:1-102
+
+# checking
+mysql -h127.0.0.1 -udupsy -pbongle -P3306
+show databases;</code></pre>
+</div>
+<div id="attaching-persistent-storage-to-a-container" class="section level3">
+<h3><span class="header-section-number">3.13.5</span> Attaching Persistent Storage to a Container</h3>
+<ul>
+<li>Mounting Volume</li>
+</ul>
+<pre><code>--volume host_dir:container_dir:Z</code></pre>
+<p>For example, to use the <strong>/home/user/dbfiles</strong> host directory for MariaDB database files as <strong>/var/lib/mysql</strong> inside the container, use the following command. The following podman run
+command is very long and should be entered as a single line.</p>
+<pre><code>podman run -d --name mydb -v /home/user/dbfiles:/var/lib/mysql:Z -e MYSQL_USER=user -e MYSQL_PASSWORD=redhat -e MYSQL_DATABASE=inventory registry.redhat.io/rhel8/mariadb-103:1-102</code></pre>
+<p>The dir must have the SELinux context <strong>container_file_t</strong> mke sure to use <code>:Z</code></p>
+</div>
+<div id="managing-containers-as-service" class="section level3">
+<h3><span class="header-section-number">3.13.6</span> Managing Containers as Service</h3>
+<ul>
+<li>Creaate a dir to store the unit files</li>
+</ul>
+<pre><code>mkdir -pv ~/.config/systemd/user/</code></pre>
+<ul>
+<li>use <code>--user</code> to control new user services</li>
+</ul>
+<pre><code>[user@host ~]$ ls ~/.config/systemd/user/
+myapp.service
+
+[user@host ~]$ systemctl --user daemon-reload
+[user@host ~]$ systemctl --user enable myapp.service
+[user@host ~]$ systemctl --user start myapp.service
+</code></pre>
+<ul>
+<li>Use <strong>loginctl</strong> to enable and disable the services to start with the server and stop during shutdown</li>
+</ul>
+<pre><code>[user@host ~]$ loginctl enable-linger
+[user@host ~]$ loginctl show-user user
+...output omitted...
+Linger=yes
+[user@host ~]$ loginctl disable-linger
+[user@host ~]$ loginctl show-user user
+...output omitted...
+Linger=n</code></pre>
 
 </div>
 </div>

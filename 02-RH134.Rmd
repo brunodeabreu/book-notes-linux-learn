@@ -2553,7 +2553,7 @@ podman run <container id>
 * Passing parameters with `-e`, `-d` to detach, `-p` to specify ports
 
 ```
-odman run -d --name container_name -e MYSQL_USER=user_name -e MYSQL_PASSWORD=user_password -e MYSQL_DATABASE=database_name -e MYSQL_ROOT_PASSWORD=mysql_root_password -p 3306:3306 registry.redhat.io/rhel8/mariadb-103:1-102
+podman run -d --name container_name -e MYSQL_USER=user_name -e MYSQL_PASSWORD=user_password -e MYSQL_DATABASE=database_name -e MYSQL_ROOT_PASSWORD=mysql_root_password -p 3306:3306 registry.redhat.io/rhel8/mariadb-103:1-102
 
 # checking
 mysql -h127.0.0.1 -udupsy -pbongle -P3306

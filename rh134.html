@@ -24,7 +24,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-10-05" />
+<meta name="date" content="2021-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2084,7 +2084,7 @@ podman inspect registry.redhat.io/rhel8/python-36</code></pre>
 <ul>
 <li>Passing parameters with <code>-e</code>, <code>-d</code> to detach, <code>-p</code> to specify ports</li>
 </ul>
-<pre><code>odman run -d --name container_name -e MYSQL_USER=user_name -e MYSQL_PASSWORD=user_password -e MYSQL_DATABASE=database_name -e MYSQL_ROOT_PASSWORD=mysql_root_password -p 3306:3306 registry.redhat.io/rhel8/mariadb-103:1-102
+<pre><code>podman run -d --name container_name -e MYSQL_USER=user_name -e MYSQL_PASSWORD=user_password -e MYSQL_DATABASE=database_name -e MYSQL_ROOT_PASSWORD=mysql_root_password -p 3306:3306 registry.redhat.io/rhel8/mariadb-103:1-102
 
 # checking
 mysql -h127.0.0.1 -udupsy -pbongle -P3306

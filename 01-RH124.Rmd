@@ -1272,6 +1272,7 @@ ip a
  * IPV4 : **inet 192.168.15.8/24 brd 192.168.15.255 scope global dynamic **
  
  Commands
+ 
  * PING tool for IPV6 : `ping6 <ipv6>%<interface>`
  * Show IPv4 table : `ip route`
  * Show IPv6 table : `ip -6 route`
@@ -2055,6 +2056,10 @@ sudo insights-client --register
 ```
 
 3. Go to insights dashboard [cloud.readhat.com/insight](cloud.readhat.com/insight)
+
+
+
+
 
 
 

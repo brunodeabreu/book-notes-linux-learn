@@ -318,7 +318,7 @@ watch atq
 Basic commands : 
 
   * `crontab -l` : list the jobs for the current user
-  * `crontab -r`` : Remove all jobs from current user
+  * `crontab -r` : Remove all jobs from current user
   * `crontab -e` : Edit jobs
   * `crontab <filename>` : Remove all jobs and replace with the job read from filename, if no file is specified *stdin* is used
 
@@ -1249,20 +1249,24 @@ Using Logical volumes is easier to manage disk space, we can allocate to logical
 LVM Definitions
 
 _Physical devices_
+
   * Storage devices used to save data stored in a lofical volume
   * Could be a disk partition, whole disk, RAID arrays or SAN Disk
   * Device must be initialized as an LVM
   
 _Physical volumes (PVs)_
+
   * "Physical" storage used with LVM
   * We must initilize a device as a physical volume before use as LVM
   * PV can only be allocated to a single VG
   
 _Volume group (VGs)_
+
   * **Storage pool** made up of one or more physical volumes
   * A VG can consiste of unused space an any number of logical Volumes
   
 _Logical volumes (LVs)_
+
   * Create from free physical extents in a volume group and provide the storage used by applications, users and OS
   * Collection of logical extents (LEs), which map to physical extents
   
@@ -2613,3 +2617,4 @@ Linger=yes
 ...output omitted...
 Linger=n
 ```
+

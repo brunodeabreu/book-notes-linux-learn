@@ -24,7 +24,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-10-08" />
+<meta name="date" content="2021-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -508,7 +508,7 @@ zoocyst
 <p>Basic commands :</p>
 <ul>
 <li><code>crontab -l</code> : list the jobs for the current user</li>
-<li>`crontab -r`` : Remove all jobs from current user</li>
+<li><code>crontab -r</code> : Remove all jobs from current user</li>
 <li><code>crontab -e</code> : Edit jobs</li>
 <li><code>crontab &lt;filename&gt;</code> : Remove all jobs and replace with the job read from filename, if no file is specified <em>stdin</em> is used</li>
 </ul>
@@ -1176,20 +1176,28 @@ swapon -s
 <h3><span class="header-section-number">3.7.1</span> Creating Logical Volumes</h3>
 <p>Using Logical volumes is easier to manage disk space, we can allocate to logical volume free space from volume group and file system can be resized</p>
 <p>LVM Definitions</p>
-<p><em>Physical devices</em>
-* Storage devices used to save data stored in a lofical volume
-* Could be a disk partition, whole disk, RAID arrays or SAN Disk
-* Device must be initialized as an LVM</p>
-<p><em>Physical volumes (PVs)</em>
-* “Physical” storage used with LVM
-* We must initilize a device as a physical volume before use as LVM
-* PV can only be allocated to a single VG</p>
-<p><em>Volume group (VGs)</em>
-* <strong>Storage pool</strong> made up of one or more physical volumes
-* A VG can consiste of unused space an any number of logical Volumes</p>
-<p><em>Logical volumes (LVs)</em>
-* Create from free physical extents in a volume group and provide the storage used by applications, users and OS
-* Collection of logical extents (LEs), which map to physical extents</p>
+<p><em>Physical devices</em></p>
+<ul>
+<li>Storage devices used to save data stored in a lofical volume</li>
+<li>Could be a disk partition, whole disk, RAID arrays or SAN Disk</li>
+<li>Device must be initialized as an LVM</li>
+</ul>
+<p><em>Physical volumes (PVs)</em></p>
+<ul>
+<li>“Physical” storage used with LVM</li>
+<li>We must initilize a device as a physical volume before use as LVM</li>
+<li>PV can only be allocated to a single VG</li>
+</ul>
+<p><em>Volume group (VGs)</em></p>
+<ul>
+<li><strong>Storage pool</strong> made up of one or more physical volumes</li>
+<li>A VG can consiste of unused space an any number of logical Volumes</li>
+</ul>
+<p><em>Logical volumes (LVs)</em></p>
+<ul>
+<li>Create from free physical extents in a volume group and provide the storage used by applications, users and OS</li>
+<li>Collection of logical extents (LEs), which map to physical extents</li>
+</ul>
 <p><img src="img/logical_volumes.png" /><!-- --></p>
 <p><br></p>
 <p><strong>Steps to create logical volumes</strong></p>

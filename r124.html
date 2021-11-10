@@ -24,7 +24,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-10-08" />
+<meta name="date" content="2021-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -362,9 +362,9 @@ ls --all .</code></pre>
 <span id="cb5-8"><a href="r124.html#cb5-8"></a><span class="co"># Executing one command after the other</span></span>
 <span id="cb5-9"><a href="r124.html#cb5-9"></a><span class="fu">date</span> +%A<span class="kw">;</span> <span class="fu">uname</span> -r<span class="kw">;</span> <span class="fu">whoami</span></span></code></pre></div>
 <pre><code>## runner
-## 2021-10-08
-## Friday
-## 19.6.0
+## 2021-11-10
+## Wednesday
+## 20.6.0
 ## runner</code></pre>
 <p><strong>Conditional commands execution <code>&amp;&amp;</code></strong></p>
 <blockquote>
@@ -379,13 +379,13 @@ ls --all .</code></pre>
 <span id="cb7-6"><a href="r124.html#cb7-6"></a><span class="bu">echo</span></span>
 <span id="cb7-7"><a href="r124.html#cb7-7"></a><span class="co"># If with or</span></span>
 <span id="cb7-8"><a href="r124.html#cb7-8"></a><span class="ex">ate</span> +%F <span class="kw">||</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span></code></pre></div>
-<pre><code>## 2021-10-08
-## 19.6.0
+<pre><code>## 2021-11-10
+## 20.6.0
 ## runner
 ## 
 ## 
 ## bash: line 7: ate: command not found
-## 19.6.0
+## 20.6.0
 ## runner</code></pre>
 <p><strong>command <code>history</code></strong></p>
 <ul>
@@ -404,7 +404,9 @@ ls --all .</code></pre>
 <pre><code>## /etc/issue: cannot open `/etc/issue&#39; (No such file or directory)
 ## 
 ## 
-## /bin/bash: Mach-O 64-bit executable x86_64</code></pre>
+## /bin/bash: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64e:Mach-O 64-bit executable arm64e]
+## /bin/bash (for architecture x86_64): Mach-O 64-bit executable x86_64
+## /bin/bash (for architecture arm64e): Mach-O 64-bit executable arm64e</code></pre>
 <p><strong>check content of file</strong></p>
 <ul>
 <li><code>cat</code> or <code>tac</code></li>
@@ -484,7 +486,7 @@ cat etc/issue</code></pre>
 * date &amp; time stamps
 * paths to data on file system</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="r124.html#cb15-1"></a><span class="fu">ls</span> -li LICENSE</span></code></pre></div>
-<pre><code>## 12896213162 -rw-r--r--  1 runner  staff  6556 Oct  8 20:50 LICENSE</code></pre>
+<pre><code>## 12893758892 -rw-r--r--  1 runner  staff  6556 Nov 10 17:31 LICENSE</code></pre>
 <ul>
 <li>40652348 : file ID (<em>inode</em>)</li>
 <li>1 : means one name using this iNode right now</li>
@@ -493,8 +495,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="r124.html#cb17-1"></a><span class="fu">ln</span> LICENSE LIC2</span>
 <span id="cb17-2"><a href="r124.html#cb17-2"></a><span class="fu">ls</span> -li LIC*</span></code></pre></div>
 <pre><code>## ln: LIC2: File exists
-## 12896213161 -rw-r--r--  1 runner  staff  6556 Oct  8 20:50 LIC2
-## 12896213162 -rw-r--r--  1 runner  staff  6556 Oct  8 20:50 LICENSE</code></pre>
+## 12893758891 -rw-r--r--  1 runner  staff  6556 Nov 10 17:31 LIC2
+## 12893758892 -rw-r--r--  1 runner  staff  6556 Nov 10 17:31 LICENSE</code></pre>
 <ul>
 <li>Both LIC2 and LICENSE have the same iNode but the number right now is <strong>2</strong>, not able to identify which one was create first, this is a <strong>hard link</strong></li>
 </ul>
@@ -502,8 +504,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="r124.html#cb19-1"></a><span class="fu">ln</span> -s README.md README_2.md</span>
 <span id="cb19-2"><a href="r124.html#cb19-2"></a><span class="fu">ls</span> -li READ*</span></code></pre></div>
 <pre><code>## ln: README_2.md: File exists
-## 12896213163 -rw-r--r--  1 runner  staff  741 Oct  8 20:50 README.md
-## 12896213164 lrwxr-xr-x  1 runner  staff    9 Oct  8 20:50 README_2.md -&gt; README.md</code></pre>
+## 12893758893 -rw-r--r--  1 runner  staff  741 Nov 10 17:31 README.md
+## 12893758894 lrwxr-xr-x  1 runner  staff    9 Nov 10 17:31 README_2.md -&gt; README.md</code></pre>
 <ul>
 <li>Both have different iNode number, so they are two different files, the permission there are a <code>l</code> meaning link, this is a <strong>soft link</strong>, if we delete file 3 we have a broken link</li>
 </ul>
@@ -649,7 +651,7 @@ cat etc/issue</code></pre>
 <span id="cb25-5"><a href="r124.html#cb25-5"></a><span class="co"># command substitution</span></span>
 <span id="cb25-6"><a href="r124.html#cb25-6"></a><span class="bu">echo</span> <span class="st">&quot;Today is </span><span class="va">$(</span><span class="fu">date</span> +%A<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
 <pre><code>## value
-## Today is Friday</code></pre>
+## Today is Wednesday</code></pre>
 </div>
 </div>
 <div id="help" class="section level2">
@@ -662,6 +664,10 @@ cat etc/issue</code></pre>
 </ul>
 <div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="r124.html#cb27-1"></a><span class="fu">man</span> -k cron</span></code></pre></div>
 <pre><code>## cron(8)                  - daemon to execute scheduled commands (Vixie Cron)
+## crontab(1)               - maintain crontab files for individual users (V3)
+## crontab(5)               - tables for driving cron
+## DateTime::Locale::en_FM(3pm) - Locale data examples for the English Micronesia (en-FM) locale
+## cron(8)                  - daemon to execute scheduled commands (Vixie Cron)
 ## crontab(1)               - maintain crontab files for individual users (V3)
 ## crontab(5)               - tables for driving cron</code></pre>
 <p>To go direct to a section , belo example of command to go direct to session 5</p>
@@ -723,13 +729,12 @@ ls: cannot access &#39;abc&#39;: No such file or directory
 <span id="cb36-8"><a href="r124.html#cb36-8"></a><span class="bu">echo</span></span>
 <span id="cb36-9"><a href="r124.html#cb36-9"></a><span class="co"># combine the grep with pipe</span></span>
 <span id="cb36-10"><a href="r124.html#cb36-10"></a><span class="fu">grep</span> ^[^#] /etc/resolv.conf <span class="kw">|</span> <span class="fu">wc</span> -l</span></code></pre></div>
-<pre><code>##       18 /etc/resolv.conf
+<pre><code>##       17 /etc/resolv.conf
 ## 
-## nameserver 8.8.8.8
+## nameserver 1.1.1.1
 ## nameserver 208.67.222.222
-## nameserver 8.26.56.26
 ## 
-##        3</code></pre>
+##        2</code></pre>
 <p>Another way is get the output and save on file using <code>pipe |</code> and <code>tee</code></p>
 <pre><code>find / -iname passwd 2&gt; /dev/null | tee find.out
 </code></pre>
@@ -1001,7 +1006,7 @@ Other : last 3</p>
 <span id="cb48-4"><a href="r124.html#cb48-4"></a></span>
 <span id="cb48-5"><a href="r124.html#cb48-5"></a><span class="co"># To remove sticky bit</span></span>
 <span id="cb48-6"><a href="r124.html#cb48-6"></a><span class="co">#chmod o-t dirA</span></span></code></pre></div>
-<pre><code>## drwxr-xr-x  3 runner  staff  96 Oct  8 20:51 dirA</code></pre>
+<pre><code>## drwxr-xr-x  3 runner  staff  96 Nov 10 17:32 dirA</code></pre>
 <p><em><code>s</code> : Files created on the dir will have the same owning group of dir</em></p>
 <ul>
 <li>Set grid to dirs or files <strong>g+s</strong>
@@ -1022,7 +1027,7 @@ Other : last 3</p>
 <span id="cb50-4"><a href="r124.html#cb50-4"></a></span>
 <span id="cb50-5"><a href="r124.html#cb50-5"></a><span class="co"># To remove </span></span>
 <span id="cb50-6"><a href="r124.html#cb50-6"></a><span class="co"># chmod g-s dirA</span></span></code></pre></div>
-<pre><code>## drwxr-sr-x  3 runner  staff  96 Oct  8 20:51 dirA</code></pre>
+<pre><code>## drwxr-sr-x  3 runner  staff  96 Nov 10 17:32 dirA</code></pre>
 <ul>
 <li>Set uid to files <strong>u+s</strong>
 <ul>
@@ -1115,7 +1120,7 @@ Other : last 3</p>
 <li><code>uptime</code> command review the load average</li>
 </ul>
 <div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="r124.html#cb54-1"></a><span class="fu">uptime</span></span></code></pre></div>
-<pre><code>## 20:51  up 3 mins, 1 user, load averages: 6.42 4.42 1.97</code></pre>
+<pre><code>## 17:33  up 5 mins, 1 user, load averages: 6.12 6.56 3.45</code></pre>
 <ul>
 <li>1,24 : Last min</li>
 <li>1,07 : Last 5 min</li>
@@ -1463,13 +1468,15 @@ System clock synchronized: yes
 <li>MAC : <strong>link/ether 80:fa:5b:4d:16:6d brd ff:ff:ff:ff:ff:ff</strong></li>
 <li>IPV4 : <strong>inet 192.168.15.8/24 brd 192.168.15.255 scope global dynamic </strong></li>
 </ul>
-<p>Commands
-* PING tool for IPV6 : <code>ping6 &lt;ipv6&gt;%&lt;interface&gt;</code>
-* Show IPv4 table : <code>ip route</code>
-* Show IPv6 table : <code>ip -6 route</code>
-* Show specific interface : <code>ip a s &lt;interface</code>
-* Properties of interface : <code>ip link show</code>
-* Link statistics : ip -s link show</p>
+<p>Commands</p>
+<ul>
+<li>PING tool for IPV6 : <code>ping6 &lt;ipv6&gt;%&lt;interface&gt;</code></li>
+<li>Show IPv4 table : <code>ip route</code></li>
+<li>Show IPv6 table : <code>ip -6 route</code></li>
+<li>Show specific interface : <code>ip a s &lt;interface</code></li>
+<li>Properties of interface : <code>ip link show</code></li>
+<li>Link statistics : ip -s link show</li>
+</ul>
 <p><strong>Files</strong></p>
 <ul>
 <li><strong>/etc/hosts</strong> : There are number of names that resolve ip address</li>

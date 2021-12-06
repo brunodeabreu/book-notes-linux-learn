@@ -1,0 +1,493 @@
+#  Red Hat OpenShift I: Containers & Kubernetes - DO180
+
+
+
+## Intro to Containr
+
+A container is a set of one or more processes that are isolated from the rest of the system.
+
+Containers provide many of the same benefits as virtual machines, such as security, storage, and
+network isolation. Containers require far fewer hardware resources and are quick to start and
+terminate. They also isolate the libraries and the runtime resources (such as CPU and storage) for
+an application to minimize the impact of any OS update to the host OS.
+
+
+```{r, echo = FALSE,  out.width="90%"}
+knitr::include_graphics("img/container_vs_OS.png")
+```
+
+
+Advantages of using container:
+
+* **Low hardware footprint** : Use OS internal features to create and isolate environment, minimizing the use of cpu and memory
+* **Environment isolation** : changes made to the host OS do not affect the container
+* **Quick deployment** : no need to install the entire OS
+* **Multiple environment deployment** : all appls dependencies and environment settings are encapsulated in the container image
+* **Reusability** : container can be reused without need to set up a full OS
+
+
+### Linux Conetainer Architecture
+
+An image is a file-system bundle that container all dependencies required to execute a process, container images need to be locally available for the container runtime, below  image repositories available : 
+
+* Red Hat Container Catalog : https://registry.redhat.io
+* Docker Hub : https://hub.docker.com
+* Red Hat Quay : https://quay.io
+* Google Container Registry : https://cloud.google.com/container-registry/
+* Amazon Elastic Container Registry : https://aws.amazon.com/ecr/
+
+
+To manage the container we can use **Podman** an open source tool for managing containers and container image
+
+
+### Overview of kubernetes and OpenShift
+
+**Kubernetes** is an orchestration service that simplifies the deployment, management, and scaling of containerized applications, tje smallest unit if kunernetes is a **pod** that consist of one or more containers.
+
+Kubernets features of top of a container infra: 
+
+  * Service discovery and loading balancing : communication by a single DNS entry to each set of container, permits the load balancing across the pool of container.
+  * Horizontal scaling : Appl can scale up and down manually or automatically
+  * Self-Healing: user-defined health checks to monitor containers to restart in case of failure
+  * Automated rollout : roll updates out to appl containers, if something goes wrong kubernetes can rollback to previous interation of the deployment
+  * Secrets and configuration management : can manage the config settings fo application without rebuilding container
+  * Operators : use API to update the cluster state reacting to change in the app state
+  
+
+**Red Hat OpenShift Container Plataform (_RHOCP_)** is a set of modular components and services build on top of Kubernetes, adds the capabilities to provide PaaS platform.
+
+OpenShift features to kubernetes cluster : 
+
+  * **Itegrated developer workflow** : integrates a build in container registry, CI/CD pipeline and S2I, a tool to build artifacts from source repositories to container image
+  * **Routes** : expose service to the outside world
+  * **Metrics and logging** : Metric service and aggregated logging
+  * **Unified UI** : UI to manage the different capabilities
+
+
+
+
+
+## Creating Containerized Services
+
+
+The podman is designed to be a rootless container running as a non-root user, however we can run the container as root if necessary using sudo, but it is a risk and not recommenced.
+
+
+The container image are named based on the syntax **registry_name/user_name/image_name:tag**
+  
+  * registry_name : FQDN or the registry
+  * user_name : name of user or organization to which images belongs
+  * tag : identifies image version
+  
+  
+
+* To search an image
+
+```
+podman search <image>
+```
+
+* To download/pull an image
+
+```
+podman pull <image>
+```
+
+* To retrieve the images
+
+```
+podman images
+```
+
+
+* To run a **Hello World** container
+
+```
+[user@demo ~]$ podman run ubi8/ubi:8.3 echo 'Hello world!'
+Hello world!
+```
+
+* To start a container image as a backgroupd we can use `-d` optino and to expose a port `-p <container port>` 
+
+```
+[user@demo ~]$ podman run -d -p 8080 registry.redhat.io/rhel8/httpd-24
+
+# retrieve the local port on which the container listens
+[user@demo ~]$ podman port -l
+
+
+
+# test
+[user@demo ~]$ curl http://0.0.0.0:44389
+
+
+```
+
+
+
+* To start a bash terminal inside the container
+
+```
+[user@demo ~]$ podman run -it ubi8/ubi:8.3 /bin/bash
+```
+
+
+* Using variables with `-e` option
+
+```
+[user@demo ~]$ podman run --name mysql-custom \
+> -e MYSQL_USER=redhat -e MYSQL_PASSWORD=r3dh4t \
+> -e MYSQL_ROOT_PASSWORD=r3dh4t \
+> -d registry.redhat.io/rhel8/mysql-80
+```
+
+## Managing Containers
+
+### Container Life Cybe management with podman
+
+Podman provides a set of subcomands to create and manage containers ? 
+
+```{r, echo = FALSE,  out.width="90%"}
+knitr::include_graphics("img/podman_managing_subcommands.png")
+```
+
+Also subcommands to extract information from containers ? 
+
+
+
+```{r, echo = FALSE,  out.width="90%"}
+knitr::include_graphics("img/podman_query_subcommands.png")
+```
+
+### Creating containers
+
+Using podman run command to create containers
+
+```
+# sample 1
+[user@host ~]$ podman run registry.redhat.io/rhel8/httpd-24
+
+# sample 2
+[user@host ~]$ podman run --name my-httpd-container -d registry.redhat.io/rhel8/httpd-24
+
+
+# sammple 3
+[user@host ~]$ podman run -it registry.redhat.io/rhel8/httpd-24 /bin/bash
+
+```
+
+
+### Run commands in a container
+
+We can use `exec` option to submit the command
+
+```
+sample 2
+[user@host ~]$ podman exec 7ed6e671a600 cat /etc/hostname
+
+# sample 2  this l means latest, last container used
+[user@host ~]$ podman exec -l cat /etc/hostname
+```
+
+### Managing containers
+
+* List containers running : 
+
+```
+podman ps
+```
+
+
+* List all containers
+
+```
+podman ps -a
+```
+
+
+* Stop, start or restart a container
+
+```
+[user@host ~]$ podman stop|start|restart <container_name>
+```
+
+* Kill or remove a container
+
+```
+[user@host ~]$ podman rm|kill <container_name>
+
+```
+
+* Remove or stop all containers
+
+```
+podman rm|stop -a
+```
+
+* Format the output
+```
+[student@workstation ~]$ podman ps --format="{{.ID}} {{.Names}} {{.Status}}"
+a49dba9ff17f  mysql Up About a minute ago
+```
+
+
+### Attaching persistent storage to containers
+
+1. Create dir
+
+```
+mkdir <dir>
+```
+
+2. The user running the process in the container must be capable of writing files to the dir, for example in MYSQL the UID 27
+
+```
+podman unshare chown -R 27:27 <dir>
+```
+
+3. Apply the **container_file_t** context to allow container access
+
+```
+sudo semanage fcontext -a -t container_file_t '/home/student/dbfiles(/.*)?' 
+```
+
+4. Apply the SELinux container policy
+
+```
+sudo restorecon -Rv /home/student/dbfiles
+```
+
+
+5. Mount volume
+
+```
+[user@host ~]$ podman run -v /home/student/dbfiles:/var/lib/mysql rhmap47/mysql
+```
+
+
+
+
+
+
+### Accessing containers
+
+To manage the port we use the option `-p [<IP address>:][<host port>:]<container port>`
+
+```
+podman run -d --name apache1 -p 8080:80 registry.redhat.io/rhel8/httpd-24
+```
+
+
+* To see the port assigned
+
+```
+podman port <container name>
+```
+
+
+
+## Managing Container Images
+### Accessing Registries
+
+Image registries are services offering container images to download. They allow image creators and maintainers to store and distribute container images to public or private audiences.
+
+
+To configure registreis for podman command we need to update **/etc/containers/registries.conf**
+
+* To search :
+
+```
+[user@host ~]$ podman search [OPTIONS] <term>
+```
+
+* To authenticate
+
+```
+podman login <registry>
+```
+
+
+* Pull images
+
+```
+[user@host ~]$ podman pull [OPTIONS] [REGISTRY[:PORT]/]NAME[:TAG]
+
+[user@host ~]$ podman pull quay.io/bitnami/nginx
+```
+
+
+* List local copies
+
+```
+podman images
+```
+
+
+* Images Tags
+
+_An image tag is a mechanism to support multiple releases of the same image_
+
+```
+[user@host ~]$ podman pull registry.redhat.io/rhel8/mysql-80:1
+
+[user@host ~]$ podman run registry.redhat.io/rhel8/mysql-80:1
+```
+
+
+### Manipulating Container Images
+
+* Save and load an image
+
+Images can be saved as .tar file : 
+
+```
+# Save
+podman save [-o FILE_NAME] IMAGE_NAME[:TAG]
+podman save -o mysql.tar registry.redhat.io/rhel8/mysql-80
+
+
+#Load
+podman load [-i FILE_NAME]
+podman load -i mysql.tar
+
+```
+
+* Delete an image from local storage
+
+```
+podman rmi [OPTIONS] IMAGE [IMAGE...]
+
+# To delete all
+podman rmi -a
+```
+
+
+* To modify an image
+
+```
+[user@host ~]$ podman commit [OPTIONS] CONTAINER [REPOSITORY[:PORT]/]IMAGE_NAME[:TAG]
+```
+
+To see the difference that we have made on container we can use `podman diff <image>`
+
+
+* To commit changes
+
+```
+[user@host ~]$ podman commit mysql-basic  mysql-custom
+```
+
+
+* Tagging Images
+
+```
+podman tag [OPTIONS] IMAGE[:TAG]  [REGISTRYHOST/][USERNAME/]NAME[:TAG]
+
+# sample 1
+podman tag mysql-custom devops/mysql
+
+# sample 2
+podman tag mysql-custom devops/mysql:snapshot
+```
+
+
+* Push images to registry
+
+```
+[user@host ~]$ podman push [OPTIONS] IMAGE [DESTINATION]
+
+# sample
+[user@host ~]$ podman push quay.io/bitnami/nginx
+```
+
+* To remove tags from image
+
+```
+podman rmi devops/mysql:snapahot
+```
+
+## Creating Custom Container Images
+
+### Designing Custom Container Images
+
+One method to create a container image is modify the existing one to meet the requirements of the application. **Containerfiles** are another option that make this task easy to create, share and control the image.
+
+* **Red Hat Software Collections Library (RHSCL)** : solution for developers who require the latest development tools that usually do not fit the standard RHEL release schedule.
+
+* **Red Hat Enterprise Linux (RHEL)** : stable environment for enterprise applications.
+
+
+We can finding **Containerfiles** from Red HAt Collections Library, RHSCL is the source of most container images provided by the Red Hat image registry for use by RHEL Atomic Host and OpenShift Container Platform customers.
+
+Also **Red Hat Container Catalog RHCC** is a repository of reliable, tested, certified, and curated collection of container images built on versions of Red Hat Enterprise Linux (RHEL) and related systems
+
+**Quay.io** is an advanced container repository from CoreOS, we can search for container images using httpds://quay.io/search
+
+**Docker Hub** is a repository that anyone can crete and share an image, need to be carreful with images from Docker Hub
+
+
+**Source-to-Image (S2I)** the OpenShift source-to-image tool is an alternative to using Containerfiles to create new containers that can be use from OpenShift or as standalone s2i utility, The S2I use the follow process to build a custom container image:
+
+1. Start a container from a base container image called the builder image.
+2. Fetch the application source code, usually from a Git server, and send it to the container.
+3. Build the application binary files inside the container.
+4. Save the containr, after some clean up
+### Building Custom Container images with Containerfiles
+
+A **Containerfile** is a mechanism to automate the building of container images, to build we have three steps:
+
+1. Create a working directory
+2. Write the Containerfile
+3. Build the image with Podman
+
+```
+# This is a comment line
+FROM ubi8/ubi:8.3
+LABEL description="This is a custom httpd container image"
+MAINTAINER John Doe <jdoe@xyz.com>
+RUN yum install -y httpd
+EXPOSE 80
+ENV LogLevel "info"
+ADD http://someserver.com/filename.pdf /var/www/html
+COPY ./src/ /var/www/html/
+USER apache
+ENTRYPOINT ["/usr/sbin/httpd"]
+CMD ["-D", "FOREGROUND"]
+```
+
+* `FROM` : declares that the new container image extends ubi8/ubi:8.3 container base image
+* `LABEL`: is responsible for adding generic metadata to an image
+* `MAINTAINER` : Indicates the author 
+* `RUN` : executes commands in a new layer on top of the current image
+* `EXPOSE` : indicates that the container listens on the specified network port at runtime
+* `ENV` : is responsible for defining environment variables that are available in the container
+* `ADD` : copies files or folders from a local or remote source and adds them to the container's file system, ADD also unpack local .tar files
+* `COPY` : copies files from the working directory and adds them to the container's file system
+* `USER` : specifies the username or the UID to use when running the container image for the RUN, CMD, and ENTRYPOINT instructions
+* `ENTRYOINT` : specifies the default command to execute when the image runs in a container.
+* `CMD` : provides the default arguments for the ENTRYPOINT instruction
+
+
+---
+
+**Building Image with Podman**
+
+Podman build command process the Containerfile and build a new image
+
+```
+podman build -t NAME:TAG DIR
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

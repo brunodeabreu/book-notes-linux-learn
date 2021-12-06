@@ -1,0 +1,117 @@
+# Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280
+
+
+## Describing the Red Hat OpenShift Container Plataform
+
+
+### Intro
+
+RHOCP is based on Kubernetes and allow manage container at scale, a container orchestrator platform manages a cluster service that runs multiple containerized applications .
+
+Solutions : 
+
+* **Red Hat OpenShift Container Platform** : Enterprise-ready Kubernetes environment for building, deploying and managing container-based applications n any public or private data center. We decide when update to newer releases and which addition component to enable
+
+* **Red Hat OpenShift Dedicated** : Managed OpenShift environment in a public cloud, AWS, GCP, Azure, or IBM Cloud, all features of RHOCP, however Red Hat manage the cluster, we have some control of decisions as when to update to a newer release or to install add-ons.
+
+* **Red Hat OpenShift Online** : Public container platform shared across multiple customers, Red Hat manages the cluster life cycle.
+
+* **Red Hat OpenShift Kubernetes Engine** : Subset of the features present in OpenShift, such as coreOS, CRI-O engine, web console, etc
+
+* **Red Hat Code Ready Container** : Minimal installation of OpenShift that we can run on a laptop to development and experimentation.
+
+
+
+Below the services and features of Openshift
+
+
+```{r, echo = FALSE, fig.margin=TRUE, out.width="90%"}
+knitr::include_graphics("img/openShift_features.png")
+```
+
+
+<br>
+
+**Introduction of OpenShift features**
+
+Comparing OpenShift Container Platform vs OpenShift Kubernetes Engine:
+
+```{r, echo = FALSE,  out.width="90%"}
+knitr::include_graphics("img/openShift_features_comparison.png")
+```
+
+
+**Features :** 
+
+  * **High Availability** : **etc** cluster store the state of the OpenShift Cluster and Applications
+  * **Lightweight OS** : CoreOS focuses on agility, portability and security
+  * **Load Balancing** : External via APU, HAProxy load balance for external app and internal load balance
+  * **Automating Scaling** : can adapt to increased application traffic in real time by automatically starting new containers and terminate when the load decrease.
+  * **Logging and Monitoring** : Advanced monitoring solution based on Prometheus, also advanced logging solution based on Elasticsearch.
+  * **Service Discovery** : Internal DNS, appl can rely on firendly names to find other appl and services
+  * **Storage** : Allow automatic provisioning of storage on popular cloud providers and visualization platforms
+  * **Application Management** : Automate the development and deploy, automatic build containers based on source code using Source-To-Image (_S2I_) solution.
+  * **Cluster Extensibility** : Rely on standard extension from kubernetes, Openshift packages these extensions as operators for ease of installation, update, and management. Also include Operator Lifecycle Manager (_OLM_), which facilitates the discovery, installation, and update of applications and infrastructure components packaged as operators
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+### Architecture of OpenShift
+
+OpenShift architecture is based on **declarative** the nature of kubernetes. In a declarative architecture, you change the state of the system and the system updates itself to comply with the new state.
+
+* Kubernetes cluster consists of a set of nodes that run the kubelet system service and a container
+engine.
+
+* OpenShift runs exclusively the CRI-O container engine. Some nodes are control plane nodes that run the REST API, the etcd database, and the platform controllers
+
+
+OpenShift is a Kubernetes distribution that provides many of these components already integrated and configured, and managed by operators. OpenShift also provides preinstalled applications, such as a container image registry and a web console, managed by operators.
+
+
+
+
+### Cluster Operators
+
+> Kubernetes operators are applications that invoke the Kubernetes API to manage Kubernetes resources.
+
+* Custom resources _(CR)_ : store their settings and configurations
+* Custom resource definition _(CRD)_ : the syntax of a custom resource is defined by a custom resource definition
+
+Most operators manage another application; for example, an operator that manages a database
+server.The purpose of an operator is usually to automate tasks.
+
+
+* **Operator Software Development Kit (Operator SDK)** : Golang library and source code. Also provide container image and ansible playbook examples.
+
+* **Operator Life Cycle Manager (OLM)** : Appl that manages the deployment, resource utilization, updates and deletion of operators. The OLM itself is an operator that comes preinstalled with OpenShift.
+
+
+
+<br>
+
+**OperatorHub**
+
+OperatorHub provides a web interface to discover and publish operators that follow the Operator
+Framework standards.
+
+* Red Hat Marketplace is a plataform that allow access a curated set of enterprise operators that can be deployed on OpenShit or a kubernetes cluster
+
+* OpenShift Cluster Operators : regular operators except that they are not managed by the OLM, they are managed by OpenShift Cluster Version Operators, also called as first level operator.
+
+
+
+### Verifying the Health of a Cluster
+

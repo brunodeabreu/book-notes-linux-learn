@@ -1,4 +1,4 @@
-# R124
+#  Server Administrator I - R124
 
 
 
@@ -176,13 +176,13 @@ knitr::include_graphics(rep("img/fs_hierarquia.png", 1))
 * **/etc** : _extended text configuration_ configuration files
 * **/home** : home dir for normal users
 * **/run** : runtime data going to be recreate on a reboot
-* **/var**: variable date that should survive a reboot, log files, database and website files
+* **/var**: variable data that should survive a reboot, log files, database and website files
 * **/root** : root user home dir
 * **/tmp** : accommodate temporary files, deleted by 10 days
 * **/var/tmp** : another temp dir , purge every 30 days
 
 
-### Absolute and Relative paths
+### Absolute and Relative paths  
 
 * Absolute path, is the complete path,  no ambiguity, start with `/`  : 
 
@@ -346,6 +346,11 @@ echo "Today is $(date +%A)"
 
 ```
 
+
+
+**skell**
+
+The contenct of path **/etc/skel** is automatically copied to all users
 
 
 
@@ -663,7 +668,12 @@ To create `/etc/sudoers.d/admin` file and grant all members of _admin_ group tot
 echo "%admin ALL=(ALL) ALL" >> /etc/sudoers.d/admin
 ```
 
+To create just for one user
 
+```
+echo "user ALL=(ALL) ALL" >> /etc/sudoers.d/user
+
+```
 
 
     
@@ -735,9 +745,14 @@ _Give you read and execute permission do dir but no execute on files inside the 
 chmod -R a=rX
 ```
 
-### Default permissions
+### Special permissions
 
 **Sticky bit** : _In a collaborative dir you can create files on the dir and only delete files that you have created_
+
+* `u+s` (suid) : Files executes as the user that owns the file, not the user that ran the file
+* `g+s` (guid) : file execute as the group that owner the file, files newly create in directory have their group owner set to match the group owner of the dir.
+* `o+t` (sticky): Users with write access to dir can only remove files that they own
+
 
 * Sticky bit --- directories  **o+t**
   * To set `o+t`  or  `1`
@@ -747,7 +762,7 @@ chmod -R a=rX
     * `chmod o-t <dir>` or
     * `chmod 0770 <dir>`
 
-```{bash}
+```
 # To set sticky bit
 chmod o+t dirA
 ls -ld dirA
@@ -766,7 +781,7 @@ _`s` : Files created on the dir will have the same owning group of dir_
   * To unset `g-s`
     * `chmod g-s <dir>`
 
-```{bash}
+```
 # To set
 chmod g+s dirA
 ls -ld dirA
@@ -782,7 +797,7 @@ ls -ld dirA
     * `chmod u-s <file>`
 
 
-### umask
+### Default permissions - umask
 
 * `umask` : show umask info
 * `umask 0000` : set the umask to 0000 or 777 to new dirs
@@ -797,7 +812,7 @@ To change the user umask we can update the `.bashrc` file
 
 
 
-## Monitoring and MAnaging Linux process
+## Monitoring and Managing Linux process
 
 Process state description
 
@@ -1301,6 +1316,8 @@ ip a
 
 **Tools**
 
+  * nmcli : command line tool to manage network
+  * nmtui : graphical tool to manager network
   * ip : to list ip config
   * netstat : check ports and process
   * tracepath : work similar traceourte `tracepath access.redhat.com`
@@ -1561,19 +1578,19 @@ tar -xf etc.tar etc/hosts
 
 **compression and tar**
 
-* Create tar file and compress with gzip2
+* Create tar file and compress with **gzip2**
 
 ```
 tar -czf etc-backup-$(date +%F).tar.gz /etc
 ```
 
-* Create a tar file and compress with bzip2
+* Create a tar file and compress with **bzip2**
 
 ```
 tar -cjf etc-backup-$(date +%F).tar.bz /etc
 ```
 
-* Create a tar file and compress with Xzip
+* Create a tar file and compress with **Xzip**
 
 ```
 tar -cJf etc-backup-$(date +%F).tar.xz /etc
@@ -1925,8 +1942,19 @@ yum module remove <package/module like perl>
 yum module disable perl
 ```
 
-
-
+  * To add we can use the structure
+  
+```
+[BASE]
+name=Base
+baseurl=httpd://......
+gpgcheck=0
+```
+  * Also if we have config-manager
+  
+```
+yum config-manager --add-repo <URL>
+```
 
 
 ## Accessing Linux File Systems
@@ -2013,6 +2041,7 @@ Some examples :
   * `find /home -size +10M iname "*.mkv" -exec rm -f {} \;` : find files on home with more than 10MB ending with _.mkv_ and execute rm -f on each file, similar find /home -size +10M iname "*.mkv" -delete`
   * `find /home -type f -perm /111` : find files on home that have execute permission (_111_)
   * `find /home -min -60` : find files modified in last 60min
+  * `find / -user <user_name> -exec -cp {} /<path_copy>/ \;`
 
 
 **locate**
@@ -2060,6 +2089,53 @@ sudo insights-client --register
 
 
 
+
+
+## Extra
+
+### Create 8G file disk
+
+1. Use dd command to create 8G disk file
+```
+dd if=/dev/zero of=</path/diskfile.img> bs=1M count=8192
+```
+
+2. create loop device
+```
+loseup -fP diskfile.img
+```
+
+3. list the device
+```
+losetup -a
+```
+
+4.Can use new diskfile as a device
+```
+fdisk /dev/loop0
+```
+
+### Find users wit Set UID
+
+```
+find / -perm /4000 -exec ls -l {} \ 2> /dev/null
+```
+
+
+### Show dump device
+
+
+```
+xxd -l 512 /dev/sda | less
+```
+
+
+
+### Configure labels of FS
+
+```
+tune2fs -L <label> /dev/sda<number>
+```
 
 
 

@@ -1,4 +1,4 @@
-# RH134
+#  Server Administrator II - RH134
 
 
 
@@ -1181,8 +1181,23 @@ $ blkid
     
   
   
+**Add label to FS**  
+
+
+```
+tune2fs -L <label> /dev/sda<number>
+```
+
+
+
   
-  
+**Show dump device**
+
+
+```
+xxd -l 512 /dev/sda | less
+```
+
 
 
 
@@ -1281,6 +1296,18 @@ knitr::include_graphics(rep("img/logical_volumes.png", 1))
 
 **Steps to create logical volumes**
 
+
+Summary:
+  1. Create partition
+  2. pvcreate
+  3. vgcreate
+  4. lvcreate
+  5. mkfs or mkswap
+  6. mount
+
+
+
+
 1. Use **lsblk**, **blkid** or **cat /proc/partition** to identify the devices
 
 2. Prepare the physical device
@@ -1302,10 +1329,12 @@ knitr::include_graphics(rep("img/logical_volumes.png", 1))
 4. Create the volume group
 
   * **vgcreate** used to collect one or more physical volumes into a volume group. It is equivalent of hard disk
+  * `-s` option specify the extend size
   
   ```
-  vgcreate vg01 /dev/vdb2 /dev/vdb1
+  vgcreate vg01 /dev/vdb2 /dev/vdb1 -s 4M
   ```
+  
   _This creates a VG called vg01 that is the combined size, in PE units, of the two PVs /dev/vdb2 and /dev/vdb1_
   
 5. Create a logical volume
@@ -1437,6 +1466,17 @@ _A PV only needs to be created if there are no PVs free to extend the VG._
 [root@host ~]# vgdisplay vg01
 ```
 _Inspect the **Free PE / Size**_
+
+
+Usually after that you allocated the new space on FS, the `-r` option will extend the file system
+
+```
+lvextend -r -L 100G /dev/volume_name/lv_name
+```
+
+* To allocated all free space can use `-l +100%FREE`
+
+
 
 <br>
 
@@ -1973,7 +2013,7 @@ _Isolating a target stops all services not required by that target (and its depe
   * Press **e** to edit 
   * Move the cursor to kernel command line, starting with **linux**
   * Append **rd.break** 
-  * Press Ctrl+x to boot
+  * Press **Ctrl+x** to boot
   * System will presents a root shell
   * Change the root file system to read/write `switch_root:/# mount -o remount,rw /sysroot`
   * Switch into a **chroot** `switch_root:/# chroot /sysroot`
@@ -2016,6 +2056,21 @@ Common File system issues:
   * Nonexistent device or UUID referenced in /etc/fstab
   * Nonexistent mount point in / etc/fstab
   * Incorrect mount option specified in /etc/fstab
+
+
+### Create or alter grub
+
+The default path is **/etc/default/grub**
+
+```
+grup2-mkconfig -o /boot/grub2/grub.cfg
+
+reboot
+```
+
+
+
+
 
 ## Managing Network Security
 ### Managing Server Firewall
@@ -2203,7 +2258,7 @@ not yet installed on your system, follow this procedure:
 
 ### Installing Red Hat Enterprise Linux
 
-Supported processor architectures: x86 64-bit (AMDand Intel), IBM Power Systems (Little Endian), IBM Z, and ARM 64-bit. 
+Supported processor architectures: x86 64-bit (AMD and Intel), IBM Power Systems (_Little Endian_), IBM Z, and ARM 64-bit. 
 
 After downloading, create bootable installation media based on the [instructions](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#making-media_preparing-for-your-installation)
 
@@ -2430,7 +2485,7 @@ _These tools are compatible with the Open Container Initiative (OCI). They can b
 ### Running a Basic Conatiner
 
 
-The Red Hat Container Catalog (https://access.redhat.com/containers) provides a web-based interface that you can use to search these registries for certified content.
+[The Red Hat Container Catalog](https://access.redhat.com/containers) provides a web-based interface that you can use to search these registries for certified content.
 
 
 * The Container naming conventions **registry_name/user_name/image_name:tag**
@@ -2447,20 +2502,20 @@ The Red Hat Container Catalog (https://access.redhat.com/containers) provides a 
 ```
 
 
-* To pull a container image
+* To pull or download the a container the image
 
 ```
 podman pull registry.access.redhat.com/ubi8/ubi:latest
 ```
   
   
-* To retrieval, podman stores images
+* To retrieval, `podman` stores images
 
 ```
 podman images
 ```
 
-* To run a conatiner from image
+* To run a container from image
 
 ```
 podman run -it registry.access.redhat.com/ubi8/ubi:latest
@@ -2587,34 +2642,45 @@ The dir must have the SELinux context **container_file_t** mke sure to use `:Z`
 
 ### Managing Containers as Service
 
-* Creaate a dir to store the unit files
+First step is open a new session with user
+
+```
+ssh user@localhost
+```
+
+* Enable linger
+
+```
+loginctl enable-linger <user>
+
+# to check
+
+loginctl show-user user
+```
+
+
+* Create a dir to store the unit files
 
 ```
 mkdir -pv ~/.config/systemd/user/
 ```
 
+
+* Generate the service
+
+```
+podman generate systemd --name <name of service> --files --new
+```
+
+
 * use `--user` to control new user services
 
 ```
-[user@host ~]$ ls ~/.config/systemd/user/
-myapp.service
 
 [user@host ~]$ systemctl --user daemon-reload
-[user@host ~]$ systemctl --user enable myapp.service
-[user@host ~]$ systemctl --user start myapp.service
+[user@host ~]$ systemctl --user enable <name of service>
+[user@host ~]$ systemctl --user start <name of service>
 
 ```
 
-* Use **loginctl** to enable and disable the services to start with the server and stop during shutdown
-
-```
-[user@host ~]$ loginctl enable-linger
-[user@host ~]$ loginctl show-user user
-...output omitted...
-Linger=yes
-[user@host ~]$ loginctl disable-linger
-[user@host ~]$ loginctl show-user user
-...output omitted...
-Linger=n
-```
 

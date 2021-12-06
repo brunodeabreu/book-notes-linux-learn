@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Learning notes : Linux, Devops, entre outros</title>
+  <title># 6 Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280 | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Learning notes : Linux, Devops, entre outros" />
+  <meta property="og:title" content="# 6 Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280 | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Learning notes : Linux, Devops, entre outros" />
+  <meta name="twitter:title" content="# 6 Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280 | Learning notes : Linux, Devops, entre outros" />
   
   <meta name="twitter:description" content="Those notes are for future reference" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="server-administrator-i---r124.html"/>
+<link rel="prev" href="red-hat-openshift-i-containers-kubernetes---do180.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -354,23 +354,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Learning notes : Linux, Devops, entre outros</h1>
-<p class="author"><em>Bruno Machado</em></p>
-<p class="date"><em>2021-12-06</em></p>
+<div id="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280" class="section level1">
+<h1><span class="header-section-number"># 6</span> Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280</h1>
+<div id="describing-the-red-hat-openshift-container-plataform" class="section level2">
+<h2><span class="header-section-number">6.1</span> Describing the Red Hat OpenShift Container Plataform</h2>
+<div id="intro-2" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Intro</h3>
+<p>RHOCP is based on Kubernetes and allow manage container at scale, a container orchestrator platform manages a cluster service that runs multiple containerized applications .</p>
+<p>Solutions :</p>
+<ul>
+<li><p><strong>Red Hat OpenShift Container Platform</strong> : Enterprise-ready Kubernetes environment for building, deploying and managing container-based applications n any public or private data center. We decide when update to newer releases and which addition component to enable</p></li>
+<li><p><strong>Red Hat OpenShift Dedicated</strong> : Managed OpenShift environment in a public cloud, AWS, GCP, Azure, or IBM Cloud, all features of RHOCP, however Red Hat manage the cluster, we have some control of decisions as when to update to a newer release or to install add-ons.</p></li>
+<li><p><strong>Red Hat OpenShift Online</strong> : Public container platform shared across multiple customers, Red Hat manages the cluster life cycle.</p></li>
+<li><p><strong>Red Hat OpenShift Kubernetes Engine</strong> : Subset of the features present in OpenShift, such as coreOS, CRI-O engine, web console, etc</p></li>
+<li><p><strong>Red Hat Code Ready Container</strong> : Minimal installation of OpenShift that we can run on a laptop to development and experimentation.</p></li>
+</ul>
+<p>Below the services and features of Openshift</p>
+<p><img src="img/openShift_features.png" width="90%" /></p>
+<p><br></p>
+<p><strong>Introduction of OpenShift features</strong></p>
+<p>Comparing OpenShift Container Platform vs OpenShift Kubernetes Engine:</p>
+<p><img src="img/openShift_features_comparison.png" width="90%" /></p>
+<p><strong>Features :</strong></p>
+<ul>
+<li><strong>High Availability</strong> : <strong>etc</strong> cluster store the state of the OpenShift Cluster and Applications</li>
+<li><strong>Lightweight OS</strong> : CoreOS focuses on agility, portability and security</li>
+<li><strong>Load Balancing</strong> : External via APU, HAProxy load balance for external app and internal load balance</li>
+<li><strong>Automating Scaling</strong> : can adapt to increased application traffic in real time by automatically starting new containers and terminate when the load decrease.</li>
+<li><strong>Logging and Monitoring</strong> : Advanced monitoring solution based on Prometheus, also advanced logging solution based on Elasticsearch.</li>
+<li><strong>Service Discovery</strong> : Internal DNS, appl can rely on firendly names to find other appl and services</li>
+<li><strong>Storage</strong> : Allow automatic provisioning of storage on popular cloud providers and visualization platforms</li>
+<li><strong>Application Management</strong> : Automate the development and deploy, automatic build containers based on source code using Source-To-Image (<em>S2I</em>) solution.</li>
+<li><strong>Cluster Extensibility</strong> : Rely on standard extension from kubernetes, Openshift packages these extensions as operators for ease of installation, update, and management. Also include Operator Lifecycle Manager (<em>OLM</em>), which facilitates the discovery, installation, and update of applications and infrastructure components packaged as operators</li>
+</ul>
 </div>
-<div id="intro" class="section level1">
-<h1><span class="header-section-number"># 1</span> Intro</h1>
-<p>During some Linux courses I usually take notes for future reference, so I use this notes to organize my notes for study and future projects.</p>
+<div id="architecture-of-openshift" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Architecture of OpenShift</h3>
+<p>OpenShift architecture is based on <strong>declarative</strong> the nature of kubernetes. In a declarative architecture, you change the state of the system and the system updates itself to comply with the new state.</p>
+<ul>
+<li><p>Kubernetes cluster consists of a set of nodes that run the kubelet system service and a container
+engine.</p></li>
+<li><p>OpenShift runs exclusively the CRI-O container engine. Some nodes are control plane nodes that run the REST API, the etcd database, and the platform controllers</p></li>
+</ul>
+<p>OpenShift is a Kubernetes distribution that provides many of these components already integrated and configured, and managed by operators. OpenShift also provides preinstalled applications, such as a container image registry and a web console, managed by operators.</p>
+</div>
+<div id="cluster-operators" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Cluster Operators</h3>
+<blockquote>
+<p>Kubernetes operators are applications that invoke the Kubernetes API to manage Kubernetes resources.</p>
+</blockquote>
+<ul>
+<li>Custom resources <em>(CR)</em> : store their settings and configurations</li>
+<li>Custom resource definition <em>(CRD)</em> : the syntax of a custom resource is defined by a custom resource definition</li>
+</ul>
+<p>Most operators manage another application; for example, an operator that manages a database
+server.The purpose of an operator is usually to automate tasks.</p>
+<ul>
+<li><p><strong>Operator Software Development Kit (Operator SDK)</strong> : Golang library and source code. Also provide container image and ansible playbook examples.</p></li>
+<li><p><strong>Operator Life Cycle Manager (OLM)</strong> : Appl that manages the deployment, resource utilization, updates and deletion of operators. The OLM itself is an operator that comes preinstalled with OpenShift.</p></li>
+</ul>
+<p><br></p>
+<p><strong>OperatorHub</strong></p>
+<p>OperatorHub provides a web interface to discover and publish operators that follow the Operator
+Framework standards.</p>
+<ul>
+<li><p>Red Hat Marketplace is a plataform that allow access a curated set of enterprise operators that can be deployed on OpenShit or a kubernetes cluster</p></li>
+<li><p>OpenShift Cluster Operators : regular operators except that they are not managed by the OLM, they are managed by OpenShift Cluster Version Operators, also called as first level operator.</p></li>
+</ul>
+</div>
+<div id="verifying-the-health-of-a-cluster" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Verifying the Health of a Cluster</h3>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="server-administrator-i---r124.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="red-hat-openshift-i-containers-kubernetes---do180.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -401,7 +465,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-RO280.Rmd",
 "text": "Edit"
 },
 "history": {

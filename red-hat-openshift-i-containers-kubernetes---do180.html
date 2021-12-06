@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Learning notes : Linux, Devops, entre outros</title>
+  <title># 5 Red Hat OpenShift I: Containers &amp; Kubernetes - DO180 | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Learning notes : Linux, Devops, entre outros" />
+  <meta property="og:title" content="# 5 Red Hat OpenShift I: Containers &amp; Kubernetes - DO180 | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Learning notes : Linux, Devops, entre outros" />
+  <meta name="twitter:title" content="# 5 Red Hat OpenShift I: Containers &amp; Kubernetes - DO180 | Learning notes : Linux, Devops, entre outros" />
   
   <meta name="twitter:description" content="Those notes are for future reference" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="server-administrator-i---r124.html"/>
+<link rel="prev" href="server-administrator-iii---rh294.html"/>
+<link rel="next" href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -354,23 +354,355 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Learning notes : Linux, Devops, entre outros</h1>
-<p class="author"><em>Bruno Machado</em></p>
-<p class="date"><em>2021-12-06</em></p>
+<div id="red-hat-openshift-i-containers-kubernetes---do180" class="section level1">
+<h1><span class="header-section-number"># 5</span> Red Hat OpenShift I: Containers &amp; Kubernetes - DO180</h1>
+<div id="intro-to-containr" class="section level2">
+<h2><span class="header-section-number">5.1</span> Intro to Containr</h2>
+<p>A container is a set of one or more processes that are isolated from the rest of the system.</p>
+<p>Containers provide many of the same benefits as virtual machines, such as security, storage, and
+network isolation. Containers require far fewer hardware resources and are quick to start and
+terminate. They also isolate the libraries and the runtime resources (such as CPU and storage) for
+an application to minimize the impact of any OS update to the host OS.</p>
+<p><img src="img/container_vs_OS.png" width="90%" /></p>
+<p>Advantages of using container:</p>
+<ul>
+<li><strong>Low hardware footprint</strong> : Use OS internal features to create and isolate environment, minimizing the use of cpu and memory</li>
+<li><strong>Environment isolation</strong> : changes made to the host OS do not affect the container</li>
+<li><strong>Quick deployment</strong> : no need to install the entire OS</li>
+<li><strong>Multiple environment deployment</strong> : all appls dependencies and environment settings are encapsulated in the container image</li>
+<li><strong>Reusability</strong> : container can be reused without need to set up a full OS</li>
+</ul>
+<div id="linux-conetainer-architecture" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Linux Conetainer Architecture</h3>
+<p>An image is a file-system bundle that container all dependencies required to execute a process, container images need to be locally available for the container runtime, below image repositories available :</p>
+<ul>
+<li>Red Hat Container Catalog : <a href="https://registry.redhat.io" class="uri">https://registry.redhat.io</a></li>
+<li>Docker Hub : <a href="https://hub.docker.com" class="uri">https://hub.docker.com</a></li>
+<li>Red Hat Quay : <a href="https://quay.io" class="uri">https://quay.io</a></li>
+<li>Google Container Registry : <a href="https://cloud.google.com/container-registry/" class="uri">https://cloud.google.com/container-registry/</a></li>
+<li>Amazon Elastic Container Registry : <a href="https://aws.amazon.com/ecr/" class="uri">https://aws.amazon.com/ecr/</a></li>
+</ul>
+<p>To manage the container we can use <strong>Podman</strong> an open source tool for managing containers and container image</p>
 </div>
-<div id="intro" class="section level1">
-<h1><span class="header-section-number"># 1</span> Intro</h1>
-<p>During some Linux courses I usually take notes for future reference, so I use this notes to organize my notes for study and future projects.</p>
+<div id="overview-of-kubernetes-and-openshift" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Overview of kubernetes and OpenShift</h3>
+<p><strong>Kubernetes</strong> is an orchestration service that simplifies the deployment, management, and scaling of containerized applications, tje smallest unit if kunernetes is a <strong>pod</strong> that consist of one or more containers.</p>
+<p>Kubernets features of top of a container infra:</p>
+<ul>
+<li>Service discovery and loading balancing : communication by a single DNS entry to each set of container, permits the load balancing across the pool of container.</li>
+<li>Horizontal scaling : Appl can scale up and down manually or automatically</li>
+<li>Self-Healing: user-defined health checks to monitor containers to restart in case of failure</li>
+<li>Automated rollout : roll updates out to appl containers, if something goes wrong kubernetes can rollback to previous interation of the deployment</li>
+<li>Secrets and configuration management : can manage the config settings fo application without rebuilding container</li>
+<li>Operators : use API to update the cluster state reacting to change in the app state</li>
+</ul>
+<p><strong>Red Hat OpenShift Container Plataform (<em>RHOCP</em>)</strong> is a set of modular components and services build on top of Kubernetes, adds the capabilities to provide PaaS platform.</p>
+<p>OpenShift features to kubernetes cluster :</p>
+<ul>
+<li><strong>Itegrated developer workflow</strong> : integrates a build in container registry, CI/CD pipeline and S2I, a tool to build artifacts from source repositories to container image</li>
+<li><strong>Routes</strong> : expose service to the outside world</li>
+<li><strong>Metrics and logging</strong> : Metric service and aggregated logging</li>
+<li><strong>Unified UI</strong> : UI to manage the different capabilities</li>
+</ul>
+</div>
+</div>
+<div id="creating-containerized-services" class="section level2">
+<h2><span class="header-section-number">5.2</span> Creating Containerized Services</h2>
+<p>The podman is designed to be a rootless container running as a non-root user, however we can run the container as root if necessary using sudo, but it is a risk and not recommenced.</p>
+<p>The container image are named based on the syntax <strong>registry_name/user_name/image_name:tag</strong></p>
+<ul>
+<li><p>registry_name : FQDN or the registry</p></li>
+<li><p>user_name : name of user or organization to which images belongs</p></li>
+<li><p>tag : identifies image version</p></li>
+<li><p>To search an image</p></li>
+</ul>
+<pre><code>podman search &lt;image&gt;</code></pre>
+<ul>
+<li>To download/pull an image</li>
+</ul>
+<pre><code>podman pull &lt;image&gt;</code></pre>
+<ul>
+<li>To retrieve the images</li>
+</ul>
+<pre><code>podman images</code></pre>
+<ul>
+<li>To run a <strong>Hello World</strong> container</li>
+</ul>
+<pre><code>[user@demo ~]$ podman run ubi8/ubi:8.3 echo &#39;Hello world!&#39;
+Hello world!</code></pre>
+<ul>
+<li>To start a container image as a backgroupd we can use <code>-d</code> optino and to expose a port <code>-p &lt;container port&gt;</code></li>
+</ul>
+<pre><code>[user@demo ~]$ podman run -d -p 8080 registry.redhat.io/rhel8/httpd-24
 
+# retrieve the local port on which the container listens
+[user@demo ~]$ podman port -l
+
+
+
+# test
+[user@demo ~]$ curl http://0.0.0.0:44389
+
+</code></pre>
+<ul>
+<li>To start a bash terminal inside the container</li>
+</ul>
+<pre><code>[user@demo ~]$ podman run -it ubi8/ubi:8.3 /bin/bash</code></pre>
+<ul>
+<li>Using variables with <code>-e</code> option</li>
+</ul>
+<pre><code>[user@demo ~]$ podman run --name mysql-custom \
+&gt; -e MYSQL_USER=redhat -e MYSQL_PASSWORD=r3dh4t \
+&gt; -e MYSQL_ROOT_PASSWORD=r3dh4t \
+&gt; -d registry.redhat.io/rhel8/mysql-80</code></pre>
+</div>
+<div id="managing-containers" class="section level2">
+<h2><span class="header-section-number">5.3</span> Managing Containers</h2>
+<div id="container-life-cybe-management-with-podman" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Container Life Cybe management with podman</h3>
+<p>Podman provides a set of subcomands to create and manage containers ?</p>
+<p><img src="img/podman_managing_subcommands.png" width="90%" /></p>
+<p>Also subcommands to extract information from containers ?</p>
+<p><img src="img/podman_query_subcommands.png" width="90%" /></p>
+</div>
+<div id="creating-containers" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Creating containers</h3>
+<p>Using podman run command to create containers</p>
+<pre><code># sample 1
+[user@host ~]$ podman run registry.redhat.io/rhel8/httpd-24
+
+# sample 2
+[user@host ~]$ podman run --name my-httpd-container -d registry.redhat.io/rhel8/httpd-24
+
+
+# sammple 3
+[user@host ~]$ podman run -it registry.redhat.io/rhel8/httpd-24 /bin/bash
+</code></pre>
+</div>
+<div id="run-commands-in-a-container" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Run commands in a container</h3>
+<p>We can use <code>exec</code> option to submit the command</p>
+<pre><code>sample 2
+[user@host ~]$ podman exec 7ed6e671a600 cat /etc/hostname
+
+# sample 2  this l means latest, last container used
+[user@host ~]$ podman exec -l cat /etc/hostname</code></pre>
+</div>
+<div id="managing-containers-1" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Managing containers</h3>
+<ul>
+<li>List containers running :</li>
+</ul>
+<pre><code>podman ps</code></pre>
+<ul>
+<li>List all containers</li>
+</ul>
+<pre><code>podman ps -a</code></pre>
+<ul>
+<li>Stop, start or restart a container</li>
+</ul>
+<pre><code>[user@host ~]$ podman stop|start|restart &lt;container_name&gt;</code></pre>
+<ul>
+<li>Kill or remove a container</li>
+</ul>
+<pre><code>[user@host ~]$ podman rm|kill &lt;container_name&gt;
+</code></pre>
+<ul>
+<li>Remove or stop all containers</li>
+</ul>
+<pre><code>podman rm|stop -a</code></pre>
+<ul>
+<li>Format the output</li>
+</ul>
+<pre><code>[student@workstation ~]$ podman ps --format=&quot;{{.ID}} {{.Names}} {{.Status}}&quot;
+a49dba9ff17f  mysql Up About a minute ago</code></pre>
+</div>
+<div id="attaching-persistent-storage-to-containers" class="section level3">
+<h3><span class="header-section-number">5.3.5</span> Attaching persistent storage to containers</h3>
+<ol style="list-style-type: decimal">
+<li>Create dir</li>
+</ol>
+<pre><code>mkdir &lt;dir&gt;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The user running the process in the container must be capable of writing files to the dir, for example in MYSQL the UID 27</li>
+</ol>
+<pre><code>podman unshare chown -R 27:27 &lt;dir&gt;</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Apply the <strong>container_file_t</strong> context to allow container access</li>
+</ol>
+<pre><code>sudo semanage fcontext -a -t container_file_t &#39;/home/student/dbfiles(/.*)?&#39; </code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Apply the SELinux container policy</li>
+</ol>
+<pre><code>sudo restorecon -Rv /home/student/dbfiles</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Mount volume</li>
+</ol>
+<pre><code>[user@host ~]$ podman run -v /home/student/dbfiles:/var/lib/mysql rhmap47/mysql</code></pre>
+</div>
+<div id="accessing-containers" class="section level3">
+<h3><span class="header-section-number">5.3.6</span> Accessing containers</h3>
+<p>To manage the port we use the option <code>-p [&lt;IP address&gt;:][&lt;host port&gt;:]&lt;container port&gt;</code></p>
+<pre><code>podman run -d --name apache1 -p 8080:80 registry.redhat.io/rhel8/httpd-24</code></pre>
+<ul>
+<li>To see the port assigned</li>
+</ul>
+<pre><code>podman port &lt;container name&gt;</code></pre>
+</div>
+</div>
+<div id="managing-container-images" class="section level2">
+<h2><span class="header-section-number">5.4</span> Managing Container Images</h2>
+<div id="accessing-registries" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Accessing Registries</h3>
+<p>Image registries are services offering container images to download. They allow image creators and maintainers to store and distribute container images to public or private audiences.</p>
+<p>To configure registreis for podman command we need to update <strong>/etc/containers/registries.conf</strong></p>
+<ul>
+<li>To search :</li>
+</ul>
+<pre><code>[user@host ~]$ podman search [OPTIONS] &lt;term&gt;</code></pre>
+<ul>
+<li>To authenticate</li>
+</ul>
+<pre><code>podman login &lt;registry&gt;</code></pre>
+<ul>
+<li>Pull images</li>
+</ul>
+<pre><code>[user@host ~]$ podman pull [OPTIONS] [REGISTRY[:PORT]/]NAME[:TAG]
+
+[user@host ~]$ podman pull quay.io/bitnami/nginx</code></pre>
+<ul>
+<li>List local copies</li>
+</ul>
+<pre><code>podman images</code></pre>
+<ul>
+<li>Images Tags</li>
+</ul>
+<p><em>An image tag is a mechanism to support multiple releases of the same image</em></p>
+<pre><code>[user@host ~]$ podman pull registry.redhat.io/rhel8/mysql-80:1
+
+[user@host ~]$ podman run registry.redhat.io/rhel8/mysql-80:1</code></pre>
+</div>
+<div id="manipulating-container-images" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Manipulating Container Images</h3>
+<ul>
+<li>Save and load an image</li>
+</ul>
+<p>Images can be saved as .tar file :</p>
+<pre><code># Save
+podman save [-o FILE_NAME] IMAGE_NAME[:TAG]
+podman save -o mysql.tar registry.redhat.io/rhel8/mysql-80
+
+
+#Load
+podman load [-i FILE_NAME]
+podman load -i mysql.tar
+</code></pre>
+<ul>
+<li>Delete an image from local storage</li>
+</ul>
+<pre><code>podman rmi [OPTIONS] IMAGE [IMAGE...]
+
+# To delete all
+podman rmi -a</code></pre>
+<ul>
+<li>To modify an image</li>
+</ul>
+<pre><code>[user@host ~]$ podman commit [OPTIONS] CONTAINER [REPOSITORY[:PORT]/]IMAGE_NAME[:TAG]</code></pre>
+<p>To see the difference that we have made on container we can use <code>podman diff &lt;image&gt;</code></p>
+<ul>
+<li>To commit changes</li>
+</ul>
+<pre><code>[user@host ~]$ podman commit mysql-basic  mysql-custom</code></pre>
+<ul>
+<li>Tagging Images</li>
+</ul>
+<pre><code>podman tag [OPTIONS] IMAGE[:TAG]  [REGISTRYHOST/][USERNAME/]NAME[:TAG]
+
+# sample 1
+podman tag mysql-custom devops/mysql
+
+# sample 2
+podman tag mysql-custom devops/mysql:snapshot</code></pre>
+<ul>
+<li>Push images to registry</li>
+</ul>
+<pre><code>[user@host ~]$ podman push [OPTIONS] IMAGE [DESTINATION]
+
+# sample
+[user@host ~]$ podman push quay.io/bitnami/nginx</code></pre>
+<ul>
+<li>To remove tags from image</li>
+</ul>
+<pre><code>podman rmi devops/mysql:snapahot</code></pre>
+</div>
+</div>
+<div id="creating-custom-container-images" class="section level2">
+<h2><span class="header-section-number">5.5</span> Creating Custom Container Images</h2>
+<div id="designing-custom-container-images" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Designing Custom Container Images</h3>
+<p>One method to create a container image is modify the existing one to meet the requirements of the application. <strong>Containerfiles</strong> are another option that make this task easy to create, share and control the image.</p>
+<ul>
+<li><p><strong>Red Hat Software Collections Library (RHSCL)</strong> : solution for developers who require the latest development tools that usually do not fit the standard RHEL release schedule.</p></li>
+<li><p><strong>Red Hat Enterprise Linux (RHEL)</strong> : stable environment for enterprise applications.</p></li>
+</ul>
+<p>We can finding <strong>Containerfiles</strong> from Red HAt Collections Library, RHSCL is the source of most container images provided by the Red Hat image registry for use by RHEL Atomic Host and OpenShift Container Platform customers.</p>
+<p>Also <strong>Red Hat Container Catalog RHCC</strong> is a repository of reliable, tested, certified, and curated collection of container images built on versions of Red Hat Enterprise Linux (RHEL) and related systems</p>
+<p><strong>Quay.io</strong> is an advanced container repository from CoreOS, we can search for container images using httpds://quay.io/search</p>
+<p><strong>Docker Hub</strong> is a repository that anyone can crete and share an image, need to be carreful with images from Docker Hub</p>
+<p><strong>Source-to-Image (S2I)</strong> the OpenShift source-to-image tool is an alternative to using Containerfiles to create new containers that can be use from OpenShift or as standalone s2i utility, The S2I use the follow process to build a custom container image:</p>
+<ol style="list-style-type: decimal">
+<li>Start a container from a base container image called the builder image.</li>
+<li>Fetch the application source code, usually from a Git server, and send it to the container.</li>
+<li>Build the application binary files inside the container.</li>
+<li>Save the containr, after some clean up
+### Building Custom Container images with Containerfiles</li>
+</ol>
+<p>A <strong>Containerfile</strong> is a mechanism to automate the building of container images, to build we have three steps:</p>
+<ol style="list-style-type: decimal">
+<li>Create a working directory</li>
+<li>Write the Containerfile</li>
+<li>Build the image with Podman</li>
+</ol>
+<pre><code># This is a comment line
+FROM ubi8/ubi:8.3
+LABEL description=&quot;This is a custom httpd container image&quot;
+MAINTAINER John Doe &lt;jdoe@xyz.com&gt;
+RUN yum install -y httpd
+EXPOSE 80
+ENV LogLevel &quot;info&quot;
+ADD http://someserver.com/filename.pdf /var/www/html
+COPY ./src/ /var/www/html/
+USER apache
+ENTRYPOINT [&quot;/usr/sbin/httpd&quot;]
+CMD [&quot;-D&quot;, &quot;FOREGROUND&quot;]</code></pre>
+<ul>
+<li><code>FROM</code> : declares that the new container image extends ubi8/ubi:8.3 container base image</li>
+<li><code>LABEL</code>: is responsible for adding generic metadata to an image</li>
+<li><code>MAINTAINER</code> : Indicates the author</li>
+<li><code>RUN</code> : executes commands in a new layer on top of the current image</li>
+<li><code>EXPOSE</code> : indicates that the container listens on the specified network port at runtime</li>
+<li><code>ENV</code> : is responsible for defining environment variables that are available in the container</li>
+<li><code>ADD</code> : copies files or folders from a local or remote source and adds them to the container’s file system, ADD also unpack local .tar files</li>
+<li><code>COPY</code> : copies files from the working directory and adds them to the container’s file system</li>
+<li><code>USER</code> : specifies the username or the UID to use when running the container image for the RUN, CMD, and ENTRYPOINT instructions</li>
+<li><code>ENTRYOINT</code> : specifies the default command to execute when the image runs in a container.</li>
+<li><code>CMD</code> : provides the default arguments for the ENTRYPOINT instruction</li>
+</ul>
+<hr />
+<p><strong>Building Image with Podman</strong></p>
+<p>Podman build command process the Containerfile and build a new image</p>
+<pre><code>podman build -t NAME:TAG DIR</code></pre>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="server-administrator-i---r124.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="server-administrator-iii---rh294.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -401,7 +733,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-RO180.Rmd",
 "text": "Edit"
 },
 "history": {

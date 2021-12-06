@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Learning notes : Linux, Devops, entre outros</title>
+  <title># 4 Server Administrator III - RH294 | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Learning notes : Linux, Devops, entre outros" />
+  <meta property="og:title" content="# 4 Server Administrator III - RH294 | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Learning notes : Linux, Devops, entre outros" />
+  <meta name="twitter:title" content="# 4 Server Administrator III - RH294 | Learning notes : Linux, Devops, entre outros" />
   
   <meta name="twitter:description" content="Those notes are for future reference" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="server-administrator-i---r124.html"/>
+<link rel="prev" href="server-administrator-ii---rh134.html"/>
+<link rel="next" href="red-hat-openshift-i-containers-kubernetes---do180.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -354,23 +354,440 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Learning notes : Linux, Devops, entre outros</h1>
-<p class="author"><em>Bruno Machado</em></p>
-<p class="date"><em>2021-12-06</em></p>
+<div id="server-administrator-iii---rh294" class="section level1">
+<h1><span class="header-section-number"># 4</span> Server Administrator III - RH294</h1>
+<div id="intro-to-ansible" class="section level2">
+<h2><span class="header-section-number">4.1</span> Intro to Ansible</h2>
+<p>Ansible is an open source automation platform. It is a <em>simple automation language</em> that can
+perfectly describe an IT application infrastructure in Ansible Playbooks. It is also an automation
+engine that runs Ansible Playbooks.</p>
+<div id="ansible-concepts-and-architecture" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Ansible Concepts and Architecture</h3>
+<ul>
+<li><em>Control nodes</em> : Where Ansible is installed and runs and has copies of Ansible project files, also can be an Administrator server, where Tower will run.</li>
+<li><em>Managed hosts</em> : list of servers organized in <em>inventory</em> list</li>
+<li><em>Inventory</em> :
+<ul>
+<li><em>Static</em> : List of servers</li>
+<li><em>Dynamic</em> : Program that connect to provider and search for list of machines</li>
+</ul></li>
+<li><em>Playbook</em> : List of tasks that going to be converted in python script to run in each host, those tasks are expressed in YAML format in a text file</li>
+</ul>
+<p><img src="img/ansible_architecture.png" /><!-- --></p>
 </div>
-<div id="intro" class="section level1">
-<h1><span class="header-section-number"># 1</span> Intro</h1>
-<p>During some Linux courses I usually take notes for future reference, so I use this notes to organize my notes for study and future projects.</p>
+<div id="install-ansbile" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Install Ansbile</h3>
+<ul>
+<li>To install ansible</li>
+</ul>
+<pre><code>yum install ansbile</code></pre>
+<ul>
+<li>To check version</li>
+</ul>
+<pre><code>ansbile --version</code></pre>
+<ul>
+<li>RHEL8 can use the <em>plataform python</em> package</li>
+</ul>
+<pre><code>yum list installed plataform-python</code></pre>
+<ul>
+<li>To register on RedHat and Enable repository</li>
+</ul>
+<pre><code>subscription-manager register
 
+ubscription-manager repos --enable ansible-2-for-rhel-8-x86_64-rpms</code></pre>
+<ul>
+<li>To install python36</li>
+</ul>
+<pre><code>yum module install python36</code></pre>
+<ul>
+<li>To list the modules</li>
+</ul>
+<pre><code>ansible-doc -l</code></pre>
+</div>
+<div id="implementing-an-ansible-playbook" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Implementing an Ansible Playbook</h3>
+</div>
+</div>
+<div id="deploying-anisble-and-implementing-playbooks" class="section level2">
+<h2><span class="header-section-number">4.2</span> Deploying Anisble and Implementing Playbooks</h2>
+<div id="building-an-ansible-invetory" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Building an Ansible Invetory</h3>
+<p>Static inventory file is a text file that specifies the managed hosts that Ansilbe targets, it is located on <strong>/etc/ansible/hosts</strong> as default</p>
+<p><em>Sample of YAML file</em></p>
+<pre><code>web1.example.com
+web2.example.com
+db1.example.com
+db2.example.com
+192.0.2.42</code></pre>
+<p>We can also organize the inventory in groups using [], ,hosts can be in multiple groups</p>
+<pre><code>[webservers]
+web1.example.com
+web2.example.com
+192.0.2.42
+
+[db-servers]
+db1.example.com
+db2.example.com</code></pre>
+<p>We also can configure nested groups with <strong>:children</strong> sufix</p>
+<pre><code>[usa]
+washington1.example.com
+washington2.example.com
+
+[canada]
+ontario01.example.com
+ontario02.example.com
+
+[north-america:children]
+canada
+usa</code></pre>
+<p>The hosts can also be specified with Ranges <code>[START:END]</code></p>
+<pre><code>[usa]
+washington[1:2].example.com
+
+[canada]
+ontario[01:02].example.com</code></pre>
+<p>To verify the inventory we can use the commands below</p>
+<pre><code># his command verify if machine is present in inventory
+ansible washington1.example.com --list-hosts
+
+
+# List all hosts in canada group
+ansible canada --list-hosts
+</code></pre>
+<p>To list from an specific inventory file, <em>-i</em> makes ansible use your inventory file in the current working directory instead of the system <em>/etc/ansible/hosts</em> inventory file</p>
+<pre><code>ansible all -i inventory --list-hosts
+</code></pre>
+<p>List ungrouped hosts</p>
+<pre><code>ansible ungrouped -i inventory --list-hosts</code></pre>
+<p>List hosts from specific group called <strong>us</strong></p>
+<pre><code>ansible us -i inventory --list-hosts</code></pre>
+<p>List inventory as a graph</p>
+<pre><code>ansible-invetory --graph -i /etc/anisble/hosts</code></pre>
+</div>
+<div id="managing-ansible-configuration-files" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Managing Ansible Configuration Files</h3>
+<p>The <em>ansible</em> configuration file is located at <strong>/etc/ansible/ansible.cfg</strong> as default, but ansible looks at <strong>~/.ansible.cfg</strong> that overight the default, however if the <strong>./ansible.cfg</strong> exists in the directory in which the ansible command is executed, it is used instead of the global file or the user personal file. We can also configure the environment variable <code>ANSIBLE_CONFIG</code> to set the <strong>ansible.cfg</strong> , in this case all commands going to point to this config file.</p>
+<p>To list the config file</p>
+<pre><code>ansible --version
+
+ansible servers --list-hosts -v
+</code></pre>
+<p>To list the ansible config</p>
+<pre><code>anisble config</code></pre>
+<p>Sample of config file</p>
+<pre><code>[defaults]
+inventory = ./inventory
+remote_user = user
+ask_pass = fals
+
+[privilege_escalation]
+become = true
+become_method = sudo
+become_user = root
+become_ask_pass = false</code></pre>
+<ul>
+<li><strong>inventory</strong> : Specifies the path to the inventory file.</li>
+<li><strong>remote_user</strong> : The name of the user to log in as on the managed hosts. If not specified, the current user’s name is used.</li>
+<li><strong>ask_pass</strong> : Whether or not to prompt for an SSH password. Can be false if using SSH public key authentication.</li>
+<li><strong>become</strong> : Whether to automatically switch user on the managed host (typically to root) after connecting. This can also be specified by a play.</li>
+<li><strong>become_method</strong> : How to switch user (typically sudo, which is the default,but su is an option).</li>
+<li><strong>become_user</strong> : The user to switch to on the managed host (typically root, which is the default).</li>
+<li><strong>become_ask_pass</strong> : Whether to prompt for a password for your become_method. Defaults to false.</li>
+</ul>
+<p>To list all the config options we can read the <code>/etc/ansible/ansible.cfg</code> or run the command below to dump</p>
+<pre><code>ansible-config dump</code></pre>
+<p>Sample of ansible playbook to deploy a public key</p>
+<pre><code>- name: Public key is deployed to managed hosts for Ansible
+  hosts: all
+
+tasks:
+- name: Ensure key is in root&#39;s ~/.ssh/authorized_hosts
+    authorized_key:
+      user: root
+      state: present
+      key: &#39;{{ item }}&#39;
+    with_file:
+      - ~/.ssh/id_rsa.pub</code></pre>
+</div>
+<div id="running-ad-hoc-commands" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Running Ad Hoc Commands</h3>
+<ul>
+<li>Sample date command to a host</li>
+</ul>
+<pre><code>ansible servera.lab.example.com -m command -a date</code></pre>
+<ul>
+<li>List the modules</li>
+</ul>
+<pre><code>ansile-doc -l</code></pre>
+<ul>
+<li>Check documentation for a module</li>
+</ul>
+<pre><code>ansible-doc &lt;module_name&gt;</code></pre>
+<ul>
+<li>Using the module user to create and remove a user</li>
+</ul>
+<pre><code># create
+ansible &lt;server&gt; -m user -a name=&lt;name_of_user&gt;
+
+# remove
+ansible &lt;server&gt; -m user -a &quot;name=&lt;name_of_user&gt; state=absent&quot;</code></pre>
+<ul>
+<li>Specfing user and become to copy as root</li>
+</ul>
+<pre><code>ansible all -m copy -a &#39;content=&quot;Managed by Ansible\n&quot; dest=/etc/motd&#39; -u devops --become</code></pre>
+</div>
+<div id="writing-and-running-playbooks" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Writing and Running Playbooks</h3>
+<ul>
+<li>Using command</li>
+</ul>
+<pre><code>[student@workstation ~]$ ansible -m user -a &quot;name=newbie uid=4000 state=present&quot; servera.lab.example.com</code></pre>
+<ul>
+<li>Using playbook</li>
+</ul>
+<pre><code>---
+- name: Configure important user consistently
+  hosts: servera.lab.example.com
+  tasks:
+    - name: newbie exists with UID 4000
+      user:
+        name: newbie
+        uid: 4000
+        state: present</code></pre>
+<ul>
+<li><em>Tip</em> for configure <code>vim</code> as editor</li>
+</ul>
+<pre><code>vim ~/.vimrc
+
+# add
+autocmd FileType yaml setlocal ai ts=2 sw=2 et nu cuc
+autocmd FileType yaml colo desert
+</code></pre>
+</div>
+<div id="running-playbooks" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> Running Playbooks</h3>
+<p>Simple Command</p>
+<pre><code>ansible-playbook site.yml</code></pre>
+<p>We can increase the verbosity of output using <code>-v</code>, <code>-vv</code> , <code>-vvv</code> or <code>-vvvv</code> and also **check the syntax* like:</p>
+<pre><code>ansible-playbook --syntax-check xxx.yml</code></pre>
+<p>Another option is execute as a Dry Run using option <code>-C</code></p>
+<pre><code>ansible-playbook -C xxx.yml
+</code></pre>
+</div>
+<div id="implementing-muliple-plays" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> Implementing Muliple Plays</h3>
+<p>A playbook is a YAML file containing a list of one or more plays, if a playbook
+contains multiple plays, each play may apply its tasks to a separate set of hosts.</p>
+<p>Sample</p>
+<pre><code>---
+# This is a simple playbook with two plays
+- name: first play
+  hosts: web.example.com
+  tasks:
+    - name: first task
+      yum:
+        name: httpd
+        status: present
+
+    - name: second task
+      service:
+        name: httpd
+        enabled: true
+
+- name: second play
+  hosts: database.example.com
+  tasks:
+    - name: first task
+      service:
+        name: mariadb
+        enabled: true</code></pre>
+<p><strong>Privilege Escalation</strong></p>
+<p>Those configuration can be set on ansible.cfg configuration file or at task level</p>
+<ul>
+<li><code>become</code> : True or False to enable or disable escalation</li>
+<li><code>become_method</code> : sudo/pbrun method of escalation</li>
+<li><code>become_user</code> : privilege user</li>
+<li><code>remote_user</code> : User that runs the tasks</li>
+</ul>
+</div>
+<div id="finding-modules-for-task" class="section level3">
+<h3><span class="header-section-number">4.2.7</span> Finding Modules for Task</h3>
+<p>The command <strong>ansible-doc -l</strong> will list all the modules on the current version</p>
+<pre><code>ansible-doc -l</code></pre>
+<p>To list detail about documentation, also to access the examples of playbooks go to ansible-doc moudule and run the /EXAMPLES</p>
+<pre><code>ansible-doc &lt;module&gt;
+
+# check examples
+/EXAMPLES</code></pre>
+</div>
+</div>
+<div id="managing-variables-and-facts" class="section level2">
+<h2><span class="header-section-number">4.3</span> Managing Variables and Facts</h2>
+<p>We can set a variable that affects a group of hosts or only individual hosts. Some variables are
+facts that can be set by Ansible based on the configuration of a system. Other variables can be set inside the playbook, and affect one play in that playbook, or only one task in that play.</p>
+<p>There are also set extra variables on the ansible-playbook command line by using the <strong>–extra-vars</strong> or <strong>-e</strong> option and specifying those variables, and they override all other values for that variable name.</p>
+<p>Simple list of ways to define a variable, ordered from lowest precedence to highest :</p>
+<ul>
+<li>Group variable in inventory</li>
+<li>Group variable in files in a <strong>group_vars</strong> sub dir in the same dir as inventory or playbook</li>
+<li>Host variable in the inventory</li>
+<li>Host variables in files in a <strong>host_var</strong> sub dir in the same dir as the inventory or playbook</li>
+<li>Host facts, discoverd at runtime</li>
+<li>Play variables in the playbook(vras and var_files)</li>
+<li>Task variables</li>
+<li>Extra variables on the command line</li>
+</ul>
+<blockquote>
+<p>A variable that is set to affect the all host group will be overridden by a variable that
+has the same name and is set to affect a single host.</p>
+</blockquote>
+<div id="variables-in-playbook" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Variables in playbook</h3>
+<pre><code>- hosts: all
+  vars:
+    user: joe
+    home: /home/joe</code></pre>
+<ul>
+<li>Using external files in the <code>vars_files</code> directive may be used</li>
+</ul>
+<pre><code>- hosts: all
+  vars_files:
+    - vars/users.yml</code></pre>
+<ul>
+<li>Using variables <strong>{{ var_name }}</strong>, using quotes is mandatory if the variable is the first element to start a value</li>
+</ul>
+<pre><code>vars:
+  user: joe
+
+tasks:
+  # This line will read: Creates the user joe
+  - name: Creates the user {{ user }}
+    user:
+      # This line will create the user named Joe
+      name: &quot;{{ user }}&quot;</code></pre>
+</div>
+<div id="host-and-group-variables" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Host and group variables</h3>
+<ul>
+<li>Defining the <strong>ansible_user</strong> host variable for demo.example.com:</li>
+</ul>
+<pre><code>[servers]
+demo.example.com ansible_user=joe</code></pre>
+<ul>
+<li>Defining the user group variable for the servers host group.</li>
+</ul>
+<pre><code>[servers]
+demo1.example.com
+demo2.example.com
+
+[servers:vars]
+user=joe</code></pre>
+</div>
+<div id="using-directories-to-populate-host-and-group-variables" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Using directories to populate host and group variables</h3>
+<p>The recommended practice is to define inventory variables using <code>host_vars</code> and <code>group_vars</code> directories, and not to define them directly in the inventory files</p>
+<pre><code>[admin@station project]$ cat ~/project/inventory
+[datacenter1]
+demo1.example.com
+demo2.example.com
+
+[datacenter2]
+demo3.example.com
+demo4.example.com
+
+[datacenters:children]
+datacenter1
+datacenter2</code></pre>
+<ul>
+<li>Variable for the databaceters group</li>
+</ul>
+<pre><code>[admin@station project]$ cat ~/project/group_vars/datacenters
+package: httpd</code></pre>
+<ul>
+<li>Variable for each datacenetr</li>
+</ul>
+<pre><code>[admin@station project]$ cat ~/project/group_vars/datacenter1
+package: httpd
+
+[admin@station project]$ cat ~/project/group_vars/datacenter2
+package: apache</code></pre>
+<ul>
+<li>Variable for each host</li>
+</ul>
+<pre><code>[admin@station project]$ cat ~/project/host_vars/demo1.example.com
+package: httpd
+
+[admin@station project]$ cat ~/project/host_vars/demo2.example.com
+package: apache
+
+[admin@station project]$ cat ~/project/host_vars/demo3.example.com
+package: mariadb-server
+
+[admin@station project]$ cat ~/project/host_vars/demo4.example.com
+package: mysql-server</code></pre>
+</div>
+<div id="overrding-variable-from-command-line" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Overrding variable from command line</h3>
+<pre><code>[user@demo ~]$ ansible-playbook main.yml -e &quot;package=apache&quot;</code></pre>
+</div>
+<div id="secrets" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Secrets</h3>
+<p>Ansible Vault can be used to encrypt and decrypt any structured data file used by Ansible</p>
+<pre><code>[student@demo ~]$ ansible-vault create secret.yml
+New Vault password: redhat
+Confirm New Vault password: redhat</code></pre>
+<p>We can use view to view the content, encrypt and decrypt option .</p>
+<p>To run a playbook with vault</p>
+<pre><code>[student@demo ~]$ ansible-playbook --vault-id @prompt site.yml
+Vault password (default): redhat
+
+# or 
+[student@demo ~]$ ansible-playbook --vault-password-file=vault-pw-file site.yml
+</code></pre>
+</div>
+<div id="managing-facts" class="section level3">
+<h3><span class="header-section-number">4.3.6</span> Managing Facts</h3>
+<p>Ansible facts are variables that are automatically discovered by Ansible on a managed host, every play runs the setup module automatically before teh first task to gather facts, this is report on <strong>Gathering Facts</strong> task, for example ?</p>
+<ul>
+<li>hostname</li>
+<li>kernel version</li>
+<li>network interface</li>
+<li>IP</li>
+<li>OS info, CPUs, disk, memory, etc</li>
+</ul>
+<p>To turn off the facts we can set the option <strong>gather_facts: no</strong> and the facts will not be collected.</p>
+<p>To create custom facts we need to speficy on <strong>/etc/ansible/facts.d/<name>.fact</strong> the name need to end with <strong>.fact</strong> below one example</p>
+<pre><code>[packages]
+web_package = httpd
+db_package = mariadb-server
+
+[users]
+user1 = joe
+user2 = jane</code></pre>
+</div>
+<div id="magic-variables" class="section level3">
+<h3><span class="header-section-number">4.3.7</span> Magic Variables</h3>
+<p>Those variables are not facts or configured on setup but are also automatically set by Ansible</p>
+<ul>
+<li>hostvars : Contains the variables for managed hosts</li>
+<li>group_names : Lists all groups the current managed host is in.</li>
+<li>groups : Lists all groups and hosts in the inventory.</li>
+<li>inventory_hostname : Contains the host name for the current managed host as configured in the inventory.</li>
+</ul>
+</div>
+</div>
+<div id="implementing-task-control" class="section level2">
+<h2><span class="header-section-number">4.4</span> Implementing Task Control</h2>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="server-administrator-i---r124.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="server-administrator-ii---rh134.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="red-hat-openshift-i-containers-kubernetes---do180.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -401,7 +818,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-RH294.Rmd",
 "text": "Edit"
 },
 "history": {

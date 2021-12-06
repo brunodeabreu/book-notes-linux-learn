@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Note 2 R124 | Training notes : Linux, Devops, entre outros</title>
+  <title># 2 Server Administrator I - R124 | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Note 2 R124 | Training notes : Linux, Devops, entre outros" />
+  <meta property="og:title" content="# 2 Server Administrator I - R124 | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Note 2 R124 | Training notes : Linux, Devops, entre outros" />
+  <meta name="twitter:title" content="# 2 Server Administrator I - R124 | Learning notes : Linux, Devops, entre outros" />
   
   <meta name="twitter:description" content="Those notes are for future reference" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-11-10" />
+<meta name="date" content="2021-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="rh134.html"/>
+<link rel="next" href="server-administrator-ii---rh134.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -134,141 +134,204 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Learning Linux Notes</a></li>
+<li><a href="./">Learning Notes</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro</a></li>
-<li class="chapter" data-level="2" data-path="r124.html"><a href="r124.html"><i class="fa fa-check"></i><b>2</b> R124</a><ul>
-<li class="chapter" data-level="2.1" data-path="r124.html"><a href="r124.html#what-is-linux"><i class="fa fa-check"></i><b>2.1</b> What is linux ?</a></li>
-<li class="chapter" data-level="2.2" data-path="r124.html"><a href="r124.html#command-line"><i class="fa fa-check"></i><b>2.2</b> Command Line</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="r124.html"><a href="r124.html#and"><i class="fa fa-check"></i><b>2.2.1</b> <code>$</code> and <code>#</code></a></li>
-<li class="chapter" data-level="2.2.2" data-path="r124.html"><a href="r124.html#to-login-into-another-computer-using-ssh"><i class="fa fa-check"></i><b>2.2.2</b> To login into another computer using <code>ssh</code></a></li>
-<li class="chapter" data-level="2.2.3" data-path="r124.html"><a href="r124.html#executing-commands"><i class="fa fa-check"></i><b>2.2.3</b> Executing commands</a></li>
+<li class="chapter" data-level="2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html"><i class="fa fa-check"></i><b>2</b> Server Administrator I - R124</a><ul>
+<li class="chapter" data-level="2.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#what-is-linux"><i class="fa fa-check"></i><b>2.1</b> What is linux ?</a></li>
+<li class="chapter" data-level="2.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#command-line"><i class="fa fa-check"></i><b>2.2</b> Command Line</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#and"><i class="fa fa-check"></i><b>2.2.1</b> <code>$</code> and <code>#</code></a></li>
+<li class="chapter" data-level="2.2.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#to-login-into-another-computer-using-ssh"><i class="fa fa-check"></i><b>2.2.2</b> To login into another computer using <code>ssh</code></a></li>
+<li class="chapter" data-level="2.2.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#executing-commands"><i class="fa fa-check"></i><b>2.2.3</b> Executing commands</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="r124.html"><a href="r124.html#managing-file-system"><i class="fa fa-check"></i><b>2.3</b> Managing File system</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="r124.html"><a href="r124.html#the-file-system-hierarchy"><i class="fa fa-check"></i><b>2.3.1</b> The file system hierarchy <code>/</code></a></li>
-<li class="chapter" data-level="2.3.2" data-path="r124.html"><a href="r124.html#absolute-and-relative-paths"><i class="fa fa-check"></i><b>2.3.2</b> Absolute and Relative paths</a></li>
-<li class="chapter" data-level="2.3.3" data-path="r124.html"><a href="r124.html#managing-files"><i class="fa fa-check"></i><b>2.3.3</b> Managing Files</a></li>
+<li class="chapter" data-level="2.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#managing-file-system"><i class="fa fa-check"></i><b>2.3</b> Managing File system</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#the-file-system-hierarchy"><i class="fa fa-check"></i><b>2.3.1</b> The file system hierarchy <code>/</code></a></li>
+<li class="chapter" data-level="2.3.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#absolute-and-relative-paths"><i class="fa fa-check"></i><b>2.3.2</b> Absolute and Relative paths</a></li>
+<li class="chapter" data-level="2.3.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#managing-files"><i class="fa fa-check"></i><b>2.3.3</b> Managing Files</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="r124.html"><a href="r124.html#help"><i class="fa fa-check"></i><b>2.4</b> Help</a></li>
-<li class="chapter" data-level="2.5" data-path="r124.html"><a href="r124.html#text-files"><i class="fa fa-check"></i><b>2.5</b> Text Files</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="r124.html"><a href="r124.html#vim"><i class="fa fa-check"></i><b>2.5.1</b> vim</a></li>
-<li class="chapter" data-level="2.5.2" data-path="r124.html"><a href="r124.html#changing-shell"><i class="fa fa-check"></i><b>2.5.2</b> Changing shell</a></li>
+<li class="chapter" data-level="2.4" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#help"><i class="fa fa-check"></i><b>2.4</b> Help</a></li>
+<li class="chapter" data-level="2.5" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#text-files"><i class="fa fa-check"></i><b>2.5</b> Text Files</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#vim"><i class="fa fa-check"></i><b>2.5.1</b> vim</a></li>
+<li class="chapter" data-level="2.5.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#changing-shell"><i class="fa fa-check"></i><b>2.5.2</b> Changing shell</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="r124.html"><a href="r124.html#managing-local-users-and-groups"><i class="fa fa-check"></i><b>2.6</b> Managing Local Users and Groups</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="r124.html"><a href="r124.html#users"><i class="fa fa-check"></i><b>2.6.1</b> Users</a></li>
-<li class="chapter" data-level="2.6.2" data-path="r124.html"><a href="r124.html#groups"><i class="fa fa-check"></i><b>2.6.2</b> Groups</a></li>
-<li class="chapter" data-level="2.6.3" data-path="r124.html"><a href="r124.html#gaining-superuser-access"><i class="fa fa-check"></i><b>2.6.3</b> Gaining superuser access</a></li>
-<li class="chapter" data-level="2.6.4" data-path="r124.html"><a href="r124.html#managing-user-passwords"><i class="fa fa-check"></i><b>2.6.4</b> Managing user passwords</a></li>
+<li class="chapter" data-level="2.6" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#managing-local-users-and-groups"><i class="fa fa-check"></i><b>2.6</b> Managing Local Users and Groups</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#users"><i class="fa fa-check"></i><b>2.6.1</b> Users</a></li>
+<li class="chapter" data-level="2.6.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#groups"><i class="fa fa-check"></i><b>2.6.2</b> Groups</a></li>
+<li class="chapter" data-level="2.6.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#gaining-superuser-access"><i class="fa fa-check"></i><b>2.6.3</b> Gaining superuser access</a></li>
+<li class="chapter" data-level="2.6.4" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#managing-user-passwords"><i class="fa fa-check"></i><b>2.6.4</b> Managing user passwords</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="r124.html"><a href="r124.html#controlling-access-to-files"><i class="fa fa-check"></i><b>2.7</b> Controlling access to files</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="r124.html"><a href="r124.html#default-permissions"><i class="fa fa-check"></i><b>2.7.1</b> Default permissions</a></li>
-<li class="chapter" data-level="2.7.2" data-path="r124.html"><a href="r124.html#umask"><i class="fa fa-check"></i><b>2.7.2</b> umask</a></li>
+<li class="chapter" data-level="2.7" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#controlling-access-to-files"><i class="fa fa-check"></i><b>2.7</b> Controlling access to files</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#special-permissions"><i class="fa fa-check"></i><b>2.7.1</b> Special permissions</a></li>
+<li class="chapter" data-level="2.7.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#default-permissions---umask"><i class="fa fa-check"></i><b>2.7.2</b> Default permissions - umask</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="r124.html"><a href="r124.html#monitoring-and-managing-linux-process"><i class="fa fa-check"></i><b>2.8</b> Monitoring and MAnaging Linux process</a><ul>
-<li class="chapter" data-level="2.8.1" data-path="r124.html"><a href="r124.html#commands-to-monitor"><i class="fa fa-check"></i><b>2.8.1</b> Commands to monitor</a></li>
-<li class="chapter" data-level="2.8.2" data-path="r124.html"><a href="r124.html#controlling-jobs"><i class="fa fa-check"></i><b>2.8.2</b> Controlling jobs</a></li>
-<li class="chapter" data-level="2.8.3" data-path="r124.html"><a href="r124.html#killing-process"><i class="fa fa-check"></i><b>2.8.3</b> Killing process</a></li>
-<li class="chapter" data-level="2.8.4" data-path="r124.html"><a href="r124.html#monitor-process-activity"><i class="fa fa-check"></i><b>2.8.4</b> Monitor process activity</a></li>
+<li class="chapter" data-level="2.8" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#monitoring-and-managing-linux-process"><i class="fa fa-check"></i><b>2.8</b> Monitoring and Managing Linux process</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#commands-to-monitor"><i class="fa fa-check"></i><b>2.8.1</b> Commands to monitor</a></li>
+<li class="chapter" data-level="2.8.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#controlling-jobs"><i class="fa fa-check"></i><b>2.8.2</b> Controlling jobs</a></li>
+<li class="chapter" data-level="2.8.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#killing-process"><i class="fa fa-check"></i><b>2.8.3</b> Killing process</a></li>
+<li class="chapter" data-level="2.8.4" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#monitor-process-activity"><i class="fa fa-check"></i><b>2.8.4</b> Monitor process activity</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="r124.html"><a href="r124.html#controlling-services-and-daemons"><i class="fa fa-check"></i><b>2.9</b> Controlling Services and Daemons</a></li>
-<li class="chapter" data-level="2.10" data-path="r124.html"><a href="r124.html#configuring-and-securing-ssh"><i class="fa fa-check"></i><b>2.10</b> Configuring and Securing SSH</a><ul>
-<li class="chapter" data-level="2.10.1" data-path="r124.html"><a href="r124.html#configure-ssh-key-based-authentication"><i class="fa fa-check"></i><b>2.10.1</b> Configure SSH Key-based Authentication</a></li>
-<li class="chapter" data-level="2.10.2" data-path="r124.html"><a href="r124.html#create-a-public-and-private-keypair"><i class="fa fa-check"></i><b>2.10.2</b> Create a public and private keypair</a></li>
-<li class="chapter" data-level="2.10.3" data-path="r124.html"><a href="r124.html#customizing-openssh-service-config"><i class="fa fa-check"></i><b>2.10.3</b> Customizing OpenSSH Service Config</a></li>
+<li class="chapter" data-level="2.9" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#controlling-services-and-daemons"><i class="fa fa-check"></i><b>2.9</b> Controlling Services and Daemons</a></li>
+<li class="chapter" data-level="2.10" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#configuring-and-securing-ssh"><i class="fa fa-check"></i><b>2.10</b> Configuring and Securing SSH</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#configure-ssh-key-based-authentication"><i class="fa fa-check"></i><b>2.10.1</b> Configure SSH Key-based Authentication</a></li>
+<li class="chapter" data-level="2.10.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#create-a-public-and-private-keypair"><i class="fa fa-check"></i><b>2.10.2</b> Create a public and private keypair</a></li>
+<li class="chapter" data-level="2.10.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#customizing-openssh-service-config"><i class="fa fa-check"></i><b>2.10.3</b> Customizing OpenSSH Service Config</a></li>
 </ul></li>
-<li class="chapter" data-level="2.11" data-path="r124.html"><a href="r124.html#analysing-and-storing-logs"><i class="fa fa-check"></i><b>2.11</b> Analysing and Storing Logs</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="r124.html"><a href="r124.html#reviewing-system-hournal-entries"><i class="fa fa-check"></i><b>2.11.1</b> Reviewing System Hournal Entries</a></li>
-<li class="chapter" data-level="2.11.2" data-path="r124.html"><a href="r124.html#preserving-the-system-journal"><i class="fa fa-check"></i><b>2.11.2</b> Preserving the system journal</a></li>
-<li class="chapter" data-level="2.11.3" data-path="r124.html"><a href="r124.html#maitaining-accurate-time"><i class="fa fa-check"></i><b>2.11.3</b> Maitaining Accurate time</a></li>
+<li class="chapter" data-level="2.11" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#analysing-and-storing-logs"><i class="fa fa-check"></i><b>2.11</b> Analysing and Storing Logs</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#reviewing-system-hournal-entries"><i class="fa fa-check"></i><b>2.11.1</b> Reviewing System Hournal Entries</a></li>
+<li class="chapter" data-level="2.11.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#preserving-the-system-journal"><i class="fa fa-check"></i><b>2.11.2</b> Preserving the system journal</a></li>
+<li class="chapter" data-level="2.11.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#maitaining-accurate-time"><i class="fa fa-check"></i><b>2.11.3</b> Maitaining Accurate time</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="r124.html"><a href="r124.html#managing-networking"><i class="fa fa-check"></i><b>2.12</b> Managing Networking</a><ul>
-<li class="chapter" data-level="2.12.1" data-path="r124.html"><a href="r124.html#tcpip"><i class="fa fa-check"></i><b>2.12.1</b> TCPIP</a></li>
-<li class="chapter" data-level="2.12.2" data-path="r124.html"><a href="r124.html#validating-network-configuration"><i class="fa fa-check"></i><b>2.12.2</b> Validating Network Configuration</a></li>
-<li class="chapter" data-level="2.12.3" data-path="r124.html"><a href="r124.html#configure-networking-from-the-command-line"><i class="fa fa-check"></i><b>2.12.3</b> Configure Networking from the Command Line</a></li>
-<li class="chapter" data-level="2.12.4" data-path="r124.html"><a href="r124.html#editing-network-configuration-files"><i class="fa fa-check"></i><b>2.12.4</b> Editing Network Configuration Files</a></li>
-<li class="chapter" data-level="2.12.5" data-path="r124.html"><a href="r124.html#configuring-hot-names-and-name-resolution"><i class="fa fa-check"></i><b>2.12.5</b> Configuring Hot Names and Name Resolution</a></li>
+<li class="chapter" data-level="2.12" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#managing-networking"><i class="fa fa-check"></i><b>2.12</b> Managing Networking</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#tcpip"><i class="fa fa-check"></i><b>2.12.1</b> TCPIP</a></li>
+<li class="chapter" data-level="2.12.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#validating-network-configuration"><i class="fa fa-check"></i><b>2.12.2</b> Validating Network Configuration</a></li>
+<li class="chapter" data-level="2.12.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#configure-networking-from-the-command-line"><i class="fa fa-check"></i><b>2.12.3</b> Configure Networking from the Command Line</a></li>
+<li class="chapter" data-level="2.12.4" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#editing-network-configuration-files"><i class="fa fa-check"></i><b>2.12.4</b> Editing Network Configuration Files</a></li>
+<li class="chapter" data-level="2.12.5" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#configuring-hot-names-and-name-resolution"><i class="fa fa-check"></i><b>2.12.5</b> Configuring Hot Names and Name Resolution</a></li>
 </ul></li>
-<li class="chapter" data-level="2.13" data-path="r124.html"><a href="r124.html#archiving-and-transferring-files"><i class="fa fa-check"></i><b>2.13</b> Archiving and transferring files</a><ul>
-<li class="chapter" data-level="2.13.1" data-path="r124.html"><a href="r124.html#tar"><i class="fa fa-check"></i><b>2.13.1</b> TAR</a></li>
-<li class="chapter" data-level="2.13.2" data-path="r124.html"><a href="r124.html#scp"><i class="fa fa-check"></i><b>2.13.2</b> SCP</a></li>
-<li class="chapter" data-level="2.13.3" data-path="r124.html"><a href="r124.html#sftp"><i class="fa fa-check"></i><b>2.13.3</b> SFTP</a></li>
-<li class="chapter" data-level="2.13.4" data-path="r124.html"><a href="r124.html#synchronizing-files-between-system"><i class="fa fa-check"></i><b>2.13.4</b> Synchronizing Files Between System</a></li>
+<li class="chapter" data-level="2.13" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#archiving-and-transferring-files"><i class="fa fa-check"></i><b>2.13</b> Archiving and transferring files</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#tar"><i class="fa fa-check"></i><b>2.13.1</b> TAR</a></li>
+<li class="chapter" data-level="2.13.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#scp"><i class="fa fa-check"></i><b>2.13.2</b> SCP</a></li>
+<li class="chapter" data-level="2.13.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#sftp"><i class="fa fa-check"></i><b>2.13.3</b> SFTP</a></li>
+<li class="chapter" data-level="2.13.4" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#synchronizing-files-between-system"><i class="fa fa-check"></i><b>2.13.4</b> Synchronizing Files Between System</a></li>
 </ul></li>
-<li class="chapter" data-level="2.14" data-path="r124.html"><a href="r124.html#intalling-and-updating-software-packages"><i class="fa fa-check"></i><b>2.14</b> Intalling and updating software packages</a><ul>
-<li class="chapter" data-level="2.14.1" data-path="r124.html"><a href="r124.html#package-manager"><i class="fa fa-check"></i><b>2.14.1</b> Package manager</a></li>
-<li class="chapter" data-level="2.14.2" data-path="r124.html"><a href="r124.html#inslalling-and-update-software-packages-with-yum"><i class="fa fa-check"></i><b>2.14.2</b> Inslalling and Update Software Packages with <strong>Yum</strong></a></li>
-<li class="chapter" data-level="2.14.3" data-path="r124.html"><a href="r124.html#enabling-yum-software-repositories"><i class="fa fa-check"></i><b>2.14.3</b> Enabling Yum Software Repositories</a></li>
-<li class="chapter" data-level="2.14.4" data-path="r124.html"><a href="r124.html#managing-packages-module-streams"><i class="fa fa-check"></i><b>2.14.4</b> Managing Packages Module Streams</a></li>
+<li class="chapter" data-level="2.14" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#intalling-and-updating-software-packages"><i class="fa fa-check"></i><b>2.14</b> Intalling and updating software packages</a><ul>
+<li class="chapter" data-level="2.14.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#package-manager"><i class="fa fa-check"></i><b>2.14.1</b> Package manager</a></li>
+<li class="chapter" data-level="2.14.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#inslalling-and-update-software-packages-with-yum"><i class="fa fa-check"></i><b>2.14.2</b> Inslalling and Update Software Packages with <strong>Yum</strong></a></li>
+<li class="chapter" data-level="2.14.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#enabling-yum-software-repositories"><i class="fa fa-check"></i><b>2.14.3</b> Enabling Yum Software Repositories</a></li>
+<li class="chapter" data-level="2.14.4" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#managing-packages-module-streams"><i class="fa fa-check"></i><b>2.14.4</b> Managing Packages Module Streams</a></li>
 </ul></li>
-<li class="chapter" data-level="2.15" data-path="r124.html"><a href="r124.html#accessing-linux-file-systems"><i class="fa fa-check"></i><b>2.15</b> Accessing Linux File Systems</a><ul>
-<li class="chapter" data-level="2.15.1" data-path="r124.html"><a href="r124.html#mount-and-unmounting-file-systems"><i class="fa fa-check"></i><b>2.15.1</b> Mount and Unmounting File systems</a></li>
-<li class="chapter" data-level="2.15.2" data-path="r124.html"><a href="r124.html#locating-files-on-the-system"><i class="fa fa-check"></i><b>2.15.2</b> Locating Files on the System</a></li>
+<li class="chapter" data-level="2.15" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#accessing-linux-file-systems"><i class="fa fa-check"></i><b>2.15</b> Accessing Linux File Systems</a><ul>
+<li class="chapter" data-level="2.15.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#mount-and-unmounting-file-systems"><i class="fa fa-check"></i><b>2.15.1</b> Mount and Unmounting File systems</a></li>
+<li class="chapter" data-level="2.15.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#locating-files-on-the-system"><i class="fa fa-check"></i><b>2.15.2</b> Locating Files on the System</a></li>
 </ul></li>
-<li class="chapter" data-level="2.16" data-path="r124.html"><a href="r124.html#analysing-server-and-getting-support"><i class="fa fa-check"></i><b>2.16</b> Analysing Server and Getting Support</a><ul>
-<li class="chapter" data-level="2.16.1" data-path="r124.html"><a href="r124.html#deteting-and-resolving-issues-with-red-hat-insights"><i class="fa fa-check"></i><b>2.16.1</b> Deteting and Resolving issues with Red Hat Insights</a></li>
+<li class="chapter" data-level="2.16" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#analysing-server-and-getting-support"><i class="fa fa-check"></i><b>2.16</b> Analysing Server and Getting Support</a><ul>
+<li class="chapter" data-level="2.16.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#deteting-and-resolving-issues-with-red-hat-insights"><i class="fa fa-check"></i><b>2.16.1</b> Deteting and Resolving issues with Red Hat Insights</a></li>
+</ul></li>
+<li class="chapter" data-level="2.17" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#extra"><i class="fa fa-check"></i><b>2.17</b> Extra</a><ul>
+<li class="chapter" data-level="2.17.1" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#create-8g-file-disk"><i class="fa fa-check"></i><b>2.17.1</b> Create 8G file disk</a></li>
+<li class="chapter" data-level="2.17.2" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#find-users-wit-set-uid"><i class="fa fa-check"></i><b>2.17.2</b> Find users wit Set UID</a></li>
+<li class="chapter" data-level="2.17.3" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#show-dump-device"><i class="fa fa-check"></i><b>2.17.3</b> Show dump device</a></li>
+<li class="chapter" data-level="2.17.4" data-path="server-administrator-i---r124.html"><a href="server-administrator-i---r124.html#configure-labels-of-fs"><i class="fa fa-check"></i><b>2.17.4</b> Configure labels of FS</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="rh134.html"><a href="rh134.html"><i class="fa fa-check"></i><b>3</b> RH134</a><ul>
-<li class="chapter" data-level="3.1" data-path="rh134.html"><a href="rh134.html#improving-command-line-productivity"><i class="fa fa-check"></i><b>3.1</b> Improving Command Line Productivity</a></li>
-<li class="chapter" data-level="3.2" data-path="rh134.html"><a href="rh134.html#scheduling-future-tasks"><i class="fa fa-check"></i><b>3.2</b> Scheduling Future Tasks</a></li>
-<li class="chapter" data-level="3.3" data-path="rh134.html"><a href="rh134.html#tuning-system-performance"><i class="fa fa-check"></i><b>3.3</b> Tuning System Performance</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="rh134.html"><a href="rh134.html#profiles"><i class="fa fa-check"></i><b>3.3.1</b> Profiles</a></li>
-<li class="chapter" data-level="3.3.2" data-path="rh134.html"><a href="rh134.html#managing-profiles-from-command-line"><i class="fa fa-check"></i><b>3.3.2</b> Managing profiles from command line</a></li>
-<li class="chapter" data-level="3.3.3" data-path="rh134.html"><a href="rh134.html#influencing-process-scheduling"><i class="fa fa-check"></i><b>3.3.3</b> Influencing Process Scheduling</a></li>
+<li class="chapter" data-level="3" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html"><i class="fa fa-check"></i><b>3</b> Server Administrator II - RH134</a><ul>
+<li class="chapter" data-level="3.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#improving-command-line-productivity"><i class="fa fa-check"></i><b>3.1</b> Improving Command Line Productivity</a></li>
+<li class="chapter" data-level="3.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#scheduling-future-tasks"><i class="fa fa-check"></i><b>3.2</b> Scheduling Future Tasks</a></li>
+<li class="chapter" data-level="3.3" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#tuning-system-performance"><i class="fa fa-check"></i><b>3.3</b> Tuning System Performance</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#profiles"><i class="fa fa-check"></i><b>3.3.1</b> Profiles</a></li>
+<li class="chapter" data-level="3.3.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-profiles-from-command-line"><i class="fa fa-check"></i><b>3.3.2</b> Managing profiles from command line</a></li>
+<li class="chapter" data-level="3.3.3" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#influencing-process-scheduling"><i class="fa fa-check"></i><b>3.3.3</b> Influencing Process Scheduling</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="rh134.html"><a href="rh134.html#controling-access-to-files-with-acls"><i class="fa fa-check"></i><b>3.4</b> Controling Access to Files with ACLs</a></li>
-<li class="chapter" data-level="3.5" data-path="rh134.html"><a href="rh134.html#managing-selinux-security"><i class="fa fa-check"></i><b>3.5</b> Managing SELinux Security</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="rh134.html"><a href="rh134.html#controlling-selinux-file-contexts"><i class="fa fa-check"></i><b>3.5.1</b> Controlling SELinux File Contexts</a></li>
-<li class="chapter" data-level="3.5.2" data-path="rh134.html"><a href="rh134.html#adjusting-selinux-policy-with-booleans"><i class="fa fa-check"></i><b>3.5.2</b> Adjusting SELinux Policy with Booleans</a></li>
-<li class="chapter" data-level="3.5.3" data-path="rh134.html"><a href="rh134.html#investigating-and-resolving-selinux-issues"><i class="fa fa-check"></i><b>3.5.3</b> Investigating and REsolving SELinux issues</a></li>
+<li class="chapter" data-level="3.4" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#controling-access-to-files-with-acls"><i class="fa fa-check"></i><b>3.4</b> Controling Access to Files with ACLs</a></li>
+<li class="chapter" data-level="3.5" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-selinux-security"><i class="fa fa-check"></i><b>3.5</b> Managing SELinux Security</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#controlling-selinux-file-contexts"><i class="fa fa-check"></i><b>3.5.1</b> Controlling SELinux File Contexts</a></li>
+<li class="chapter" data-level="3.5.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#adjusting-selinux-policy-with-booleans"><i class="fa fa-check"></i><b>3.5.2</b> Adjusting SELinux Policy with Booleans</a></li>
+<li class="chapter" data-level="3.5.3" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#investigating-and-resolving-selinux-issues"><i class="fa fa-check"></i><b>3.5.3</b> Investigating and REsolving SELinux issues</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="rh134.html"><a href="rh134.html#managing-basic-storage"><i class="fa fa-check"></i><b>3.6</b> Managing Basic Storage</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="rh134.html"><a href="rh134.html#adding-partition-file-systems-and-persistent-mounts"><i class="fa fa-check"></i><b>3.6.1</b> Adding Partition, File Systems and Persistent Mounts</a></li>
-<li class="chapter" data-level="3.6.2" data-path="rh134.html"><a href="rh134.html#managing-swap-space"><i class="fa fa-check"></i><b>3.6.2</b> Managing Swap Space</a></li>
+<li class="chapter" data-level="3.6" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-basic-storage"><i class="fa fa-check"></i><b>3.6</b> Managing Basic Storage</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#adding-partition-file-systems-and-persistent-mounts"><i class="fa fa-check"></i><b>3.6.1</b> Adding Partition, File Systems and Persistent Mounts</a></li>
+<li class="chapter" data-level="3.6.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-swap-space"><i class="fa fa-check"></i><b>3.6.2</b> Managing Swap Space</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="rh134.html"><a href="rh134.html#managing-logical-volumes"><i class="fa fa-check"></i><b>3.7</b> Managing Logical Volumes</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="rh134.html"><a href="rh134.html#creating-logical-volumes"><i class="fa fa-check"></i><b>3.7.1</b> Creating Logical Volumes</a></li>
-<li class="chapter" data-level="3.7.2" data-path="rh134.html"><a href="rh134.html#extending-and-reducing-logical-volumes"><i class="fa fa-check"></i><b>3.7.2</b> Extending and Reducing Logical Volumes</a></li>
+<li class="chapter" data-level="3.7" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-logical-volumes"><i class="fa fa-check"></i><b>3.7</b> Managing Logical Volumes</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#creating-logical-volumes"><i class="fa fa-check"></i><b>3.7.1</b> Creating Logical Volumes</a></li>
+<li class="chapter" data-level="3.7.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#extending-and-reducing-logical-volumes"><i class="fa fa-check"></i><b>3.7.2</b> Extending and Reducing Logical Volumes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="rh134.html"><a href="rh134.html#implementing-advanced-storage-features"><i class="fa fa-check"></i><b>3.8</b> Implementing Advanced Storage Features</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="rh134.html"><a href="rh134.html#managing-storage-with-stratis"><i class="fa fa-check"></i><b>3.8.1</b> Managing Storage with Stratis</a></li>
-<li class="chapter" data-level="3.8.2" data-path="rh134.html"><a href="rh134.html#compressing-and-deduplicating-storage-with-vdo"><i class="fa fa-check"></i><b>3.8.2</b> Compressing and Deduplicating Storage with VDO</a></li>
+<li class="chapter" data-level="3.8" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#implementing-advanced-storage-features"><i class="fa fa-check"></i><b>3.8</b> Implementing Advanced Storage Features</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-storage-with-stratis"><i class="fa fa-check"></i><b>3.8.1</b> Managing Storage with Stratis</a></li>
+<li class="chapter" data-level="3.8.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#compressing-and-deduplicating-storage-with-vdo"><i class="fa fa-check"></i><b>3.8.2</b> Compressing and Deduplicating Storage with VDO</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="rh134.html"><a href="rh134.html#accessing-network-attached-storage"><i class="fa fa-check"></i><b>3.9</b> Accessing Network-Attached Storage</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="rh134.html"><a href="rh134.html#mounting-network-attached-storage-with-nfs"><i class="fa fa-check"></i><b>3.9.1</b> Mounting Network-Attached Storage with NFS</a></li>
-<li class="chapter" data-level="3.9.2" data-path="rh134.html"><a href="rh134.html#automounting-network-attached-storage"><i class="fa fa-check"></i><b>3.9.2</b> Automounting Network-Attached Storage</a></li>
+<li class="chapter" data-level="3.9" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#accessing-network-attached-storage"><i class="fa fa-check"></i><b>3.9</b> Accessing Network-Attached Storage</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#mounting-network-attached-storage-with-nfs"><i class="fa fa-check"></i><b>3.9.1</b> Mounting Network-Attached Storage with NFS</a></li>
+<li class="chapter" data-level="3.9.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#automounting-network-attached-storage"><i class="fa fa-check"></i><b>3.9.2</b> Automounting Network-Attached Storage</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="rh134.html"><a href="rh134.html#controlling-the-boot-process"><i class="fa fa-check"></i><b>3.10</b> Controlling The Boot Process</a><ul>
-<li class="chapter" data-level="3.10.1" data-path="rh134.html"><a href="rh134.html#selecting-the-boot-target"><i class="fa fa-check"></i><b>3.10.1</b> Selecting the boot target</a></li>
-<li class="chapter" data-level="3.10.2" data-path="rh134.html"><a href="rh134.html#resetting-the-root-password"><i class="fa fa-check"></i><b>3.10.2</b> Resetting the Root Password</a></li>
-<li class="chapter" data-level="3.10.3" data-path="rh134.html"><a href="rh134.html#repairing-file-system-issues-at-boot"><i class="fa fa-check"></i><b>3.10.3</b> Repairing File system Issues at Boot</a></li>
+<li class="chapter" data-level="3.10" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#controlling-the-boot-process"><i class="fa fa-check"></i><b>3.10</b> Controlling The Boot Process</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#selecting-the-boot-target"><i class="fa fa-check"></i><b>3.10.1</b> Selecting the boot target</a></li>
+<li class="chapter" data-level="3.10.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#resetting-the-root-password"><i class="fa fa-check"></i><b>3.10.2</b> Resetting the Root Password</a></li>
+<li class="chapter" data-level="3.10.3" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#repairing-file-system-issues-at-boot"><i class="fa fa-check"></i><b>3.10.3</b> Repairing File system Issues at Boot</a></li>
+<li class="chapter" data-level="3.10.4" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#create-or-alter-grub"><i class="fa fa-check"></i><b>3.10.4</b> Create or alter grub</a></li>
 </ul></li>
-<li class="chapter" data-level="3.11" data-path="rh134.html"><a href="rh134.html#managing-network-security"><i class="fa fa-check"></i><b>3.11</b> Managing Network Security</a><ul>
-<li class="chapter" data-level="3.11.1" data-path="rh134.html"><a href="rh134.html#managing-server-firewall"><i class="fa fa-check"></i><b>3.11.1</b> Managing Server Firewall</a></li>
-<li class="chapter" data-level="3.11.2" data-path="rh134.html"><a href="rh134.html#controlling-selinux-port-labeling"><i class="fa fa-check"></i><b>3.11.2</b> Controlling SELinux Port Labeling</a></li>
+<li class="chapter" data-level="3.11" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-network-security"><i class="fa fa-check"></i><b>3.11</b> Managing Network Security</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-server-firewall"><i class="fa fa-check"></i><b>3.11.1</b> Managing Server Firewall</a></li>
+<li class="chapter" data-level="3.11.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#controlling-selinux-port-labeling"><i class="fa fa-check"></i><b>3.11.2</b> Controlling SELinux Port Labeling</a></li>
 </ul></li>
-<li class="chapter" data-level="3.12" data-path="rh134.html"><a href="rh134.html#installing-red-hat-enterprise-linux"><i class="fa fa-check"></i><b>3.12</b> Installing Red Hat Enterprise Linux</a><ul>
-<li class="chapter" data-level="3.12.1" data-path="rh134.html"><a href="rh134.html#installing-red-hat-enterprise-linux-1"><i class="fa fa-check"></i><b>3.12.1</b> Installing Red Hat Enterprise Linux</a></li>
-<li class="chapter" data-level="3.12.2" data-path="rh134.html"><a href="rh134.html#automating-installation-with-kickstart"><i class="fa fa-check"></i><b>3.12.2</b> Automating Installation with Kickstart</a></li>
-<li class="chapter" data-level="3.12.3" data-path="rh134.html"><a href="rh134.html#installing-and-configuring-virtual-machine"><i class="fa fa-check"></i><b>3.12.3</b> Installing and Configuring Virtual Machine</a></li>
+<li class="chapter" data-level="3.12" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#installing-red-hat-enterprise-linux"><i class="fa fa-check"></i><b>3.12</b> Installing Red Hat Enterprise Linux</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#installing-red-hat-enterprise-linux-1"><i class="fa fa-check"></i><b>3.12.1</b> Installing Red Hat Enterprise Linux</a></li>
+<li class="chapter" data-level="3.12.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#automating-installation-with-kickstart"><i class="fa fa-check"></i><b>3.12.2</b> Automating Installation with Kickstart</a></li>
+<li class="chapter" data-level="3.12.3" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#installing-and-configuring-virtual-machine"><i class="fa fa-check"></i><b>3.12.3</b> Installing and Configuring Virtual Machine</a></li>
 </ul></li>
-<li class="chapter" data-level="3.13" data-path="rh134.html"><a href="rh134.html#running-containers"><i class="fa fa-check"></i><b>3.13</b> Running Containers</a><ul>
-<li class="chapter" data-level="3.13.1" data-path="rh134.html"><a href="rh134.html#intro-1"><i class="fa fa-check"></i><b>3.13.1</b> Intro</a></li>
-<li class="chapter" data-level="3.13.2" data-path="rh134.html"><a href="rh134.html#running-a-basic-conatiner"><i class="fa fa-check"></i><b>3.13.2</b> Running a Basic Conatiner</a></li>
-<li class="chapter" data-level="3.13.3" data-path="rh134.html"><a href="rh134.html#finding-and-managing-container-images"><i class="fa fa-check"></i><b>3.13.3</b> Finding and Managing Container Images</a></li>
-<li class="chapter" data-level="3.13.4" data-path="rh134.html"><a href="rh134.html#performing-advanced-container-management"><i class="fa fa-check"></i><b>3.13.4</b> Performing Advanced Container Management</a></li>
-<li class="chapter" data-level="3.13.5" data-path="rh134.html"><a href="rh134.html#attaching-persistent-storage-to-a-container"><i class="fa fa-check"></i><b>3.13.5</b> Attaching Persistent Storage to a Container</a></li>
-<li class="chapter" data-level="3.13.6" data-path="rh134.html"><a href="rh134.html#managing-containers-as-service"><i class="fa fa-check"></i><b>3.13.6</b> Managing Containers as Service</a></li>
+<li class="chapter" data-level="3.13" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#running-containers"><i class="fa fa-check"></i><b>3.13</b> Running Containers</a><ul>
+<li class="chapter" data-level="3.13.1" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#intro-1"><i class="fa fa-check"></i><b>3.13.1</b> Intro</a></li>
+<li class="chapter" data-level="3.13.2" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#running-a-basic-conatiner"><i class="fa fa-check"></i><b>3.13.2</b> Running a Basic Conatiner</a></li>
+<li class="chapter" data-level="3.13.3" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#finding-and-managing-container-images"><i class="fa fa-check"></i><b>3.13.3</b> Finding and Managing Container Images</a></li>
+<li class="chapter" data-level="3.13.4" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#performing-advanced-container-management"><i class="fa fa-check"></i><b>3.13.4</b> Performing Advanced Container Management</a></li>
+<li class="chapter" data-level="3.13.5" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#attaching-persistent-storage-to-a-container"><i class="fa fa-check"></i><b>3.13.5</b> Attaching Persistent Storage to a Container</a></li>
+<li class="chapter" data-level="3.13.6" data-path="server-administrator-ii---rh134.html"><a href="server-administrator-ii---rh134.html#managing-containers-as-service"><i class="fa fa-check"></i><b>3.13.6</b> Managing Containers as Service</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html"><i class="fa fa-check"></i><b>4</b> Server Administrator III - RH294</a><ul>
+<li class="chapter" data-level="4.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#intro-to-ansible"><i class="fa fa-check"></i><b>4.1</b> Intro to Ansible</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#ansible-concepts-and-architecture"><i class="fa fa-check"></i><b>4.1.1</b> Ansible Concepts and Architecture</a></li>
+<li class="chapter" data-level="4.1.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#install-ansbile"><i class="fa fa-check"></i><b>4.1.2</b> Install Ansbile</a></li>
+<li class="chapter" data-level="4.1.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-an-ansible-playbook"><i class="fa fa-check"></i><b>4.1.3</b> Implementing an Ansible Playbook</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-anisble-and-implementing-playbooks"><i class="fa fa-check"></i><b>4.2</b> Deploying Anisble and Implementing Playbooks</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#building-an-ansible-invetory"><i class="fa fa-check"></i><b>4.2.1</b> Building an Ansible Invetory</a></li>
+<li class="chapter" data-level="4.2.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-ansible-configuration-files"><i class="fa fa-check"></i><b>4.2.2</b> Managing Ansible Configuration Files</a></li>
+<li class="chapter" data-level="4.2.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#running-ad-hoc-commands"><i class="fa fa-check"></i><b>4.2.3</b> Running Ad Hoc Commands</a></li>
+<li class="chapter" data-level="4.2.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#writing-and-running-playbooks"><i class="fa fa-check"></i><b>4.2.4</b> Writing and Running Playbooks</a></li>
+<li class="chapter" data-level="4.2.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#running-playbooks"><i class="fa fa-check"></i><b>4.2.5</b> Running Playbooks</a></li>
+<li class="chapter" data-level="4.2.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-muliple-plays"><i class="fa fa-check"></i><b>4.2.6</b> Implementing Muliple Plays</a></li>
+<li class="chapter" data-level="4.2.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#finding-modules-for-task"><i class="fa fa-check"></i><b>4.2.7</b> Finding Modules for Task</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-variables-and-facts"><i class="fa fa-check"></i><b>4.3</b> Managing Variables and Facts</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#variables-in-playbook"><i class="fa fa-check"></i><b>4.3.1</b> Variables in playbook</a></li>
+<li class="chapter" data-level="4.3.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#host-and-group-variables"><i class="fa fa-check"></i><b>4.3.2</b> Host and group variables</a></li>
+<li class="chapter" data-level="4.3.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#using-directories-to-populate-host-and-group-variables"><i class="fa fa-check"></i><b>4.3.3</b> Using directories to populate host and group variables</a></li>
+<li class="chapter" data-level="4.3.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#overrding-variable-from-command-line"><i class="fa fa-check"></i><b>4.3.4</b> Overrding variable from command line</a></li>
+<li class="chapter" data-level="4.3.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#secrets"><i class="fa fa-check"></i><b>4.3.5</b> Secrets</a></li>
+<li class="chapter" data-level="4.3.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-facts"><i class="fa fa-check"></i><b>4.3.6</b> Managing Facts</a></li>
+<li class="chapter" data-level="4.3.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#magic-variables"><i class="fa fa-check"></i><b>4.3.7</b> Magic Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html"><i class="fa fa-check"></i><b>5</b> Red Hat OpenShift I: Containers &amp; Kubernetes - DO180</a><ul>
+<li class="chapter" data-level="5.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#intro-to-containr"><i class="fa fa-check"></i><b>5.1</b> Intro to Containr</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#linux-conetainer-architecture"><i class="fa fa-check"></i><b>5.1.1</b> Linux Conetainer Architecture</a></li>
+<li class="chapter" data-level="5.1.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#overview-of-kubernetes-and-openshift"><i class="fa fa-check"></i><b>5.1.2</b> Overview of kubernetes and OpenShift</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-containerized-services"><i class="fa fa-check"></i><b>5.2</b> Creating Containerized Services</a></li>
+<li class="chapter" data-level="5.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#managing-containers"><i class="fa fa-check"></i><b>5.3</b> Managing Containers</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#container-life-cybe-management-with-podman"><i class="fa fa-check"></i><b>5.3.1</b> Container Life Cybe management with podman</a></li>
+<li class="chapter" data-level="5.3.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-containers"><i class="fa fa-check"></i><b>5.3.2</b> Creating containers</a></li>
+<li class="chapter" data-level="5.3.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#run-commands-in-a-container"><i class="fa fa-check"></i><b>5.3.3</b> Run commands in a container</a></li>
+<li class="chapter" data-level="5.3.4" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#managing-containers-1"><i class="fa fa-check"></i><b>5.3.4</b> Managing containers</a></li>
+<li class="chapter" data-level="5.3.5" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#attaching-persistent-storage-to-containers"><i class="fa fa-check"></i><b>5.3.5</b> Attaching persistent storage to containers</a></li>
+<li class="chapter" data-level="5.3.6" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#accessing-containers"><i class="fa fa-check"></i><b>5.3.6</b> Accessing containers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#managing-container-images"><i class="fa fa-check"></i><b>5.4</b> Managing Container Images</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#accessing-registries"><i class="fa fa-check"></i><b>5.4.1</b> Accessing Registries</a></li>
+<li class="chapter" data-level="5.4.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#manipulating-container-images"><i class="fa fa-check"></i><b>5.4.2</b> Manipulating Container Images</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-custom-container-images"><i class="fa fa-check"></i><b>5.5</b> Creating Custom Container Images</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#designing-custom-container-images"><i class="fa fa-check"></i><b>5.5.1</b> Designing Custom Container Images</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><i class="fa fa-check"></i><b>6</b> Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280</a><ul>
+<li class="chapter" data-level="6.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#describing-the-red-hat-openshift-container-plataform"><i class="fa fa-check"></i><b>6.1</b> Describing the Red Hat OpenShift Container Plataform</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#intro-2"><i class="fa fa-check"></i><b>6.1.1</b> Intro</a></li>
+<li class="chapter" data-level="6.1.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#architecture-of-openshift"><i class="fa fa-check"></i><b>6.1.2</b> Architecture of OpenShift</a></li>
+<li class="chapter" data-level="6.1.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#cluster-operators"><i class="fa fa-check"></i><b>6.1.3</b> Cluster Operators</a></li>
+<li class="chapter" data-level="6.1.4" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#verifying-the-health-of-a-cluster"><i class="fa fa-check"></i><b>6.1.4</b> Verifying the Health of a Cluster</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="4" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>4</b> DevOps</a><ul>
-<li class="chapter" data-level="4.1" data-path="devops.html"><a href="devops.html#azure"><i class="fa fa-check"></i><b>4.1</b> Azure</a></li>
-<li class="chapter" data-level="4.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>4.2</b> AWS</a></li>
-<li class="chapter" data-level="4.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>4.3</b> Docker</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>4.3.1</b> Part 1</a></li>
-<li class="chapter" data-level="4.3.2" data-path="devops.html"><a href="devops.html#part-2"><i class="fa fa-check"></i><b>4.3.2</b> Part 2</a></li>
+<li class="chapter" data-level="7" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>7</b> DevOps</a><ul>
+<li class="chapter" data-level="7.1" data-path="devops.html"><a href="devops.html#azure"><i class="fa fa-check"></i><b>7.1</b> Azure</a></li>
+<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a></li>
+<li class="chapter" data-level="7.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>7.3</b> Docker</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>7.3.1</b> Part 1</a></li>
+<li class="chapter" data-level="7.3.2" data-path="devops.html"><a href="devops.html#part-2"><i class="fa fa-check"></i><b>7.3.2</b> Part 2</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -283,7 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Training notes : Linux, Devops, entre outros</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Learning notes : Linux, Devops, entre outros</a>
           </h1>
         </div>
 
@@ -291,8 +354,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r124" class="section level1">
-<h1><span class="header-section-number">Note 2</span> R124</h1>
+<div id="server-administrator-i---r124" class="section level1">
+<h1><span class="header-section-number"># 2</span> Server Administrator I - R124</h1>
 <div id="what-is-linux" class="section level2">
 <h2><span class="header-section-number">2.1</span> What is linux ?</h2>
 <p>Modular operations system where you can add components :</p>
@@ -352,18 +415,18 @@ ls --all .</code></pre>
 </div>
 <div id="executing-commands" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Executing commands</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="r124.html#cb5-1"></a></span>
-<span id="cb5-2"><a href="r124.html#cb5-2"></a><span class="co"># List the user that you  login</span></span>
-<span id="cb5-3"><a href="r124.html#cb5-3"></a><span class="fu">whoami</span></span>
-<span id="cb5-4"><a href="r124.html#cb5-4"></a></span>
-<span id="cb5-5"><a href="r124.html#cb5-5"></a><span class="co"># formatting the dates</span></span>
-<span id="cb5-6"><a href="r124.html#cb5-6"></a><span class="fu">date</span> +%F</span>
-<span id="cb5-7"><a href="r124.html#cb5-7"></a></span>
-<span id="cb5-8"><a href="r124.html#cb5-8"></a><span class="co"># Executing one command after the other</span></span>
-<span id="cb5-9"><a href="r124.html#cb5-9"></a><span class="fu">date</span> +%A<span class="kw">;</span> <span class="fu">uname</span> -r<span class="kw">;</span> <span class="fu">whoami</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="server-administrator-i---r124.html#cb5-1"></a></span>
+<span id="cb5-2"><a href="server-administrator-i---r124.html#cb5-2"></a><span class="co"># List the user that you  login</span></span>
+<span id="cb5-3"><a href="server-administrator-i---r124.html#cb5-3"></a><span class="fu">whoami</span></span>
+<span id="cb5-4"><a href="server-administrator-i---r124.html#cb5-4"></a></span>
+<span id="cb5-5"><a href="server-administrator-i---r124.html#cb5-5"></a><span class="co"># formatting the dates</span></span>
+<span id="cb5-6"><a href="server-administrator-i---r124.html#cb5-6"></a><span class="fu">date</span> +%F</span>
+<span id="cb5-7"><a href="server-administrator-i---r124.html#cb5-7"></a></span>
+<span id="cb5-8"><a href="server-administrator-i---r124.html#cb5-8"></a><span class="co"># Executing one command after the other</span></span>
+<span id="cb5-9"><a href="server-administrator-i---r124.html#cb5-9"></a><span class="fu">date</span> +%A<span class="kw">;</span> <span class="fu">uname</span> -r<span class="kw">;</span> <span class="fu">whoami</span></span></code></pre></div>
 <pre><code>## runner
-## 2021-11-10
-## Wednesday
+## 2021-12-06
+## Monday
 ## 20.6.0
 ## runner</code></pre>
 <p><strong>Conditional commands execution <code>&amp;&amp;</code></strong></p>
@@ -371,15 +434,15 @@ ls --all .</code></pre>
 <p>This is the basic <strong>IF</strong> statement</p>
 </blockquote>
 <p>The <code>date</code> command <strong>must</strong> complete successfully than the <code>uname -r</code> command will be running and if execute successfully the <code>whoami</code> command will be executed</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="r124.html#cb7-1"></a></span>
-<span id="cb7-2"><a href="r124.html#cb7-2"></a><span class="co"># If with and</span></span>
-<span id="cb7-3"><a href="r124.html#cb7-3"></a><span class="fu">date</span> +%F <span class="kw">&amp;&amp;</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span>
-<span id="cb7-4"><a href="r124.html#cb7-4"></a></span>
-<span id="cb7-5"><a href="r124.html#cb7-5"></a><span class="bu">echo</span> </span>
-<span id="cb7-6"><a href="r124.html#cb7-6"></a><span class="bu">echo</span></span>
-<span id="cb7-7"><a href="r124.html#cb7-7"></a><span class="co"># If with or</span></span>
-<span id="cb7-8"><a href="r124.html#cb7-8"></a><span class="ex">ate</span> +%F <span class="kw">||</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span></code></pre></div>
-<pre><code>## 2021-11-10
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="server-administrator-i---r124.html#cb7-1"></a></span>
+<span id="cb7-2"><a href="server-administrator-i---r124.html#cb7-2"></a><span class="co"># If with and</span></span>
+<span id="cb7-3"><a href="server-administrator-i---r124.html#cb7-3"></a><span class="fu">date</span> +%F <span class="kw">&amp;&amp;</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span>
+<span id="cb7-4"><a href="server-administrator-i---r124.html#cb7-4"></a></span>
+<span id="cb7-5"><a href="server-administrator-i---r124.html#cb7-5"></a><span class="bu">echo</span> </span>
+<span id="cb7-6"><a href="server-administrator-i---r124.html#cb7-6"></a><span class="bu">echo</span></span>
+<span id="cb7-7"><a href="server-administrator-i---r124.html#cb7-7"></a><span class="co"># If with or</span></span>
+<span id="cb7-8"><a href="server-administrator-i---r124.html#cb7-8"></a><span class="ex">ate</span> +%F <span class="kw">||</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span></code></pre></div>
+<pre><code>## 2021-12-06
 ## 20.6.0
 ## runner
 ## 
@@ -395,12 +458,12 @@ ls --all .</code></pre>
 </ul>
 <p><strong>check type of file</strong></p>
 <p>The <code>file</code> command is used to determining the type fo file :</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="r124.html#cb9-1"></a><span class="fu">file</span> /etc/issue</span>
-<span id="cb9-2"><a href="r124.html#cb9-2"></a></span>
-<span id="cb9-3"><a href="r124.html#cb9-3"></a><span class="bu">echo</span> </span>
-<span id="cb9-4"><a href="r124.html#cb9-4"></a><span class="bu">echo</span></span>
-<span id="cb9-5"><a href="r124.html#cb9-5"></a></span>
-<span id="cb9-6"><a href="r124.html#cb9-6"></a><span class="fu">file</span> /bin/bash</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="server-administrator-i---r124.html#cb9-1"></a><span class="fu">file</span> /etc/issue</span>
+<span id="cb9-2"><a href="server-administrator-i---r124.html#cb9-2"></a></span>
+<span id="cb9-3"><a href="server-administrator-i---r124.html#cb9-3"></a><span class="bu">echo</span> </span>
+<span id="cb9-4"><a href="server-administrator-i---r124.html#cb9-4"></a><span class="bu">echo</span></span>
+<span id="cb9-5"><a href="server-administrator-i---r124.html#cb9-5"></a></span>
+<span id="cb9-6"><a href="server-administrator-i---r124.html#cb9-6"></a><span class="fu">file</span> /bin/bash</span></code></pre></div>
 <pre><code>## /etc/issue: cannot open `/etc/issue&#39; (No such file or directory)
 ## 
 ## 
@@ -436,7 +499,7 @@ ls --all .</code></pre>
 <li><strong>/etc</strong> : <em>extended text configuration</em> configuration files</li>
 <li><strong>/home</strong> : home dir for normal users</li>
 <li><strong>/run</strong> : runtime data going to be recreate on a reboot</li>
-<li><strong>/var</strong>: variable date that should survive a reboot, log files, database and website files</li>
+<li><strong>/var</strong>: variable data that should survive a reboot, log files, database and website files</li>
 <li><strong>/root</strong> : root user home dir</li>
 <li><strong>/tmp</strong> : accommodate temporary files, deleted by 10 days</li>
 <li><strong>/var/tmp</strong> : another temp dir , purge every 30 days</li>
@@ -460,9 +523,9 @@ cat etc/issue</code></pre>
 <ul>
 <li><code>mkdir -p</code> : create the parents that do not exists</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="r124.html#cb13-1"></a><span class="bu">pwd</span></span>
-<span id="cb13-2"><a href="r124.html#cb13-2"></a><span class="fu">mkdir</span> -p dirA/dirB/dirc</span>
-<span id="cb13-3"><a href="r124.html#cb13-3"></a><span class="fu">ls</span> -R dirA</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="server-administrator-i---r124.html#cb13-1"></a><span class="bu">pwd</span></span>
+<span id="cb13-2"><a href="server-administrator-i---r124.html#cb13-2"></a><span class="fu">mkdir</span> -p dirA/dirB/dirc</span>
+<span id="cb13-3"><a href="server-administrator-i---r124.html#cb13-3"></a><span class="fu">ls</span> -R dirA</span></code></pre></div>
 <pre><code>## /Users/runner/work/book-notes-linux-learn/book-notes-linux-learn
 ## dirB
 ## 
@@ -485,81 +548,81 @@ cat etc/issue</code></pre>
 * ownership
 * date &amp; time stamps
 * paths to data on file system</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="r124.html#cb15-1"></a><span class="fu">ls</span> -li LICENSE</span></code></pre></div>
-<pre><code>## 12893758892 -rw-r--r--  1 runner  staff  6556 Nov 10 17:31 LICENSE</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="server-administrator-i---r124.html#cb15-1"></a><span class="fu">ls</span> -li LICENSE</span></code></pre></div>
+<pre><code>## 12892985072 -rw-r--r--  1 runner  staff  6556 Dec  6 11:54 LICENSE</code></pre>
 <ul>
 <li>40652348 : file ID (<em>inode</em>)</li>
 <li>1 : means one name using this iNode right now</li>
 </ul>
 <p><strong>Hard Link</strong></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="r124.html#cb17-1"></a><span class="fu">ln</span> LICENSE LIC2</span>
-<span id="cb17-2"><a href="r124.html#cb17-2"></a><span class="fu">ls</span> -li LIC*</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="server-administrator-i---r124.html#cb17-1"></a><span class="fu">ln</span> LICENSE LIC2</span>
+<span id="cb17-2"><a href="server-administrator-i---r124.html#cb17-2"></a><span class="fu">ls</span> -li LIC*</span></code></pre></div>
 <pre><code>## ln: LIC2: File exists
-## 12893758891 -rw-r--r--  1 runner  staff  6556 Nov 10 17:31 LIC2
-## 12893758892 -rw-r--r--  1 runner  staff  6556 Nov 10 17:31 LICENSE</code></pre>
+## 12892985071 -rw-r--r--  1 runner  staff  6556 Dec  6 11:54 LIC2
+## 12892985072 -rw-r--r--  1 runner  staff  6556 Dec  6 11:54 LICENSE</code></pre>
 <ul>
 <li>Both LIC2 and LICENSE have the same iNode but the number right now is <strong>2</strong>, not able to identify which one was create first, this is a <strong>hard link</strong></li>
 </ul>
 <p><strong>Soft Link</strong></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="r124.html#cb19-1"></a><span class="fu">ln</span> -s README.md README_2.md</span>
-<span id="cb19-2"><a href="r124.html#cb19-2"></a><span class="fu">ls</span> -li READ*</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="server-administrator-i---r124.html#cb19-1"></a><span class="fu">ln</span> -s README.md README_2.md</span>
+<span id="cb19-2"><a href="server-administrator-i---r124.html#cb19-2"></a><span class="fu">ls</span> -li READ*</span></code></pre></div>
 <pre><code>## ln: README_2.md: File exists
-## 12893758893 -rw-r--r--  1 runner  staff  741 Nov 10 17:31 README.md
-## 12893758894 lrwxr-xr-x  1 runner  staff    9 Nov 10 17:31 README_2.md -&gt; README.md</code></pre>
+## 12892985073 -rw-r--r--  1 runner  staff  741 Dec  6 11:54 README.md
+## 12892985074 lrwxr-xr-x  1 runner  staff    9 Dec  6 11:54 README_2.md -&gt; README.md</code></pre>
 <ul>
 <li>Both have different iNode number, so they are two different files, the permission there are a <code>l</code> meaning link, this is a <strong>soft link</strong>, if we delete file 3 we have a broken link</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="r124.html#cb21-1"></a></span>
-<span id="cb21-2"><a href="r124.html#cb21-2"></a><span class="co"># create tmp files</span></span>
-<span id="cb21-3"><a href="r124.html#cb21-3"></a><span class="fu">mkdir</span> -p tmp <span class="kw">;</span><span class="bu">cd</span> tmp <span class="kw">;</span><span class="fu">touch</span> 1file 2file 3file 4file able alfa baker bravo cast easy echo _src</span>
-<span id="cb21-4"><a href="r124.html#cb21-4"></a></span>
-<span id="cb21-5"><a href="r124.html#cb21-5"></a><span class="co"># List files that match this case</span></span>
-<span id="cb21-6"><a href="r124.html#cb21-6"></a><span class="bu">echo</span></span>
-<span id="cb21-7"><a href="r124.html#cb21-7"></a><span class="bu">echo</span> <span class="st">&quot;List files that match this case Xfile&quot;</span></span>
-<span id="cb21-8"><a href="r124.html#cb21-8"></a><span class="fu">ls</span> ?file</span>
-<span id="cb21-9"><a href="r124.html#cb21-9"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
-<span id="cb21-10"><a href="r124.html#cb21-10"></a></span>
-<span id="cb21-11"><a href="r124.html#cb21-11"></a><span class="co"># list files that begin with a or c or e </span></span>
-<span id="cb21-12"><a href="r124.html#cb21-12"></a><span class="bu">echo</span></span>
-<span id="cb21-13"><a href="r124.html#cb21-13"></a><span class="bu">echo</span> <span class="st">&quot;List files that begin with a or c or e &quot;</span></span>
-<span id="cb21-14"><a href="r124.html#cb21-14"></a><span class="fu">ls</span> [ace]*</span>
-<span id="cb21-15"><a href="r124.html#cb21-15"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
-<span id="cb21-16"><a href="r124.html#cb21-16"></a></span>
-<span id="cb21-17"><a href="r124.html#cb21-17"></a></span>
-<span id="cb21-18"><a href="r124.html#cb21-18"></a><span class="co"># List files that do not start with a c or e</span></span>
-<span id="cb21-19"><a href="r124.html#cb21-19"></a><span class="bu">echo</span></span>
-<span id="cb21-20"><a href="r124.html#cb21-20"></a><span class="bu">echo</span> <span class="st">&quot;List files that do not start with a c or e&quot;</span></span>
-<span id="cb21-21"><a href="r124.html#cb21-21"></a><span class="fu">ls</span> [^ace]*  <span class="co"># or ls [!ace]*</span></span>
-<span id="cb21-22"><a href="r124.html#cb21-22"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
-<span id="cb21-23"><a href="r124.html#cb21-23"></a></span>
-<span id="cb21-24"><a href="r124.html#cb21-24"></a></span>
-<span id="cb21-25"><a href="r124.html#cb21-25"></a><span class="co"># List all file that begin with an alphabetical character</span></span>
-<span id="cb21-26"><a href="r124.html#cb21-26"></a><span class="bu">echo</span></span>
-<span id="cb21-27"><a href="r124.html#cb21-27"></a><span class="bu">echo</span> <span class="st">&quot;List all file that begin with an alphabetical character&quot;</span></span>
-<span id="cb21-28"><a href="r124.html#cb21-28"></a><span class="fu">ls</span> [[:alpha:]]*</span>
-<span id="cb21-29"><a href="r124.html#cb21-29"></a></span>
-<span id="cb21-30"><a href="r124.html#cb21-30"></a><span class="co"># List all files that begin with digit</span></span>
-<span id="cb21-31"><a href="r124.html#cb21-31"></a><span class="bu">echo</span></span>
-<span id="cb21-32"><a href="r124.html#cb21-32"></a><span class="bu">echo</span> <span class="st">&quot;List all files that begin with digi&quot;</span></span>
-<span id="cb21-33"><a href="r124.html#cb21-33"></a><span class="fu">ls</span> [[:digit:]]*</span>
-<span id="cb21-34"><a href="r124.html#cb21-34"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
-<span id="cb21-35"><a href="r124.html#cb21-35"></a></span>
-<span id="cb21-36"><a href="r124.html#cb21-36"></a><span class="co"># List all files that match digit or alphabetical char</span></span>
-<span id="cb21-37"><a href="r124.html#cb21-37"></a><span class="bu">echo</span></span>
-<span id="cb21-38"><a href="r124.html#cb21-38"></a><span class="bu">echo</span> <span class="st">&quot;List all files that match digit or alphabetical char&quot;</span></span>
-<span id="cb21-39"><a href="r124.html#cb21-39"></a><span class="fu">ls</span> [[:alnum:]]*</span>
-<span id="cb21-40"><a href="r124.html#cb21-40"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
-<span id="cb21-41"><a href="r124.html#cb21-41"></a></span>
-<span id="cb21-42"><a href="r124.html#cb21-42"></a></span>
-<span id="cb21-43"><a href="r124.html#cb21-43"></a><span class="co"># List all files that begin with punctuation </span></span>
-<span id="cb21-44"><a href="r124.html#cb21-44"></a><span class="bu">echo</span></span>
-<span id="cb21-45"><a href="r124.html#cb21-45"></a><span class="bu">echo</span> <span class="st">&quot; List all files that begin with punctuation&quot;</span></span>
-<span id="cb21-46"><a href="r124.html#cb21-46"></a><span class="fu">ls</span> [[:punct:]]*</span>
-<span id="cb21-47"><a href="r124.html#cb21-47"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
-<span id="cb21-48"><a href="r124.html#cb21-48"></a></span>
-<span id="cb21-49"><a href="r124.html#cb21-49"></a><span class="co"># clean</span></span>
-<span id="cb21-50"><a href="r124.html#cb21-50"></a><span class="bu">cd</span> ..</span>
-<span id="cb21-51"><a href="r124.html#cb21-51"></a><span class="fu">rm</span> -rf tmp</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="server-administrator-i---r124.html#cb21-1"></a></span>
+<span id="cb21-2"><a href="server-administrator-i---r124.html#cb21-2"></a><span class="co"># create tmp files</span></span>
+<span id="cb21-3"><a href="server-administrator-i---r124.html#cb21-3"></a><span class="fu">mkdir</span> -p tmp <span class="kw">;</span><span class="bu">cd</span> tmp <span class="kw">;</span><span class="fu">touch</span> 1file 2file 3file 4file able alfa baker bravo cast easy echo _src</span>
+<span id="cb21-4"><a href="server-administrator-i---r124.html#cb21-4"></a></span>
+<span id="cb21-5"><a href="server-administrator-i---r124.html#cb21-5"></a><span class="co"># List files that match this case</span></span>
+<span id="cb21-6"><a href="server-administrator-i---r124.html#cb21-6"></a><span class="bu">echo</span></span>
+<span id="cb21-7"><a href="server-administrator-i---r124.html#cb21-7"></a><span class="bu">echo</span> <span class="st">&quot;List files that match this case Xfile&quot;</span></span>
+<span id="cb21-8"><a href="server-administrator-i---r124.html#cb21-8"></a><span class="fu">ls</span> ?file</span>
+<span id="cb21-9"><a href="server-administrator-i---r124.html#cb21-9"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-10"><a href="server-administrator-i---r124.html#cb21-10"></a></span>
+<span id="cb21-11"><a href="server-administrator-i---r124.html#cb21-11"></a><span class="co"># list files that begin with a or c or e </span></span>
+<span id="cb21-12"><a href="server-administrator-i---r124.html#cb21-12"></a><span class="bu">echo</span></span>
+<span id="cb21-13"><a href="server-administrator-i---r124.html#cb21-13"></a><span class="bu">echo</span> <span class="st">&quot;List files that begin with a or c or e &quot;</span></span>
+<span id="cb21-14"><a href="server-administrator-i---r124.html#cb21-14"></a><span class="fu">ls</span> [ace]*</span>
+<span id="cb21-15"><a href="server-administrator-i---r124.html#cb21-15"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-16"><a href="server-administrator-i---r124.html#cb21-16"></a></span>
+<span id="cb21-17"><a href="server-administrator-i---r124.html#cb21-17"></a></span>
+<span id="cb21-18"><a href="server-administrator-i---r124.html#cb21-18"></a><span class="co"># List files that do not start with a c or e</span></span>
+<span id="cb21-19"><a href="server-administrator-i---r124.html#cb21-19"></a><span class="bu">echo</span></span>
+<span id="cb21-20"><a href="server-administrator-i---r124.html#cb21-20"></a><span class="bu">echo</span> <span class="st">&quot;List files that do not start with a c or e&quot;</span></span>
+<span id="cb21-21"><a href="server-administrator-i---r124.html#cb21-21"></a><span class="fu">ls</span> [^ace]*  <span class="co"># or ls [!ace]*</span></span>
+<span id="cb21-22"><a href="server-administrator-i---r124.html#cb21-22"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-23"><a href="server-administrator-i---r124.html#cb21-23"></a></span>
+<span id="cb21-24"><a href="server-administrator-i---r124.html#cb21-24"></a></span>
+<span id="cb21-25"><a href="server-administrator-i---r124.html#cb21-25"></a><span class="co"># List all file that begin with an alphabetical character</span></span>
+<span id="cb21-26"><a href="server-administrator-i---r124.html#cb21-26"></a><span class="bu">echo</span></span>
+<span id="cb21-27"><a href="server-administrator-i---r124.html#cb21-27"></a><span class="bu">echo</span> <span class="st">&quot;List all file that begin with an alphabetical character&quot;</span></span>
+<span id="cb21-28"><a href="server-administrator-i---r124.html#cb21-28"></a><span class="fu">ls</span> [[:alpha:]]*</span>
+<span id="cb21-29"><a href="server-administrator-i---r124.html#cb21-29"></a></span>
+<span id="cb21-30"><a href="server-administrator-i---r124.html#cb21-30"></a><span class="co"># List all files that begin with digit</span></span>
+<span id="cb21-31"><a href="server-administrator-i---r124.html#cb21-31"></a><span class="bu">echo</span></span>
+<span id="cb21-32"><a href="server-administrator-i---r124.html#cb21-32"></a><span class="bu">echo</span> <span class="st">&quot;List all files that begin with digi&quot;</span></span>
+<span id="cb21-33"><a href="server-administrator-i---r124.html#cb21-33"></a><span class="fu">ls</span> [[:digit:]]*</span>
+<span id="cb21-34"><a href="server-administrator-i---r124.html#cb21-34"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-35"><a href="server-administrator-i---r124.html#cb21-35"></a></span>
+<span id="cb21-36"><a href="server-administrator-i---r124.html#cb21-36"></a><span class="co"># List all files that match digit or alphabetical char</span></span>
+<span id="cb21-37"><a href="server-administrator-i---r124.html#cb21-37"></a><span class="bu">echo</span></span>
+<span id="cb21-38"><a href="server-administrator-i---r124.html#cb21-38"></a><span class="bu">echo</span> <span class="st">&quot;List all files that match digit or alphabetical char&quot;</span></span>
+<span id="cb21-39"><a href="server-administrator-i---r124.html#cb21-39"></a><span class="fu">ls</span> [[:alnum:]]*</span>
+<span id="cb21-40"><a href="server-administrator-i---r124.html#cb21-40"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-41"><a href="server-administrator-i---r124.html#cb21-41"></a></span>
+<span id="cb21-42"><a href="server-administrator-i---r124.html#cb21-42"></a></span>
+<span id="cb21-43"><a href="server-administrator-i---r124.html#cb21-43"></a><span class="co"># List all files that begin with punctuation </span></span>
+<span id="cb21-44"><a href="server-administrator-i---r124.html#cb21-44"></a><span class="bu">echo</span></span>
+<span id="cb21-45"><a href="server-administrator-i---r124.html#cb21-45"></a><span class="bu">echo</span> <span class="st">&quot; List all files that begin with punctuation&quot;</span></span>
+<span id="cb21-46"><a href="server-administrator-i---r124.html#cb21-46"></a><span class="fu">ls</span> [[:punct:]]*</span>
+<span id="cb21-47"><a href="server-administrator-i---r124.html#cb21-47"></a><span class="bu">echo</span> <span class="st">&quot;----&quot;</span></span>
+<span id="cb21-48"><a href="server-administrator-i---r124.html#cb21-48"></a></span>
+<span id="cb21-49"><a href="server-administrator-i---r124.html#cb21-49"></a><span class="co"># clean</span></span>
+<span id="cb21-50"><a href="server-administrator-i---r124.html#cb21-50"></a><span class="bu">cd</span> ..</span>
+<span id="cb21-51"><a href="server-administrator-i---r124.html#cb21-51"></a><span class="fu">rm</span> -rf tmp</span></code></pre></div>
 <pre><code>## 
 ## List files that match this case Xfile
 ## 1file
@@ -620,18 +683,18 @@ cat etc/issue</code></pre>
 ## _src
 ## ----</code></pre>
 <p><strong>Brace expansion</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="r124.html#cb23-1"></a><span class="fu">mkdir</span> -p tmp <span class="kw">;</span><span class="bu">cd</span> tmp</span>
-<span id="cb23-2"><a href="r124.html#cb23-2"></a><span class="bu">echo</span> <span class="dt">{Sun,Mon,Tues,Wednes}</span>day.log</span>
-<span id="cb23-3"><a href="r124.html#cb23-3"></a></span>
-<span id="cb23-4"><a href="r124.html#cb23-4"></a><span class="co"># create dirs</span></span>
-<span id="cb23-5"><a href="r124.html#cb23-5"></a><span class="fu">mkdir</span> -p RHEL<span class="dt">{6,7,8}</span><span class="kw">;</span> <span class="fu">ls</span> RHEL*</span>
-<span id="cb23-6"><a href="r124.html#cb23-6"></a></span>
-<span id="cb23-7"><a href="r124.html#cb23-7"></a><span class="co"># create sequence of files using ..</span></span>
-<span id="cb23-8"><a href="r124.html#cb23-8"></a><span class="fu">touch</span> song<span class="dt">{1..5}</span>.mp3 <span class="kw">;</span> <span class="fu">ls</span> *.mp3</span>
-<span id="cb23-9"><a href="r124.html#cb23-9"></a></span>
-<span id="cb23-10"><a href="r124.html#cb23-10"></a><span class="co">#clean</span></span>
-<span id="cb23-11"><a href="r124.html#cb23-11"></a><span class="bu">cd</span> ..</span>
-<span id="cb23-12"><a href="r124.html#cb23-12"></a><span class="fu">rm</span> -rf tmp</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="server-administrator-i---r124.html#cb23-1"></a><span class="fu">mkdir</span> -p tmp <span class="kw">;</span><span class="bu">cd</span> tmp</span>
+<span id="cb23-2"><a href="server-administrator-i---r124.html#cb23-2"></a><span class="bu">echo</span> <span class="dt">{Sun,Mon,Tues,Wednes}</span>day.log</span>
+<span id="cb23-3"><a href="server-administrator-i---r124.html#cb23-3"></a></span>
+<span id="cb23-4"><a href="server-administrator-i---r124.html#cb23-4"></a><span class="co"># create dirs</span></span>
+<span id="cb23-5"><a href="server-administrator-i---r124.html#cb23-5"></a><span class="fu">mkdir</span> -p RHEL<span class="dt">{6,7,8}</span><span class="kw">;</span> <span class="fu">ls</span> RHEL*</span>
+<span id="cb23-6"><a href="server-administrator-i---r124.html#cb23-6"></a></span>
+<span id="cb23-7"><a href="server-administrator-i---r124.html#cb23-7"></a><span class="co"># create sequence of files using ..</span></span>
+<span id="cb23-8"><a href="server-administrator-i---r124.html#cb23-8"></a><span class="fu">touch</span> song<span class="dt">{1..5}</span>.mp3 <span class="kw">;</span> <span class="fu">ls</span> *.mp3</span>
+<span id="cb23-9"><a href="server-administrator-i---r124.html#cb23-9"></a></span>
+<span id="cb23-10"><a href="server-administrator-i---r124.html#cb23-10"></a><span class="co">#clean</span></span>
+<span id="cb23-11"><a href="server-administrator-i---r124.html#cb23-11"></a><span class="bu">cd</span> ..</span>
+<span id="cb23-12"><a href="server-administrator-i---r124.html#cb23-12"></a><span class="fu">rm</span> -rf tmp</span></code></pre></div>
 <pre><code>## Sunday.log Monday.log Tuesday.log Wednesday.log
 ## RHEL6:
 ## 
@@ -644,14 +707,16 @@ cat etc/issue</code></pre>
 ## song4.mp3
 ## song5.mp3</code></pre>
 <p><strong>Variable</strong></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="r124.html#cb25-1"></a><span class="va">SOMETHING=</span>value</span>
-<span id="cb25-2"><a href="r124.html#cb25-2"></a><span class="bu">echo</span> <span class="va">$SOMETHING</span></span>
-<span id="cb25-3"><a href="r124.html#cb25-3"></a></span>
-<span id="cb25-4"><a href="r124.html#cb25-4"></a></span>
-<span id="cb25-5"><a href="r124.html#cb25-5"></a><span class="co"># command substitution</span></span>
-<span id="cb25-6"><a href="r124.html#cb25-6"></a><span class="bu">echo</span> <span class="st">&quot;Today is </span><span class="va">$(</span><span class="fu">date</span> +%A<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="server-administrator-i---r124.html#cb25-1"></a><span class="va">SOMETHING=</span>value</span>
+<span id="cb25-2"><a href="server-administrator-i---r124.html#cb25-2"></a><span class="bu">echo</span> <span class="va">$SOMETHING</span></span>
+<span id="cb25-3"><a href="server-administrator-i---r124.html#cb25-3"></a></span>
+<span id="cb25-4"><a href="server-administrator-i---r124.html#cb25-4"></a></span>
+<span id="cb25-5"><a href="server-administrator-i---r124.html#cb25-5"></a><span class="co"># command substitution</span></span>
+<span id="cb25-6"><a href="server-administrator-i---r124.html#cb25-6"></a><span class="bu">echo</span> <span class="st">&quot;Today is </span><span class="va">$(</span><span class="fu">date</span> +%A<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
 <pre><code>## value
-## Today is Wednesday</code></pre>
+## Today is Monday</code></pre>
+<p><strong>skell</strong></p>
+<p>The contenct of path <strong>/etc/skel</strong> is automatically copied to all users</p>
 </div>
 </div>
 <div id="help" class="section level2">
@@ -662,7 +727,7 @@ cat etc/issue</code></pre>
 <li><code>man</code></li>
 <li><code>pinfo</code></li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="r124.html#cb27-1"></a><span class="fu">man</span> -k cron</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="server-administrator-i---r124.html#cb27-1"></a><span class="fu">man</span> -k cron</span></code></pre></div>
 <pre><code>## cron(8)                  - daemon to execute scheduled commands (Vixie Cron)
 ## crontab(1)               - maintain crontab files for individual users (V3)
 ## crontab(5)               - tables for driving cron
@@ -694,12 +759,12 @@ ls: cannot access &#39;abc&#39;: No such file or directory
 
 </code></pre>
 <p>We also can send both to the same file</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="r124.html#cb31-1"></a><span class="fu">ls</span> /show /boot <span class="op">&amp;&gt;</span> combine.log</span>
-<span id="cb31-2"><a href="r124.html#cb31-2"></a><span class="co"># another option </span></span>
-<span id="cb31-3"><a href="r124.html#cb31-3"></a><span class="co"># ls /show /boot &gt; combine.log 2&gt;&amp;1</span></span>
-<span id="cb31-4"><a href="r124.html#cb31-4"></a></span>
-<span id="cb31-5"><a href="r124.html#cb31-5"></a><span class="fu">cat</span> combine.log</span>
-<span id="cb31-6"><a href="r124.html#cb31-6"></a><span class="fu">rm</span> combine.log</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="server-administrator-i---r124.html#cb31-1"></a><span class="fu">ls</span> /show /boot <span class="op">&amp;&gt;</span> combine.log</span>
+<span id="cb31-2"><a href="server-administrator-i---r124.html#cb31-2"></a><span class="co"># another option </span></span>
+<span id="cb31-3"><a href="server-administrator-i---r124.html#cb31-3"></a><span class="co"># ls /show /boot &gt; combine.log 2&gt;&amp;1</span></span>
+<span id="cb31-4"><a href="server-administrator-i---r124.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="server-administrator-i---r124.html#cb31-5"></a><span class="fu">cat</span> combine.log</span>
+<span id="cb31-6"><a href="server-administrator-i---r124.html#cb31-6"></a><span class="fu">rm</span> combine.log</span></code></pre></div>
 <pre><code>## ls: /boot: No such file or directory
 ## ls: /show: No such file or directory</code></pre>
 <p>Another usage when we have an output with lot of errors and can only the the results, all the errors message was sent to <code>/dev/null</code></p>
@@ -719,16 +784,16 @@ ls: cannot access &#39;abc&#39;: No such file or directory
 <pre><code>mail -s &quot;Subject text&quot; &lt;user&gt;  &lt; file</code></pre>
 <p><strong>Pipe</strong></p>
 <p>The <code>resolv.conf</code> have 6 lines in total but we can see the lines without comment <code>#</code> and direct the output using pipe <code>|</code></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="r124.html#cb36-1"></a><span class="fu">wc</span> -l /etc/resolv.conf</span>
-<span id="cb36-2"><a href="r124.html#cb36-2"></a></span>
-<span id="cb36-3"><a href="r124.html#cb36-3"></a><span class="bu">echo</span></span>
-<span id="cb36-4"><a href="r124.html#cb36-4"></a></span>
-<span id="cb36-5"><a href="r124.html#cb36-5"></a><span class="co"># check the lines without comment</span></span>
-<span id="cb36-6"><a href="r124.html#cb36-6"></a><span class="fu">grep</span> ^[^#] /etc/resolv.conf</span>
-<span id="cb36-7"><a href="r124.html#cb36-7"></a></span>
-<span id="cb36-8"><a href="r124.html#cb36-8"></a><span class="bu">echo</span></span>
-<span id="cb36-9"><a href="r124.html#cb36-9"></a><span class="co"># combine the grep with pipe</span></span>
-<span id="cb36-10"><a href="r124.html#cb36-10"></a><span class="fu">grep</span> ^[^#] /etc/resolv.conf <span class="kw">|</span> <span class="fu">wc</span> -l</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="server-administrator-i---r124.html#cb36-1"></a><span class="fu">wc</span> -l /etc/resolv.conf</span>
+<span id="cb36-2"><a href="server-administrator-i---r124.html#cb36-2"></a></span>
+<span id="cb36-3"><a href="server-administrator-i---r124.html#cb36-3"></a><span class="bu">echo</span></span>
+<span id="cb36-4"><a href="server-administrator-i---r124.html#cb36-4"></a></span>
+<span id="cb36-5"><a href="server-administrator-i---r124.html#cb36-5"></a><span class="co"># check the lines without comment</span></span>
+<span id="cb36-6"><a href="server-administrator-i---r124.html#cb36-6"></a><span class="fu">grep</span> ^[^#] /etc/resolv.conf</span>
+<span id="cb36-7"><a href="server-administrator-i---r124.html#cb36-7"></a></span>
+<span id="cb36-8"><a href="server-administrator-i---r124.html#cb36-8"></a><span class="bu">echo</span></span>
+<span id="cb36-9"><a href="server-administrator-i---r124.html#cb36-9"></a><span class="co"># combine the grep with pipe</span></span>
+<span id="cb36-10"><a href="server-administrator-i---r124.html#cb36-10"></a><span class="fu">grep</span> ^[^#] /etc/resolv.conf <span class="kw">|</span> <span class="fu">wc</span> -l</span></code></pre></div>
 <pre><code>##       17 /etc/resolv.conf
 ## 
 ## nameserver 1.1.1.1
@@ -925,6 +990,9 @@ sambashare:x:130:bruno</code></pre>
 <p><strong>Tip</strong></p>
 <p>To create <code>/etc/sudoers.d/admin</code> file and grant all members of <em>admin</em> group total privileges</p>
 <pre><code>echo &quot;%admin ALL=(ALL) ALL&quot; &gt;&gt; /etc/sudoers.d/admin</code></pre>
+<p>To create just for one user</p>
+<pre><code>echo &quot;user ALL=(ALL) ALL&quot; &gt;&gt; /etc/sudoers.d/user
+</code></pre>
 </div>
 <div id="managing-user-passwords" class="section level3">
 <h3><span class="header-section-number">2.6.4</span> Managing user passwords</h3>
@@ -982,11 +1050,14 @@ Other : last 3</p>
 <p><strong>Tip</strong></p>
 <p><em>Give you read and execute permission do dir but no execute on files inside the dir, i.e, we can list the content but not execute files inside</em></p>
 <pre><code>chmod -R a=rX</code></pre>
-<div id="default-permissions" class="section level3">
-<h3><span class="header-section-number">2.7.1</span> Default permissions</h3>
+<div id="special-permissions" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Special permissions</h3>
 <p><strong>Sticky bit</strong> : <em>In a collaborative dir you can create files on the dir and only delete files that you have created</em></p>
 <ul>
-<li>Sticky bit — directories <strong>o+t</strong>
+<li><p><code>u+s</code> (suid) : Files executes as the user that owns the file, not the user that ran the file</p></li>
+<li><p><code>g+s</code> (guid) : file execute as the group that owner the file, files newly create in directory have their group owner set to match the group owner of the dir.</p></li>
+<li><p><code>o+t</code> (sticky): Users with write access to dir can only remove files that they own</p></li>
+<li><p>Sticky bit — directories <strong>o+t</strong></p>
 <ul>
 <li>To set <code>o+t</code> or <code>1</code>
 <ul>
@@ -1000,13 +1071,13 @@ Other : last 3</p>
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="r124.html#cb48-1"></a><span class="co"># To set sticky bit</span></span>
-<span id="cb48-2"><a href="r124.html#cb48-2"></a><span class="fu">chmod</span> o+t dirA</span>
-<span id="cb48-3"><a href="r124.html#cb48-3"></a><span class="fu">ls</span> -ld dirA</span>
-<span id="cb48-4"><a href="r124.html#cb48-4"></a></span>
-<span id="cb48-5"><a href="r124.html#cb48-5"></a><span class="co"># To remove sticky bit</span></span>
-<span id="cb48-6"><a href="r124.html#cb48-6"></a><span class="co">#chmod o-t dirA</span></span></code></pre></div>
-<pre><code>## drwxr-xr-x  3 runner  staff  96 Nov 10 17:32 dirA</code></pre>
+<pre><code># To set sticky bit
+chmod o+t dirA
+ls -ld dirA
+
+# To remove sticky bit
+#chmod o-t dirA
+</code></pre>
 <p><em><code>s</code> : Files created on the dir will have the same owning group of dir</em></p>
 <ul>
 <li>Set grid to dirs or files <strong>g+s</strong>
@@ -1021,13 +1092,12 @@ Other : last 3</p>
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="r124.html#cb50-1"></a><span class="co"># To set</span></span>
-<span id="cb50-2"><a href="r124.html#cb50-2"></a><span class="fu">chmod</span> g+s dirA</span>
-<span id="cb50-3"><a href="r124.html#cb50-3"></a><span class="fu">ls</span> -ld dirA</span>
-<span id="cb50-4"><a href="r124.html#cb50-4"></a></span>
-<span id="cb50-5"><a href="r124.html#cb50-5"></a><span class="co"># To remove </span></span>
-<span id="cb50-6"><a href="r124.html#cb50-6"></a><span class="co"># chmod g-s dirA</span></span></code></pre></div>
-<pre><code>## drwxr-sr-x  3 runner  staff  96 Nov 10 17:32 dirA</code></pre>
+<pre><code># To set
+chmod g+s dirA
+ls -ld dirA
+
+# To remove 
+# chmod g-s dirA</code></pre>
 <ul>
 <li>Set uid to files <strong>u+s</strong>
 <ul>
@@ -1042,8 +1112,8 @@ Other : last 3</p>
 </ul></li>
 </ul>
 </div>
-<div id="umask" class="section level3">
-<h3><span class="header-section-number">2.7.2</span> umask</h3>
+<div id="default-permissions---umask" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> Default permissions - umask</h3>
 <ul>
 <li><code>umask</code> : show umask info</li>
 <li><code>umask 0000</code> : set the umask to 0000 or 777 to new dirs</li>
@@ -1054,7 +1124,7 @@ Other : last 3</p>
 </div>
 </div>
 <div id="monitoring-and-managing-linux-process" class="section level2">
-<h2><span class="header-section-number">2.8</span> Monitoring and MAnaging Linux process</h2>
+<h2><span class="header-section-number">2.8</span> Monitoring and Managing Linux process</h2>
 <p>Process state description</p>
 <p><img src="img/process_state.png" /><!-- --></p>
 <div id="commands-to-monitor" class="section level3">
@@ -1091,7 +1161,7 @@ Other : last 3</p>
 <div id="killing-process" class="section level3">
 <h3><span class="header-section-number">2.8.3</span> Killing process</h3>
 <p>Signals</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="r124.html#cb52-1"></a><span class="bu">kill</span> -l</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="server-administrator-i---r124.html#cb51-1"></a><span class="bu">kill</span> -l</span></code></pre></div>
 <pre><code>##  1) SIGHUP    2) SIGINT   3) SIGQUIT  4) SIGILL
 ##  5) SIGTRAP   6) SIGABRT  7) SIGEMT   8) SIGFPE
 ##  9) SIGKILL  10) SIGBUS  11) SIGSEGV 12) SIGSYS
@@ -1119,8 +1189,8 @@ Other : last 3</p>
 <ul>
 <li><code>uptime</code> command review the load average</li>
 </ul>
-<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="r124.html#cb54-1"></a><span class="fu">uptime</span></span></code></pre></div>
-<pre><code>## 17:33  up 5 mins, 1 user, load averages: 6.12 6.56 3.45</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="server-administrator-i---r124.html#cb53-1"></a><span class="fu">uptime</span></span></code></pre></div>
+<pre><code>## 11:55  up 3 mins, 1 user, load averages: 10.01 7.61 3.36</code></pre>
 <ul>
 <li>1,24 : Last min</li>
 <li>1,07 : Last 5 min</li>
@@ -1491,6 +1561,8 @@ System clock synchronized: yes
 </code></pre>
 <p><strong>Tools</strong></p>
 <ul>
+<li>nmcli : command line tool to manage network</li>
+<li>nmtui : graphical tool to manager network</li>
 <li>ip : to list ip config</li>
 <li>netstat : check ports and process</li>
 <li>tracepath : work similar traceourte <code>tracepath access.redhat.com</code></li>
@@ -1707,15 +1779,15 @@ cat /etc/resolv.conf</code></pre>
 tar -xf etc.tar etc/hosts</code></pre>
 <p><strong>compression and tar</strong></p>
 <ul>
-<li>Create tar file and compress with gzip2</li>
+<li>Create tar file and compress with <strong>gzip2</strong></li>
 </ul>
 <pre><code>tar -czf etc-backup-$(date +%F).tar.gz /etc</code></pre>
 <ul>
-<li>Create a tar file and compress with bzip2</li>
+<li>Create a tar file and compress with <strong>bzip2</strong></li>
 </ul>
 <pre><code>tar -cjf etc-backup-$(date +%F).tar.bz /etc</code></pre>
 <ul>
-<li>Create a tar file and compress with Xzip</li>
+<li>Create a tar file and compress with <strong>Xzip</strong></li>
 </ul>
 <pre><code>tar -cJf etc-backup-$(date +%F).tar.xz /etc
 </code></pre>
@@ -1961,6 +2033,17 @@ yum module list --installed</code></pre>
 <li>Disable stream</li>
 </ul>
 <pre><code>yum module disable perl</code></pre>
+<ul>
+<li>To add we can use the structure</li>
+</ul>
+<pre><code>[BASE]
+name=Base
+baseurl=httpd://......
+gpgcheck=0</code></pre>
+<ul>
+<li>Also if we have config-manager</li>
+</ul>
+<pre><code>yum config-manager --add-repo &lt;URL&gt;</code></pre>
 </div>
 </div>
 <div id="accessing-linux-file-systems" class="section level2">
@@ -2032,6 +2115,7 @@ brw-rw---- 1 root disk 8, 0 Aug 22 08:50 /dev/sda
 <li><code>find /home -size +10M iname "*.mkv" -exec rm -f {} \;</code> : find files on home with more than 10MB ending with <em>.mkv</em> and execute rm -f on each file, similar find /home -size +10M iname "*.mkv" -delete`</li>
 <li><code>find /home -type f -perm /111</code> : find files on home that have execute permission (<em>111</em>)</li>
 <li><code>find /home -min -60</code> : find files modified in last 60min</li>
+<li><code>find / -user &lt;user_name&gt; -exec -cp {} /&lt;path_copy&gt;/ \;</code></li>
 </ul>
 <p><strong>locate</strong></p>
 <p><em>pre-req</em> : run the command <code>updatedb</code> to create an index of the files on file system</p>
@@ -2068,6 +2152,38 @@ sudo insights-client --register
 <ol start="3" style="list-style-type: decimal">
 <li>Go to insights dashboard <a href="cloud.readhat.com/insight">cloud.readhat.com/insight</a></li>
 </ol>
+</div>
+</div>
+<div id="extra" class="section level2">
+<h2><span class="header-section-number">2.17</span> Extra</h2>
+<div id="create-8g-file-disk" class="section level3">
+<h3><span class="header-section-number">2.17.1</span> Create 8G file disk</h3>
+<ol style="list-style-type: decimal">
+<li>Use dd command to create 8G disk file</li>
+</ol>
+<pre><code>dd if=/dev/zero of=&lt;/path/diskfile.img&gt; bs=1M count=8192</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>create loop device</li>
+</ol>
+<pre><code>loseup -fP diskfile.img</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>list the device</li>
+</ol>
+<pre><code>losetup -a</code></pre>
+<p>4.Can use new diskfile as a device</p>
+<pre><code>fdisk /dev/loop0</code></pre>
+</div>
+<div id="find-users-wit-set-uid" class="section level3">
+<h3><span class="header-section-number">2.17.2</span> Find users wit Set UID</h3>
+<pre><code>find / -perm /4000 -exec ls -l {} \ 2&gt; /dev/null</code></pre>
+</div>
+<div id="show-dump-device" class="section level3">
+<h3><span class="header-section-number">2.17.3</span> Show dump device</h3>
+<pre><code>xxd -l 512 /dev/sda | less</code></pre>
+</div>
+<div id="configure-labels-of-fs" class="section level3">
+<h3><span class="header-section-number">2.17.4</span> Configure labels of FS</h3>
+<pre><code>tune2fs -L &lt;label&gt; /dev/sda&lt;number&gt;</code></pre>
 
 </div>
 </div>
@@ -2078,7 +2194,7 @@ sudo insights-client --register
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rh134.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="server-administrator-ii---rh134.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

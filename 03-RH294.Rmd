@@ -19,8 +19,8 @@ engine that runs Ansible Playbooks.
 
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/ansible_architecture.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/ansible_architecture.png")
 ```
 
 ### Install Ansbile

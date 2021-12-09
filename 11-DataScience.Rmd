@@ -1,0 +1,38 @@
+# Data Science
+
+## DataCamp Python Skills for Data Science 
+
+### Introduction to Python
+
+
+### Intermediate Pyton
+
+
+
+### Project 
+
+
+
+## DataCamp R Skills for Data Science
+
+
+## Azure Data Science Certification
+
+
+
+## AWS Data Science Certification
+
+
+_Sample_
+
+```{r, eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
+cat(
+'<iframe width="560" height="315" src="https://www.youtube.com/embed/2QDuYhS4pdU"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope ; picture-in-picture"></iframe>'
+)
+
+```
+
+
+
+
+

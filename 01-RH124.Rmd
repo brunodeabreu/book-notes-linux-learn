@@ -1,4 +1,4 @@
-#  Server Administrator I - R124
+#  Server Administrator I - RH124
 
 
 
@@ -6,8 +6,8 @@
 
 Modular operations system where you can add components : 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/what_is_linux.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/what_is_linux.png")
 ```
 
 **Open Source**
@@ -157,8 +157,8 @@ file /bin/bash
 
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/fs_hierarquia.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/fs_hierarquia.png")
 ```
 
 ### The file system hierarchy `/`
@@ -386,8 +386,8 @@ man 5 crontab
 
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/std_inputs_outputs.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/std_inputs_outputs.png")
 ```
 
 
@@ -816,8 +816,8 @@ To change the user umask we can update the `.bashrc` file
 
 Process state description
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/process_state.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/process_state.png")
 ```
 
 
@@ -1249,8 +1249,8 @@ _"New implementation of IP"_ : Allow every single person to have its own unique 
   * **IPV6** is 128-bit number with 8 colon separated groups of 4 hexadecimal nibbles, also use subnet mask and normally make use of /64, i.e, 64 bits
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/ipv6_subnet.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/ipv6_subnet.png")
 ```
 
 * Common ipv6 address
@@ -1906,8 +1906,8 @@ subscription-manager-repos --list
 > Module is a set of RPM packages
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/repo_modules.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/repo_modules.png")
 ```
 
   * List modules and get info

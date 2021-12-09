@@ -2,7 +2,7 @@
 
 
 
-## Intro to Containr
+## Intro to Container
 
 A container is a set of one or more processes that are isolated from the rest of the system.
 
@@ -407,7 +407,6 @@ podman rmi devops/mysql:snapahot
 ```
 
 ## Creating Custom Container Images
-
 ### Designing Custom Container Images
 
 One method to create a container image is modify the existing one to meet the requirements of the application. **Containerfiles** are another option that make this task easy to create, share and control the image.
@@ -431,7 +430,7 @@ Also **Red Hat Container Catalog RHCC** is a repository of reliable, tested, cer
 1. Start a container from a base container image called the builder image.
 2. Fetch the application source code, usually from a Git server, and send it to the container.
 3. Build the application binary files inside the container.
-4. Save the containr, after some clean up
+4. Save the container, after some clean up
 ### Building Custom Container images with Containerfiles
 
 A **Containerfile** is a mechanism to automate the building of container images, to build we have three steps:
@@ -468,7 +467,7 @@ CMD ["-D", "FOREGROUND"]
 * `CMD` : provides the default arguments for the ENTRYPOINT instruction
 
 
----
+
 
 **Building Image with Podman**
 
@@ -491,3 +490,97 @@ podman build -t NAME:TAG DIR
 
 
 
+
+## Deploying Containerized Applications on OpenShift
+### Describing Kubernetes and OpenShift Architecture
+
+**Kubernetes and OpenShift**
+
+> Kubernetes is an orchestration service that simplifies the deployment, management, and scaling of containerized applications.
+
+* _**Kubernetes Terminology**_ : 
+
+  * **Node** : A server that hosts applications in a Kubernetes cluster.
+  * **Control Plane** : Provides basic cluster services such as APIs or controllers.
+  * **Compute Node** : This node executes workloads for the cluster. Application pods are scheduled onto compute nodes.
+  * **Resource** : kind of component definition managed by Kubernetes. Resources contain the configuration of the managed component and the current state of the component
+  * **Controller** : A controller is a Kubernetes process that watches resources and makes
+changes attempting to move the current state towards the desired state.
+  * **Label** : A key-value pair that can be assigned to any Kubernetes resource. Selectors
+use labels to filter eligible resources for scheduling and other operations.
+  * **Namespace** : A scope for Kubernetes resources and processes, so that resources with the
+same name can be used in different boundaries.
+
+
+> Red Hat OpenShift Container Platform is a set of modular components and services built on top
+of Red Hat CoreOS and Kubernetes. RHOCP adds PaaS capabilities such as remote management,
+increased security, monitoring and auditing, application lifecycle management, and self-service
+interfaces for developers.
+
+
+* _**OpenShift Terminology**_
+
+  * **Infra Node** :  A node server containing infrastructure services like monitoring, logging, or external routing
+  * **Console** : A web UI provided by the RHOCP cluster that allows developers and
+administrators to interact with cluster resources
+  * **Project** : OpenShift extension of Kubernetes' namespaces. Allows the definition of user
+access control (UAC) to resources.
+
+
+```{r, echo = FALSE,  out.width="90%"}
+knitr::include_graphics("img/openShift_component_stack.png")
+```
+
+* **CoreOS** is a Linux distribution focused on providing an immutable operating system for container execution
+* **CRI-O** is an implementation of the Kubernetes Container Runtime Interface _CRI_ 
+* **Kubernetes** manages a cluster of hosts, physical or virtual that run containers.
+* **Etcd** : Key-value store to store config and state information about container and other resources
+* **CRD** C_ustom Resource Definition_  are resource types stored in Etcd and managed by Kubernetes
+* **Containerized services** fulfill many PaaS infrastructure functions, such as networking and
+authorization.
+* **Runtimes and xPaaS** based container images ready for use for dev
+* RHOCP provides **web UI and CLI tools** for managing user application
+
+
+
+* _**OpenShift and Kubernetes architecture illustration**_
+
+
+On the below fig we can see the control plane that control de cluster, runs on CoreOS, and Node e Infra Pods to do the own work on OpenShift.
+
+We can have storage on Ceph, Gluster or from vendor. These runs on Bare metal or on cloud
+
+```{r, echo = FALSE,  out.width="90%"}
+knitr::include_graphics("img/openshift_and_Kube_archi.png")
+```
+
+
+
+
+<br>
+
+
+**Describing Kubernetes Resource Types**
+
+  * **Pods (_po_)** : collection of containers that share resources
+  * **Services(_svc_)** : single IP/port combination that provides access to a pool of pods
+  * **Replication Controllers (_rc_)** : how pods are replicated into different notes
+  * **Persistent Volumes (_pv_)** : Define storage areas to be used by Kubernetes pods.
+  * **Persistent Volume Claims (_pvc_)** : Represent a request for storage by a pod.
+  * **ConfigMaps (_cm_) and Secrets** : Contains a set of keys and values that can be used by other resources
+  
+  
+
+
+
+### Creating Kubernetes Resources
+
+The main method to interacting with an RHOCP is using `oc` command
+
+```
+oc login <clusterURL>
+
+```
+
+
+* 

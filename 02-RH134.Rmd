@@ -634,8 +634,8 @@ tuned-adm active
   
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/nice_renice.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/nice_renice.png")
 ```
 
 
@@ -768,8 +768,8 @@ file, and data file used by an application.
 * To show SELinux information  `ls -lZ`
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/SELinux.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/SELinux.png")
 ```
 
 
@@ -918,8 +918,8 @@ If we have the package `setroubleshoot-serve` installed
     
     
     
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/mbr.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/mbr.png")
 ```
 
 
@@ -930,8 +930,8 @@ knitr::include_graphics(rep("img/mbr.png", 1))
     * Maximum of 8ZiB zebibytes
     * have a backup on the end of the disk
     
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/gpt.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/gpt.png")
 ```
 
     
@@ -1212,8 +1212,8 @@ of memory. The combined system RAM plus swap space is called _virtual memory_.
 
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/swap.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/swap.png")
 ```
 
 <br>
@@ -1287,8 +1287,8 @@ _Logical volumes (LVs)_
   
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/logical_volumes.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/logical_volumes.png")
 ```
 
 
@@ -1611,8 +1611,8 @@ swapon -va /dev/vgname/lvname
 commands.
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/stratis.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/stratis.png")
 ```
 
 
@@ -2393,8 +2393,8 @@ operating systems
 
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/kvm.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/kvm.png")
 ```
 <br>
 
@@ -2446,8 +2446,8 @@ underlying operating system
 
 
 
-```{r, echo = FALSE}
-knitr::include_graphics(rep("img/container.png", 1))
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/container.png")
 ```
 
 **Virtualization**:

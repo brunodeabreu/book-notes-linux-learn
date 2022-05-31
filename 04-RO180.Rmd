@@ -4,7 +4,7 @@
 
 ## Intro to Container
 
-A container is a set of one or more processes that are isolated from the rest of the system.
+Containers ares a set of one or more processes that are isolated from the rest of the system.
 
 Containers provide many of the same benefits as virtual machines, such as security, storage, and
 network isolation. Containers require far fewer hardware resources and are quick to start and
@@ -28,7 +28,7 @@ Advantages of using container:
 
 ### Linux Conetainer Architecture
 
-An image is a file-system bundle that container all dependencies required to execute a process, container images need to be locally available for the container runtime, below  image repositories available : 
+An **image** is a template for containers that include a runtime environment and all the libs are configuration files, container images need to be locally available for the container runtime, below  **image repositories** available : 
 
 * Red Hat Container Catalog : https://registry.redhat.io
 * Docker Hub : https://hub.docker.com
@@ -37,21 +37,38 @@ An image is a file-system bundle that container all dependencies required to exe
 * Amazon Elastic Container Registry : https://aws.amazon.com/ecr/
 
 
-To manage the container we can use **Podman** an open source tool for managing containers and container image
+To manage the container we can use **podman** an open source tool for managing containers and container image
+
+if need to install _podman_ : 
+
+```
+yum install podman
+```
 
 
 ### Overview of kubernetes and OpenShift
 
-**Kubernetes** is an orchestration service that simplifies the deployment, management, and scaling of containerized applications, tje smallest unit if kunernetes is a **pod** that consist of one or more containers.
+**Think** : _as the number of containers managed by an organization grows, the work of manually starting them rises exponentially along with the need to quickly respond to external demands_
 
-Kubernets features of top of a container infra: 
 
-  * Service discovery and loading balancing : communication by a single DNS entry to each set of container, permits the load balancing across the pool of container.
-  * Horizontal scaling : Appl can scale up and down manually or automatically
-  * Self-Healing: user-defined health checks to monitor containers to restart in case of failure
-  * Automated rollout : roll updates out to appl containers, if something goes wrong kubernetes can rollback to previous interation of the deployment
-  * Secrets and configuration management : can manage the config settings fo application without rebuilding container
-  * Operators : use API to update the cluster state reacting to change in the app state
+_**Enterprise needs:**_
+
+ * Easy communication between a large number of services
+ * Resources limits on applications regardless of the number fo containers running them
+ * To respond to application usage spikes to increase or decrease running containers
+ * Reacs to service deterioration with health checks
+ * Gradual roll out fo a new release to a set of users
+
+**Kubernetes** is an orchestration service that simplifies the deployment, management, and scaling of containerized applications, the smallest unit if kunernetes is a **pod** that consist of one or more containers.
+
+Kubernetes features of top of a container infra: 
+
+  * **Service discovery and loading balancing** : communication by a single DNS entry to each set of container, permits the load balancing across the pool of container.
+  * **Horizontal scaling** : Appl can scale up and down manually or automatically
+  * **Self-Healing**: user-defined health checks to monitor containers to restart in case of failure
+  * **Automated rollout and rollback** : roll updates out to appl containers, if something goes wrong kubernetes can rollback to previous integration of the deployment
+  * **Secrets and configuration management** : can manage the config settings fo application without rebuilding container
+  * **Operators** : use API to update the cluster state reacting to change in the app state
   
 
 **Red Hat OpenShift Container Plataform (_RHOCP_)** is a set of modular components and services build on top of Kubernetes, adds the capabilities to provide PaaS platform.
@@ -75,11 +92,12 @@ The podman is designed to be a rootless container running as a non-root user, ho
 
 The container image are named based on the syntax **registry_name/user_name/image_name:tag**
   
-  * registry_name : FQDN or the registry
-  * user_name : name of user or organization to which images belongs
-  * tag : identifies image version
+  * **registry_name** : FQDN or the registry
+  * **user_name** : name of user or organization to which images belongs
+  * **tag** : identifies image version
   
-  
+
+Basic Commands:
 
 * To search an image
 
@@ -563,24 +581,505 @@ knitr::include_graphics("img/openshift_and_Kube_archi.png")
 **Describing Kubernetes Resource Types**
 
   * **Pods (_po_)** : collection of containers that share resources
-  * **Services(_svc_)** : single IP/port combination that provides access to a pool of pods
+  * **Services (_svc_)** : How pods talk with each other. Single IP/port combination that provides access to a pool of pods
   * **Replication Controllers (_rc_)** : how pods are replicated into different notes
   * **Persistent Volumes (_pv_)** : Define storage areas to be used by Kubernetes pods.
   * **Persistent Volume Claims (_pvc_)** : Represent a request for storage by a pod.
   * **ConfigMaps (_cm_) and Secrets** : Contains a set of keys and values that can be used by other resources
   
   
+**OpenShift Resource Types**
+
+  * **Deployment and Deployment Config (_dc_)** : Both are the representation of a set of containers, it contains the configuration to be applied to all containers of each pod replica (images, tags, storage definitions, etc)
+  * **Build config (_bc_)** : Process to be executed in the OpenShift project. A **bc** works together with a **dc** to provide a basic CI/CD workflows.
+  * **Routes** : Represent a DNS host name recognized by the OpenShift router as an ingress point for applications and microservices.
 
 
 
 ### Creating Kubernetes Resources
 
-The main method to interacting with an RHOCP is using `oc` command
+The main method to interacting with an RHOCP is using `oc` command line
 
 ```
+oc <command>
+
 oc login <clusterURL>
 
 ```
 
+The pod resource definition syntax can be provided by JSON or YAML
 
-* 
+_Sample of YAML format_
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wildfly
+  labels:
+    name: wildfly
+spec:
+  containers:
+    - resources:
+        limits:
+            cpu: 0.5
+      image: do276/todojee
+      name: wildfly
+      ports:
+          - containerPort: 8080
+            name: wildfly
+      env:
+          - name: MYSQL_ENV_MYSQL_DATABASE
+            value: items
+          - name: MYSQL_ENV_MYSQL_USER
+            value: user1
+          - name: MYSQL_ENV_MYSQL_PASSWORD
+            value: mypa55
+```
+
+
+**Discovering services**
+
+Using IP and port : 
+
+* SVC_NAME_SERVICE_HOST is the service IP address.
+* SVC_NAME_SERVICE_PORT is the service TCP port.
+
+
+Using DNS:
+
+* SVC_NAME .PROJECT_NAME.svc.cluster.local
+
+
+* To create a tunel to our machine 
+
+```
+[user@host ~]$ oc port-forward mysql-openshift-1-glqrp 3306:3306
+```
+
+<br>
+
+**Creating application**
+
+```
+# sample 1
+[user@host ~]$ oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABA SE=testdb -l db=mysql
+
+```
+
+* Create using docker image
+
+```
+# sample 2 using docker img
+oc new-app --docker-image=myregistry.com/mycompany/myapp --name=myapp
+```
+
+* Create using Git Repo
+
+```
+# sample 3 from Git
+oc new-app https://github.com/openshift/ruby-hello-world --name=ruby-hello
+```
+
+* Creating from template
+
+```
+# from template
+$ oc new-app \
+--template=mysql-persistent \
+-p MYSQL_USER=user1 -p MYSQL_PASSWORD=mypa55 -p MYSQL_DATABASE=testdb \
+-p MYSQL_ROOT_PASSWORD=r00tpa55 -p VOLUME_CAPACITY=10Gi
+...output omitted..
+```
+
+
+**Managing Persistent Storage**
+
+* List persistent volume objects
+
+```
+[admin@host ~]$ oc get pv
+```
+
+
+* See the YAML definition for a PersistentVolume
+
+```
+[admin@host ~]$ oc get pv pv0001 -o yaml
+```
+
+* Add more PersistentVolume objects
+
+```
+[admin@host ~]$ oc create -f pv1001.yaml
+```
+
+<br>
+
+**Request persistent volume**
+
+* Create a pvc object request :
+
+We create a PersistentVolumeClaim (_PVC_) object to request : 
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myapp
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+```
+
+* To create the PVC : 
+
+```
+[admin@host ~]$ oc create -f pvc.yaml
+```
+
+* To list the PVCs
+
+```
+[admin@host ~]$ oc get pvc
+```
+
+
+<br>
+
+**Managing OpenShift Resources at the command line**
+
+
+The `oc get RESOURCE_TYPE` command display the summary of all resources
+
+
+* `oc get all`  : retrieve a summary of the most important components
+* `oc describe RESOURCE_TYPE|RESOURCE_NAME` : retrieve additional information
+* `oc get RESOURCE_TYPE|RESOURCE_NAME` : export a resource definition.
+* `oc create RESOURCE_TYPE|RESOURCE_NAME` : create resources
+* `oc edit`: edit resource definitions
+* `oc delete RESOURCE_TYPE` : remove resource from openshift
+* `oc exec CONTAINER_ID` : executes commands inside a container.
+
+
+
+**Tip :** 
+
+If we use label we can make reference by label
+
+```
+$ oc get svc,deployments -l app=nexus
+```
+
+
+### Creating Routes
+
+A route connects a public-facing IP address and DNS host name to an internal-facing service IP. It uses the service resource to find the endpoints; that is, the ports exposed by the service.
+
+OpenShift routes are implemented by a cluster-wide router service, sample of route defined using JSON:
+
+```
+{
+  "apiVersion": "v1",
+  "kind": "Route",
+  "metadata": {
+      "name": "quoteapp"
+  },
+  "spec": {
+        "host": "quoteapp.apps.example.com",
+        "to": {
+              "kind": "Service",
+              "name": "quoteapp"
+        }
+    }
+}
+```
+
+
+* Creating routes
+
+```
+$ oc expose service quotedb --name quote
+```
+
+
+* Inspect the routes
+
+```
+$ oc get pod --all-namespaces | grep router
+> openshift-ingress router-default-746b5cfb65-f6sdm 1/1 Running 1 4d
+
+# describe :
+$ oc describe pod router-default-746b5cfb65-f6sdm
+```
+
+
+
+
+
+
+### Creating Applications with Source-to-Image
+
+* **Source-to-Image (S2I)** :  This tool takes an application's source code from a Git repository, injects the source code into a base container and produces a new container image that runs the assembled application.
+
+
+Image stream resource is configuration that names specific container images to get the list of default images streams populated by OpenShift
+
+```
+$ oc get is -n openshift
+
+```
+
+<br>
+
+**Buyild an application with S2I and CLI**
+
+
+* From Git
+
+```
+$ oc new-app php~http://my.git.server.com/my-app
+
+# or another syntax
+$ oc new-app -i php http://services.lab.example.com/app --name=myapp
+
+```
+
+
+* From path 
+
+```
+oc new-app .
+```
+
+* Using contect
+
+```
+$ oc new-app https://github.com/openshift/sti-ruby.git --context-dir=2.0/test/puma-test-app
+```
+
+* Specific branch
+
+```
+$ oc new-app https://github.com/openshift/ruby-hello-world.git#beta4
+```
+
+<br>
+
+After creating a new application, the build process starts we can check using `get builds ` command
+
+```
+$ oc get builds
+```
+
+* Check the logs 
+
+```
+$ oc logs build/myapp-1
+```
+
+
+* Trigger a new build with the `oc start-build build_config_name` command
+
+
+```
+$ oc get buildconfig
+
+$ oc start-build myapp
+```
+
+
+
+
+
+## Deploying Multi-Container Applications
+
+### Considerations for Multi-Container Applications
+
+* Complex applications have different components such as fron-end, REST back end and database server, it is possible to orchestrate multi-conatiner applications manually, but openshift and kubernets provide tools to facilite that.
+
+
+### Deploying A Multi-Container App on OpenShift
+
+* Pods are attached to a Kubernetes namespace, which OpenShift calls a project
+* When a pod starts, Kubernetes automatically adds a set of environment variables for each service defined on the same namespace.
+* Any service defined on Kubernetes generates environment variables for the IP address and
+port number where the service is available
+* Kubernetes automatically injects these environment variables into the containers from pods in the same namespace
+
+* `<SERVICE_NAME>_SERVICE_HOST`: Represents the IP address enabled by a service to accessa pod.
+* `<SERVICE_NAME>_SERVICE_PORT`: Represents the port where the server port is listed.
+* `<SERVICE_NAME>_PORT`: Represents the address, port, and protocol provided by the service for external access.
+* `<SERVICE_NAME>_PORT_<PORT_NUMBER>_<PROTOCOL>`: Defines an alias for the `<SERVICE_NAME>_PORT`.
+* `<SERVICE_NAME>_PORT_<PORT_NUMBER>_<PROTOCOL>_PROTO`: Identifies the protocol type (TCP or UDP).
+* `<SERVICE_NAME>_PORT_<PORT_NUMBER>_<PROTOCOL>_PORT`: Defines an alias for `<SERVICE_NAME>_SERVICE_PORT`.
+• `<SERVICE_NAME>_PORT_<PORT_NUMBER>_<PROTOCOL>_ADDR`: Defines an alias for `<SERVICE_NAME>_SERVICE_HOST`.
+
+
+### Deploying a Multi-container Application on OpenShift Using a Template
+
+A template defines a set of related resources to be created together, as well as a set of application parameters.
+
+The OpenShift installer creates several templates by default in the openshift namespace.
+
+
+```
+[user@host ~]$ oc get templates -n openshift
+```
+
+* Check the YAML definition of template
+
+```
+[user@host ~]$ oc get template mysql-persistent -n openshift -o yaml
+```
+
+* Assuming the template is defined in the todo-template.yaml file, use the oc create command to publish the application template:
+
+```
+[user@host deploy-multicontainer]$ oc create -f todo-template.yaml
+```
+
+* list available parameters from a template.
+
+```
+[user@host ~]$ oc describe template mysql-persistent -n openshift
+
+or
+
+[user@host ~]$ oc process --parameters mysql-persistent -n openshift
+```
+
+* Processing a Template Using the CLI 
+
+```
+[user@host ~]$ oc process -o yaml -f <filename>
+```
+
+* Templates often generate resources with configurable attributes that are based on the template
+parameters. To override a parameter, use the -p option followed by a <name>=<value> pair.
+
+```
+[user@host ~]$ oc process -o yaml -f mysql.yaml -p MYSQL_USER=dev -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi > mysqlProcessed.yaml
+```
+
+* To create an application use the generated YAML
+
+```
+[user@host ~]$ oc create -f mysqlProcessed.yaml
+```
+
+* Alternatively, it is possible to process the template and create the application without saving a resource definition file by using a UNIX pipe:
+
+```
+[user@host ~]$ oc process -f mysql.yaml -p MYSQL_USER=dev  -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank  -p VOLUME_CAPACITY=10Gi | oc create -f -
+```
+## Troubleshooting Containerized Applications
+
+### Troubleshooting S2I Builds and Deployments
+
+**Introduction to the S2I Process**
+
+S2I is simple way to create image, however problems can heppens is important to keep in mind the workflow for most of the program languages : 
+
+* **Build step** : 
+  * compiling source code, packaging the application as a container image
+  * push the image to the OpenShift registry for deployment step
+  * BC (_BuildConfig_) drive the build step
+  
+* **Deployment step** :
+  * starting a pod and making the application available
+  * executes after the build step
+
+
+* Check the logs
+
+```
+$ oc logs bc/<application-name>
+```
+
+* request a new build:
+
+```
+$ oc start-build <application-name>
+```
+
+* Check the deployment logs
+
+```
+$ oc logs deployment/<application-name>
+```
+
+<br>
+
+**Common Problems**
+
+The `oc logs` command provides important information about the build, deploy, and run
+processes of an application during the execution of a pod. The logs may include : 
+  * missing values
+  * options that must be enabled
+  * incorrect parameters or flags
+  * environment incompatibilities,etc
+  
+  
+  
+
+### Troubleshooting Containerized Applications
+
+Sometimes sysadmin need special access to container for example the dba need access the database container to check the database or sysadmin need to restart an specific service on a container, **podman** provides port forwarding features by using `-p` option with the `run`` subcommand 
+
+```
+$ podman run --name db -p 30306:3306 mysql
+```
+
+OpenShift provide the `oc port-foward` command for fowarding a local port to a pod port.
+
+```
+$ oc port-forward db 30306 3306
+```
+
+
+* To access the container logs
+
+```
+$ podman logs <containerName>
+```
+
+
+* To access openshift logs
+
+```
+$ oc logs <podName>
+```
+
+* To read openshift events
+
+```
+$ oc get events
+```
+
+
+* Accessing Running Container
+
+```
+$ podman exec [options] container command [arguments
+
+$ oc exec [options] pod [-c container] -- command [arguments]
+
+# sample
+$ oc exec -it myhttpdpod /bin/bash
+$ podman exec apache-container cat /var/log/httpd/error_log
+```
+
+* Transfer file to and from containers
+
+
+```
+$ podman run -v /conf:/etc/httpd/conf -d do180/apache
+
+$ podman cp standalone.conf todoapi:/opt/jboss/standalone/conf/standalone.conf
+$ podman cp todoapi:/opt/jboss/standalone/conf/standalone.conf .
+
+```

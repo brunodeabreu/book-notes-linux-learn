@@ -6,7 +6,7 @@
 
 Modular operations system where you can add components : 
 
-```{r, echo = FALSE, out.width="90%"}
+```{r, echo = FALSE, out.width="60%"}
 knitr::include_graphics("img/what_is_linux.png")
 ```
 
@@ -1906,7 +1906,7 @@ subscription-manager-repos --list
 > Module is a set of RPM packages
 
 
-```{r, echo = FALSE, out.width="90%"}
+```{r, echo = FALSE, out.width="60%"}
 knitr::include_graphics("img/repo_modules.png")
 ```
 

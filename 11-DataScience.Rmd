@@ -1,38 +1,1241 @@
 # Data Science
 
 ## DataCamp Python Skills for Data Science 
-
 ### Introduction to Python
+#### Python Basic
+
+Version 3.x - [https://www.python.org/downloads](https://www.python.org/downloads)
+
+We can save the script with .py and use python as calculator or usa ipython or python shell
+
+```
+# Addition and subtraction
+print(5 + 5)
+print(5 - 5)
+
+# Multiplication and division
+print(3 * 5)
+print(10 / 2)
+
+# Exponentiation
+print(4 ** 2)
+
+# invest
+print(100 * 7.1)
+
+# Modulo
+print(18 % 7)
+
+# How much is your $100 worth after 7 years?
+print(100*1.1**7)
+```
 
 
-### Intermediate Pyton
+<br>
+
+**Variable**
+
+* Specific, case-sensitive
+* `type(<variable>)` to check the type of variable
+* Types
+  
+  * int - integer numbers
+  * float - real numbers
+  * bool - True , False
+  * str - string, text
+
+
+<br>
+
+
+**Lists**
+
+* [a,b,c, 1, True, 1.2 [a,b]]
+* Collection of values, contain any type
+* Slicing
+  * First element index 0
+  * -1 last element
+  * Range [3:5]  , last element not included [start : end(excluded)]
+  * Subsetting list of list [][]
 
 
 
-### Project 
 
-
+---
 
 ## DataCamp R Skills for Data Science
 
+
+
+---
 
 ## Azure Data Science Certification
 
 
 
+
+---
+
 ## AWS Data Science Certification
 
 
-_Sample_
+### Demystifying AI / ML / DL
+
+
+**What is AI ?**
+
+  Ability to scan and interpret the physical devices, for that we need to provide info of real world
+
+  * Knowledge (_data_) + Software programs = decisions  
+
+  * Transfer human expertise to solve a specific problem (_model_)
+  
+  * Machine learning and Deep learning are subset of AI
+  
+  * **ML** :  Data -> processing -> Predictions
+  
+    * Machine learning can do : 
+      
+      * Make predictions
+      * Optimize utility functions
+      * Extract hidden data structures
+      * Classify data
+      
+  * **DL**
+  
+    * Enable the machine define the features itself, for instance, you show the machine several samples of rectangle and machine will be able to extract the features and recognize a probably rectangle. 
+
+<br>
+
+  * How to Establish an Effective AI Strategy
+
+    * Fast computing environments
+    * Data gathering from several sources, ubiquitous data
+    * Advanced learning algorithms
+  
+  
+  _The Flywheel of Data_
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/flywheel_of_data.png")
+```
+
+
+  * **AI on AWS**
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/ai_on_aws.png")
+```
+
+
+
+
+**What is Machine Learning**
+
+
+* Subset of AI
+* Process that takes data and use that to make predictinos and support decisions
+
+
+* Types of Machine Learning
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/types_of_ML_AWS.png")
+```
+
+
+
+
+
+
+**Suggestion**
+
+_Intro to ML video 1:_
+
+
+Complete sequence of videos [here](https://www.youtube.com/watch?v=CzdWqFTmn0Y&list=PLfYUBJiXbdtSyktd8A_x0JNd6lxDcZE96)
+
 
 ```{r, eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
 cat(
-'<iframe width="560" height="315" src="https://www.youtube.com/embed/2QDuYhS4pdU"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope ; picture-in-picture"></iframe>'
+'<iframe width="560" height="315" src="https://www.youtube.com/embed/CzdWqFTmn0Y"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope ; picture-in-picture"></iframe>'
 )
 
 ```
 
 
 
+**What is Deep Learning**
 
+
+* Deep Learning is a subset of Machine Learning
+* Use many layers of non-linear processing units, for feature extraction and transformation
+* Algorithms can be supervised and unsupervised 
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/nn_aws_ml.png")
+```
+
+
+* Types of Neural Networks
+  
+  * Feedforward
+  * Recurrent
+  
+  
+* AWS Deep Learning Based Managed Services
+
+  * **Amazon Lex** : conversational engine
+  
+  * **Amazon Polly** : lifelike speech
+  
+  * **Amazon Rekognition** : Image analysis
+
+
+**Suggestion**
+
+_Intro to DL video 1:_
+
+
+Complete sequence of videos [here](https://www.youtube.com/watch?v=_QUEXsHfsA0&list=PLfYUBJiXbdtRL3FMB3GoWHRI8ieU6FhfM)
+
+```{r, eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
+cat(
+'<iframe width="560" height="315" src="https://www.youtube.com/embed/_QUEXsHfsA0"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope ; picture-in-picture"></iframe>'
+)
+
+```
+
+
+
+---
+
+## GCP - Professional Machine Learning Engineer
+
+### Big Data and ML Fundamentals
+
+* Compute power
+
+  * We can easy create a server, execute the job, pause or delete the server
+
+
+* Storage
+
+  * Big Data and Machine Learning are on top of **Compute power**, **storage** and **Networking** that are on top of **security**
+
+  * To create a storage bucket from UI is very simple by command line we can
+
+```
+gsutil mb -p [PROJECT_NAME] -c [STORAGE_CLASS] -l [BUCKET_LOCATTION] gs://[BUCKET_NAME]/
+```
+
+  * Types of Storage
+
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/gcp_storage_types.png")
+```
+
+
+
+* Networking
+
+  * GCP datacenter are interconnected 
+  * Every machine can talk with each other with 10GBps
+
+
+
+* Security
+
+  * Communication to GCP are encrypted in transit
+  * Stored data are encrypted
+  * BigQuery data are encrypted 
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/gcp_security_stack.png")
+```
+
+
+* GCP Offers
+
+
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/gcp_offfers.png")
+```
+
+
+
+
+### Recommending Products using Cloud SQL and Spark
+
+
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/database_options_on_GCP.png")
+```
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/if_your_data_is.png")
+```
+
+* Cloud SQL : Google managed RDBMS Mysql
+
+
+
+---
+
+## Kyndryl Data Science Roudmap
+
+### Data Science- Project Management Methodology - CRISP-DM
+
+#### KDD
+  
+1. **Select**
+  *  Interpret the data
+  *  Select data relevant to analysis
+
+2. **Preprocessing**
+  * Outliers
+  * Missing Values
+  
+3. **Transform**
+  * Useful features
+  * Smoothing (- binning  - cluster)
+  * Aggregation (- Weekly - month)
+  * Normalization
+
+4. **Data Mining**
+  * Explore
+  * Graph
+  * Predict
+  * Models
+
+
+5. **Evaluating**
+  * Check
+  * Evaluate the results
+  * Analysis
+
+
+#### SEMMA
+
+**S**ample : Subset of data (train, test validation)
+
+**E**xplore: Understand the data
+
+**M**:odify: Clean, feature engineering
+
+**M**odel: data mining, modeling
+
+**A**ssess: Model performance
+
+
+#### CRISP-DM
+
+
+1. Business Understand 
+2. Data Understand 
+3. Data Preparation
+4. Modeling
+5. Evaluation
+6. Deploy
+
+
+
+##### 1. Business Understand  _initial plan_
+
+Steps:
+
+1. **Define Business Problem** : Define the objective, the analitical problem, the expectations, success criteria, pain points
+2. **Assess and Analyze Scenarios **
+3. **Define Data Mining Problem**
+4. **Project plan** : Deliverable (timeline, costs, success criteria, assumptions, constraints, etc)
+
+
+
+##### 2. Data Understand 
+
+1. **Data Collection** : Primary data source (survery, experiments) or secondary data source (ERP, CRM, database)
+
+2. **Data Preparation / Description**
+  
+ * Quantitative (count, continuous ) vs Qualitative (categorical)
+ * Balance vs Imbalance (one class less than 30% = Imbalance)
+ * Structure (tabular) vs Unstructured(video, img, audio, text) vs Semi-structure
+ 
+3. **Exploration - Data Analysis **
+
+ * **Inferencial stats**
+    * Sampling - Balacing vs Imbalancing 
+      * Balancing : random sampling, sampling
+      * Imbalancing: stratified sampling, K-fold, smote, msmote, leve-one-out
+
+
+ * **Descriptive stats**
+    * Meam , media, mode
+    * variance, std, range
+    * skewness
+    * kurtoses
+    
+  * **Graphical **
+    * Univariant
+        * Boxplot - Outliers, shape of distribution
+        * Histogram - Shape, outliers
+        * QQ Plot
+    _check train and test dataset if they are in the same distribution_
+    
+    * Bivariant
+       * Scatter : correlation, coeficient (+1, -1) , strong (r > 0.85 ) weak (r < 0.4), cluster, linear
+       
+      
+    
+
+
+4. **Data Quality Analysis**
+
+ * Idenfity outliers, missing values
+ * Levels of granularity
+ * Inconsistence
+ * Wrong data errors
+ * Meta info
+ 
+ 
+ 
+##### 3. Data Preparation 
+
+
+In this step we clean, curate, wrangle and prepare the data
+
+ * **Outliers** : 3R Techniques (Rectify, Remove, Retain)
+ 
+ * **Missing Data**: Imputation (mean, median, mode, regression, knn, etc)
+ 
+ * **Data Transform** : Log, exp, boxcox, etc, done when data are non-normal
+ 
+ * **Data Normalization / Standartization**
+ 
+    * Normalization (mean = 0 , std =1 )
+    * Standardization (min = 0 , max = 1) - MinMaxScaller
+    
+ * Discretization, Binning, **Grouping**
+ 
+ * Dummy variable - **OneHotEncoding**
+ 
+ * **Apply domain knowledge to generate more features**
+ 
+ 
+##### 4. Modeling
+
+
+* Select model techniques
+* Model building
+* Model evaluation and tuning
+* Model Assessment
+
+* **Supervised Learning**
+  * Predict Y based on X
+  * Categorical (2 class or multiclass)
+  * numerical - Prediction
+  * User preference - Recommendation
+  * Relevance - Retrival
+
+<br>
+
+  * **Regression Analysis**
+  
+    1. y = continuous : Linear Regression
+    2. y = discrete (2 categories) : Logistic Regression
+    3. y = discrete (> 2 categories) : Multinominal / Ordinal Regression
+    4. y = Count : Poisson / Negative Binominal REgression (_var > mean_)
+    5. Excessive Zero : 
+      
+        * ZIP (Zero Inflated Position)
+        * ZINB (Zero Inflated Negative Binomial)
+        * Hurdle
+
+
+  * KNN
+  
+  * Naive Bayes
+  
+  * **Black Box**
+  
+    * Neural Network
+    * Support Vector Machine
+    
+  * **Ensemble**
+  
+    * **Stacking** : Multi Techniques (Linear + DT + KNN) mean or majority
+    
+    * **Bagging** : Randon Forest - good for discrete
+    
+    * **Boosting**: Decistion tree, Gradient boosting, XGB, AdaBoost
+
+<br>
+
+
+* **Unsupervised Learning**
+
+
+  * **Cluster / Segmentation**  - _reduce Row_
+  
+    1. **Kmeans** - non hierarchical - elbow curve
+    2. **Hierarchical** - agglomerative - deprogram
+    3. **DBSCAN** - application with noise
+    4. **OPTICS** - ordering points to identify cluster structure
+    5. **CLARA** - cluster large application - for large datasets
+    6. **K-medians / K-medoids** (for lot of outlines) / **K-modes** (lot of categorical variables)
+
+
+  **Dimension Reduction**  - _reduce columns_
+  
+    * PCA
+    * SVD
+
+
+  * **Association Rules / Market Basket Analysis / Affinity Analysis**
+  
+    * Support
+    * Confidence
+    * EFT Ration > 1
+    
+  * **Recommended system**
+  
+  * **Network Analysis**
+  
+    * 1. Degree
+    * 2. Page rank
+    * 3. others
+
+
+  * **Test Mining / NLP**
+  
+    * Bow
+    * TDW / DTW
+    * TF / TDIDF
+
+
+
+  * **Forecasting / Time Series**
+  
+    * Model Based Approaches
+    
+      1. Trend: Linear, Exponential , Quadratic
+      
+      2. Seasonality : additive or multiplicative
+      
+      
+   * Data Base Approaches
+   
+      1. AR - Auto regressive
+      2. MA - Movie average
+      3. ES - Exponential smoothing
+      
+        a. SES
+        b. HOHS / Double Exponential Smoothing
+        c. Winters, others
+        
+   * Overtiffing (_variance_)  vs Underfitting (_Bias_)
+
+
+
+<br>
+
+
+* Reinforcement Learning (_learning from rewards_)
+
+<br>
+
+
+* Semi-supervised learning
+
+<br>
+
+
+* Active learning, transfer learning, structure prediction
+
+
+
+##### 5. Evaluation
+
+
+There are no better type of evaluate need to analyze the problem and data / results to select the best metric
+
+  * Mean Error
+  * Mean Absolute deviation
+  * Mean Squared Error
+  * Root Mean Squared Error
+  * Mean Percentage Error
+  * Mean Absolute percentage error
+  
+
+For Categorical we also have the **Confustion Matrix**
+
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/confusion matrix.png")
+```
+
+  * **TP** : Correct Predictive Positive
+  * **TN** : Correct Predictive Negative
+  * **FP** : Incorrect Predictive Positive
+  * **FN** : Incorrect Predict Negative
+  
+
+**Precision** : Prob of correctly identify a random patient with disease have a disease. (_Positive Correct predicted_)
+
+**Sensitive** (_Recall_ or _Hit Rate_):  Proportion of people with disease who are correctly identified as having disease
+
+**Specificity** (_True Negative Rate_) : Proportion of people with NO disease being characterized as not have disease
+
+**FP Rate ** (_Type 1 error_) :  1 - Specificity
+
+**FN Rate ** (_Type 2 error_) : 1 - Sensitivity
+
+**F1** : 1 to 0 Measure that balance precision and recall
+
+
+<br>
+
+**ROC**
+
+
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/roc.png")
+```
+
+
+
+**AUC** : Are under the curve
+
+  * 0.9 - 1.0 : outstanding
+  * 0.8 - 0.9 : good
+  * 0.7 - 0.8 : acceptable
+  * 0.6 - 0.7 : poor
+  * 0.5 - 0.5 : no discrimination
+  
+
+<br>
+
+
+**Model Assessment**
+
+  * Model performance and success criteria agreed upon early are in sync 
+  * Model should be repeatable and reproducible
+  * Model is in line with Non-functional requirements, such as scale, robust, maintainable, easy to deploy
+  * Model evaluation gives satisfactory results
+  * Model is meeting business requirements 
+  
+  
+  
+<br>
+
+
+
+* Rank final models based on the quality of results and relevance
+
+* Any assumptions or constants that were invalidated by the model ? 
+
+* Cost of deploy the entire pipeline
+
+* Any pain points
+
+* Data Sufficiency report 
+
+* Final suggestions, feedback
+
+**Monitoring** : PEST or SWOT
+
+
+
+##### 6. Deploy
+
+> DEV to PROD
+
+
+* Proper resources - Hardware, server, software , human 
+* model saved and then deployed
+* Maintenance and monitoring (_PEST_)
+
+
+
+### Statistics for Data Analysis Using Python
+#### Descriptive Statistics
+
+
+**Central Tendency**
+
+  * _Mean_ : Average
+  * _Mode_ : Most occuring number
+  * _Median_ : Moddle value when arranged in asc or desc order
+
+
+**Dispersion**
+
+  * _Range_ : highest - lowest value
+  * _Standard Deviation_ : squared root of variance
+  * _Variance_ 
+  * _Inter Quartile Range **IQR**_ : If divide the data into four parts (Q1, Q2 and Q3)
+    * Quantiles, if we divide the data into _n_ parts, we get (n-1) points of split called quantiles
+
+
+
+#### Distributions
+
+
+**BINOMIAL**
+
+  * The experiment consist of n repeated trials
+  * Each trial can result in just two possible outcomes(success and failure)
+  * The probability of success, denoted by p, is the same on every trial
+  * The trials are independent, that is, the outcome on one trial does not affect the outcome of other trials
+
+
+_In Python_
+
+```
+from scypy.stats import binom
+
+binom.cdf(k , n , p) # cumulative distibution function - for less than or equal to 2
+binom.pmf(k , n , p) # Probability mass function - for specific number of, defects
+binom.sf(k , n , p)  # for more than 2 (similar 1 - cdf)
+binom.mean(n, p)     # for mean of the dist
+binom.std(n, p)      # for standard deviation of the dist
+binom.var(n, p)      # for the variance of the dist
+
+```
+
+<br>
+
+**POISSON**
+
+* The possibilities of success are infinite (_Number of people in a queue, Number of accident in a city_)  are sample of this distribution
+
+* Measure the number of success similar to binomial
+
+* As binomial are for discrete distribution
+
+* Properties : 
+  * The experiment results in a success or failure
+  * The **mean** of success occurs in a specific region **is known**
+  * Outcomes are random
+  * The outcomes of interest are rare relative to the possible outcomes
+  * The variance is equal to mean
+  
+  
+  
+_In Python_
+
+
+```
+
+from scypy.stats import binom
+
+poisson.cdf(k , mu) # cumulative distribution function - for less than or equal to 
+poisson.pmf(k , mu) # probability mass function - for exact value
+poisson.sf(k , mu)  # for more than (similar 1 - cdf)
+poisson.mean(mu)    # for mean of the distr
+poisson.var(mu)     # for variance of the distr
+poisson.std(mu)     # for standard deviation of the distr
+
+
+```
+
+<br>
+
+**NORMAL**
+
+
+
+Most common distribution for continuous data
+
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/normal_distr.png")
+```
+
+
+* Properties :
+  * Normal distribution is **symmetrically**
+  * Long Tails / **Bell shaped**
+  * Mean, mode and median are the same
+  * **68%** of area under the curve falls with `1` std of the mean
+  * **95%** of area under the curve falls with `2` std of the mean
+  * **99.7%** of area under the curve fall with `3` std of the mean
+  * The total area under the normal curve is equal to `1`
+  * The probability of any particular value is `0` 
+  * The probability that X is greater than or less than a value = area
+
+
+
+```
+norm.cdf(x,mu,sigma) # Cumulative distribution function - for less than or equal to 
+norm.pdf(x,mu,sigma) # Probability density function (not Probability mass function) - for exact value
+norm.sf(x,mu,sigma)  # For more than (similar to 1-cdf)
+norm.mean(mu)        # For mean of the distribution
+norm.var(mu)         # For variance of the distribution
+norm.std(mu)         # For standard deviation of the distribution
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Inferencial and Hypothesis Testing
+
+_Inferencial Stats_ 
+
+
+ * We infer about the population based on sample data
+
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/sampling_popu.png")
+```
+
+<br>
+
+_Central Limit Theorem_ 
+
+  * For almost all porpulations, the **sampling distribution of the mean** can be **approximated** closely by a **normal distribution**, provided the sample size sufficiently large
+  
+  * If a variable has a mens of µ and the variance $σ^{2}$, as the sample size increase, the sample mean approaches a normal distribution with mean µ$\overline{x}$ and variance σ$\frac{2}{x}$
+
+
+<br>
+
+_Hypothesis Testing_
+
+ * Hypothesis testing is a method of statistical inference
+ * Commonly used tests include
+   * Comapre sample statistics with the population parameter
+   * Compare two datasets
+  
+  
+<br>
+
+
+_Steps for Hypothesis Testing_
+
+> Taking a sample and based on that sample we are predictin about the population 
+
+1. State the **alternative hypothesis**
+2. State the **null hypothesis**
+3. Select a probability of **error level** (_alpha_). generally **0.05**
+4. Calculate the **test statistics**(e.g t or z score)
+    * z = (x-μ)/σ  (_Basic one sample_)
+    * z = (x – μ) / (σ / √n) (_multiple samples_)
+5. Critical test statistic
+    * Use the $\alpha$ and check on Test Table
+6. **Interpret** the results
+
+
+  * **Null Hypothesis** : Basic assumption, for example : _The person is innocent_
+  
+  * **Alternate Hypothesis** : You need to provide proof of this, for example :  _The person is guilty_
+
+  * In Statistical terms you: 
+    * Reject the _Null Hypothesis_, or
+    * Fail to reject the _Null Hypothesis_ (not accept the Null Hypothesis)
+
+
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/hypothesis_error.png")
+```
+
+ * **Type I Error** : 
+   * False Alarm
+  
+ * **Type II Error** :
+   * Something change and we fail to detect the change
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/type1_type2_error_table.png")
+```
+
+ * **Confidence level** : C = 0.90, 0.95, 0.99 (90%, 95%, 99%)
+ * **Level of Significance or Type I Error** : $\alpha$ = 1 - C(0.10, 0.05, 0.01)
+
+
+<br>
+
+ * **Power**
+   * Power : 1 - $\beta$ (_or 1 - type II error_)
+   * Type II Error : Fail to reject null hypothesis when null hypothesis is false
+   * Likelihood of rejecting null hypothesis when null hypothesis is false
+   * Or : Power is the ability of a test to correctly reject the null hypothesis
+
+<br>
+
+ * **P-value**
+   * _**p-value**_ is the lowest value of alpha for which the null hypothesis can be rejected. (_Probability that the null hypothesis is correct_)
+   * For example, **if p = 0.045 you can reject the null hypothesis** at $\alpha$ = 0.05
+  
+> **p** is low the null must go (_null get rejected_), if **p** is high the null fly (_null stay_)
+ 
+
+
+
+
+<br>
+
+
+_Proportions & Variances_
+
+
+* Conditions for z Test
+
+  * **Random** samples
+  * Each observation should be independent of other
+    * Sample **with replacement**, or
+    * If sample without replacement, the sample size should **not be more than 10% of population**
+  * Sampling **distribution approximates Normal** Distribution
+    * Population is Normally distributed and the population **standard deviation is known** , or
+    * Sample **size >= 30**
+
+<br>
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/type_of_tests.png")
+```
+
+
+* _**One Sample**_
+ 
+  * **One Sample z Test** : Used when we have one sample from one machine
+    * Conditions for **z** test:
+      * Random Samples
+      * Each observation should be independent of each other (_sample with replacement_) or (_if sample without replacement_ sample size should not be more than 10% or population)
+      * Sample distribution approximates Normal Distribution (_Population is Normally distributed and the population std dev is <u>**known**</u> or size **>= 30**_)
+
+
+  * **One Sample t Test** : When we have _less than 30 numbers of sample_ and we do not _know the population standard deviation_
+    * Conditions for **t** test:
+      * Random samples
+      * Each observation should be independent of each other (_sample with replacement_) or (_if sample without replacement_ sample size should not be more than 10% or population)
+      * Sample distribution approximates Normal Distribution (_Population is Normally distributed and the population std dev is <u>**unknown**</u> or size **< 30**_)
+
+
+  * **One Proportion Test** : Compare proportions 
+    * Conditions for **One Proportion** test
+      * Random samples
+      * Each observation should be independent of each other (_sample with replacement_) or (_if sample without replacement_ sample size should not be more than 10% or population)
+      * The data contains only two categories, such as <u>**pass / fail**</u> or <u>**yes / no**</u>
+      * For Normal Approximation (both np >= 10 and n(n-p) >= 10 - data should have at least 10 "successes" and at least 10 "failures")
+
+
+  * **One Variance Test** : Check if variance has changed 
+    * Conditions for **One Variance** test
+      * Random samples
+      * Each observation should be independent of each other (_sample with replacement_) or (_if sample without replacement_ sample size should not be more than 10% or population)
+      * The data follows a _Normal Distribution_
+      * <u>Variance Tests</u>
+        * **Chi-square** Test
+          * For testing the population variance against a specified value
+          * Testing goodness of fit of some probability distribution
+          * Testing for independence of two attributes (_Contingency Tables_)
+        * **F-test**
+          * for testing equality of **two** variances from different population
+          * for testing equality of several means with technique of **ANOVA**
+
+
+* _**Two Samples**_
+
+  * **Two Sample z Test** : Compare the sample (_mean_) from two machines
+    * Conditions for **z** test:
+      * Random Samples
+      * Each observation should be independent of each other (_sample with replacement_) or (_if sample without replacement_ sample size should not be more than 10% or population)
+      * Sample distribution approximates Normal Distribution (_Population is Normally distributed and the population std dev is <u>**known**</u> or size **>= 30**_)
+      * _Sample of Z test hypothesis for two sample_:
+        * Null Hypothesis : μ1 = μ2
+        * Alternative hypothesis : μ1 != μ2
+        * [R sample](https://cran.r-project.org/web/packages/distributions3/vignettes/two-sample-z-test.html)
+        * [Python sample](https://www.geeksforgeeks.org/z-test/)
+        
+  * **Two Sample t test** 
+    * Conditions for **t** test:
+      * Random Samples
+      * Each observation should be independent of each other (_sample with replacement_) or (_if sample without replacement_ sample size should not be more than 10% or population)
+      * Sample distribution approximates Normal Distribution (_Population is Normally distributed and the population std dev is <u>**unknown**</u> or size **< 30**_)
+      * How to calculate ? 
+        * Variance equal
+          * Since we have a small size of sample we going to use t test independent `stats.ttest_ind()` function
+        
+        ```
+        import scipy.stats as stats
+        
+        machine1 = [150,152,154,152,151]
+        machine2 = [156,155,158,155,154]
+        
+        stats.ttest_ind(machine1, machine2, equal_var=True)
+        
+        #Output
+        # Statistics = -4.0055
+        # pvalue     =  0.0039
+        
+        ```
+        **Result**
+        _Since the value of pvalue is less than 0.05 we will reject the Null Hypotheses H0 since there is no significant difference in the variance of two machines_
+        
+        * Variance unequal
+          * Since we have a small size of sample we going to use t test independent `stats.ttest_ind()` function
+        
+        ```
+        import scipy.stats as stats
+        
+        machine1 = [150,152,154,152,151]
+        machine3 = [144,162,177,150,140]
+        
+        stats.ttest_ind(machine1, machine3, equal_var=False)
+        
+        #Output
+        # Statistics =  0.4146
+        # pvalue     =  0.6992
+        
+        ```
+        **Result**
+        _Since **pvalue** is high than 0.05 we will fail reject the Null Hypotheses H0 since there is significant difference in the variance of two machines_
+        
+
+      
+
+  * **Paired t test**  : Compare when you have before and after results
+    * _If the value in one sample affect the value in the other sample, then **the samples are dependent** : (Ex: Blood pressure before and after specific medicine)_
+    * How to calculate ? 
+      * Find the difference between two set of readings as d1, d2..dn
+      * Find the mean and _std dev_ of these differences
+      * Using Python we can use the package `scipy.stats` and `ttest_rel` function
+      
+      ```
+      import scipy.stats as stats
+      
+      before = [120,122,143,100,109]
+      after  = [122,120,141,109,109]
+      
+      stats.ttest_rel(before, after)
+      
+      # output
+      # statistics = -0.068
+      # pvalue     =  0.530
+      ```
+      **Results:**
+      _Since **pvalue** is high to 0.05 we fail to reject the H0 (null hypothesis), which means there are no significant difference between the values before and after_
+
+  * **Two Proportions Test** : Compare the _proportions_ from two samples
+    * Conditions for **Proportions test** 
+      * Random Samples
+      * Each observation should be independent of each other (_sample with replacement_) or (_if sample without replacement_ sample size should not be more than 10% or population)
+      * The data contains only two categories, such as pass/fail or yes/no 
+      * For Normal approximation :
+        * both np >= 10 and np(1-p) >= 10 : Data should have at least 10 successes and at least 10 failures for each sample (_some books it is 5_)
+    * Methods to calculate
+      * Pooled : H0 : p1 = p2 and Ha p1 != p2 
+      * Un-pooled : H0 p1 - p2 = d(difference) and Ha p1 - p2 != d(difference)
+    * How to calculate ? 
+      
+      ```
+      # H0 = p = p0
+      # Ha = p != p0
+      # From vendor A we test 200 pieces and find 30 defects
+      # From vendor B we test 100 pieces and find 10 defects
+      # Is there a significant difference in quality of those 2 vendors? (95% confidence level)
+
+      from  statsmodels.stats.proportion import proportion
+      
+      proportion.test_proportions_2indep(30,200, 10, 100, method='score')
+      
+      
+      #output
+      # Statistics = 1.198
+      # pvalue     = 0.230
+      
+      
+      ```
+      **Results:**
+      _Since the pvalue is higher than 0.05 we fail to reject the null hypotheses , we cannot say there is any significant difference in the proportion of this two samples_
+  
+
+  * **Two Variances** : Compare the _variances_ from two samples
+    * Conditions and test used for two variance test:
+      * **F-test**
+        * for testing equality of **two** variances from different population
+        * for testing equality of several means with technique of **ANOVA**
+    * How to calculate ?
+    
+    ```
+    * 8 samples from machine A : STDEV 1.1
+    * 5 samples from machine B : STDEV 11  
+    * Is there a difference in variance at (90% confidence level) ?
+    
+    
+    from scipy.stats import f
+    
+    # find f calculated
+    F_cal = 11/ (1.1**2)
+    # output 9.09
+    
+    
+    # find critical values on right dfn =  n - 1
+    f.isf(0.05, dfn = 4, dfd = 7)
+    # output : 4.12
+    
+    
+    # find critical value on left
+    f.isf(0.95,4,7)
+    # output 0.16
+    
+    
+    
+    
+    ```
+    **Results:**
+    _Since the F_calc(9.09) is in the reject zone higher than right value (4.12), we reject the null hypotheses, there is a significant difference between the machines_
+    
+    We also can use `stats.bartlett(machine1, machine2)` or `stats.levene(machine1 , machine2)`
+    
+    **Levene test is a robust test** compared with Bartlett
+    
+* _**More Than 2 Samples**_
+
+> ANOVA is Analysis of Variance
+  
+  * **ANOVA** : If we have 3 or more machines to compare
+  _To analyze the variance we have **chi-square test** for 1 variance test and **F-test** for two variance test_
+    * For testing equality of _several means_ with technique of **ANOVA**
+    * H0 : μ1 = μ2 = μ3 = μ4 ...  = μn        _(means are equal)_
+    * Ha : At least one of the means is different from others  _(means are NOT equal)_
+    
+    * How to calculate ?
+    
+    
+    ```
+    from scipy.stats as stats
+    
+    
+    m1 = [150,151,152,152,151,150]
+    m2 = [153,152,148,151,149,152]
+    m3 = [156,154,155,156,157,155]
+    
+    
+    stats.f_oneway(m1,m2,m3)
+
+    #output:
+    #statistics : 22.264
+    #pvalue     : 3.23e-05
+    
+    ```
+    
+    **Results:**
+     _As the pvalue is very small we conclude that at least one machine is different from others_
+     
+     We can also use the package `statsmodels.stats` with method `oneway.anova_oneway()`
+    
+  
+  * **ANOVA Concept**
+    * _Variation within_ : Variation of the values in the same machine _(inside or ERROR)_
+    * _Variation between_: Variation of the values between machines _(treatment)_
+    * To check we take the ration of these variations using **F test** to conclude if there are variation of not
+
+
+<br>
+
+  * **Post Hoc Tests**
+    * Post Hoc Tests attempt to control the experimentwise error rate _(usually alpha = 0.05)_ just like one-way ANOVA is used instead of multiple t-test 
+
+    * **Tukey's Test** from `statsmodels.stats.multicomp` method `pairwise_tukeyhsd`
+    
+    ```
+    import statsmodels.stats.oenway as oneway
+    from statsmodels.stats.multicomp import pairwise_tukeyhsd
+    
+    df = mpg[mpg['cylinders'] == 4][['mpg', 'origin']]
+    
+    result = pairwise_tukeyhsd(endog = df['mpg'] , groups = df['origin'] , alpha = 0.05 )
+    
+    print(result)
+    #output
+    # p-adj (pvalue) = 0.7995
+    
+    # Based on result we going to see the there are no significant different between europe and usa
+    
+    
+    ```
+
+<br>
+
+* **Goodmess of Fit Test**
+
+  * Use _Chi Square_ as test statistics
+  * To test if the sample is coming from a population with specific distribution
+  * Other goodness-of-fit tests are: 
+    * Anderson-Darling
+    * Kolmogorov-Smirnov
+    
+  * H0 : The data follow a specified distribution
+  * Ha : The data do not follow the specified distribution
+    * Sample
+    ```
+    A coin is flipped 100 times. Number of heads (40) and tails(60) . Is this coin biased ? (95% confidence level)
+    
+    H0 : Coin is not biased
+    Ha : Coin is biased
+    alpha = 0.05
+    
+    # Using python
+    
+    
+    import scipy.stats as stats
+    
+    exp = [50,50]
+    obs = [40,60]
+    
+    stats.chisquare(f_obs = obs, f_exp = exp)
+    #output
+    pvalue = 0.0455
+    
+    
+    ```
+    **Result** : _We reject the null hypotheses which means the coin are biased_
+
+
+<br>
+
+* **Contingency Tables**
+
+  * Help to find relationship between two discrete variables
+  * H0 : Is that there is no relationship between the row and column variables
+  * Ha : is that there is a relationship (Ha does not tell what type of relationship exists)
+
+  * Using python we can use `scipy.stats`
+  
+  ```
+  import scipy.stats as stats
+  
+  sh_op = np.array([[22,26,23], [28,62,26], [72,22,66]])
+  
+  
+  stats.chip2_contingency(sh_op)
+  
+  # output : 
+  pvalue = 3.45e-10
+  
+  ```
+  **Results** : Reject the null hypothesis which means there is a relationship between rows and columns
+  
+  
 

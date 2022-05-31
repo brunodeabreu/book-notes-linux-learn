@@ -195,6 +195,15 @@ knitr::include_graphics("img/nn_aws_ml.png")
   * **Amazon Rekognition** : Image analysis
 
 
+* AWS Deep Learning AMI (_custom models_)
+
+  * AMI is pre-configured with : MXNet, TensorFlow, Microsoft Cognitive Engine, Caffe, Theano, Torch and Keras
+  
+  * Support auto-scaling cluster of GPU for large training
+
+
+
+
 **Suggestion**
 
 _Intro to DL video 1:_

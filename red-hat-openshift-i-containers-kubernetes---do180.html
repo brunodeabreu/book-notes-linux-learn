@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title># 5 Red Hat OpenShift I: Containers &amp; Kubernetes - DO180 | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="# 5 Red Hat OpenShift I: Containers &amp; Kubernetes - DO180 | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Those notes are for future reference" />
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-12-09" />
+<meta name="date" content="2022-05-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +50,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -293,7 +293,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-facts"><i class="fa fa-check"></i><b>4.3.6</b> Managing Facts</a></li>
 <li class="chapter" data-level="4.3.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#magic-variables"><i class="fa fa-check"></i><b>4.3.7</b> Magic Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a></li>
+<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#loops"><i class="fa fa-check"></i><b>4.4.1</b> Loops</a></li>
+<li class="chapter" data-level="4.4.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#task-conditionally"><i class="fa fa-check"></i><b>4.4.2</b> Task Conditionally</a></li>
+<li class="chapter" data-level="4.4.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#handlers"><i class="fa fa-check"></i><b>4.4.3</b> Handlers</a></li>
+<li class="chapter" data-level="4.4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#blocks"><i class="fa fa-check"></i><b>4.4.4</b> Blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-files-to-managed-hosts"><i class="fa fa-check"></i><b>4.5</b> Deploying Files to Managed Hosts</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#modifying-and-copying-files-to-hosts"><i class="fa fa-check"></i><b>4.5.1</b> Modifying and Copying Files to hosts</a></li>
+<li class="chapter" data-level="4.5.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-custom-files-with-jinja2-templates"><i class="fa fa-check"></i><b>4.5.2</b> Deploying Custom files with Jinja2 templates</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-complex-plays-and-playbooks"><i class="fa fa-check"></i><b>4.6</b> Managing Complex Plays and Playbooks</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#selecting-hosts-with-host-patterns"><i class="fa fa-check"></i><b>4.6.1</b> Selecting Hosts with Host Patterns</a></li>
+<li class="chapter" data-level="4.6.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#including-and-importing-files"><i class="fa fa-check"></i><b>4.6.2</b> Including and Importing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#simplifying-playbooks-with-roles"><i class="fa fa-check"></i><b>4.7</b> Simplifying Playbooks with Roles</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#describing-role-structure"><i class="fa fa-check"></i><b>4.7.1</b> Describing Role Structure</a></li>
+<li class="chapter" data-level="4.7.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#reusing-content-with-system-roles"><i class="fa fa-check"></i><b>4.7.2</b> Reusing Content with System Roles</a></li>
+<li class="chapter" data-level="4.7.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#creating-roles"><i class="fa fa-check"></i><b>4.7.3</b> Creating Roles</a></li>
+<li class="chapter" data-level="4.7.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-roles-with-ansible-galaxy"><i class="fa fa-check"></i><b>4.7.4</b> Deploying Roles with Ansible Galaxy</a></li>
+<li class="chapter" data-level="4.7.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#roles-and-modules-from-content-collections"><i class="fa fa-check"></i><b>4.7.5</b> Roles and Modules from Content Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#troubleshooting-ansible"><i class="fa fa-check"></i><b>4.8</b> Troubleshooting Ansible</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#troubleshooting-playbooks"><i class="fa fa-check"></i><b>4.8.1</b> Troubleshooting Playbooks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#automating-linux-administration-tasks"><i class="fa fa-check"></i><b>4.9</b> Automating Linux Administration Tasks</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-software-and-subscriptions"><i class="fa fa-check"></i><b>4.9.1</b> Managing Software and Subscriptions</a></li>
+<li class="chapter" data-level="4.9.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-users-and-authenticatin"><i class="fa fa-check"></i><b>4.9.2</b> Managing Users and Authenticatin</a></li>
+<li class="chapter" data-level="4.9.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-the-boot-process-and-scheduled-processes"><i class="fa fa-check"></i><b>4.9.3</b> Managing the Boot Process and Scheduled Processes</a></li>
+<li class="chapter" data-level="4.9.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-storage"><i class="fa fa-check"></i><b>4.9.4</b> Managing Storage</a></li>
+<li class="chapter" data-level="4.9.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-network-configuration"><i class="fa fa-check"></i><b>4.9.5</b> Managing Network Configuration</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html"><i class="fa fa-check"></i><b>5</b> Red Hat OpenShift I: Containers &amp; Kubernetes - DO180</a><ul>
 <li class="chapter" data-level="5.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#intro-to-container"><i class="fa fa-check"></i><b>5.1</b> Intro to Container</a><ul>
@@ -319,6 +349,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-containerized-applications-on-openshift"><i class="fa fa-check"></i><b>5.6</b> Deploying Containerized Applications on OpenShift</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#describing-kubernetes-and-openshift-architecture"><i class="fa fa-check"></i><b>5.6.1</b> Describing Kubernetes and OpenShift Architecture</a></li>
 <li class="chapter" data-level="5.6.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-kubernetes-resources"><i class="fa fa-check"></i><b>5.6.2</b> Creating Kubernetes Resources</a></li>
+<li class="chapter" data-level="5.6.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-routes"><i class="fa fa-check"></i><b>5.6.3</b> Creating Routes</a></li>
+<li class="chapter" data-level="5.6.4" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-applications-with-source-to-image"><i class="fa fa-check"></i><b>5.6.4</b> Creating Applications with Source-to-Image</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-multi-container-applications"><i class="fa fa-check"></i><b>5.7</b> Deploying Multi-Container Applications</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#considerations-for-multi-container-applications"><i class="fa fa-check"></i><b>5.7.1</b> Considerations for Multi-Container Applications</a></li>
+<li class="chapter" data-level="5.7.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-app-on-openshift"><i class="fa fa-check"></i><b>5.7.2</b> Deploying A Multi-Container App on OpenShift</a></li>
+<li class="chapter" data-level="5.7.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-application-on-openshift-using-a-template"><i class="fa fa-check"></i><b>5.7.3</b> Deploying a Multi-container Application on OpenShift Using a Template</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications"><i class="fa fa-check"></i><b>5.8</b> Troubleshooting Containerized Applications</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-s2i-builds-and-deployments"><i class="fa fa-check"></i><b>5.8.1</b> Troubleshooting S2I Builds and Deployments</a></li>
+<li class="chapter" data-level="5.8.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications-1"><i class="fa fa-check"></i><b>5.8.2</b> Troubleshooting Containerized Applications</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><i class="fa fa-check"></i><b>6</b> Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280</a><ul>
@@ -332,26 +373,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#troubleshooting-openshit-cluster-and-applications"><i class="fa fa-check"></i><b>6.2.2</b> Troubleshooting OpenShit Cluster and Applications</a></li>
 <li class="chapter" data-level="6.2.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#introducing-openshift-dynamic-storage"><i class="fa fa-check"></i><b>6.2.3</b> Introducing OpenShift Dynamic Storage</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-authentication-and-authorization"><i class="fa fa-check"></i><b>6.3</b> Configuring Authentication and Authorization</a></li>
+<li class="chapter" data-level="6.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-authentication-and-authorization"><i class="fa fa-check"></i><b>6.3</b> Configuring Authentication and Authorization</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#identity"><i class="fa fa-check"></i><b>6.3.1</b> Identity</a></li>
+<li class="chapter" data-level="6.3.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-the-htpasswd-identity-provider"><i class="fa fa-check"></i><b>6.3.2</b> Configuring the HTPasswd Identity Provider</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-application-security"><i class="fa fa-check"></i><b>6.4</b> Configuring Application Security</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#managing-sensitive-information-with-secrets"><i class="fa fa-check"></i><b>6.4.1</b> Managing Sensitive Information with secrets</a></li>
+<li class="chapter" data-level="6.4.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#controlling-application-permissions-with-security-contect-contrainst"><i class="fa fa-check"></i><b>6.4.2</b> Controlling Application Permissions with Security Contect Contrainst</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-openshift-networking-for-applications"><i class="fa fa-check"></i><b>6.5</b> Configuring OpenShift Networking For Applications</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#openshift-software-defined-networking"><i class="fa fa-check"></i><b>6.5.1</b> OpenShift Software-defined Networking</a></li>
+<li class="chapter" data-level="6.5.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#exposing-applications-for-external-access"><i class="fa fa-check"></i><b>6.5.2</b> Exposing Applications for External Access</a></li>
+<li class="chapter" data-level="6.5.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-network-policies"><i class="fa fa-check"></i><b>6.5.3</b> Configuring Network Policies</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="7" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>7</b> DevOps</a><ul>
 <li class="chapter" data-level="7.1" data-path="devops.html"><a href="devops.html#azure"><i class="fa fa-check"></i><b>7.1</b> Azure</a></li>
-<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a></li>
+<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="devops.html"><a href="devops.html#part-1-cloud-concepts"><i class="fa fa-check"></i><b>7.2.1</b> Part 1 : Cloud Concepts</a></li>
+<li class="chapter" data-level="7.2.2" data-path="devops.html"><a href="devops.html#part-2-foundation"><i class="fa fa-check"></i><b>7.2.2</b> Part 2 : Foundation</a></li>
+<li class="chapter" data-level="7.2.3" data-path="devops.html"><a href="devops.html#part-3-aws-well-architected"><i class="fa fa-check"></i><b>7.2.3</b> Part 3 : AWS Well-Architected</a></li>
+<li class="chapter" data-level="7.2.4" data-path="devops.html"><a href="devops.html#part-4-iam"><i class="fa fa-check"></i><b>7.2.4</b> Part 4 : IAM</a></li>
+<li class="chapter" data-level="7.2.5" data-path="devops.html"><a href="devops.html#part-5-iam-cont"><i class="fa fa-check"></i><b>7.2.5</b> Part 5 : IAM cont…</a></li>
+</ul></li>
 <li class="chapter" data-level="7.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>7.3</b> Docker</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>7.3.1</b> Part 1</a></li>
 <li class="chapter" data-level="7.3.2" data-path="devops.html"><a href="devops.html#part-2"><i class="fa fa-check"></i><b>7.3.2</b> Part 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="devops.html"><a href="devops.html#jenkins"><i class="fa fa-check"></i><b>7.4</b> Jenkins</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="devops.html"><a href="devops.html#cicd"><i class="fa fa-check"></i><b>7.4.1</b> CI/CD</a></li>
+<li class="chapter" data-level="7.4.2" data-path="devops.html"><a href="devops.html#install"><i class="fa fa-check"></i><b>7.4.2</b> Install</a></li>
+<li class="chapter" data-level="7.4.3" data-path="devops.html"><a href="devops.html#arquitecture"><i class="fa fa-check"></i><b>7.4.3</b> Arquitecture</a></li>
+<li class="chapter" data-level="7.4.4" data-path="devops.html"><a href="devops.html#job"><i class="fa fa-check"></i><b>7.4.4</b> Job</a></li>
+<li class="chapter" data-level="7.4.5" data-path="devops.html"><a href="devops.html#git-github"><i class="fa fa-check"></i><b>7.4.5</b> Git &amp; GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="devops.html"><a href="devops.html#git"><i class="fa fa-check"></i><b>7.5</b> Git</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="devops.html"><a href="devops.html#intro-2"><i class="fa fa-check"></i><b>7.5.1</b> Intro</a></li>
+<li class="chapter" data-level="7.5.2" data-path="devops.html"><a href="devops.html#setup-and-config"><i class="fa fa-check"></i><b>7.5.2</b> Setup and Config</a></li>
+<li class="chapter" data-level="7.5.3" data-path="devops.html"><a href="devops.html#working-locally"><i class="fa fa-check"></i><b>7.5.3</b> Working Locally</a></li>
+<li class="chapter" data-level="7.5.4" data-path="devops.html"><a href="devops.html#working-remote"><i class="fa fa-check"></i><b>7.5.4</b> Working Remote</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>8</b> Data Science</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-science.html"><a href="data-science.html#datacamp-python-skills-for-data-science"><i class="fa fa-check"></i><b>8.1</b> DataCamp Python Skills for Data Science</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="data-science.html"><a href="data-science.html#introduction-to-python"><i class="fa fa-check"></i><b>8.1.1</b> Introduction to Python</a></li>
-<li class="chapter" data-level="8.1.2" data-path="data-science.html"><a href="data-science.html#intermediate-pyton"><i class="fa fa-check"></i><b>8.1.2</b> Intermediate Pyton</a></li>
-<li class="chapter" data-level="8.1.3" data-path="data-science.html"><a href="data-science.html#project"><i class="fa fa-check"></i><b>8.1.3</b> Project</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="data-science.html"><a href="data-science.html#datacamp-r-skills-for-data-science"><i class="fa fa-check"></i><b>8.2</b> DataCamp R Skills for Data Science</a></li>
 <li class="chapter" data-level="8.3" data-path="data-science.html"><a href="data-science.html#azure-data-science-certification"><i class="fa fa-check"></i><b>8.3</b> Azure Data Science Certification</a></li>
-<li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a></li>
+<li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="data-science.html"><a href="data-science.html#demystifying-ai-ml-dl"><i class="fa fa-check"></i><b>8.4.1</b> Demystifying AI / ML / DL</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machine-learning-engineer"><i class="fa fa-check"></i><b>8.5</b> GCP - Professional Machine Learning Engineer</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="data-science.html"><a href="data-science.html#big-data-and-ml-fundamentals"><i class="fa fa-check"></i><b>8.5.1</b> Big Data and ML Fundamentals</a></li>
+<li class="chapter" data-level="8.5.2" data-path="data-science.html"><a href="data-science.html#recommending-products-using-cloud-sql-and-spark"><i class="fa fa-check"></i><b>8.5.2</b> Recommending Products using Cloud SQL and Spark</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="data-science.html"><a href="data-science.html#kyndryl-data-science-roudmap"><i class="fa fa-check"></i><b>8.6</b> Kyndryl Data Science Roudmap</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="data-science.html"><a href="data-science.html#data-science--project-management-methodology---crisp-dm"><i class="fa fa-check"></i><b>8.6.1</b> Data Science- Project Management Methodology - CRISP-DM</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-science.html"><a href="data-science.html#statistics-for-data-analysis-using-python"><i class="fa fa-check"></i><b>8.6.2</b> Statistics for Data Analysis Using Python</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -373,11 +453,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="red-hat-openshift-i-containers-kubernetes---do180" class="section level1">
-<h1><span class="header-section-number"># 5</span> Red Hat OpenShift I: Containers &amp; Kubernetes - DO180</h1>
-<div id="intro-to-container" class="section level2">
-<h2><span class="header-section-number">5.1</span> Intro to Container</h2>
-<p>A container is a set of one or more processes that are isolated from the rest of the system.</p>
+<div id="red-hat-openshift-i-containers-kubernetes---do180" class="section level1 hasAnchor">
+<h1><span class="header-section-number"># 5</span> Red Hat OpenShift I: Containers &amp; Kubernetes - DO180<a href="red-hat-openshift-i-containers-kubernetes---do180.html#red-hat-openshift-i-containers-kubernetes---do180" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="intro-to-container" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.1</span> Intro to Container<a href="red-hat-openshift-i-containers-kubernetes---do180.html#intro-to-container" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Containers ares a set of one or more processes that are isolated from the rest of the system.</p>
 <p>Containers provide many of the same benefits as virtual machines, such as security, storage, and
 network isolation. Containers require far fewer hardware resources and are quick to start and
 terminate. They also isolate the libraries and the runtime resources (such as CPU and storage) for
@@ -391,9 +471,9 @@ an application to minimize the impact of any OS update to the host OS.</p>
 <li><strong>Multiple environment deployment</strong> : all appls dependencies and environment settings are encapsulated in the container image</li>
 <li><strong>Reusability</strong> : container can be reused without need to set up a full OS</li>
 </ul>
-<div id="linux-conetainer-architecture" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Linux Conetainer Architecture</h3>
-<p>An image is a file-system bundle that container all dependencies required to execute a process, container images need to be locally available for the container runtime, below image repositories available :</p>
+<div id="linux-conetainer-architecture" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.1.1</span> Linux Conetainer Architecture<a href="red-hat-openshift-i-containers-kubernetes---do180.html#linux-conetainer-architecture" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An <strong>image</strong> is a template for containers that include a runtime environment and all the libs are configuration files, container images need to be locally available for the container runtime, below <strong>image repositories</strong> available :</p>
 <ul>
 <li>Red Hat Container Catalog : <a href="https://registry.redhat.io" class="uri">https://registry.redhat.io</a></li>
 <li>Docker Hub : <a href="https://hub.docker.com" class="uri">https://hub.docker.com</a></li>
@@ -401,19 +481,30 @@ an application to minimize the impact of any OS update to the host OS.</p>
 <li>Google Container Registry : <a href="https://cloud.google.com/container-registry/" class="uri">https://cloud.google.com/container-registry/</a></li>
 <li>Amazon Elastic Container Registry : <a href="https://aws.amazon.com/ecr/" class="uri">https://aws.amazon.com/ecr/</a></li>
 </ul>
-<p>To manage the container we can use <strong>Podman</strong> an open source tool for managing containers and container image</p>
+<p>To manage the container we can use <strong>podman</strong> an open source tool for managing containers and container image</p>
+<p>if need to install <em>podman</em> :</p>
+<pre><code>yum install podman</code></pre>
 </div>
-<div id="overview-of-kubernetes-and-openshift" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> Overview of kubernetes and OpenShift</h3>
-<p><strong>Kubernetes</strong> is an orchestration service that simplifies the deployment, management, and scaling of containerized applications, tje smallest unit if kunernetes is a <strong>pod</strong> that consist of one or more containers.</p>
-<p>Kubernets features of top of a container infra:</p>
+<div id="overview-of-kubernetes-and-openshift" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.1.2</span> Overview of kubernetes and OpenShift<a href="red-hat-openshift-i-containers-kubernetes---do180.html#overview-of-kubernetes-and-openshift" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Think</strong> : <em>as the number of containers managed by an organization grows, the work of manually starting them rises exponentially along with the need to quickly respond to external demands</em></p>
+<p><em><strong>Enterprise needs:</strong></em></p>
 <ul>
-<li>Service discovery and loading balancing : communication by a single DNS entry to each set of container, permits the load balancing across the pool of container.</li>
-<li>Horizontal scaling : Appl can scale up and down manually or automatically</li>
-<li>Self-Healing: user-defined health checks to monitor containers to restart in case of failure</li>
-<li>Automated rollout : roll updates out to appl containers, if something goes wrong kubernetes can rollback to previous interation of the deployment</li>
-<li>Secrets and configuration management : can manage the config settings fo application without rebuilding container</li>
-<li>Operators : use API to update the cluster state reacting to change in the app state</li>
+<li>Easy communication between a large number of services</li>
+<li>Resources limits on applications regardless of the number fo containers running them</li>
+<li>To respond to application usage spikes to increase or decrease running containers</li>
+<li>Reacs to service deterioration with health checks</li>
+<li>Gradual roll out fo a new release to a set of users</li>
+</ul>
+<p><strong>Kubernetes</strong> is an orchestration service that simplifies the deployment, management, and scaling of containerized applications, the smallest unit if kunernetes is a <strong>pod</strong> that consist of one or more containers.</p>
+<p>Kubernetes features of top of a container infra:</p>
+<ul>
+<li><strong>Service discovery and loading balancing</strong> : communication by a single DNS entry to each set of container, permits the load balancing across the pool of container.</li>
+<li><strong>Horizontal scaling</strong> : Appl can scale up and down manually or automatically</li>
+<li><strong>Self-Healing</strong>: user-defined health checks to monitor containers to restart in case of failure</li>
+<li><strong>Automated rollout and rollback</strong> : roll updates out to appl containers, if something goes wrong kubernetes can rollback to previous integration of the deployment</li>
+<li><strong>Secrets and configuration management</strong> : can manage the config settings fo application without rebuilding container</li>
+<li><strong>Operators</strong> : use API to update the cluster state reacting to change in the app state</li>
 </ul>
 <p><strong>Red Hat OpenShift Container Plataform (<em>RHOCP</em>)</strong> is a set of modular components and services build on top of Kubernetes, adds the capabilities to provide PaaS platform.</p>
 <p>OpenShift features to kubernetes cluster :</p>
@@ -425,15 +516,18 @@ an application to minimize the impact of any OS update to the host OS.</p>
 </ul>
 </div>
 </div>
-<div id="creating-containerized-services" class="section level2">
-<h2><span class="header-section-number">5.2</span> Creating Containerized Services</h2>
+<div id="creating-containerized-services" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.2</span> Creating Containerized Services<a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-containerized-services" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The podman is designed to be a rootless container running as a non-root user, however we can run the container as root if necessary using sudo, but it is a risk and not recommenced.</p>
 <p>The container image are named based on the syntax <strong>registry_name/user_name/image_name:tag</strong></p>
 <ul>
-<li><p>registry_name : FQDN or the registry</p></li>
-<li><p>user_name : name of user or organization to which images belongs</p></li>
-<li><p>tag : identifies image version</p></li>
-<li><p>To search an image</p></li>
+<li><strong>registry_name</strong> : FQDN or the registry</li>
+<li><strong>user_name</strong> : name of user or organization to which images belongs</li>
+<li><strong>tag</strong> : identifies image version</li>
+</ul>
+<p>Basic Commands:</p>
+<ul>
+<li>To search an image</li>
 </ul>
 <pre><code>podman search &lt;image&gt;</code></pre>
 <ul>
@@ -475,17 +569,17 @@ Hello world!</code></pre>
 &gt; -e MYSQL_ROOT_PASSWORD=r3dh4t \
 &gt; -d registry.redhat.io/rhel8/mysql-80</code></pre>
 </div>
-<div id="managing-containers" class="section level2">
-<h2><span class="header-section-number">5.3</span> Managing Containers</h2>
-<div id="container-life-cybe-management-with-podman" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> Container Life Cybe management with podman</h3>
+<div id="managing-containers" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.3</span> Managing Containers<a href="red-hat-openshift-i-containers-kubernetes---do180.html#managing-containers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="container-life-cybe-management-with-podman" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.1</span> Container Life Cybe management with podman<a href="red-hat-openshift-i-containers-kubernetes---do180.html#container-life-cybe-management-with-podman" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Podman provides a set of subcomands to create and manage containers ?</p>
 <p><img src="img/podman_managing_subcommands.png" width="90%" /></p>
 <p>Also subcommands to extract information from containers ?</p>
 <p><img src="img/podman_query_subcommands.png" width="90%" /></p>
 </div>
-<div id="creating-containers" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> Creating containers</h3>
+<div id="creating-containers" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.2</span> Creating containers<a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-containers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using podman run command to create containers</p>
 <pre><code># sample 1
 [user@host ~]$ podman run registry.redhat.io/rhel8/httpd-24
@@ -498,8 +592,8 @@ Hello world!</code></pre>
 [user@host ~]$ podman run -it registry.redhat.io/rhel8/httpd-24 /bin/bash
 </code></pre>
 </div>
-<div id="run-commands-in-a-container" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> Run commands in a container</h3>
+<div id="run-commands-in-a-container" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.3</span> Run commands in a container<a href="red-hat-openshift-i-containers-kubernetes---do180.html#run-commands-in-a-container" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can use <code>exec</code> option to submit the command</p>
 <pre><code>sample 2
 [user@host ~]$ podman exec 7ed6e671a600 cat /etc/hostname
@@ -507,8 +601,8 @@ Hello world!</code></pre>
 # sample 2  this l means latest, last container used
 [user@host ~]$ podman exec -l cat /etc/hostname</code></pre>
 </div>
-<div id="managing-containers-1" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> Managing containers</h3>
+<div id="managing-containers-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.4</span> Managing containers<a href="red-hat-openshift-i-containers-kubernetes---do180.html#managing-containers-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>List containers running :</li>
 </ul>
@@ -536,8 +630,8 @@ Hello world!</code></pre>
 <pre><code>[student@workstation ~]$ podman ps --format=&quot;{{.ID}} {{.Names}} {{.Status}}&quot;
 a49dba9ff17f  mysql Up About a minute ago</code></pre>
 </div>
-<div id="attaching-persistent-storage-to-containers" class="section level3">
-<h3><span class="header-section-number">5.3.5</span> Attaching persistent storage to containers</h3>
+<div id="attaching-persistent-storage-to-containers" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.5</span> Attaching persistent storage to containers<a href="red-hat-openshift-i-containers-kubernetes---do180.html#attaching-persistent-storage-to-containers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Create dir</li>
 </ol>
@@ -559,8 +653,8 @@ a49dba9ff17f  mysql Up About a minute ago</code></pre>
 </ol>
 <pre><code>[user@host ~]$ podman run -v /home/student/dbfiles:/var/lib/mysql rhmap47/mysql</code></pre>
 </div>
-<div id="accessing-containers" class="section level3">
-<h3><span class="header-section-number">5.3.6</span> Accessing containers</h3>
+<div id="accessing-containers" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.6</span> Accessing containers<a href="red-hat-openshift-i-containers-kubernetes---do180.html#accessing-containers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To manage the port we use the option <code>-p [&lt;IP address&gt;:][&lt;host port&gt;:]&lt;container port&gt;</code></p>
 <pre><code>podman run -d --name apache1 -p 8080:80 registry.redhat.io/rhel8/httpd-24</code></pre>
 <ul>
@@ -569,10 +663,10 @@ a49dba9ff17f  mysql Up About a minute ago</code></pre>
 <pre><code>podman port &lt;container name&gt;</code></pre>
 </div>
 </div>
-<div id="managing-container-images" class="section level2">
-<h2><span class="header-section-number">5.4</span> Managing Container Images</h2>
-<div id="accessing-registries" class="section level3">
-<h3><span class="header-section-number">5.4.1</span> Accessing Registries</h3>
+<div id="managing-container-images" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.4</span> Managing Container Images<a href="red-hat-openshift-i-containers-kubernetes---do180.html#managing-container-images" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="accessing-registries" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.1</span> Accessing Registries<a href="red-hat-openshift-i-containers-kubernetes---do180.html#accessing-registries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Image registries are services offering container images to download. They allow image creators and maintainers to store and distribute container images to public or private audiences.</p>
 <p>To configure registreis for podman command we need to update <strong>/etc/containers/registries.conf</strong></p>
 <ul>
@@ -601,8 +695,8 @@ a49dba9ff17f  mysql Up About a minute ago</code></pre>
 
 [user@host ~]$ podman run registry.redhat.io/rhel8/mysql-80:1</code></pre>
 </div>
-<div id="manipulating-container-images" class="section level3">
-<h3><span class="header-section-number">5.4.2</span> Manipulating Container Images</h3>
+<div id="manipulating-container-images" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.2</span> Manipulating Container Images<a href="red-hat-openshift-i-containers-kubernetes---do180.html#manipulating-container-images" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Save and load an image</li>
 </ul>
@@ -655,10 +749,10 @@ podman tag mysql-custom devops/mysql:snapshot</code></pre>
 <pre><code>podman rmi devops/mysql:snapahot</code></pre>
 </div>
 </div>
-<div id="creating-custom-container-images" class="section level2">
-<h2><span class="header-section-number">5.5</span> Creating Custom Container Images</h2>
-<div id="designing-custom-container-images" class="section level3">
-<h3><span class="header-section-number">5.5.1</span> Designing Custom Container Images</h3>
+<div id="creating-custom-container-images" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.5</span> Creating Custom Container Images<a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-custom-container-images" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="designing-custom-container-images" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.5.1</span> Designing Custom Container Images<a href="red-hat-openshift-i-containers-kubernetes---do180.html#designing-custom-container-images" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One method to create a container image is modify the existing one to meet the requirements of the application. <strong>Containerfiles</strong> are another option that make this task easy to create, share and control the image.</p>
 <ul>
 <li><p><strong>Red Hat Software Collections Library (RHSCL)</strong> : solution for developers who require the latest development tools that usually do not fit the standard RHEL release schedule.</p></li>
@@ -712,10 +806,10 @@ CMD [&quot;-D&quot;, &quot;FOREGROUND&quot;]</code></pre>
 <pre><code>podman build -t NAME:TAG DIR</code></pre>
 </div>
 </div>
-<div id="deploying-containerized-applications-on-openshift" class="section level2">
-<h2><span class="header-section-number">5.6</span> Deploying Containerized Applications on OpenShift</h2>
-<div id="describing-kubernetes-and-openshift-architecture" class="section level3">
-<h3><span class="header-section-number">5.6.1</span> Describing Kubernetes and OpenShift Architecture</h3>
+<div id="deploying-containerized-applications-on-openshift" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.6</span> Deploying Containerized Applications on OpenShift<a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-containerized-applications-on-openshift" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="describing-kubernetes-and-openshift-architecture" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.6.1</span> Describing Kubernetes and OpenShift Architecture<a href="red-hat-openshift-i-containers-kubernetes---do180.html#describing-kubernetes-and-openshift-architecture" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Kubernetes and OpenShift</strong></p>
 <blockquote>
 <p>Kubernetes is an orchestration service that simplifies the deployment, management, and scaling of containerized applications.</p>
@@ -771,21 +865,355 @@ authorization.</p></li>
 <p><strong>Describing Kubernetes Resource Types</strong></p>
 <ul>
 <li><strong>Pods (<em>po</em>)</strong> : collection of containers that share resources</li>
-<li><strong>Services(<em>svc</em>)</strong> : single IP/port combination that provides access to a pool of pods</li>
+<li><strong>Services (<em>svc</em>)</strong> : How pods talk with each other. Single IP/port combination that provides access to a pool of pods</li>
 <li><strong>Replication Controllers (<em>rc</em>)</strong> : how pods are replicated into different notes</li>
 <li><strong>Persistent Volumes (<em>pv</em>)</strong> : Define storage areas to be used by Kubernetes pods.</li>
 <li><strong>Persistent Volume Claims (<em>pvc</em>)</strong> : Represent a request for storage by a pod.</li>
 <li><strong>ConfigMaps (<em>cm</em>) and Secrets</strong> : Contains a set of keys and values that can be used by other resources</li>
 </ul>
+<p><strong>OpenShift Resource Types</strong></p>
+<ul>
+<li><strong>Deployment and Deployment Config (<em>dc</em>)</strong> : Both are the representation of a set of containers, it contains the configuration to be applied to all containers of each pod replica (images, tags, storage definitions, etc)</li>
+<li><strong>Build config (<em>bc</em>)</strong> : Process to be executed in the OpenShift project. A <strong>bc</strong> works together with a <strong>dc</strong> to provide a basic CI/CD workflows.</li>
+<li><strong>Routes</strong> : Represent a DNS host name recognized by the OpenShift router as an ingress point for applications and microservices.</li>
+</ul>
 </div>
-<div id="creating-kubernetes-resources" class="section level3">
-<h3><span class="header-section-number">5.6.2</span> Creating Kubernetes Resources</h3>
-<p>The main method to interacting with an RHOCP is using <code>oc</code> command</p>
-<pre><code>oc login &lt;clusterURL&gt;
+<div id="creating-kubernetes-resources" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.6.2</span> Creating Kubernetes Resources<a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-kubernetes-resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The main method to interacting with an RHOCP is using <code>oc</code> command line</p>
+<pre><code>oc &lt;command&gt;
+
+oc login &lt;clusterURL&gt;
+</code></pre>
+<p>The pod resource definition syntax can be provided by JSON or YAML</p>
+<p><em>Sample of YAML format</em></p>
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: wildfly
+  labels:
+    name: wildfly
+spec:
+  containers:
+    - resources:
+        limits:
+            cpu: 0.5
+      image: do276/todojee
+      name: wildfly
+      ports:
+          - containerPort: 8080
+            name: wildfly
+      env:
+          - name: MYSQL_ENV_MYSQL_DATABASE
+            value: items
+          - name: MYSQL_ENV_MYSQL_USER
+            value: user1
+          - name: MYSQL_ENV_MYSQL_PASSWORD
+            value: mypa55</code></pre>
+<p><strong>Discovering services</strong></p>
+<p>Using IP and port :</p>
+<ul>
+<li>SVC_NAME_SERVICE_HOST is the service IP address.</li>
+<li>SVC_NAME_SERVICE_PORT is the service TCP port.</li>
+</ul>
+<p>Using DNS:</p>
+<ul>
+<li><p>SVC_NAME .PROJECT_NAME.svc.cluster.local</p></li>
+<li><p>To create a tunel to our machine</p></li>
+</ul>
+<pre><code>[user@host ~]$ oc port-forward mysql-openshift-1-glqrp 3306:3306</code></pre>
+<p><br></p>
+<p><strong>Creating application</strong></p>
+<pre><code># sample 1
+[user@host ~]$ oc new-app mysql MYSQL_USER=user MYSQL_PASSWORD=pass MYSQL_DATABA SE=testdb -l db=mysql
 </code></pre>
 <ul>
-<li></li>
+<li>Create using docker image</li>
 </ul>
+<pre><code># sample 2 using docker img
+oc new-app --docker-image=myregistry.com/mycompany/myapp --name=myapp</code></pre>
+<ul>
+<li>Create using Git Repo</li>
+</ul>
+<pre><code># sample 3 from Git
+oc new-app https://github.com/openshift/ruby-hello-world --name=ruby-hello</code></pre>
+<ul>
+<li>Creating from template</li>
+</ul>
+<pre><code># from template
+$ oc new-app \
+--template=mysql-persistent \
+-p MYSQL_USER=user1 -p MYSQL_PASSWORD=mypa55 -p MYSQL_DATABASE=testdb \
+-p MYSQL_ROOT_PASSWORD=r00tpa55 -p VOLUME_CAPACITY=10Gi
+...output omitted..</code></pre>
+<p><strong>Managing Persistent Storage</strong></p>
+<ul>
+<li>List persistent volume objects</li>
+</ul>
+<pre><code>[admin@host ~]$ oc get pv</code></pre>
+<ul>
+<li>See the YAML definition for a PersistentVolume</li>
+</ul>
+<pre><code>[admin@host ~]$ oc get pv pv0001 -o yaml</code></pre>
+<ul>
+<li>Add more PersistentVolume objects</li>
+</ul>
+<pre><code>[admin@host ~]$ oc create -f pv1001.yaml</code></pre>
+<p><br></p>
+<p><strong>Request persistent volume</strong></p>
+<ul>
+<li>Create a pvc object request :</li>
+</ul>
+<p>We create a PersistentVolumeClaim (<em>PVC</em>) object to request :</p>
+<pre><code>apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myapp
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi</code></pre>
+<ul>
+<li>To create the PVC :</li>
+</ul>
+<pre><code>[admin@host ~]$ oc create -f pvc.yaml</code></pre>
+<ul>
+<li>To list the PVCs</li>
+</ul>
+<pre><code>[admin@host ~]$ oc get pvc</code></pre>
+<p><br></p>
+<p><strong>Managing OpenShift Resources at the command line</strong></p>
+<p>The <code>oc get RESOURCE_TYPE</code> command display the summary of all resources</p>
+<ul>
+<li><code>oc get all</code> : retrieve a summary of the most important components</li>
+<li><code>oc describe RESOURCE_TYPE|RESOURCE_NAME</code> : retrieve additional information</li>
+<li><code>oc get RESOURCE_TYPE|RESOURCE_NAME</code> : export a resource definition.</li>
+<li><code>oc create RESOURCE_TYPE|RESOURCE_NAME</code> : create resources</li>
+<li><code>oc edit</code>: edit resource definitions</li>
+<li><code>oc delete RESOURCE_TYPE</code> : remove resource from openshift</li>
+<li><code>oc exec CONTAINER_ID</code> : executes commands inside a container.</li>
+</ul>
+<p><strong>Tip :</strong></p>
+<p>If we use label we can make reference by label</p>
+<pre><code>$ oc get svc,deployments -l app=nexus</code></pre>
+</div>
+<div id="creating-routes" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.6.3</span> Creating Routes<a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-routes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A route connects a public-facing IP address and DNS host name to an internal-facing service IP. It uses the service resource to find the endpoints; that is, the ports exposed by the service.</p>
+<p>OpenShift routes are implemented by a cluster-wide router service, sample of route defined using JSON:</p>
+<pre><code>{
+  &quot;apiVersion&quot;: &quot;v1&quot;,
+  &quot;kind&quot;: &quot;Route&quot;,
+  &quot;metadata&quot;: {
+      &quot;name&quot;: &quot;quoteapp&quot;
+  },
+  &quot;spec&quot;: {
+        &quot;host&quot;: &quot;quoteapp.apps.example.com&quot;,
+        &quot;to&quot;: {
+              &quot;kind&quot;: &quot;Service&quot;,
+              &quot;name&quot;: &quot;quoteapp&quot;
+        }
+    }
+}</code></pre>
+<ul>
+<li>Creating routes</li>
+</ul>
+<pre><code>$ oc expose service quotedb --name quote</code></pre>
+<ul>
+<li>Inspect the routes</li>
+</ul>
+<pre><code>$ oc get pod --all-namespaces | grep router
+&gt; openshift-ingress router-default-746b5cfb65-f6sdm 1/1 Running 1 4d
+
+# describe :
+$ oc describe pod router-default-746b5cfb65-f6sdm</code></pre>
+</div>
+<div id="creating-applications-with-source-to-image" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.6.4</span> Creating Applications with Source-to-Image<a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-applications-with-source-to-image" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Source-to-Image (S2I)</strong> : This tool takes an application’s source code from a Git repository, injects the source code into a base container and produces a new container image that runs the assembled application.</li>
+</ul>
+<p>Image stream resource is configuration that names specific container images to get the list of default images streams populated by OpenShift</p>
+<pre><code>$ oc get is -n openshift
+</code></pre>
+<p><br></p>
+<p><strong>Buyild an application with S2I and CLI</strong></p>
+<ul>
+<li>From Git</li>
+</ul>
+<pre><code>$ oc new-app php~http://my.git.server.com/my-app
+
+# or another syntax
+$ oc new-app -i php http://services.lab.example.com/app --name=myapp
+</code></pre>
+<ul>
+<li>From path</li>
+</ul>
+<pre><code>oc new-app .</code></pre>
+<ul>
+<li>Using contect</li>
+</ul>
+<pre><code>$ oc new-app https://github.com/openshift/sti-ruby.git --context-dir=2.0/test/puma-test-app</code></pre>
+<ul>
+<li>Specific branch</li>
+</ul>
+<pre><code>$ oc new-app https://github.com/openshift/ruby-hello-world.git#beta4</code></pre>
+<p><br></p>
+<p>After creating a new application, the build process starts we can check using <code>get builds</code> command</p>
+<pre><code>$ oc get builds</code></pre>
+<ul>
+<li>Check the logs</li>
+</ul>
+<pre><code>$ oc logs build/myapp-1</code></pre>
+<ul>
+<li>Trigger a new build with the <code>oc start-build build_config_name</code> command</li>
+</ul>
+<pre><code>$ oc get buildconfig
+
+$ oc start-build myapp</code></pre>
+</div>
+</div>
+<div id="deploying-multi-container-applications" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.7</span> Deploying Multi-Container Applications<a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-multi-container-applications" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="considerations-for-multi-container-applications" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.7.1</span> Considerations for Multi-Container Applications<a href="red-hat-openshift-i-containers-kubernetes---do180.html#considerations-for-multi-container-applications" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Complex applications have different components such as fron-end, REST back end and database server, it is possible to orchestrate multi-conatiner applications manually, but openshift and kubernets provide tools to facilite that.</li>
+</ul>
+</div>
+<div id="deploying-a-multi-container-app-on-openshift" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.7.2</span> Deploying A Multi-Container App on OpenShift<a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-app-on-openshift" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Pods are attached to a Kubernetes namespace, which OpenShift calls a project</p></li>
+<li><p>When a pod starts, Kubernetes automatically adds a set of environment variables for each service defined on the same namespace.</p></li>
+<li><p>Any service defined on Kubernetes generates environment variables for the IP address and
+port number where the service is available</p></li>
+<li><p>Kubernetes automatically injects these environment variables into the containers from pods in the same namespace</p></li>
+<li><p><code>&lt;SERVICE_NAME&gt;_SERVICE_HOST</code>: Represents the IP address enabled by a service to accessa pod.</p></li>
+<li><p><code>&lt;SERVICE_NAME&gt;_SERVICE_PORT</code>: Represents the port where the server port is listed.</p></li>
+<li><p><code>&lt;SERVICE_NAME&gt;_PORT</code>: Represents the address, port, and protocol provided by the service for external access.</p></li>
+<li><p><code>&lt;SERVICE_NAME&gt;_PORT_&lt;PORT_NUMBER&gt;_&lt;PROTOCOL&gt;</code>: Defines an alias for the <code>&lt;SERVICE_NAME&gt;_PORT</code>.</p></li>
+<li><p><code>&lt;SERVICE_NAME&gt;_PORT_&lt;PORT_NUMBER&gt;_&lt;PROTOCOL&gt;_PROTO</code>: Identifies the protocol type (TCP or UDP).</p></li>
+<li><p><code>&lt;SERVICE_NAME&gt;_PORT_&lt;PORT_NUMBER&gt;_&lt;PROTOCOL&gt;_PORT</code>: Defines an alias for <code>&lt;SERVICE_NAME&gt;_SERVICE_PORT</code>.
+• <code>&lt;SERVICE_NAME&gt;_PORT_&lt;PORT_NUMBER&gt;_&lt;PROTOCOL&gt;_ADDR</code>: Defines an alias for <code>&lt;SERVICE_NAME&gt;_SERVICE_HOST</code>.</p></li>
+</ul>
+</div>
+<div id="deploying-a-multi-container-application-on-openshift-using-a-template" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.7.3</span> Deploying a Multi-container Application on OpenShift Using a Template<a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-application-on-openshift-using-a-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A template defines a set of related resources to be created together, as well as a set of application parameters.</p>
+<p>The OpenShift installer creates several templates by default in the openshift namespace.</p>
+<pre><code>[user@host ~]$ oc get templates -n openshift</code></pre>
+<ul>
+<li>Check the YAML definition of template</li>
+</ul>
+<pre><code>[user@host ~]$ oc get template mysql-persistent -n openshift -o yaml</code></pre>
+<ul>
+<li>Assuming the template is defined in the todo-template.yaml file, use the oc create command to publish the application template:</li>
+</ul>
+<pre><code>[user@host deploy-multicontainer]$ oc create -f todo-template.yaml</code></pre>
+<ul>
+<li>list available parameters from a template.</li>
+</ul>
+<pre><code>[user@host ~]$ oc describe template mysql-persistent -n openshift
+
+or
+
+[user@host ~]$ oc process --parameters mysql-persistent -n openshift</code></pre>
+<ul>
+<li>Processing a Template Using the CLI</li>
+</ul>
+<pre><code>[user@host ~]$ oc process -o yaml -f &lt;filename&gt;</code></pre>
+<ul>
+<li>Templates often generate resources with configurable attributes that are based on the template
+parameters. To override a parameter, use the -p option followed by a <name>=<value> pair.</li>
+</ul>
+<pre><code>[user@host ~]$ oc process -o yaml -f mysql.yaml -p MYSQL_USER=dev -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank -p VOLUME_CAPACITY=10Gi &gt; mysqlProcessed.yaml</code></pre>
+<ul>
+<li>To create an application use the generated YAML</li>
+</ul>
+<pre><code>[user@host ~]$ oc create -f mysqlProcessed.yaml</code></pre>
+<ul>
+<li>Alternatively, it is possible to process the template and create the application without saving a resource definition file by using a UNIX pipe:</li>
+</ul>
+<pre><code>[user@host ~]$ oc process -f mysql.yaml -p MYSQL_USER=dev  -p MYSQL_PASSWORD=$P4SSD -p MYSQL_DATABASE=bank  -p VOLUME_CAPACITY=10Gi | oc create -f -</code></pre>
+</div>
+</div>
+<div id="troubleshooting-containerized-applications" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.8</span> Troubleshooting Containerized Applications<a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="troubleshooting-s2i-builds-and-deployments" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.8.1</span> Troubleshooting S2I Builds and Deployments<a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-s2i-builds-and-deployments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Introduction to the S2I Process</strong></p>
+<p>S2I is simple way to create image, however problems can heppens is important to keep in mind the workflow for most of the program languages :</p>
+<ul>
+<li><strong>Build step</strong> :
+<ul>
+<li>compiling source code, packaging the application as a container image</li>
+<li>push the image to the OpenShift registry for deployment step</li>
+<li>BC (<em>BuildConfig</em>) drive the build step</li>
+</ul></li>
+<li><strong>Deployment step</strong> :
+<ul>
+<li>starting a pod and making the application available</li>
+<li>executes after the build step</li>
+</ul></li>
+<li>Check the logs</li>
+</ul>
+<pre><code>$ oc logs bc/&lt;application-name&gt;</code></pre>
+<ul>
+<li>request a new build:</li>
+</ul>
+<pre><code>$ oc start-build &lt;application-name&gt;</code></pre>
+<ul>
+<li>Check the deployment logs</li>
+</ul>
+<pre><code>$ oc logs deployment/&lt;application-name&gt;</code></pre>
+<p><br></p>
+<p><strong>Common Problems</strong></p>
+<p>The <code>oc logs</code> command provides important information about the build, deploy, and run
+processes of an application during the execution of a pod. The logs may include :
+* missing values
+* options that must be enabled
+* incorrect parameters or flags
+* environment incompatibilities,etc</p>
+</div>
+<div id="troubleshooting-containerized-applications-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.8.2</span> Troubleshooting Containerized Applications<a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes sysadmin need special access to container for example the dba need access the database container to check the database or sysadmin need to restart an specific service on a container, <strong>podman</strong> provides port forwarding features by using <code>-p</code> option with the `run`` subcommand</p>
+<pre><code>$ podman run --name db -p 30306:3306 mysql</code></pre>
+<p>OpenShift provide the <code>oc port-foward</code> command for fowarding a local port to a pod port.</p>
+<pre><code>$ oc port-forward db 30306 3306</code></pre>
+<ul>
+<li>To access the container logs</li>
+</ul>
+<pre><code>$ podman logs &lt;containerName&gt;</code></pre>
+<ul>
+<li>To access openshift logs</li>
+</ul>
+<pre><code>$ oc logs &lt;podName&gt;</code></pre>
+<ul>
+<li>To read openshift events</li>
+</ul>
+<pre><code>$ oc get events</code></pre>
+<ul>
+<li>Accessing Running Container</li>
+</ul>
+<pre><code>$ podman exec [options] container command [arguments
+
+$ oc exec [options] pod [-c container] -- command [arguments]
+
+# sample
+$ oc exec -it myhttpdpod /bin/bash
+$ podman exec apache-container cat /var/log/httpd/error_log</code></pre>
+<ul>
+<li>Transfer file to and from containers</li>
+</ul>
+<pre><code>$ podman run -v /conf:/etc/httpd/conf -d do180/apache
+
+$ podman cp standalone.conf todoapi:/opt/jboss/standalone/conf/standalone.conf
+$ podman cp todoapi:/opt/jboss/standalone/conf/standalone.conf .
+</code></pre>
 
 </div>
 </div>
@@ -850,6 +1278,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

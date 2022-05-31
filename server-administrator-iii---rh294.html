@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title># 4 Server Administrator III - RH294 | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="# 4 Server Administrator III - RH294 | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Those notes are for future reference" />
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-12-09" />
+<meta name="date" content="2022-05-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +50,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -293,7 +293,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-facts"><i class="fa fa-check"></i><b>4.3.6</b> Managing Facts</a></li>
 <li class="chapter" data-level="4.3.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#magic-variables"><i class="fa fa-check"></i><b>4.3.7</b> Magic Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a></li>
+<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#loops"><i class="fa fa-check"></i><b>4.4.1</b> Loops</a></li>
+<li class="chapter" data-level="4.4.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#task-conditionally"><i class="fa fa-check"></i><b>4.4.2</b> Task Conditionally</a></li>
+<li class="chapter" data-level="4.4.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#handlers"><i class="fa fa-check"></i><b>4.4.3</b> Handlers</a></li>
+<li class="chapter" data-level="4.4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#blocks"><i class="fa fa-check"></i><b>4.4.4</b> Blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-files-to-managed-hosts"><i class="fa fa-check"></i><b>4.5</b> Deploying Files to Managed Hosts</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#modifying-and-copying-files-to-hosts"><i class="fa fa-check"></i><b>4.5.1</b> Modifying and Copying Files to hosts</a></li>
+<li class="chapter" data-level="4.5.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-custom-files-with-jinja2-templates"><i class="fa fa-check"></i><b>4.5.2</b> Deploying Custom files with Jinja2 templates</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-complex-plays-and-playbooks"><i class="fa fa-check"></i><b>4.6</b> Managing Complex Plays and Playbooks</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#selecting-hosts-with-host-patterns"><i class="fa fa-check"></i><b>4.6.1</b> Selecting Hosts with Host Patterns</a></li>
+<li class="chapter" data-level="4.6.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#including-and-importing-files"><i class="fa fa-check"></i><b>4.6.2</b> Including and Importing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#simplifying-playbooks-with-roles"><i class="fa fa-check"></i><b>4.7</b> Simplifying Playbooks with Roles</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#describing-role-structure"><i class="fa fa-check"></i><b>4.7.1</b> Describing Role Structure</a></li>
+<li class="chapter" data-level="4.7.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#reusing-content-with-system-roles"><i class="fa fa-check"></i><b>4.7.2</b> Reusing Content with System Roles</a></li>
+<li class="chapter" data-level="4.7.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#creating-roles"><i class="fa fa-check"></i><b>4.7.3</b> Creating Roles</a></li>
+<li class="chapter" data-level="4.7.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-roles-with-ansible-galaxy"><i class="fa fa-check"></i><b>4.7.4</b> Deploying Roles with Ansible Galaxy</a></li>
+<li class="chapter" data-level="4.7.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#roles-and-modules-from-content-collections"><i class="fa fa-check"></i><b>4.7.5</b> Roles and Modules from Content Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#troubleshooting-ansible"><i class="fa fa-check"></i><b>4.8</b> Troubleshooting Ansible</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#troubleshooting-playbooks"><i class="fa fa-check"></i><b>4.8.1</b> Troubleshooting Playbooks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#automating-linux-administration-tasks"><i class="fa fa-check"></i><b>4.9</b> Automating Linux Administration Tasks</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-software-and-subscriptions"><i class="fa fa-check"></i><b>4.9.1</b> Managing Software and Subscriptions</a></li>
+<li class="chapter" data-level="4.9.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-users-and-authenticatin"><i class="fa fa-check"></i><b>4.9.2</b> Managing Users and Authenticatin</a></li>
+<li class="chapter" data-level="4.9.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-the-boot-process-and-scheduled-processes"><i class="fa fa-check"></i><b>4.9.3</b> Managing the Boot Process and Scheduled Processes</a></li>
+<li class="chapter" data-level="4.9.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-storage"><i class="fa fa-check"></i><b>4.9.4</b> Managing Storage</a></li>
+<li class="chapter" data-level="4.9.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-network-configuration"><i class="fa fa-check"></i><b>4.9.5</b> Managing Network Configuration</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html"><i class="fa fa-check"></i><b>5</b> Red Hat OpenShift I: Containers &amp; Kubernetes - DO180</a><ul>
 <li class="chapter" data-level="5.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#intro-to-container"><i class="fa fa-check"></i><b>5.1</b> Intro to Container</a><ul>
@@ -319,6 +349,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-containerized-applications-on-openshift"><i class="fa fa-check"></i><b>5.6</b> Deploying Containerized Applications on OpenShift</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#describing-kubernetes-and-openshift-architecture"><i class="fa fa-check"></i><b>5.6.1</b> Describing Kubernetes and OpenShift Architecture</a></li>
 <li class="chapter" data-level="5.6.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-kubernetes-resources"><i class="fa fa-check"></i><b>5.6.2</b> Creating Kubernetes Resources</a></li>
+<li class="chapter" data-level="5.6.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-routes"><i class="fa fa-check"></i><b>5.6.3</b> Creating Routes</a></li>
+<li class="chapter" data-level="5.6.4" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-applications-with-source-to-image"><i class="fa fa-check"></i><b>5.6.4</b> Creating Applications with Source-to-Image</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-multi-container-applications"><i class="fa fa-check"></i><b>5.7</b> Deploying Multi-Container Applications</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#considerations-for-multi-container-applications"><i class="fa fa-check"></i><b>5.7.1</b> Considerations for Multi-Container Applications</a></li>
+<li class="chapter" data-level="5.7.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-app-on-openshift"><i class="fa fa-check"></i><b>5.7.2</b> Deploying A Multi-Container App on OpenShift</a></li>
+<li class="chapter" data-level="5.7.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-application-on-openshift-using-a-template"><i class="fa fa-check"></i><b>5.7.3</b> Deploying a Multi-container Application on OpenShift Using a Template</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications"><i class="fa fa-check"></i><b>5.8</b> Troubleshooting Containerized Applications</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-s2i-builds-and-deployments"><i class="fa fa-check"></i><b>5.8.1</b> Troubleshooting S2I Builds and Deployments</a></li>
+<li class="chapter" data-level="5.8.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications-1"><i class="fa fa-check"></i><b>5.8.2</b> Troubleshooting Containerized Applications</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><i class="fa fa-check"></i><b>6</b> Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280</a><ul>
@@ -332,26 +373,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#troubleshooting-openshit-cluster-and-applications"><i class="fa fa-check"></i><b>6.2.2</b> Troubleshooting OpenShit Cluster and Applications</a></li>
 <li class="chapter" data-level="6.2.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#introducing-openshift-dynamic-storage"><i class="fa fa-check"></i><b>6.2.3</b> Introducing OpenShift Dynamic Storage</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-authentication-and-authorization"><i class="fa fa-check"></i><b>6.3</b> Configuring Authentication and Authorization</a></li>
+<li class="chapter" data-level="6.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-authentication-and-authorization"><i class="fa fa-check"></i><b>6.3</b> Configuring Authentication and Authorization</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#identity"><i class="fa fa-check"></i><b>6.3.1</b> Identity</a></li>
+<li class="chapter" data-level="6.3.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-the-htpasswd-identity-provider"><i class="fa fa-check"></i><b>6.3.2</b> Configuring the HTPasswd Identity Provider</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-application-security"><i class="fa fa-check"></i><b>6.4</b> Configuring Application Security</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#managing-sensitive-information-with-secrets"><i class="fa fa-check"></i><b>6.4.1</b> Managing Sensitive Information with secrets</a></li>
+<li class="chapter" data-level="6.4.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#controlling-application-permissions-with-security-contect-contrainst"><i class="fa fa-check"></i><b>6.4.2</b> Controlling Application Permissions with Security Contect Contrainst</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-openshift-networking-for-applications"><i class="fa fa-check"></i><b>6.5</b> Configuring OpenShift Networking For Applications</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#openshift-software-defined-networking"><i class="fa fa-check"></i><b>6.5.1</b> OpenShift Software-defined Networking</a></li>
+<li class="chapter" data-level="6.5.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#exposing-applications-for-external-access"><i class="fa fa-check"></i><b>6.5.2</b> Exposing Applications for External Access</a></li>
+<li class="chapter" data-level="6.5.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-network-policies"><i class="fa fa-check"></i><b>6.5.3</b> Configuring Network Policies</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="7" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>7</b> DevOps</a><ul>
 <li class="chapter" data-level="7.1" data-path="devops.html"><a href="devops.html#azure"><i class="fa fa-check"></i><b>7.1</b> Azure</a></li>
-<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a></li>
+<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="devops.html"><a href="devops.html#part-1-cloud-concepts"><i class="fa fa-check"></i><b>7.2.1</b> Part 1 : Cloud Concepts</a></li>
+<li class="chapter" data-level="7.2.2" data-path="devops.html"><a href="devops.html#part-2-foundation"><i class="fa fa-check"></i><b>7.2.2</b> Part 2 : Foundation</a></li>
+<li class="chapter" data-level="7.2.3" data-path="devops.html"><a href="devops.html#part-3-aws-well-architected"><i class="fa fa-check"></i><b>7.2.3</b> Part 3 : AWS Well-Architected</a></li>
+<li class="chapter" data-level="7.2.4" data-path="devops.html"><a href="devops.html#part-4-iam"><i class="fa fa-check"></i><b>7.2.4</b> Part 4 : IAM</a></li>
+<li class="chapter" data-level="7.2.5" data-path="devops.html"><a href="devops.html#part-5-iam-cont"><i class="fa fa-check"></i><b>7.2.5</b> Part 5 : IAM cont…</a></li>
+</ul></li>
 <li class="chapter" data-level="7.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>7.3</b> Docker</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>7.3.1</b> Part 1</a></li>
 <li class="chapter" data-level="7.3.2" data-path="devops.html"><a href="devops.html#part-2"><i class="fa fa-check"></i><b>7.3.2</b> Part 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="devops.html"><a href="devops.html#jenkins"><i class="fa fa-check"></i><b>7.4</b> Jenkins</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="devops.html"><a href="devops.html#cicd"><i class="fa fa-check"></i><b>7.4.1</b> CI/CD</a></li>
+<li class="chapter" data-level="7.4.2" data-path="devops.html"><a href="devops.html#install"><i class="fa fa-check"></i><b>7.4.2</b> Install</a></li>
+<li class="chapter" data-level="7.4.3" data-path="devops.html"><a href="devops.html#arquitecture"><i class="fa fa-check"></i><b>7.4.3</b> Arquitecture</a></li>
+<li class="chapter" data-level="7.4.4" data-path="devops.html"><a href="devops.html#job"><i class="fa fa-check"></i><b>7.4.4</b> Job</a></li>
+<li class="chapter" data-level="7.4.5" data-path="devops.html"><a href="devops.html#git-github"><i class="fa fa-check"></i><b>7.4.5</b> Git &amp; GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="devops.html"><a href="devops.html#git"><i class="fa fa-check"></i><b>7.5</b> Git</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="devops.html"><a href="devops.html#intro-2"><i class="fa fa-check"></i><b>7.5.1</b> Intro</a></li>
+<li class="chapter" data-level="7.5.2" data-path="devops.html"><a href="devops.html#setup-and-config"><i class="fa fa-check"></i><b>7.5.2</b> Setup and Config</a></li>
+<li class="chapter" data-level="7.5.3" data-path="devops.html"><a href="devops.html#working-locally"><i class="fa fa-check"></i><b>7.5.3</b> Working Locally</a></li>
+<li class="chapter" data-level="7.5.4" data-path="devops.html"><a href="devops.html#working-remote"><i class="fa fa-check"></i><b>7.5.4</b> Working Remote</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>8</b> Data Science</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-science.html"><a href="data-science.html#datacamp-python-skills-for-data-science"><i class="fa fa-check"></i><b>8.1</b> DataCamp Python Skills for Data Science</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="data-science.html"><a href="data-science.html#introduction-to-python"><i class="fa fa-check"></i><b>8.1.1</b> Introduction to Python</a></li>
-<li class="chapter" data-level="8.1.2" data-path="data-science.html"><a href="data-science.html#intermediate-pyton"><i class="fa fa-check"></i><b>8.1.2</b> Intermediate Pyton</a></li>
-<li class="chapter" data-level="8.1.3" data-path="data-science.html"><a href="data-science.html#project"><i class="fa fa-check"></i><b>8.1.3</b> Project</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="data-science.html"><a href="data-science.html#datacamp-r-skills-for-data-science"><i class="fa fa-check"></i><b>8.2</b> DataCamp R Skills for Data Science</a></li>
 <li class="chapter" data-level="8.3" data-path="data-science.html"><a href="data-science.html#azure-data-science-certification"><i class="fa fa-check"></i><b>8.3</b> Azure Data Science Certification</a></li>
-<li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a></li>
+<li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="data-science.html"><a href="data-science.html#demystifying-ai-ml-dl"><i class="fa fa-check"></i><b>8.4.1</b> Demystifying AI / ML / DL</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machine-learning-engineer"><i class="fa fa-check"></i><b>8.5</b> GCP - Professional Machine Learning Engineer</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="data-science.html"><a href="data-science.html#big-data-and-ml-fundamentals"><i class="fa fa-check"></i><b>8.5.1</b> Big Data and ML Fundamentals</a></li>
+<li class="chapter" data-level="8.5.2" data-path="data-science.html"><a href="data-science.html#recommending-products-using-cloud-sql-and-spark"><i class="fa fa-check"></i><b>8.5.2</b> Recommending Products using Cloud SQL and Spark</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="data-science.html"><a href="data-science.html#kyndryl-data-science-roudmap"><i class="fa fa-check"></i><b>8.6</b> Kyndryl Data Science Roudmap</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="data-science.html"><a href="data-science.html#data-science--project-management-methodology---crisp-dm"><i class="fa fa-check"></i><b>8.6.1</b> Data Science- Project Management Methodology - CRISP-DM</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-science.html"><a href="data-science.html#statistics-for-data-analysis-using-python"><i class="fa fa-check"></i><b>8.6.2</b> Statistics for Data Analysis Using Python</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -373,15 +453,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="server-administrator-iii---rh294" class="section level1">
-<h1><span class="header-section-number"># 4</span> Server Administrator III - RH294</h1>
-<div id="intro-to-ansible" class="section level2">
-<h2><span class="header-section-number">4.1</span> Intro to Ansible</h2>
+<div id="server-administrator-iii---rh294" class="section level1 hasAnchor">
+<h1><span class="header-section-number"># 4</span> Server Administrator III - RH294<a href="server-administrator-iii---rh294.html#server-administrator-iii---rh294" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="intro-to-ansible" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.1</span> Intro to Ansible<a href="server-administrator-iii---rh294.html#intro-to-ansible" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ansible is an open source automation platform. It is a <em>simple automation language</em> that can
 perfectly describe an IT application infrastructure in Ansible Playbooks. It is also an automation
 engine that runs Ansible Playbooks.</p>
-<div id="ansible-concepts-and-architecture" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> Ansible Concepts and Architecture</h3>
+<div id="ansible-concepts-and-architecture" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.1.1</span> Ansible Concepts and Architecture<a href="server-administrator-iii---rh294.html#ansible-concepts-and-architecture" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><em>Control nodes</em> : Where Ansible is installed and runs and has copies of Ansible project files, also can be an Administrator server, where Tower will run.</li>
 <li><em>Managed hosts</em> : list of servers organized in <em>inventory</em> list</li>
@@ -394,8 +474,8 @@ engine that runs Ansible Playbooks.</p>
 </ul>
 <p><img src="img/ansible_architecture.png" width="90%" /></p>
 </div>
-<div id="install-ansbile" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> Install Ansbile</h3>
+<div id="install-ansbile" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.1.2</span> Install Ansbile<a href="server-administrator-iii---rh294.html#install-ansbile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>To install ansible</li>
 </ul>
@@ -423,14 +503,14 @@ ubscription-manager repos --enable ansible-2-for-rhel-8-x86_64-rpms</code></pre>
 </ul>
 <pre><code>ansible-doc -l</code></pre>
 </div>
-<div id="implementing-an-ansible-playbook" class="section level3">
-<h3><span class="header-section-number">4.1.3</span> Implementing an Ansible Playbook</h3>
+<div id="implementing-an-ansible-playbook" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.1.3</span> Implementing an Ansible Playbook<a href="server-administrator-iii---rh294.html#implementing-an-ansible-playbook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="deploying-anisble-and-implementing-playbooks" class="section level2">
-<h2><span class="header-section-number">4.2</span> Deploying Anisble and Implementing Playbooks</h2>
-<div id="building-an-ansible-invetory" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Building an Ansible Invetory</h3>
+<div id="deploying-anisble-and-implementing-playbooks" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.2</span> Deploying Anisble and Implementing Playbooks<a href="server-administrator-iii---rh294.html#deploying-anisble-and-implementing-playbooks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="building-an-ansible-invetory" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.1</span> Building an Ansible Invetory<a href="server-administrator-iii---rh294.html#building-an-ansible-invetory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Static inventory file is a text file that specifies the managed hosts that Ansilbe targets, it is located on <strong>/etc/ansible/hosts</strong> as default</p>
 <p><em>Sample of YAML file</em></p>
 <pre><code>web1.example.com
@@ -483,8 +563,8 @@ ansible canada --list-hosts
 <p>List inventory as a graph</p>
 <pre><code>ansible-invetory --graph -i /etc/anisble/hosts</code></pre>
 </div>
-<div id="managing-ansible-configuration-files" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Managing Ansible Configuration Files</h3>
+<div id="managing-ansible-configuration-files" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.2</span> Managing Ansible Configuration Files<a href="server-administrator-iii---rh294.html#managing-ansible-configuration-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <em>ansible</em> configuration file is located at <strong>/etc/ansible/ansible.cfg</strong> as default, but ansible looks at <strong>~/.ansible.cfg</strong> that overight the default, however if the <strong>./ansible.cfg</strong> exists in the directory in which the ansible command is executed, it is used instead of the global file or the user personal file. We can also configure the environment variable <code>ANSIBLE_CONFIG</code> to set the <strong>ansible.cfg</strong> , in this case all commands going to point to this config file.</p>
 <p>To list the config file</p>
 <pre><code>ansible --version
@@ -528,8 +608,8 @@ tasks:
     with_file:
       - ~/.ssh/id_rsa.pub</code></pre>
 </div>
-<div id="running-ad-hoc-commands" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> Running Ad Hoc Commands</h3>
+<div id="running-ad-hoc-commands" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.3</span> Running Ad Hoc Commands<a href="server-administrator-iii---rh294.html#running-ad-hoc-commands" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Sample date command to a host</li>
 </ul>
@@ -555,8 +635,8 @@ ansible &lt;server&gt; -m user -a &quot;name=&lt;name_of_user&gt; state=absent&q
 </ul>
 <pre><code>ansible all -m copy -a &#39;content=&quot;Managed by Ansible\n&quot; dest=/etc/motd&#39; -u devops --become</code></pre>
 </div>
-<div id="writing-and-running-playbooks" class="section level3">
-<h3><span class="header-section-number">4.2.4</span> Writing and Running Playbooks</h3>
+<div id="writing-and-running-playbooks" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.4</span> Writing and Running Playbooks<a href="server-administrator-iii---rh294.html#writing-and-running-playbooks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Using command</li>
 </ul>
@@ -583,8 +663,8 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et nu cuc
 autocmd FileType yaml colo desert
 </code></pre>
 </div>
-<div id="running-playbooks" class="section level3">
-<h3><span class="header-section-number">4.2.5</span> Running Playbooks</h3>
+<div id="running-playbooks" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.5</span> Running Playbooks<a href="server-administrator-iii---rh294.html#running-playbooks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Simple Command</p>
 <pre><code>ansible-playbook site.yml</code></pre>
 <p>We can increase the verbosity of output using <code>-v</code>, <code>-vv</code> , <code>-vvv</code> or <code>-vvvv</code> and also **check the syntax* like:</p>
@@ -593,8 +673,8 @@ autocmd FileType yaml colo desert
 <pre><code>ansible-playbook -C xxx.yml
 </code></pre>
 </div>
-<div id="implementing-muliple-plays" class="section level3">
-<h3><span class="header-section-number">4.2.6</span> Implementing Muliple Plays</h3>
+<div id="implementing-muliple-plays" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.6</span> Implementing Muliple Plays<a href="server-administrator-iii---rh294.html#implementing-muliple-plays" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A playbook is a YAML file containing a list of one or more plays, if a playbook
 contains multiple plays, each play may apply its tasks to a separate set of hosts.</p>
 <p>Sample</p>
@@ -629,8 +709,8 @@ contains multiple plays, each play may apply its tasks to a separate set of host
 <li><code>remote_user</code> : User that runs the tasks</li>
 </ul>
 </div>
-<div id="finding-modules-for-task" class="section level3">
-<h3><span class="header-section-number">4.2.7</span> Finding Modules for Task</h3>
+<div id="finding-modules-for-task" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.2.7</span> Finding Modules for Task<a href="server-administrator-iii---rh294.html#finding-modules-for-task" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The command <strong>ansible-doc -l</strong> will list all the modules on the current version</p>
 <pre><code>ansible-doc -l</code></pre>
 <p>To list detail about documentation, also to access the examples of playbooks go to ansible-doc moudule and run the /EXAMPLES</p>
@@ -640,8 +720,8 @@ contains multiple plays, each play may apply its tasks to a separate set of host
 /EXAMPLES</code></pre>
 </div>
 </div>
-<div id="managing-variables-and-facts" class="section level2">
-<h2><span class="header-section-number">4.3</span> Managing Variables and Facts</h2>
+<div id="managing-variables-and-facts" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.3</span> Managing Variables and Facts<a href="server-administrator-iii---rh294.html#managing-variables-and-facts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can set a variable that affects a group of hosts or only individual hosts. Some variables are
 facts that can be set by Ansible based on the configuration of a system. Other variables can be set inside the playbook, and affect one play in that playbook, or only one task in that play.</p>
 <p>There are also set extra variables on the ansible-playbook command line by using the <strong>–extra-vars</strong> or <strong>-e</strong> option and specifying those variables, and they override all other values for that variable name.</p>
@@ -660,8 +740,8 @@ facts that can be set by Ansible based on the configuration of a system. Other v
 <p>A variable that is set to affect the all host group will be overridden by a variable that
 has the same name and is set to affect a single host.</p>
 </blockquote>
-<div id="variables-in-playbook" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Variables in playbook</h3>
+<div id="variables-in-playbook" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.1</span> Variables in playbook<a href="server-administrator-iii---rh294.html#variables-in-playbook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>- hosts: all
   vars:
     user: joe
@@ -685,8 +765,8 @@ tasks:
       # This line will create the user named Joe
       name: &quot;{{ user }}&quot;</code></pre>
 </div>
-<div id="host-and-group-variables" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Host and group variables</h3>
+<div id="host-and-group-variables" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.2</span> Host and group variables<a href="server-administrator-iii---rh294.html#host-and-group-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Defining the <strong>ansible_user</strong> host variable for demo.example.com:</li>
 </ul>
@@ -702,8 +782,8 @@ demo2.example.com
 [servers:vars]
 user=joe</code></pre>
 </div>
-<div id="using-directories-to-populate-host-and-group-variables" class="section level3">
-<h3><span class="header-section-number">4.3.3</span> Using directories to populate host and group variables</h3>
+<div id="using-directories-to-populate-host-and-group-variables" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.3</span> Using directories to populate host and group variables<a href="server-administrator-iii---rh294.html#using-directories-to-populate-host-and-group-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The recommended practice is to define inventory variables using <code>host_vars</code> and <code>group_vars</code> directories, and not to define them directly in the inventory files</p>
 <pre><code>[admin@station project]$ cat ~/project/inventory
 [datacenter1]
@@ -745,12 +825,12 @@ package: mariadb-server
 [admin@station project]$ cat ~/project/host_vars/demo4.example.com
 package: mysql-server</code></pre>
 </div>
-<div id="overrding-variable-from-command-line" class="section level3">
-<h3><span class="header-section-number">4.3.4</span> Overrding variable from command line</h3>
+<div id="overrding-variable-from-command-line" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.4</span> Overrding variable from command line<a href="server-administrator-iii---rh294.html#overrding-variable-from-command-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>[user@demo ~]$ ansible-playbook main.yml -e &quot;package=apache&quot;</code></pre>
 </div>
-<div id="secrets" class="section level3">
-<h3><span class="header-section-number">4.3.5</span> Secrets</h3>
+<div id="secrets" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.5</span> Secrets<a href="server-administrator-iii---rh294.html#secrets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ansible Vault can be used to encrypt and decrypt any structured data file used by Ansible</p>
 <pre><code>[student@demo ~]$ ansible-vault create secret.yml
 New Vault password: redhat
@@ -764,8 +844,8 @@ Vault password (default): redhat
 [student@demo ~]$ ansible-playbook --vault-password-file=vault-pw-file site.yml
 </code></pre>
 </div>
-<div id="managing-facts" class="section level3">
-<h3><span class="header-section-number">4.3.6</span> Managing Facts</h3>
+<div id="managing-facts" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.6</span> Managing Facts<a href="server-administrator-iii---rh294.html#managing-facts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ansible facts are variables that are automatically discovered by Ansible on a managed host, every play runs the setup module automatically before teh first task to gather facts, this is report on <strong>Gathering Facts</strong> task, for example ?</p>
 <ul>
 <li>hostname</li>
@@ -784,8 +864,8 @@ db_package = mariadb-server
 user1 = joe
 user2 = jane</code></pre>
 </div>
-<div id="magic-variables" class="section level3">
-<h3><span class="header-section-number">4.3.7</span> Magic Variables</h3>
+<div id="magic-variables" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.3.7</span> Magic Variables<a href="server-administrator-iii---rh294.html#magic-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Those variables are not facts or configured on setup but are also automatically set by Ansible</p>
 <ul>
 <li>hostvars : Contains the variables for managed hosts</li>
@@ -795,9 +875,1221 @@ user2 = jane</code></pre>
 </ul>
 </div>
 </div>
-<div id="implementing-task-control" class="section level2">
-<h2><span class="header-section-number">4.4</span> Implementing Task Control</h2>
+<div id="implementing-task-control" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.4</span> Implementing Task Control<a href="server-administrator-iii---rh294.html#implementing-task-control" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="loops" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.1</span> Loops<a href="server-administrator-iii---rh294.html#loops" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Simple loop:</li>
+</ul>
+<pre><code>- name: Postfix and Dovecot are running
+  service:
+    name: &quot;{{ item }}&quot;
+    state: started
+  loop:
+    - postfix
+    - dovecot</code></pre>
+<ul>
+<li>The list used by loop can be provided by a variable :</li>
+</ul>
+<pre><code>vars:
+  mail_services:
+    - postfix
+    - dovecot
 
+tasks:
+  - name: Postfix and Dovecot are running
+    service:
+      name: &quot;{{ item }}&quot;
+      state: started
+    loop: &quot;{{ mail_services }}&quot;</code></pre>
+<ul>
+<li>Loop over hash or Dict</li>
+</ul>
+<pre><code>- name: Users exist and are in the correct groups
+  user:
+    name: &quot;{{ item.name }}&quot;
+    state: present
+    groups: &quot;{{ item.groups }}&quot;
+  loop:
+    - name: jane
+      groups: wheel
+    - name: joe
+      groups: root</code></pre>
+<p><br></p>
+<p>Loop Keywords :</p>
+<ul>
+<li><strong>with_items</strong> : The loop variable item holds the list item used during each iteration.</li>
+</ul>
+<pre><code>vars:
+  data:
+    - user0
+    - user1
+    - user2
+tasks:
+  - name: &quot;with_items&quot;
+    debug:
+        msg: &quot;{{ item }}&quot;
+    with_items: &quot;{{ data }}&quot;</code></pre>
+<ul>
+<li><strong>with_file</strong> : The loop variable item holds the content of a corresponding file from the file list during each iteration.</li>
+<li><strong>with_sequence</strong> : The loop variable item holds the value of one of the generated items in the generated sequence during each iteration</li>
+</ul>
+<p><br></p>
+<p><strong>Using Register variable</strong></p>
+<ul>
+<li>The <code>register</code> keyword can also capture the output of a task that loops</li>
+</ul>
+<pre><code>---
+- name: Loop Register Test
+  gather_facts: no
+  hosts: localhost
+  tasks:
+  
+    - name: Looping Echo Task
+      shell: &quot;echo This is my item: {{ item }}&quot;
+      loop:
+        - one
+        - two
+      register: echo_results
+
+    - name: Show echo_results variable
+      debug:
+        var: echo_results</code></pre>
+</div>
+<div id="task-conditionally" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.2</span> Task Conditionally<a href="server-administrator-iii---rh294.html#task-conditionally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ansible can use conditionals to execute tasks or plays when certain conditions are met.</p>
+<ul>
+<li>Boolean condiction using <code>when</code></li>
+</ul>
+<pre><code>---
+- name: Simple Boolean Task Demo
+  hosts: all
+  vars:
+    run_my_task: true
+
+  tasks:
+    - name: httpd package is installed
+      yum:
+        name: httpd
+      when: run_my_task</code></pre>
+<ul>
+<li>Condition to test if variable has a value</li>
+</ul>
+<pre><code>---
+- name: Test Variable is Defined Demo
+  hosts: all
+  vars:
+    my_service: httpd
+
+  tasks:
+    - name: &quot;{{ my_service }} package is installed&quot;
+      yum:
+        name: &quot;{{ my_service }}&quot;
+      when: my_service is defined</code></pre>
+<ul>
+<li>Using data from <strong>Gathering Facts</strong></li>
+</ul>
+<pre><code>---
+- name: Demonstrate the &quot;in&quot; keyword
+  hosts: all
+  gather_facts: yes
+  vars:
+    supported_distros:
+      - RedHat
+      - Fedora
+
+  tasks:
+    - name: Install httpd using yum, where supported
+      yum:
+        name: http
+        state: present
+      when: ansible_distribution in supported_distros
+
+</code></pre>
+<ul>
+<li>Testing multiple conditions</li>
+</ul>
+<pre><code>when: ansible_distribution == &quot;RedHat&quot; or ansible_distribution == &quot;Fedora&quot;
+
+
+# or
+
+when: ansible_distribution_version == &quot;7.5&quot; and ansible_kernel == &quot;3.10.0-327.el7.x86_64&quot;
+
+
+# or
+
+when:
+- ansible_distribution_version == &quot;7.5&quot;
+- ansible_kernel == &quot;3.10.0-327.el7.x86_64&quot;
+
+
+# or
+
+when: &gt;
+  ( ansible_distribution == &quot;RedHat&quot; and
+    ansible_distribution_major_version == &quot;7&quot; )
+  or
+  ( ansible_distribution == &quot;Fedora&quot; and
+    ansible_distribution_major_version == &quot;28&quot; )
+
+</code></pre>
+<ul>
+<li>Loop and conditions
+<em><code>when</code> is checking each item</em></li>
+</ul>
+<p>Sample 1:</p>
+<pre><code>- name: install mariadb-server if enough space on root
+  yum:
+    name: mariadb-server
+    state: latest
+  loop: &quot;{{ ansible_mounts }}&quot;
+  when: item.mount == &quot;/&quot; and item.size_available &gt; 300000000</code></pre>
+<p>Sample 2:</p>
+<pre><code>---
+- name: Restart HTTPD if Postfix is Running
+  hosts: all
+  tasks:
+    - name: Get Postfix server status
+      command: /usr/bin/systemctl is-active postfix
+      ignore_errors: yes
+      register: result
+
+    - name: Restart Apache HTTPD based on Postfix status
+      service:
+        name: httpd
+        state: restarted
+      when: result.rc == 0</code></pre>
+<ul>
+<li><code>register: result</code> : save info on the result variable</li>
+<li><code>when: result.rc == 0</code> : check the output of postfix task and restart httpd if systemctl command is 0</li>
+</ul>
+</div>
+<div id="handlers" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.3</span> Handlers<a href="server-administrator-iii---rh294.html#handlers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Handlers are tasks that respond to a notification triggered by other tasks. Tasks only notify their handlers when the task changes something on a managed host.</p>
+<p>Handlers can be considered as inactive tasks that only get triggered when explicitly invoked using a notify statement.</p>
+<ul>
+<li>The Apache server is only restarted by the restart apache handler when a configuration file is updated and notifies it.</li>
+</ul>
+<pre><code>tasks:
+  - name: copy demo.example.conf configuration template
+    template:
+      src: /var/lib/templates/demo.example.conf.template
+      dest: /etc/httpd/conf.d/demo.example.conf
+    notify:
+      - restart apache
+
+
+handlers:
+  - name: restart apache
+    service:
+      name: httpd
+      state: restarted</code></pre>
+<p><strong>Managing Task Errors in Play</strong></p>
+<ul>
+<li>Ignoring task failure</li>
+</ul>
+<pre><code>- name: Latest version of notapkg is installed
+  yum:
+    name: notapkg
+    state: latest
+  ignore_errors: yes</code></pre>
+<ul>
+<li>Forcing execution of handler after task failure using <code>force_handlers</code></li>
+</ul>
+<pre><code>---
+- hosts: all
+  force_handlers: yes
+  tasks:
+    - name: a task which always notifies its handler
+      command: /bin/true
+      notify: restart the database
+
+    - name: a task which fails because the package doesn&#39;t exist
+      yum:
+        name: notapkg
+        state: latest
+
+  handlers:
+    - name: restart the database
+      service:
+        name: mariadb           
+        state: restarted</code></pre>
+<ul>
+<li>Specify task failure</li>
+</ul>
+<pre><code>tasks:
+  - name: Run user creation script
+    shell: /usr/local/bin/create_users.sh
+    register: command_result
+    failed_when: &quot;&#39;Password missing&#39; in command_result.stdout&quot;</code></pre>
+<ul>
+<li>Using <code>fail</code> module to force a task failure</li>
+</ul>
+<pre><code>tasks:
+  - name: Run user creation script
+    shell: /usr/local/bin/create_users.sh
+    register: command_result
+    ignore_errors: yes
+
+  - name: Report script failure
+    fail:
+      msg: &quot;The password is missing in the output&quot;
+    when: &quot;&#39;Password missing&#39; in command_result.stdout&quot;</code></pre>
+<ul>
+<li>Specifying when a task reports “changed” results</li>
+</ul>
+<pre><code>tasks:
+  - shell:
+      cmd: /usr/local/bin/upgrade-database
+    register: command_result        
+    changed_when: &quot;&#39;Success&#39; in command_result.stdout&quot;
+    notify:
+      - restart_database
+
+handlers:
+  - name: restart_database
+    service:        
+      name: mariadb
+      state: restarted</code></pre>
+</div>
+<div id="blocks" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.4</span> Blocks<a href="server-administrator-iii---rh294.html#blocks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><code>blocks</code> are clauses that logically group tasks, and can be used to control how tasks are executed</li>
+</ul>
+<pre><code>- name: block example
+  hosts: all
+  tasks:
+    - name: installing and configuring Yum versionlock plugin
+    
+      block:
+    
+      - name: package needed by yum
+        yum:
+          name: yum-plugin-versionlock
+          state: present
+    
+      - name: lock version of tzdata
+        lineinfile:
+          dest: /etc/yum/pluginconf.d/versionlock.list
+          line: tzdata-2016j-1
+          state: present
+     
+      when: ansible_distribution == &quot;RedHat&quot;</code></pre>
+<ul>
+<li><p>Using <code>block</code> , <code>rescue</code> and <code>always</code></p>
+<ul>
+<li><strong>block</strong>: Defines the main tasks to run</li>
+<li><strong>rescue</strong>: Defines the tasks to run if the tasks defined in the block clause fail.</li>
+<li><strong>always</strong>: Defines the tasks that will always run independently of the success or failure of tasks defined in the block and rescue clauses.</li>
+</ul></li>
+</ul>
+<pre><code>
+tasks:
+    - name: Upgrade DB
+
+    block:
+      - name: upgrade the database
+        shell:
+          cmd: /usr/local/lib/upgrade-database
+
+    rescue:
+      - name: revert the database upgrade
+        shell:
+          cmd: /usr/local/lib/revert-database
+
+    always:
+      - name: always restart the database
+        service:
+          name: mariadb       
+        state: restarted</code></pre>
+</div>
+</div>
+<div id="deploying-files-to-managed-hosts" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.5</span> Deploying Files to Managed Hosts<a href="server-administrator-iii---rh294.html#deploying-files-to-managed-hosts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="modifying-and-copying-files-to-hosts" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.5.1</span> Modifying and Copying Files to hosts<a href="server-administrator-iii---rh294.html#modifying-and-copying-files-to-hosts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Files Modules</strong></p>
+<ul>
+<li><strong>blockinfile</strong> : Insert, update, or remove a block of multiline text surrounded by customizable marker lines</li>
+<li><strong>copy</strong> : Copy a file from the local or remote machine to a location on a managed host</li>
+<li><strong>fetch</strong> : fetching files from remote machines to the control node and storing them in a file tree, organized by host name.</li>
+<li><strong>file</strong> : Create/Remove/Set attributes for (perm, ownership, SELinux) of files, links, dirs</li>
+<li><strong>lineinfile</strong> : when you want to change a single line in a file.</li>
+<li><strong>stat</strong> : Retrieve status information for a file, similar to the Linux stat command</li>
+<li><strong>synchronize</strong> : A wrapper around the rsync</li>
+</ul>
+<p><br></p>
+<p><strong>Examples</strong></p>
+<ul>
+<li>Ensure file exists</li>
+</ul>
+<pre><code>- name: Touch a file and set permissions
+  file:
+    path: /path/to/file
+    owner: user1
+    group: group1
+    mode: 0640
+    state: touch</code></pre>
+<ul>
+<li>Modify attributes</li>
+</ul>
+<pre><code>- name: SELinux type is set to samba_share_t
+  file:
+    path: /path/to/samba_file
+    setype: samba_share_t</code></pre>
+<ul>
+<li>Make SELinux file context persistent</li>
+</ul>
+<pre><code>- name: SELinux type is persistently set to samba_share_t
+  sefcontext:
+    target: /path/to/samba_file
+    setype: samba_share_t
+    state: present</code></pre>
+<ul>
+<li>Copy and Edit files on managed hosts</li>
+</ul>
+<pre><code>- name: Copy a file to managed hosts
+  copy:
+    src: file
+    dest: /path/to/file</code></pre>
+<ul>
+<li>To retrieve files from managed hosts use the fetch module</li>
+</ul>
+<pre><code>- name: Retrieve SSH key from reference host
+  fetch:
+    src: &quot;/home/{{ user }}/.ssh/id_rsa.pub
+    dest: &quot;files/keys/{{ user }}.pub&quot;</code></pre>
+<ul>
+<li>To ensure a specific single line of text exists in an existing file, using <code>lineinfile</code></li>
+</ul>
+<pre><code>- name: Add a line of text to a file
+  lineinfile:
+    path: /path/to/file
+    line: &#39;Add this line to the file&#39;
+    state: present</code></pre>
+<ul>
+<li>To add a block of text to an existing file, using <code>blockinfile</code></li>
+</ul>
+<pre><code>- name: Add additional lines to a file
+  blockinfile:
+    path: /path/to/file
+    block: |
+      First line in the additional block of text
+      Second line in the additional block of text
+    state: present</code></pre>
+<ul>
+<li>Remove files from managed hosts</li>
+</ul>
+<pre><code>- name: Make sure a file does not exist on managed hosts
+  file:
+    dest: /path/to/file
+    state: absent</code></pre>
+<ul>
+<li>Retrieving the status of a file on managed hosts</li>
+</ul>
+<pre><code>- name: Verify the checksum of a file
+    stat:
+      path: /path/to/file
+      checksum_algorithm: md5
+    register: result
+
+- debug
+    msg: &quot;The checksum of the file is {{ result.stat.checksum }}&quot;</code></pre>
+<ul>
+<li>Using <code>stat</code></li>
+</ul>
+<pre><code>- name: Examine all stat output of /etc/passwd
+  hosts: localhost
+
+  tasks:
+    - name: stat /etc/passwd
+      stat:
+        path: /etc/passwd
+      register: results
+
+    - name: Display stat results
+      debug:
+        var: results</code></pre>
+<ul>
+<li>Sync files between control node and managed node</li>
+</ul>
+<pre><code>- name: synchronize local file to remote files
+  synchronize:
+      src: file
+      dest: /path/to/file</code></pre>
+</div>
+<div id="deploying-custom-files-with-jinja2-templates" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.5.2</span> Deploying Custom files with Jinja2 templates<a href="server-administrator-iii---rh294.html#deploying-custom-files-with-jinja2-templates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Jinja2 templates are a powerful tool to customize configuration files to be deployed on the managed hosts. When the Jinja2 template for a configuration file has been created, it can be deployed to the managed hosts using the template module.</p>
+<ul>
+<li>To use template module</li>
+</ul>
+<pre><code>tasks:
+  - name: template render
+    template:
+      src: /tmp/j2-template.j2
+      dest: /tmp/dest-config-file.txt</code></pre>
+<ul>
+<li>Loops in Jinja2</li>
+</ul>
+<pre><code>{% for user in users %}
+      {{ user }}
+{% endfor %}</code></pre>
+<ul>
+<li>Generate /etc/hosts files from host facts</li>
+</ul>
+<pre><code>- name: /etc/hosts is up to date
+  hosts: all
+  gather_facts: yes
+  tasks:
+      - name: Deploy /etc/hosts
+        template:
+          src: templates/hosts.j2
+          dest: /etc/hosts</code></pre>
+<p>The below code templates/hosts.j2 template construct the file from all hosts in group all</p>
+<pre><code>{% for host in groups[&#39;all&#39;] %}
+{{ hostvars[host][&#39;ansible_facts&#39;][&#39;default_ipv4&#39;][&#39;address&#39;] }} {{ hostvars[host]
+[&#39;ansible_facts&#39;][&#39;fqdn&#39;] }} {{ hostvars[host][&#39;ansible_facts&#39;][&#39;hostname&#39;] }}
+{% endfor %}</code></pre>
+<ul>
+<li>Using conditionals</li>
+</ul>
+<pre><code>{% if finished %}
+{{ result }}
+{% endif %}</code></pre>
+</div>
+</div>
+<div id="managing-complex-plays-and-playbooks" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.6</span> Managing Complex Plays and Playbooks<a href="server-administrator-iii---rh294.html#managing-complex-plays-and-playbooks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="selecting-hosts-with-host-patterns" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.6.1</span> Selecting Hosts with Host Patterns<a href="server-administrator-iii---rh294.html#selecting-hosts-with-host-patterns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><em>Host patterns</em> are used to specify the hosts to target by a play or ad hoc command. We can use groups of hosts by <code>[&lt;group_name&gt;]</code> or group of groups <code>[&lt;name&gt;:children]</code> and specify the groups.</p></li>
+<li><p>We can use the variable <strong>hosts</strong> inside the playbook :</p>
+<ul>
+<li>we can affect all hosts add <code>all</code> or <code>'*'</code>,</li>
+<li>Use the <code>ungrouped</code></li>
+<li>part of names <code>'*.exammple.com'</code>,</li>
+<li>filtering ip <code>192.168.2.*</code></li>
+<li>By part of groups <code>'datacenter*'</code> or <code>'data*'</code></li>
+<li>Lists <code>servera, serverb,192.168.2.2</code></li>
+<li>Mixed <code>192.168.2*, lab, data*</code></li>
+<li>Using AND logical operator <code>lab, $datacenter1</code></li>
+<li>Using NOT logical operator <code>lab , !datacenter1</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="including-and-importing-files" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.6.2</span> Including and Importing Files<a href="server-administrator-iii---rh294.html#including-and-importing-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are two options to bring contenr into a playbook, using <strong>include</strong> or <strong>import</strong></p>
+<ul>
+<li><p><strong>Include</strong> : it is a dynamic operation. Ansible processes included content during the run of the playbook, as content is reached.</p></li>
+<li><p><strong>Import</strong> : it is a static operation. Ansible preprocesses imported content when the playbook is initially parsed, before the run starts.</p>
+<ul>
+<li>Cannot use loops</li>
+</ul></li>
+</ul>
+<pre><code>- name: Prepare the web server
+  import_playbook: web.yml
+
+
+- name: Prepare the database server
+  import_playbook: db.yml</code></pre>
+<p>We can create a task file and import that task file</p>
+<ul>
+<li>task file</li>
+</ul>
+<pre><code>[admin@node ~]$ cat webserver_tasks.yml
+- name: Installs the httpd package
+  yum:
+      name: httpd
+      state: latest
+
+- name: Starts the httpd service
+  service:
+      name: httpd
+      state: started</code></pre>
+<ul>
+<li>Importing a task file</li>
+</ul>
+<pre><code>---
+- name: Install web server
+  hosts: webservers
+  tasks:
+  - import_tasks: webserver_tasks.yml</code></pre>
+</div>
+</div>
+<div id="simplifying-playbooks-with-roles" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.7</span> Simplifying Playbooks with Roles<a href="server-administrator-iii---rh294.html#simplifying-playbooks-with-roles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ansible roles have the following benefits:</p>
+<ul>
+<li>Roles group content, allowing easy sharing of code with others</li>
+<li>Roles can be written that define the essential elements of a system type: web server, database
+server, Git repository, or other purpose</li>
+<li>Roles make larger projects more manageable</li>
+<li>Roles can be developed in parallel by different administrators</li>
+</ul>
+<div id="describing-role-structure" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.7.1</span> Describing Role Structure<a href="server-administrator-iii---rh294.html#describing-role-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Subdirectories</p>
+<ul>
+<li><strong>defaults</strong> : DEfault value of role variables, <em>low precedence</em></li>
+<li><strong>files</strong> : static files that are referenced by role tasks</li>
+<li><strong>handlers</strong> : role’s handler definitions</li>
+<li><strong>meta</strong> : info about role, author, license, platforms, etc</li>
+<li><strong>tasks</strong> : role’s task definitions</li>
+<li><strong>templates</strong> : Jinja2 templates that are referenced by role tasks</li>
+<li><strong>tests</strong> : can contain an inventory and test.yml playbook for test</li>
+<li><strong>vars</strong> : define roleś variables, <em>high precedence</em></li>
+</ul></li>
+</ul>
+<p><strong>Using Roles</strong></p>
+<pre><code>---
+- hosts: remote.example.com
+ roles:
+   - role1
+   - role2</code></pre>
+<p><strong>Controlling Order of Execution</strong></p>
+<p>The following play shows an example with <strong>pre_tasks</strong>, <strong>roles</strong>, <strong>tasks</strong>, <strong>post_tasks</strong> and <strong>handlers</strong>. It is unusual that a play would contain all of these sections</p>
+<pre><code>- name: Play to illustrate order of execution
+  hosts: remote.example.com
+  
+  pre_tasks:
+    - debug:
+        msg: &#39;pre-task&#39;
+      notify: my handler
+
+
+  roles:
+    - role1
+  
+  tasks:
+    - debug:
+        msg: &#39;first task&#39;
+      notify: my handler
+
+  post_tasks:
+    - debug:
+        msg: &#39;post-task&#39;
+      notify: my handler
+
+  handlers:
+    - name: my handler
+      debug:
+        msg: Running my handler</code></pre>
+<p><strong>Using include_role</strong></p>
+<pre><code>- name: Execute a role as a task
+  hosts: remote.example.com
+  tasks:
+      - name: A normal task
+        debug:
+            msg: &#39;first task&#39;
+      - name: A task to include role2 here
+        include_role: role2</code></pre>
+</div>
+<div id="reusing-content-with-system-roles" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.7.2</span> Reusing Content with System Roles<a href="server-administrator-iii---rh294.html#reusing-content-with-system-roles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>RHEL System Roles</strong></p>
+<ul>
+<li><p>rhel-system-roles.kdump : configure kdump</p></li>
+<li><p>rhel-system-roles.network : configure network interfaces</p></li>
+<li><p>rhel-system-roles.selinux : Configure and manage SELinux</p></li>
+<li><p>rhel-system-roles.timesync : Confgure time sync using NTP or PTP</p></li>
+<li><p>rhel-system-roles.postfix : Configure each host as a mail transfer agent using postfix</p></li>
+<li><p>rhel-system-roles.firewall : configure firewall</p></li>
+<li><p>rhel-system-roles.tuned : configure tuned service</p></li>
+<li><p>Install RHEL Roles, after install the role are located at <code>/usr/share/ansible/roles/</code></p></li>
+</ul>
+<pre><code>[root@host ~]# yum install rhel-system-roles</code></pre>
+<ul>
+<li>Time Sync Role Example</li>
+</ul>
+<pre><code>- name: Time Synchronization Play
+  hosts: servers
+  vars:
+    timesync_ntp_servers:
+      - hostname: 0.rhel.pool.ntp.org
+        iburst: yes
+      - hostname: 1.rhel.pool.ntp.org
+        iburst: yes
+      - hostname: 2.rhel.pool.ntp.org
+        iburst: yes
+    timezone: UTC
+
+  roles:
+      - rhel-system-roles.timesync
+
+  tasks:
+      - name: Set timezone
+        timezone:
+            name: &quot;{{ timezone }}&quot;</code></pre>
+</div>
+<div id="creating-roles" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.7.3</span> Creating Roles<a href="server-administrator-iii---rh294.html#creating-roles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Process</strong></p>
+<ol style="list-style-type: decimal">
+<li>Create the role directory structure.</li>
+<li>Define the role content.</li>
+<li>Use the role in a playbook.</li>
+</ol>
+<p><br></p>
+<p><strong>Directory Structure</strong></p>
+<p>By default, Ansible looks for roles in a subdirectory called roles in the directory containing your Ansible Playbook, if cannot find the role, it looks at <code>roles_path</code></p>
+<pre><code>~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles</code></pre>
+<p>The <strong>ansible-galaxy</strong> command line tool s used to manage Ansible roles, including the creation of new roles.</p>
+<pre><code>cd roles
+ansible-galaxy init my_new_role
+</code></pre>
+<p><br></p>
+<p><strong>Recommended Practices for Role Content Development</strong></p>
+<ul>
+<li>Maintain each role in its own version control repository. Ansible works well with git-based
+repositories</li>
+<li>Sensitive information, such as passwords or SSH keys, should not be stored in the role
+repository</li>
+<li>Use ansible-galaxy init to start your role</li>
+<li>Create and maintain README.md and meta/main.yml files to document what your role is for,
+who wrote it, and how to use it</li>
+<li>Keep your role focused on a specific purpose or function</li>
+<li>Reuse and refactor roles often. Resist creating new roles for edge configurations</li>
+</ul>
+<p><br></p>
+<p><strong>Role Dependencies</strong></p>
+<p>Dependencies are defined in the meta/main.yml file in the role directory hierarchy.</p>
+<pre><code>---
+dependencies:
+  - role: apache
+      port: 8080
+  - role: postgres
+      dbname: serverlist
+      admin_user: felix</code></pre>
+<p><br></p>
+<p><strong>Using Role in playbook</strong></p>
+<p>To access a role, reference it in the roles: section of a play.</p>
+<pre><code>[user@host ~]$ cat use-motd-role.yml
+---
+- name: use motd role playbook
+  hosts: remote.example.com
+  remote_user: devops
+  become: true
+  roles:
+    - motd</code></pre>
+<p>When the playbook is executed, tasks performed because of a role can be identified by the role
+name prefix</p>
+<pre><code>[user@host ~]$ ansible-playbook -i inventory use-motd-role.yml
+
+PLAY [use motd role playbook] **************************************************
+
+TASK [setup] *******************************************************************
+ok: [remote.example.com]
+
+TASK [motd: deliver motd file] ************************************************
+changed: [remote.example.com]
+
+PLAY RECAP *********************************************************************
+remote.example.com        : ok=2        changed=1       unreachable=0     failed=0</code></pre>
+</div>
+<div id="deploying-roles-with-ansible-galaxy" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.7.4</span> Deploying Roles with Ansible Galaxy<a href="server-administrator-iii---rh294.html#deploying-roles-with-ansible-galaxy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ansible Galaxy <a href="https://galaxy.ansible.com">https://galaxy.ansible.com</a> is a public library of Ansible content written by a variety of Ansible administrators and users.</p>
+<p><strong>Using Ansible Galaxy Command-Line tool</strong></p>
+<ul>
+<li>Search</li>
+</ul>
+<pre><code>[user@host ~]$ ansible-galaxy search &#39;redis&#39; --platforms EL</code></pre>
+<ul>
+<li>Get info</li>
+</ul>
+<pre><code>[user@host ~]$ ansible-galaxy info geerlingguy.redis</code></pre>
+<ul>
+<li>Install from Ansible Galaxy</li>
+</ul>
+<pre><code>[user@host project]$ ansible-galaxy install geerlingguy.redis -p roles/</code></pre>
+<ul>
+<li>Install using requirements.yml</li>
+</ul>
+<pre><code>[user@host project]$ ansible-galaxy install -r roles/requirements.yml  -p roles</code></pre>
+<ul>
+<li>List the roles locally</li>
+</ul>
+<pre><code>[user@host project]$ ansible-galaxy list</code></pre>
+<ul>
+<li>Remove role</li>
+</ul>
+<pre><code>[user@host ~]$ ansible-galaxy remove nginx-acme-ssh</code></pre>
+</div>
+<div id="roles-and-modules-from-content-collections" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.7.5</span> Roles and Modules from Content Collections<a href="server-administrator-iii---rh294.html#roles-and-modules-from-content-collections" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ansible content collections are a distribution format for Ansible content. A collection provides a set of related modules, roles, and plug-ins that you can download to your control node and then use in your playbooks.</p>
+<ul>
+<li>install Contect collections</li>
+</ul>
+<pre><code>[user@controlnode ~]$ ansible-galaxy collection install community.crypto</code></pre>
+<ul>
+<li>Install from collection path</li>
+</ul>
+<pre><code>[root@controlnode ~]# ansible-galaxy collection install  -p /usr/share/ansible/collections community.postgresql</code></pre>
+<ul>
+<li>Install from tar file</li>
+</ul>
+<pre><code>[user@controlnode ~]$ ansible-galaxy collection install /tmp/community-dns-1.2.0.tar.gz
+
+
+[user@controlnode ~]$ ansible-galaxy collection install http://www.example.com/redhat-insights-1.0.5.tar.gz</code></pre>
+<ul>
+<li>Install from requirements.yml file</li>
+</ul>
+<pre><code>---
+collections:
+  - name: community.crypto
+
+  - name: ansible.posix
+    version: 1.2.0
+
+  - name: /tmp/community-dns-1.2.0.tar.gz
+
+    - name: http://www.example.com/redhat-insights-1.0.5.tar.gz
+    
+    
+    
+[root@controlnode ~]# ansible-galaxy collection install -r requirements.yml    </code></pre>
+</div>
+</div>
+<div id="troubleshooting-ansible" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.8</span> Troubleshooting Ansible<a href="server-administrator-iii---rh294.html#troubleshooting-ansible" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="troubleshooting-playbooks" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.8.1</span> Troubleshooting Playbooks<a href="server-administrator-iii---rh294.html#troubleshooting-playbooks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>By default, Ansible is not configured to log its output to any log file. We can configure the <code>log_path</code> variale in <code>ansible.cfg</code> or using <code>$ANSIBLE_LOG_PATH</code></p>
+<p>Relate <strong>debug</strong> we can increase the verbosity of output using <code>-vvvv</code> or inside the playbook using <code>verbosity</code> parameter</p>
+<pre><code>name: Display the &quot;output&quot; variable
+  debug:
+    var: output
+    verbosity: 2</code></pre>
+<p><br></p>
+<p><strong>Managing Errors</strong></p>
+<ul>
+<li>We can use <code>--syntax-check</code> to verify the YAML syntax</li>
+<li>We can also use the <code>--step</code> to step through a playbook one task at a time</li>
+</ul>
+<pre><code>[student@demo ~]$ ansible-playbook play.yml --step</code></pre>
+<ul>
+<li>We also can star the playbook in a specific task using <code>--start-at-task</code></li>
+</ul>
+<pre><code>[student@demo ~]$ ansible-playbook play.yml --start-at-task=&quot;start httpd service&quot;</code></pre>
+<p><br></p>
+<p><strong>Recommended Practices for Playbook Management</strong></p>
+<ul>
+<li>Use a concise description of the play’s or task’s purpose to name plays and tasks</li>
+<li>Include comments to add additional inline documentation about tasks.</li>
+<li>Organize task attributes vertically to make them easier to read.</li>
+<li>Consistent horizontal indentation is critical. Use spaces, not tabs, to avoid indentation errors.</li>
+<li>Try to keep the playbook as simple as possible.
+### Troubleshooting Managed Hosts</li>
+</ul>
+<p>We can use the <code>ansible-playbook --check</code> command to run smoke tests on a playbook. This
+option executes the playbook without making changes to the managed hosts’ configuration.</p>
+<pre><code>[student@demo ~]$ ansible-playbook --check playbook.yml</code></pre>
+<p>Another alternative is use <code>--check</code> and <code>--diff</code>, this option reports the changes made to the template files on managed hosts, those changes are displyed in the command but not actually made</p>
+<pre><code>[student@demo ~]$ ansible-playbook --check --diff playbook.yml</code></pre>
+</div>
+</div>
+<div id="automating-linux-administration-tasks" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.9</span> Automating Linux Administration Tasks<a href="server-administrator-iii---rh294.html#automating-linux-administration-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="managing-software-and-subscriptions" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.9.1</span> Managing Software and Subscriptions<a href="server-administrator-iii---rh294.html#managing-software-and-subscriptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can use the <code>yum</code> module to manage package on manage hosts</p>
+<ul>
+<li>Install :</li>
+</ul>
+<pre><code>---
+- name: Install the required packages on the web server
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Install the httpd packages
+      yum:
+        name: httpd
+        state: present</code></pre>
+<ul>
+<li>Update all packages, on this case we need to use whild card <code>*</code></li>
+</ul>
+<pre><code>- name: Update all packages
+  yum:
+     name: &#39;*&#39;
+      state: latest</code></pre>
+<ul>
+<li>Install group, _must prefix group names with <span class="citation">(<span class="citeproc-not-found" data-reference-id="_"><strong>???</strong></span>)</span></li>
+</ul>
+<pre><code>- name: Install Development Tools
+  yum:
+    name: &#39;@Development Tools&#39;
+    state: presen</code></pre>
+<ul>
+<li>Install module, _must use the module name with prefix <span class="citation">(<span class="citeproc-not-found" data-reference-id="_"><strong>???</strong></span>)</span></li>
+</ul>
+<pre><code>- name: Inst perl AppStream module
+  yum:
+    name: &#39;@perl:5.26/minimal&#39;
+    state: present</code></pre>
+<ul>
+<li>Optimizing Multiple Package Installation, using list is more efficient then loop</li>
+</ul>
+<pre><code>---
+- name: Install the required packages on the web server
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Install the packages
+      yum:
+        name:
+          - httpd
+          - mod_ssl
+          - httpd-tools
+        state: present</code></pre>
+<ul>
+<li>Gathering Facts about Installed Packages</li>
+</ul>
+<p>The <code>package_facts</code> Ansible module collects the installed package details on managed hosts</p>
+<pre><code>---
+- name: Display installed packages
+  hosts: servera.lab.example.com
+  tasks:
+    - name: Gather info on installed packages
+      package_facts:
+        manager: auto
+        
+    - name: List installed packages
+      debug:
+        var: ansible_facts.packages
+
+    - name: Display NetworkManager version
+      debug:
+        msg: &quot;Version {{ansible_facts.packages[&#39;NetworkManager&#39;][0].version}}&quot;
+      when: &quot;&#39;NetworkManager&#39; in ansible_facts.packages&quot;    </code></pre>
+<ul>
+<li>To register a Subscription</li>
+</ul>
+<pre><code>- name: Register and subscribe the system
+  redhat_subscription:
+    username: yourusername
+    password: yourpassword
+    pool_ids: poolID
+    state: present</code></pre>
+<ul>
+<li>To enabling Red Hat Software Repositories</li>
+</ul>
+<pre><code>- name: Enable Red Hat repositories
+  rhsm_repository:
+    name:
+      - rhel-8-for-x86_64-baseos-rpms
+      - rhel-8-for-x86_64-baseos-debug-rpms
+    state: present</code></pre>
+</div>
+<div id="managing-users-and-authenticatin" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.9.2</span> Managing Users and Authenticatin<a href="server-administrator-iii---rh294.html#managing-users-and-authenticatin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>User Module</strong></p>
+<ul>
+<li>Add New user</li>
+</ul>
+<pre><code>- name: Add new user to the development machine and assign the appropriate groups.
+  user:
+    name: devops_user
+    shell: /bin/bash
+    groups: sys_admins, developers
+    append: yes</code></pre>
+<ul>
+<li>Add new user generating an ssh key</li>
+</ul>
+<pre><code>name: Create a SSH key for user1
+  user:
+    name: user1
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_my_rsa</code></pre>
+<p><br></p>
+<p><strong>Group Module</strong></p>
+<ul>
+<li>Verify a group module</li>
+</ul>
+<pre><code>- name: Verify that auditors group exists
+  group:
+    name: auditors
+    state: present</code></pre>
+<p><br></p>
+<p><strong>Known Hosts Module</strong></p>
+<ul>
+<li>Copy host key</li>
+</ul>
+<pre><code>- name: copy host keys to remote servers
+  known_hosts:
+    path: /etc/ssh/ssh_known_hosts
+    name: host1
+    key: &quot;{{ lookup(&#39;file&#39;, &#39;pubkeys/host1&#39;) }}&quot;</code></pre>
+<p><br></p>
+<p><strong>Authorized Key Module</strong></p>
+<p>Set authorized key</p>
+<pre><code>- name: Set authorized key
+  authorized_key:
+    user: user1
+    state: present
+    key: &quot;{{ lookup(&#39;file&#39;, &#39;/home/user1/.ssh/id_rsa.pub&#39;) }}</code></pre>
+</div>
+<div id="managing-the-boot-process-and-scheduled-processes" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.9.3</span> Managing the Boot Process and Scheduled Processes<a href="server-administrator-iii---rh294.html#managing-the-boot-process-and-scheduled-processes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>We can schedule jobs with <code>at</code> or <code>cron</code></li>
+</ul>
+<pre><code>- name: remove tempuser.
+  at:
+    command: userdel -r tempuser
+    count: 20
+    units: minutes
+    unique: yes
+    </code></pre>
+<pre><code>- cron:
+  name: &quot;Flush Bolt&quot;
+  user: &quot;root&quot;
+  minute: 45
+  hour: 11
+  job: &quot;php ./app/nut cache:clear&quot;</code></pre>
+<ul>
+<li>Manage service with systemd and service</li>
+</ul>
+<pre><code>- name: start nginx
+  service:
+    name: nginx
+    state: started&quot;</code></pre>
+<pre><code>- name: reload web server
+  systemd:
+    name: apache2
+    state: reload
+    daemon-reload: yes</code></pre>
+<ul>
+<li>Reboot</li>
+</ul>
+<pre><code>- name: &quot;Reboot after patching&quot;
+  reboot:
+    reboot_timeout: 180
+
+- name: force a quick reboot
+  reboot:</code></pre>
+<ul>
+<li>Use Shell and Command</li>
+</ul>
+<pre><code>- name: Run a templated variable (always use quote filter to avoid injection)
+    shell: cat {{ myfile|quote }}   </code></pre>
+<pre><code>- name: This command only
+  command: /usr/bin/scrape_logs.py arg1 arg2
+  args:
+    chdir: scripts/
+    creates: /path/to/script</code></pre>
+</div>
+<div id="managing-storage" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.9.4</span> Managing Storage<a href="server-administrator-iii---rh294.html#managing-storage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Configure using parted</li>
+</ul>
+<pre><code>name: New 10GB partition
+  parted:
+    device: /dev/vdb
+    number: 1
+    state: present
+    part_end: 10GB</code></pre>
+<p><strong>Using lvg and lvol modules</strong></p>
+<ul>
+<li>Create volume group</li>
+</ul>
+<pre><code>- name: Creates a volume group
+  lvg:
+    vg: vg1
+    pvs: /dev/vda1
+    pesize: 32</code></pre>
+<ul>
+<li>Resize volume group</li>
+</ul>
+<pre><code>- name: Resize a volume group
+  lvg:
+    vg: vg1
+    pvs: /dev/vdb1,/dev/vdc1</code></pre>
+<ul>
+<li>Create logical volume</li>
+</ul>
+<pre><code>name: Create a logical volume of 2GB
+  lvol:
+    vg: vg1
+    lv: lv1
+    size: 2g</code></pre>
+<ul>
+<li>Create XFS filesytem</li>
+</ul>
+<pre><code>- name: Create an XFS filesystem
+  filesystem:
+    fstype: xfs
+    dev: /dev/vdb1</code></pre>
+<p><br></p>
+<p><strong>Mount</strong></p>
+<ul>
+<li>Mount device with ID</li>
+</ul>
+<pre><code>- name: Mount device with ID
+  mount:
+    path: /data
+    src: UUID=a8063676-44dd-409a-b584-68be2c9f5570
+    fstype: xfs
+    state: present</code></pre>
+<ul>
+<li>Mount NFS</li>
+</ul>
+<pre><code>- name: Mount NFS share
+  mount:
+    path: /nfsshare
+    src: 172.25.250.100:/share
+    fstype: nfs
+    opts: defaults
+    dump: &#39;0&#39;
+    passno: &#39;0&#39;
+    state: mounted</code></pre>
+<p><br></p>
+<p><strong>Configure Swap with Modules</strong></p>
+<pre><code>- name: Create new swap VG
+  lvg:
+    vg: vgswap
+    pvs: /dev/vda1
+    state: present
+
+- name: Create new swap LV
+  lvol:
+    vg: vgswap
+    lv: lvswap
+    size: 10g
+
+- name: Format swap LV
+  command: mkswap /dev/vgswap/lvswap
+  when: ansible_swaptotal_mb &lt; 128
+
+- name: Activate swap LV
+  command: swapon /dev/vgswap/lvswap
+  when: ansible_swaptotal_mb &lt; 128</code></pre>
+<p><br></p>
+<p><strong>Ansible Facts for Storage Config</strong></p>
+<p>We can use ansible setup to retrieve all the facts for manage hosts</p>
+<pre><code>[user@controlnode ~]$ ansible webservers -m setup
+
+or
+
+[user@controlnode ~]$ ansible webservers -m setup -a &#39;filter=ansible_devices&#39;
+
+or
+
+
+[user@controlnode ~]$ ansible webservers -m setup -a &#39;filter=ansible_device_links&#39;
+
+
+or
+
+[user@controlnode ~]$ ansible webservers -m setup -a &#39;filter=ansible_mounts&#39;</code></pre>
+</div>
+<div id="managing-network-configuration" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.9.5</span> Managing Network Configuration<a href="server-administrator-iii---rh294.html#managing-network-configuration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Configuring Network with Network System Role</strong></p>
+<ul>
+<li>list the currently installed system roles with the ansible-galaxy list command.</li>
+</ul>
+<pre><code>[user@controlnode ~]$ ansible-galaxy list</code></pre>
+<p><em>Roles are located in the /usr/share/ansible/roles directory.</em>
+The network role is configured with two variables, network_provider and network_connections.</p>
+<ul>
+<li>The network_provider variable configures the back end provider, either nm (NetworkManager)
+or initscripts. On Red Hat Enterprise Linux 8, the network role uses the nm (NetworkManager) as a default networking provider</li>
+</ul>
+<pre><code>---
+network_provider: nm
+network_connections:
+  - name: ens4
+    type: ethernet
+    ip:
+      address:
+        - 172.25.250.30/24</code></pre>
+<ul>
+<li>The network_connections variable configures the different connections, specified as a list of dictionaries, using the interface name as the connection name.</li>
+</ul>
+<pre><code>network_connections:
+- name: eth0
+  persistent_state: present
+  type: ethernet
+  autoconnect: yes
+  mac: 00:00:5e:00:53:5d
+  ip:
+    address:
+    - 172.25.250.40/24
+  zone: external</code></pre>
+<ul>
+<li>To use the network system role, you need to specify the role name under the roles clause in your playbook as follows:</li>
+</ul>
+<pre><code>- name: NIC Configuration
+  hosts: webservers
+  vars:
+    network_connections:
+      - name: ens4
+        type: ethernet
+        ip:
+          address:
+            - 172.25.250.30/24
+  roles:
+    - rhel-system-roles.network</code></pre>
+<p><br></p>
+<p><strong>Configure Network with modules</strong></p>
+<p>The nmcli module supports the management of both network connections and devices</p>
+<pre><code>- name: NIC configuration
+  nmcli:
+    conn_name: ens4-conn
+    ifname: ens4
+    type: ethernet
+    ip4: 172.25.250.30/24
+    gw4: 172.25.250.1
+    state: present</code></pre>
+<p><br></p>
+<p><strong>Hostname module</strong></p>
+<ul>
+<li>Change the hostname with <code>hostname</code> module</li>
+</ul>
+<pre><code>name: Change hostname
+  hostname:
+    name: managedhost1</code></pre>
+<p><br></p>
+<p><strong>Firewalld module</strong></p>
+<p>The firewalld module supports the management of FirewallD on managed hosts</p>
+<pre><code>- name: Enabling http rule
+  firewalld:
+    service: http
+    permanent: yes
+    state: enabled</code></pre>
+<ul>
+<li>Configures the eth0 in the external FirewallD zone.</li>
+</ul>
+<pre><code>- name: Moving eth0 to external
+  firewalld:
+    zone: external
+    interface: eth0
+    permanent: yes
+    state: enabled</code></pre>
+<p><br></p>
+<p><strong>Ansible Facts for Network Configuration</strong></p>
+<pre><code>[user@controlnode ~]$ ansible webservers -m setup
+
+or
+
+[user@controlnode ~]$ ansible webservers -m setup  -a &#39;gather_subset=network filter=ansible_interfaces&#39;
+
+or
+
+[user@controlnode ~]$ ansible webservers -m setup -a &#39;gather_subset=network filter=ansible_ens4&#39;</code></pre>
+
+</div>
 </div>
 </div>
             </section>
@@ -860,6 +2152,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

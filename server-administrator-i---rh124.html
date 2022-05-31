@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title># 2 Server Administrator I - RH124 | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="# 2 Server Administrator I - RH124 | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Those notes are for future reference" />
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-12-09" />
+<meta name="date" content="2022-05-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +50,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -293,7 +293,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-facts"><i class="fa fa-check"></i><b>4.3.6</b> Managing Facts</a></li>
 <li class="chapter" data-level="4.3.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#magic-variables"><i class="fa fa-check"></i><b>4.3.7</b> Magic Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a></li>
+<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#loops"><i class="fa fa-check"></i><b>4.4.1</b> Loops</a></li>
+<li class="chapter" data-level="4.4.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#task-conditionally"><i class="fa fa-check"></i><b>4.4.2</b> Task Conditionally</a></li>
+<li class="chapter" data-level="4.4.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#handlers"><i class="fa fa-check"></i><b>4.4.3</b> Handlers</a></li>
+<li class="chapter" data-level="4.4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#blocks"><i class="fa fa-check"></i><b>4.4.4</b> Blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-files-to-managed-hosts"><i class="fa fa-check"></i><b>4.5</b> Deploying Files to Managed Hosts</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#modifying-and-copying-files-to-hosts"><i class="fa fa-check"></i><b>4.5.1</b> Modifying and Copying Files to hosts</a></li>
+<li class="chapter" data-level="4.5.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-custom-files-with-jinja2-templates"><i class="fa fa-check"></i><b>4.5.2</b> Deploying Custom files with Jinja2 templates</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-complex-plays-and-playbooks"><i class="fa fa-check"></i><b>4.6</b> Managing Complex Plays and Playbooks</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#selecting-hosts-with-host-patterns"><i class="fa fa-check"></i><b>4.6.1</b> Selecting Hosts with Host Patterns</a></li>
+<li class="chapter" data-level="4.6.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#including-and-importing-files"><i class="fa fa-check"></i><b>4.6.2</b> Including and Importing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#simplifying-playbooks-with-roles"><i class="fa fa-check"></i><b>4.7</b> Simplifying Playbooks with Roles</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#describing-role-structure"><i class="fa fa-check"></i><b>4.7.1</b> Describing Role Structure</a></li>
+<li class="chapter" data-level="4.7.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#reusing-content-with-system-roles"><i class="fa fa-check"></i><b>4.7.2</b> Reusing Content with System Roles</a></li>
+<li class="chapter" data-level="4.7.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#creating-roles"><i class="fa fa-check"></i><b>4.7.3</b> Creating Roles</a></li>
+<li class="chapter" data-level="4.7.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-roles-with-ansible-galaxy"><i class="fa fa-check"></i><b>4.7.4</b> Deploying Roles with Ansible Galaxy</a></li>
+<li class="chapter" data-level="4.7.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#roles-and-modules-from-content-collections"><i class="fa fa-check"></i><b>4.7.5</b> Roles and Modules from Content Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#troubleshooting-ansible"><i class="fa fa-check"></i><b>4.8</b> Troubleshooting Ansible</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#troubleshooting-playbooks"><i class="fa fa-check"></i><b>4.8.1</b> Troubleshooting Playbooks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#automating-linux-administration-tasks"><i class="fa fa-check"></i><b>4.9</b> Automating Linux Administration Tasks</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-software-and-subscriptions"><i class="fa fa-check"></i><b>4.9.1</b> Managing Software and Subscriptions</a></li>
+<li class="chapter" data-level="4.9.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-users-and-authenticatin"><i class="fa fa-check"></i><b>4.9.2</b> Managing Users and Authenticatin</a></li>
+<li class="chapter" data-level="4.9.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-the-boot-process-and-scheduled-processes"><i class="fa fa-check"></i><b>4.9.3</b> Managing the Boot Process and Scheduled Processes</a></li>
+<li class="chapter" data-level="4.9.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-storage"><i class="fa fa-check"></i><b>4.9.4</b> Managing Storage</a></li>
+<li class="chapter" data-level="4.9.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-network-configuration"><i class="fa fa-check"></i><b>4.9.5</b> Managing Network Configuration</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html"><i class="fa fa-check"></i><b>5</b> Red Hat OpenShift I: Containers &amp; Kubernetes - DO180</a><ul>
 <li class="chapter" data-level="5.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#intro-to-container"><i class="fa fa-check"></i><b>5.1</b> Intro to Container</a><ul>
@@ -319,6 +349,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-containerized-applications-on-openshift"><i class="fa fa-check"></i><b>5.6</b> Deploying Containerized Applications on OpenShift</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#describing-kubernetes-and-openshift-architecture"><i class="fa fa-check"></i><b>5.6.1</b> Describing Kubernetes and OpenShift Architecture</a></li>
 <li class="chapter" data-level="5.6.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-kubernetes-resources"><i class="fa fa-check"></i><b>5.6.2</b> Creating Kubernetes Resources</a></li>
+<li class="chapter" data-level="5.6.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-routes"><i class="fa fa-check"></i><b>5.6.3</b> Creating Routes</a></li>
+<li class="chapter" data-level="5.6.4" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-applications-with-source-to-image"><i class="fa fa-check"></i><b>5.6.4</b> Creating Applications with Source-to-Image</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-multi-container-applications"><i class="fa fa-check"></i><b>5.7</b> Deploying Multi-Container Applications</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#considerations-for-multi-container-applications"><i class="fa fa-check"></i><b>5.7.1</b> Considerations for Multi-Container Applications</a></li>
+<li class="chapter" data-level="5.7.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-app-on-openshift"><i class="fa fa-check"></i><b>5.7.2</b> Deploying A Multi-Container App on OpenShift</a></li>
+<li class="chapter" data-level="5.7.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-application-on-openshift-using-a-template"><i class="fa fa-check"></i><b>5.7.3</b> Deploying a Multi-container Application on OpenShift Using a Template</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications"><i class="fa fa-check"></i><b>5.8</b> Troubleshooting Containerized Applications</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-s2i-builds-and-deployments"><i class="fa fa-check"></i><b>5.8.1</b> Troubleshooting S2I Builds and Deployments</a></li>
+<li class="chapter" data-level="5.8.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications-1"><i class="fa fa-check"></i><b>5.8.2</b> Troubleshooting Containerized Applications</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><i class="fa fa-check"></i><b>6</b> Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280</a><ul>
@@ -332,26 +373,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#troubleshooting-openshit-cluster-and-applications"><i class="fa fa-check"></i><b>6.2.2</b> Troubleshooting OpenShit Cluster and Applications</a></li>
 <li class="chapter" data-level="6.2.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#introducing-openshift-dynamic-storage"><i class="fa fa-check"></i><b>6.2.3</b> Introducing OpenShift Dynamic Storage</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-authentication-and-authorization"><i class="fa fa-check"></i><b>6.3</b> Configuring Authentication and Authorization</a></li>
+<li class="chapter" data-level="6.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-authentication-and-authorization"><i class="fa fa-check"></i><b>6.3</b> Configuring Authentication and Authorization</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#identity"><i class="fa fa-check"></i><b>6.3.1</b> Identity</a></li>
+<li class="chapter" data-level="6.3.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-the-htpasswd-identity-provider"><i class="fa fa-check"></i><b>6.3.2</b> Configuring the HTPasswd Identity Provider</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-application-security"><i class="fa fa-check"></i><b>6.4</b> Configuring Application Security</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#managing-sensitive-information-with-secrets"><i class="fa fa-check"></i><b>6.4.1</b> Managing Sensitive Information with secrets</a></li>
+<li class="chapter" data-level="6.4.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#controlling-application-permissions-with-security-contect-contrainst"><i class="fa fa-check"></i><b>6.4.2</b> Controlling Application Permissions with Security Contect Contrainst</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-openshift-networking-for-applications"><i class="fa fa-check"></i><b>6.5</b> Configuring OpenShift Networking For Applications</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#openshift-software-defined-networking"><i class="fa fa-check"></i><b>6.5.1</b> OpenShift Software-defined Networking</a></li>
+<li class="chapter" data-level="6.5.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#exposing-applications-for-external-access"><i class="fa fa-check"></i><b>6.5.2</b> Exposing Applications for External Access</a></li>
+<li class="chapter" data-level="6.5.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-network-policies"><i class="fa fa-check"></i><b>6.5.3</b> Configuring Network Policies</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="7" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>7</b> DevOps</a><ul>
 <li class="chapter" data-level="7.1" data-path="devops.html"><a href="devops.html#azure"><i class="fa fa-check"></i><b>7.1</b> Azure</a></li>
-<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a></li>
+<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="devops.html"><a href="devops.html#part-1-cloud-concepts"><i class="fa fa-check"></i><b>7.2.1</b> Part 1 : Cloud Concepts</a></li>
+<li class="chapter" data-level="7.2.2" data-path="devops.html"><a href="devops.html#part-2-foundation"><i class="fa fa-check"></i><b>7.2.2</b> Part 2 : Foundation</a></li>
+<li class="chapter" data-level="7.2.3" data-path="devops.html"><a href="devops.html#part-3-aws-well-architected"><i class="fa fa-check"></i><b>7.2.3</b> Part 3 : AWS Well-Architected</a></li>
+<li class="chapter" data-level="7.2.4" data-path="devops.html"><a href="devops.html#part-4-iam"><i class="fa fa-check"></i><b>7.2.4</b> Part 4 : IAM</a></li>
+<li class="chapter" data-level="7.2.5" data-path="devops.html"><a href="devops.html#part-5-iam-cont"><i class="fa fa-check"></i><b>7.2.5</b> Part 5 : IAM cont…</a></li>
+</ul></li>
 <li class="chapter" data-level="7.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>7.3</b> Docker</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>7.3.1</b> Part 1</a></li>
 <li class="chapter" data-level="7.3.2" data-path="devops.html"><a href="devops.html#part-2"><i class="fa fa-check"></i><b>7.3.2</b> Part 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="devops.html"><a href="devops.html#jenkins"><i class="fa fa-check"></i><b>7.4</b> Jenkins</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="devops.html"><a href="devops.html#cicd"><i class="fa fa-check"></i><b>7.4.1</b> CI/CD</a></li>
+<li class="chapter" data-level="7.4.2" data-path="devops.html"><a href="devops.html#install"><i class="fa fa-check"></i><b>7.4.2</b> Install</a></li>
+<li class="chapter" data-level="7.4.3" data-path="devops.html"><a href="devops.html#arquitecture"><i class="fa fa-check"></i><b>7.4.3</b> Arquitecture</a></li>
+<li class="chapter" data-level="7.4.4" data-path="devops.html"><a href="devops.html#job"><i class="fa fa-check"></i><b>7.4.4</b> Job</a></li>
+<li class="chapter" data-level="7.4.5" data-path="devops.html"><a href="devops.html#git-github"><i class="fa fa-check"></i><b>7.4.5</b> Git &amp; GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="devops.html"><a href="devops.html#git"><i class="fa fa-check"></i><b>7.5</b> Git</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="devops.html"><a href="devops.html#intro-2"><i class="fa fa-check"></i><b>7.5.1</b> Intro</a></li>
+<li class="chapter" data-level="7.5.2" data-path="devops.html"><a href="devops.html#setup-and-config"><i class="fa fa-check"></i><b>7.5.2</b> Setup and Config</a></li>
+<li class="chapter" data-level="7.5.3" data-path="devops.html"><a href="devops.html#working-locally"><i class="fa fa-check"></i><b>7.5.3</b> Working Locally</a></li>
+<li class="chapter" data-level="7.5.4" data-path="devops.html"><a href="devops.html#working-remote"><i class="fa fa-check"></i><b>7.5.4</b> Working Remote</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>8</b> Data Science</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-science.html"><a href="data-science.html#datacamp-python-skills-for-data-science"><i class="fa fa-check"></i><b>8.1</b> DataCamp Python Skills for Data Science</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="data-science.html"><a href="data-science.html#introduction-to-python"><i class="fa fa-check"></i><b>8.1.1</b> Introduction to Python</a></li>
-<li class="chapter" data-level="8.1.2" data-path="data-science.html"><a href="data-science.html#intermediate-pyton"><i class="fa fa-check"></i><b>8.1.2</b> Intermediate Pyton</a></li>
-<li class="chapter" data-level="8.1.3" data-path="data-science.html"><a href="data-science.html#project"><i class="fa fa-check"></i><b>8.1.3</b> Project</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="data-science.html"><a href="data-science.html#datacamp-r-skills-for-data-science"><i class="fa fa-check"></i><b>8.2</b> DataCamp R Skills for Data Science</a></li>
 <li class="chapter" data-level="8.3" data-path="data-science.html"><a href="data-science.html#azure-data-science-certification"><i class="fa fa-check"></i><b>8.3</b> Azure Data Science Certification</a></li>
-<li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a></li>
+<li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="data-science.html"><a href="data-science.html#demystifying-ai-ml-dl"><i class="fa fa-check"></i><b>8.4.1</b> Demystifying AI / ML / DL</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machine-learning-engineer"><i class="fa fa-check"></i><b>8.5</b> GCP - Professional Machine Learning Engineer</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="data-science.html"><a href="data-science.html#big-data-and-ml-fundamentals"><i class="fa fa-check"></i><b>8.5.1</b> Big Data and ML Fundamentals</a></li>
+<li class="chapter" data-level="8.5.2" data-path="data-science.html"><a href="data-science.html#recommending-products-using-cloud-sql-and-spark"><i class="fa fa-check"></i><b>8.5.2</b> Recommending Products using Cloud SQL and Spark</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="data-science.html"><a href="data-science.html#kyndryl-data-science-roudmap"><i class="fa fa-check"></i><b>8.6</b> Kyndryl Data Science Roudmap</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="data-science.html"><a href="data-science.html#data-science--project-management-methodology---crisp-dm"><i class="fa fa-check"></i><b>8.6.1</b> Data Science- Project Management Methodology - CRISP-DM</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-science.html"><a href="data-science.html#statistics-for-data-analysis-using-python"><i class="fa fa-check"></i><b>8.6.2</b> Statistics for Data Analysis Using Python</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -373,12 +453,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="server-administrator-i---rh124" class="section level1">
-<h1><span class="header-section-number"># 2</span> Server Administrator I - RH124</h1>
-<div id="what-is-linux" class="section level2">
-<h2><span class="header-section-number">2.1</span> What is linux ?</h2>
+<div id="server-administrator-i---rh124" class="section level1 hasAnchor">
+<h1><span class="header-section-number"># 2</span> Server Administrator I - RH124<a href="server-administrator-i---rh124.html#server-administrator-i---rh124" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-linux" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.1</span> What is linux ?<a href="server-administrator-i---rh124.html#what-is-linux" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Modular operations system where you can add components :</p>
-<p><img src="img/what_is_linux.png" width="90%" /></p>
+<p><img src="img/what_is_linux.png" width="60%" /></p>
 <p><strong>Open Source</strong></p>
 <ul>
 <li>Copyleft lic
@@ -409,10 +489,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Red Hat sponsor and integrate open source projects into the Fedora project and participate in upstream projects</li>
 </ul>
 </div>
-<div id="command-line" class="section level2">
-<h2><span class="header-section-number">2.2</span> Command Line</h2>
-<div id="and" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> <code>$</code> and <code>#</code></h3>
+<div id="command-line" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.2</span> Command Line<a href="server-administrator-i---rh124.html#command-line" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="and" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.1</span> <code>$</code> and <code>#</code><a href="server-administrator-i---rh124.html#and" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Attention on shell when you are on command line:</p>
 <ul>
 <li>Root user : <code>#</code></li>
@@ -428,12 +508,12 @@ ls -all .
 <pre><code># Shell will interpreting the entire word
 ls --all .</code></pre>
 </div>
-<div id="to-login-into-another-computer-using-ssh" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> To login into another computer using <code>ssh</code></h3>
+<div id="to-login-into-another-computer-using-ssh" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.2</span> To login into another computer using <code>ssh</code><a href="server-administrator-i---rh124.html#to-login-into-another-computer-using-ssh" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>ssh &lt;machine or server&gt;</code></pre>
 </div>
-<div id="executing-commands" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Executing commands</h3>
+<div id="executing-commands" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.2.3</span> Executing commands<a href="server-administrator-i---rh124.html#executing-commands" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="server-administrator-i---rh124.html#cb5-1"></a></span>
 <span id="cb5-2"><a href="server-administrator-i---rh124.html#cb5-2"></a><span class="co"># List the user that you  login</span></span>
 <span id="cb5-3"><a href="server-administrator-i---rh124.html#cb5-3"></a><span class="fu">whoami</span></span>
@@ -444,8 +524,8 @@ ls --all .</code></pre>
 <span id="cb5-8"><a href="server-administrator-i---rh124.html#cb5-8"></a><span class="co"># Executing one command after the other</span></span>
 <span id="cb5-9"><a href="server-administrator-i---rh124.html#cb5-9"></a><span class="fu">date</span> +%A<span class="kw">;</span> <span class="fu">uname</span> -r<span class="kw">;</span> <span class="fu">whoami</span></span></code></pre></div>
 <pre><code>## runner
-## 2021-12-09
-## Thursday
+## 2022-05-31
+## Tuesday
 ## 20.6.0
 ## runner</code></pre>
 <p><strong>Conditional commands execution <code>&amp;&amp;</code></strong></p>
@@ -461,7 +541,7 @@ ls --all .</code></pre>
 <span id="cb7-6"><a href="server-administrator-i---rh124.html#cb7-6"></a><span class="bu">echo</span></span>
 <span id="cb7-7"><a href="server-administrator-i---rh124.html#cb7-7"></a><span class="co"># If with or</span></span>
 <span id="cb7-8"><a href="server-administrator-i---rh124.html#cb7-8"></a><span class="ex">ate</span> +%F <span class="kw">||</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span></code></pre></div>
-<pre><code>## 2021-12-09
+<pre><code>## 2022-05-31
 ## 20.6.0
 ## runner
 ## 
@@ -497,11 +577,11 @@ ls --all .</code></pre>
 </ul>
 </div>
 </div>
-<div id="managing-file-system" class="section level2">
-<h2><span class="header-section-number">2.3</span> Managing File system</h2>
+<div id="managing-file-system" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.3</span> Managing File system<a href="server-administrator-i---rh124.html#managing-file-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="img/fs_hierarquia.png" width="90%" /></p>
-<div id="the-file-system-hierarchy" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> The file system hierarchy <code>/</code></h3>
+<div id="the-file-system-hierarchy" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.3.1</span> The file system hierarchy <code>/</code><a href="server-administrator-i---rh124.html#the-file-system-hierarchy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Try command <code>tree -d</code></p>
 </blockquote>
@@ -524,8 +604,8 @@ ls --all .</code></pre>
 <li><strong>/var/tmp</strong> : another temp dir , purge every 30 days</li>
 </ul>
 </div>
-<div id="absolute-and-relative-paths" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Absolute and Relative paths</h3>
+<div id="absolute-and-relative-paths" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.3.2</span> Absolute and Relative paths<a href="server-administrator-i---rh124.html#absolute-and-relative-paths" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Absolute path, is the complete path, no ambiguity, start with <code>/</code> :</li>
 </ul>
@@ -537,8 +617,8 @@ cat /etc/issue</code></pre>
 <pre><code>cd /
 cat etc/issue</code></pre>
 </div>
-<div id="managing-files" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Managing Files</h3>
+<div id="managing-files" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.3.3</span> Managing Files<a href="server-administrator-i---rh124.html#managing-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><code>mkdir -p</code> : create the parents that do not exists</li>
 </ul>
@@ -568,7 +648,7 @@ cat etc/issue</code></pre>
 * date &amp; time stamps
 * paths to data on file system</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="server-administrator-i---rh124.html#cb15-1"></a><span class="fu">ls</span> -li LICENSE</span></code></pre></div>
-<pre><code>## 12892990340 -rw-r--r--  1 runner  staff  6556 Dec  9 19:08 LICENSE</code></pre>
+<pre><code>## 12894536385 -rw-r--r--  1 runner  staff  6556 May 31 13:22 LICENSE</code></pre>
 <ul>
 <li>40652348 : file ID (<em>inode</em>)</li>
 <li>1 : means one name using this iNode right now</li>
@@ -577,8 +657,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="server-administrator-i---rh124.html#cb17-1"></a><span class="fu">ln</span> LICENSE LIC2</span>
 <span id="cb17-2"><a href="server-administrator-i---rh124.html#cb17-2"></a><span class="fu">ls</span> -li LIC*</span></code></pre></div>
 <pre><code>## ln: LIC2: File exists
-## 12892990339 -rw-r--r--  1 runner  staff  6556 Dec  9 19:08 LIC2
-## 12892990340 -rw-r--r--  1 runner  staff  6556 Dec  9 19:08 LICENSE</code></pre>
+## 12894536384 -rw-r--r--  1 runner  staff  6556 May 31 13:22 LIC2
+## 12894536385 -rw-r--r--  1 runner  staff  6556 May 31 13:22 LICENSE</code></pre>
 <ul>
 <li>Both LIC2 and LICENSE have the same iNode but the number right now is <strong>2</strong>, not able to identify which one was create first, this is a <strong>hard link</strong></li>
 </ul>
@@ -586,8 +666,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="server-administrator-i---rh124.html#cb19-1"></a><span class="fu">ln</span> -s README.md README_2.md</span>
 <span id="cb19-2"><a href="server-administrator-i---rh124.html#cb19-2"></a><span class="fu">ls</span> -li READ*</span></code></pre></div>
 <pre><code>## ln: README_2.md: File exists
-## 12892990341 -rw-r--r--  1 runner  staff  741 Dec  9 19:08 README.md
-## 12892990342 lrwxr-xr-x  1 runner  staff    9 Dec  9 19:08 README_2.md -&gt; README.md</code></pre>
+## 12894536386 -rw-r--r--  1 runner  staff  741 May 31 13:22 README.md
+## 12894536387 lrwxr-xr-x  1 runner  staff    9 May 31 13:22 README_2.md -&gt; README.md</code></pre>
 <ul>
 <li>Both have different iNode number, so they are two different files, the permission there are a <code>l</code> meaning link, this is a <strong>soft link</strong>, if we delete file 3 we have a broken link</li>
 </ul>
@@ -733,13 +813,13 @@ cat etc/issue</code></pre>
 <span id="cb25-5"><a href="server-administrator-i---rh124.html#cb25-5"></a><span class="co"># command substitution</span></span>
 <span id="cb25-6"><a href="server-administrator-i---rh124.html#cb25-6"></a><span class="bu">echo</span> <span class="st">&quot;Today is </span><span class="va">$(</span><span class="fu">date</span> +%A<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
 <pre><code>## value
-## Today is Thursday</code></pre>
+## Today is Tuesday</code></pre>
 <p><strong>skell</strong></p>
 <p>The contenct of path <strong>/etc/skel</strong> is automatically copied to all users</p>
 </div>
 </div>
-<div id="help" class="section level2">
-<h2><span class="header-section-number">2.4</span> Help</h2>
+<div id="help" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.4</span> Help<a href="server-administrator-i---rh124.html#help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>All man pages are on <code>/usr/share/man</code></p>
 <p><strong>Commands</strong></p>
 <ul>
@@ -757,8 +837,8 @@ cat etc/issue</code></pre>
 <p>To go direct to a section , belo example of command to go direct to session 5</p>
 <pre><code>man 5 crontab</code></pre>
 </div>
-<div id="text-files" class="section level2">
-<h2><span class="header-section-number">2.5</span> Text Files</h2>
+<div id="text-files" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.5</span> Text Files<a href="server-administrator-i---rh124.html#text-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="img/std_inputs_outputs.png" width="90%" /></p>
 <p><strong>Channels</strong></p>
 <ul>
@@ -813,17 +893,19 @@ ls: cannot access &#39;abc&#39;: No such file or directory
 <span id="cb36-8"><a href="server-administrator-i---rh124.html#cb36-8"></a><span class="bu">echo</span></span>
 <span id="cb36-9"><a href="server-administrator-i---rh124.html#cb36-9"></a><span class="co"># combine the grep with pipe</span></span>
 <span id="cb36-10"><a href="server-administrator-i---rh124.html#cb36-10"></a><span class="fu">grep</span> ^[^#] /etc/resolv.conf <span class="kw">|</span> <span class="fu">wc</span> -l</span></code></pre></div>
-<pre><code>##       17 /etc/resolv.conf
+<pre><code>##       19 /etc/resolv.conf
 ## 
-## nameserver 1.1.1.1
+## search example.org
+## nameserver 8.8.8.8
 ## nameserver 208.67.222.222
+## nameserver 8.26.56.26
 ## 
-##        2</code></pre>
+##        4</code></pre>
 <p>Another way is get the output and save on file using <code>pipe |</code> and <code>tee</code></p>
 <pre><code>find / -iname passwd 2&gt; /dev/null | tee find.out
 </code></pre>
-<div id="vim" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> vim</h3>
+<div id="vim" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.5.1</span> vim<a href="server-administrator-i---rh124.html#vim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Modes :</p>
 <ul>
 <li>Insert : <code>i</code></li>
@@ -853,8 +935,8 @@ ls: cannot access &#39;abc&#39;: No such file or directory
 </ul></li>
 </ul>
 </div>
-<div id="changing-shell" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> Changing shell</h3>
+<div id="changing-shell" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.5.2</span> Changing shell<a href="server-administrator-i---rh124.html#changing-shell" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Setting a editor</li>
 </ul>
@@ -879,8 +961,8 @@ export EDITOR=nano</code></pre>
 </ul>
 </div>
 </div>
-<div id="managing-local-users-and-groups" class="section level2">
-<h2><span class="header-section-number">2.6</span> Managing Local Users and Groups</h2>
+<div id="managing-local-users-and-groups" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.6</span> Managing Local Users and Groups<a href="server-administrator-i---rh124.html#managing-local-users-and-groups" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><code>whoami</code> : Show your user</p></li>
 <li><p><code>id</code> : show your user, groups</p></li>
@@ -891,8 +973,8 @@ export EDITOR=nano</code></pre>
 <li>Regular users</li>
 </ul></li>
 </ul>
-<div id="users" class="section level3">
-<h3><span class="header-section-number">2.6.1</span> Users</h3>
+<div id="users" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.1</span> Users<a href="server-administrator-i---rh124.html#users" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><code>/etc/passwd</code> : file with user info</li>
 </ul>
@@ -945,8 +1027,8 @@ bruno:x:1000:1000:bruno,,,:/home/bruno:/bin/bash</code></pre>
 <li><code>usermod -U &lt;user&gt;</code> : Unlock a user account</li>
 </ul>
 </div>
-<div id="groups" class="section level3">
-<h3><span class="header-section-number">2.6.2</span> Groups</h3>
+<div id="groups" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.2</span> Groups<a href="server-administrator-i---rh124.html#groups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><code>/etc/group</code> : file with group info</li>
 </ul>
@@ -987,8 +1069,8 @@ sambashare:x:130:bruno</code></pre>
 </ul></li>
 </ul>
 </div>
-<div id="gaining-superuser-access" class="section level3">
-<h3><span class="header-section-number">2.6.3</span> Gaining superuser access</h3>
+<div id="gaining-superuser-access" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.3</span> Gaining superuser access<a href="server-administrator-i---rh124.html#gaining-superuser-access" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><code>su</code> : change to root super user, without set the profile, the path still your regular user</li>
 <li><code>su -</code> : change to root user and set the profile and env of root</li>
@@ -1013,8 +1095,8 @@ sambashare:x:130:bruno</code></pre>
 <pre><code>echo &quot;user ALL=(ALL) ALL&quot; &gt;&gt; /etc/sudoers.d/user
 </code></pre>
 </div>
-<div id="managing-user-passwords" class="section level3">
-<h3><span class="header-section-number">2.6.4</span> Managing user passwords</h3>
+<div id="managing-user-passwords" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.6.4</span> Managing user passwords<a href="server-administrator-i---rh124.html#managing-user-passwords" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We no longer store password on <code>/etc/passwd</code>, the password are stored on <code>/etc/shadow</code></p>
 <ul>
 <li><p><code>chage</code> : used to change the aging info for a user password</p>
@@ -1040,8 +1122,8 @@ sambashare:x:130:bruno</code></pre>
 <pre><code>chage -E $(date -d + 180days +%Y-%m-%d) &lt;user&gt;</code></pre>
 </div>
 </div>
-<div id="controlling-access-to-files" class="section level2">
-<h2><span class="header-section-number">2.7</span> Controlling access to files</h2>
+<div id="controlling-access-to-files" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.7</span> Controlling access to files<a href="server-administrator-i---rh124.html#controlling-access-to-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>drwxrwxrwx</strong></p>
 <ul>
 <li>d : dir, can be l link, etc</li>
@@ -1069,8 +1151,8 @@ Other : last 3</p>
 <p><strong>Tip</strong></p>
 <p><em>Give you read and execute permission do dir but no execute on files inside the dir, i.e, we can list the content but not execute files inside</em></p>
 <pre><code>chmod -R a=rX</code></pre>
-<div id="special-permissions" class="section level3">
-<h3><span class="header-section-number">2.7.1</span> Special permissions</h3>
+<div id="special-permissions" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.7.1</span> Special permissions<a href="server-administrator-i---rh124.html#special-permissions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Sticky bit</strong> : <em>In a collaborative dir you can create files on the dir and only delete files that you have created</em></p>
 <ul>
 <li><p><code>u+s</code> (suid) : Files executes as the user that owns the file, not the user that ran the file</p></li>
@@ -1131,8 +1213,8 @@ ls -ld dirA
 </ul></li>
 </ul>
 </div>
-<div id="default-permissions---umask" class="section level3">
-<h3><span class="header-section-number">2.7.2</span> Default permissions - umask</h3>
+<div id="default-permissions---umask" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.7.2</span> Default permissions - umask<a href="server-administrator-i---rh124.html#default-permissions---umask" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><code>umask</code> : show umask info</li>
 <li><code>umask 0000</code> : set the umask to 0000 or 777 to new dirs</li>
@@ -1142,12 +1224,12 @@ ls -ld dirA
 * The permissions of files going to be 755</p>
 </div>
 </div>
-<div id="monitoring-and-managing-linux-process" class="section level2">
-<h2><span class="header-section-number">2.8</span> Monitoring and Managing Linux process</h2>
+<div id="monitoring-and-managing-linux-process" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.8</span> Monitoring and Managing Linux process<a href="server-administrator-i---rh124.html#monitoring-and-managing-linux-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Process state description</p>
 <p><img src="img/process_state.png" width="90%" /></p>
-<div id="commands-to-monitor" class="section level3">
-<h3><span class="header-section-number">2.8.1</span> Commands to monitor</h3>
+<div id="commands-to-monitor" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.8.1</span> Commands to monitor<a href="server-administrator-i---rh124.html#commands-to-monitor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><code>top</code>
 <ul>
@@ -1166,8 +1248,8 @@ ls -ld dirA
 <li><code>htop</code></li>
 </ul>
 </div>
-<div id="controlling-jobs" class="section level3">
-<h3><span class="header-section-number">2.8.2</span> Controlling jobs</h3>
+<div id="controlling-jobs" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.8.2</span> Controlling jobs<a href="server-administrator-i---rh124.html#controlling-jobs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>sample : <code>gnome-calculator &amp;</code></p>
 <p>Command :
 * <code>jobs</code> : list all jobs
@@ -1177,8 +1259,8 @@ ls -ld dirA
 * <code>bg %&lt;job_number&gt;</code> : restart job
 * <code>Ctrl+c</code> : terminate job</p>
 </div>
-<div id="killing-process" class="section level3">
-<h3><span class="header-section-number">2.8.3</span> Killing process</h3>
+<div id="killing-process" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.8.3</span> Killing process<a href="server-administrator-i---rh124.html#killing-process" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Signals</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="server-administrator-i---rh124.html#cb51-1"></a><span class="bu">kill</span> -l</span></code></pre></div>
 <pre><code>##  1) SIGHUP    2) SIGINT   3) SIGQUIT  4) SIGILL
@@ -1202,14 +1284,14 @@ ls -ld dirA
 <li><code>pgrep -l -u &lt;user&gt;</code> : identify the process that going to be killed by pkill</li>
 </ul>
 </div>
-<div id="monitor-process-activity" class="section level3">
-<h3><span class="header-section-number">2.8.4</span> Monitor process activity</h3>
+<div id="monitor-process-activity" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.8.4</span> Monitor process activity<a href="server-administrator-i---rh124.html#monitor-process-activity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Load Average</strong></p>
 <ul>
 <li><code>uptime</code> command review the load average</li>
 </ul>
 <div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="server-administrator-i---rh124.html#cb53-1"></a><span class="fu">uptime</span></span></code></pre></div>
-<pre><code>## 19:09  up 3 mins, 1 user, load averages: 11.38 7.97 3.47</code></pre>
+<pre><code>## 13:23  up 3 mins, 1 user, load averages: 11.59 7.51 3.24</code></pre>
 <ul>
 <li>1,24 : Last min</li>
 <li>1,07 : Last 5 min</li>
@@ -1271,8 +1353,8 @@ NUMA node0 CPU(s):               0-7
 </ul>
 </div>
 </div>
-<div id="controlling-services-and-daemons" class="section level2">
-<h2><span class="header-section-number">2.9</span> Controlling Services and Daemons</h2>
+<div id="controlling-services-and-daemons" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.9</span> Controlling Services and Daemons<a href="server-administrator-i---rh124.html#controlling-services-and-daemons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <strong>systemd</strong> is responsable for initializing the system and uses <em>units</em> that represent daemons:
 * service : database, web service, tc
 * target : collection of units
@@ -1318,15 +1400,15 @@ systemctl status bluetooth.service
 <li>unmask: <code>systemctl unmask &lt;service&gt;</code></li>
 </ul>
 </div>
-<div id="configuring-and-securing-ssh" class="section level2">
-<h2><span class="header-section-number">2.10</span> Configuring and Securing SSH</h2>
+<div id="configuring-and-securing-ssh" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.10</span> Configuring and Securing SSH<a href="server-administrator-i---rh124.html#configuring-and-securing-ssh" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>On RHEL8 we have OpenSSH which implement not only the SSH daemon but also SSH command line tool</p>
 <ul>
 <li><p><strong>~/.ssh/known_hosts</strong> stores the fingerprint sent by server to future communication</p></li>
 <li><p>To define the <strong>StrictHostKeyChecking</strong> we can edit the file <code>~/.ssh/config</code> or <code>/etc/ssh/ssh_config</code></p></li>
 </ul>
-<div id="configure-ssh-key-based-authentication" class="section level3">
-<h3><span class="header-section-number">2.10.1</span> Configure SSH Key-based Authentication</h3>
+<div id="configure-ssh-key-based-authentication" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.10.1</span> Configure SSH Key-based Authentication<a href="server-administrator-i---rh124.html#configure-ssh-key-based-authentication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>private - decrypt</strong>
 <ul>
@@ -1338,8 +1420,8 @@ systemctl status bluetooth.service
 </ul></li>
 </ul>
 </div>
-<div id="create-a-public-and-private-keypair" class="section level3">
-<h3><span class="header-section-number">2.10.2</span> Create a public and private keypair</h3>
+<div id="create-a-public-and-private-keypair" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.10.2</span> Create a public and private keypair<a href="server-administrator-i---rh124.html#create-a-public-and-private-keypair" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><p>Issue to start and create the Key : <code>ssh-keygen</code></p></li>
 <li><p>Enter the file name</p></li>
@@ -1363,8 +1445,8 @@ eval $(ssh-agent)
 # add the key
 ssh-add .ssh/&lt;public key name&gt;</code></pre>
 </div>
-<div id="customizing-openssh-service-config" class="section level3">
-<h3><span class="header-section-number">2.10.3</span> Customizing OpenSSH Service Config</h3>
+<div id="customizing-openssh-service-config" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.10.3</span> Customizing OpenSSH Service Config<a href="server-administrator-i---rh124.html#customizing-openssh-service-config" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Disable the root ability to login on <code>/etc/ssh/sshd_config</code> to modify the daemon config and change the <strong>PermitRootLogin</strong> to <strong>no</strong></li>
 </ul>
@@ -1376,8 +1458,8 @@ allowGroups, or</li>
 </ul>
 </div>
 </div>
-<div id="analysing-and-storing-logs" class="section level2">
-<h2><span class="header-section-number">2.11</span> Analysing and Storing Logs</h2>
+<div id="analysing-and-storing-logs" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.11</span> Analysing and Storing Logs<a href="server-administrator-i---rh124.html#analysing-and-storing-logs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p>Systemd is the heart of RHEL8 system and need to analyse how it is working</p>
 </blockquote>
@@ -1420,8 +1502,8 @@ allowGroups, or</li>
 <pre><code>logger -p local7.notice &quot;log entry created on host&quot;</code></pre></li>
 </ul></li>
 </ul>
-<div id="reviewing-system-hournal-entries" class="section level3">
-<h3><span class="header-section-number">2.11.1</span> Reviewing System Hournal Entries</h3>
+<div id="reviewing-system-hournal-entries" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.11.1</span> Reviewing System Hournal Entries<a href="server-administrator-i---rh124.html#reviewing-system-hournal-entries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Journal is not persistent and can find the logs on <code>/run/log/journal</code></p>
 <ul>
 <li>systemd-journald - command <code>journalctl</code>
@@ -1440,12 +1522,12 @@ allowGroups, or</li>
 </ul></li>
 </ul>
 </div>
-<div id="preserving-the-system-journal" class="section level3">
-<h3><span class="header-section-number">2.11.2</span> Preserving the system journal</h3>
+<div id="preserving-the-system-journal" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.11.2</span> Preserving the system journal<a href="server-administrator-i---rh124.html#preserving-the-system-journal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>By default the journal is not persistent on <code>/run/log/journal</code> and after reboot we lose all data. To preserve the journal we need to create the dir <code>/var/log/journal</code>, also by default journal are not allow to get more than 10% of file system or leave less than 15% of the file system free. The configuration are on <code>/etc/journald.conf</code></p>
 </div>
-<div id="maitaining-accurate-time" class="section level3">
-<h3><span class="header-section-number">2.11.3</span> Maitaining Accurate time</h3>
+<div id="maitaining-accurate-time" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.11.3</span> Maitaining Accurate time<a href="server-administrator-i---rh124.html#maitaining-accurate-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Have system in sync is important</p>
 </blockquote>
@@ -1470,8 +1552,8 @@ System clock synchronized: yes
 <p>RedHat 7 and 8 use the <strong>chronyd.service</strong> to synchronize the time and inside of <code>/etc/chrony.conf</code> we going to find the list of servers that are in sync and can check the sources with <code>chronyc sources</code></p>
 </div>
 </div>
-<div id="managing-networking" class="section level2">
-<h2><span class="header-section-number">2.12</span> Managing Networking</h2>
+<div id="managing-networking" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.12</span> Managing Networking<a href="server-administrator-i---rh124.html#managing-networking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>TCP/IP layers</strong> :</p>
 <ul>
 <li><strong>Application</strong> : How clients communicate across plataforms, sample Web browser talking withWeb server
@@ -1505,8 +1587,8 @@ System clock synchronized: yes
 <li>WWAN : Wireless AN devices</li>
 <li>WLP4S0 : PCI buss number 4 connect on slot 0</li>
 </ul>
-<div id="tcpip" class="section level3">
-<h3><span class="header-section-number">2.12.1</span> TCPIP</h3>
+<div id="tcpip" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.12.1</span> TCPIP<a href="server-administrator-i---rh124.html#tcpip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>IPV4</strong></p>
 <ul>
 <li><strong>IP</strong>
@@ -1573,8 +1655,8 @@ System clock synchronized: yes
 <li><strong>/etc/resolv.conf</strong> : Wejre DNS service are defined</li>
 </ul>
 </div>
-<div id="validating-network-configuration" class="section level3">
-<h3><span class="header-section-number">2.12.2</span> Validating Network Configuration</h3>
+<div id="validating-network-configuration" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.12.2</span> Validating Network Configuration<a href="server-administrator-i---rh124.html#validating-network-configuration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Commands to review IP config</p>
 <pre><code>ip a
 </code></pre>
@@ -1592,8 +1674,8 @@ System clock synchronized: yes
 </ul></li>
 </ul>
 </div>
-<div id="configure-networking-from-the-command-line" class="section level3">
-<h3><span class="header-section-number">2.12.3</span> Configure Networking from the Command Line</h3>
+<div id="configure-networking-from-the-command-line" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.12.3</span> Configure Networking from the Command Line<a href="server-administrator-i---rh124.html#configure-networking-from-the-command-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Tool: <strong>nmcli</strong> an interface to the <em>Network Manager daemon</em> that supoprt tab complition</p>
 <ul>
 <li><p>Config on : <code>/etc/sysconfig/network-scripts</code></p></li>
@@ -1721,8 +1803,8 @@ nmcli con show
 nmcli con show &lt;name&gt;
 </code></pre>
 </div>
-<div id="editing-network-configuration-files" class="section level3">
-<h3><span class="header-section-number">2.12.4</span> Editing Network Configuration Files</h3>
+<div id="editing-network-configuration-files" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.12.4</span> Editing Network Configuration Files<a href="server-administrator-i---rh124.html#editing-network-configuration-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Files :</strong></p>
 <p>We can modify the config file and perform reload <code>nmcli con reload</code> and <code>nmcli con up &lt;name&gt;</code> or use the nmcli commands</p>
 <ul>
@@ -1733,8 +1815,8 @@ nmcli con show &lt;name&gt;
 mcli con down &quot;static-ens3&quot;
 nmcli con up &quot;static-ens3&quot;</code></pre>
 </div>
-<div id="configuring-hot-names-and-name-resolution" class="section level3">
-<h3><span class="header-section-number">2.12.5</span> Configuring Hot Names and Name Resolution</h3>
+<div id="configuring-hot-names-and-name-resolution" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.12.5</span> Configuring Hot Names and Name Resolution<a href="server-administrator-i---rh124.html#configuring-hot-names-and-name-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Command</p>
 <ul>
@@ -1777,10 +1859,10 @@ nmcli con up &lt;connection name&gt;
 cat /etc/resolv.conf</code></pre>
 </div>
 </div>
-<div id="archiving-and-transferring-files" class="section level2">
-<h2><span class="header-section-number">2.13</span> Archiving and transferring files</h2>
-<div id="tar" class="section level3">
-<h3><span class="header-section-number">2.13.1</span> TAR</h3>
+<div id="archiving-and-transferring-files" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.13</span> Archiving and transferring files<a href="server-administrator-i---rh124.html#archiving-and-transferring-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tar" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.13.1</span> TAR<a href="server-administrator-i---rh124.html#tar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Create tar file</li>
 </ul>
@@ -1811,8 +1893,8 @@ tar -xf etc.tar etc/hosts</code></pre>
 <pre><code>tar -cJf etc-backup-$(date +%F).tar.xz /etc
 </code></pre>
 </div>
-<div id="scp" class="section level3">
-<h3><span class="header-section-number">2.13.2</span> SCP</h3>
+<div id="scp" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.13.2</span> SCP<a href="server-administrator-i---rh124.html#scp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Securely transfer files between systems</p>
 </blockquote>
@@ -1833,8 +1915,8 @@ ssh-copy-id servera
 # run scp command
 scp -r user@servera:/xf . </code></pre>
 </div>
-<div id="sftp" class="section level3">
-<h3><span class="header-section-number">2.13.3</span> SFTP</h3>
+<div id="sftp" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.13.3</span> SFTP<a href="server-administrator-i---rh124.html#sftp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code># connect
 sftp user@servera
 
@@ -1852,8 +1934,8 @@ sftp&gt; lcd /etc
 sftp&gt; put hosts
 </code></pre>
 </div>
-<div id="synchronizing-files-between-system" class="section level3">
-<h3><span class="header-section-number">2.13.4</span> Synchronizing Files Between System</h3>
+<div id="synchronizing-files-between-system" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.13.4</span> Synchronizing Files Between System<a href="server-administrator-i---rh124.html#synchronizing-files-between-system" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Transfer using <code>rsync</code></li>
 </ul>
@@ -1861,8 +1943,8 @@ sftp&gt; put hosts
 <p>If we update the data into servera on xf dir next time we perform <code>rsync</code> it will perform incremental receiving and download only the difference</p>
 </div>
 </div>
-<div id="intalling-and-updating-software-packages" class="section level2">
-<h2><span class="header-section-number">2.14</span> Intalling and updating software packages</h2>
+<div id="intalling-and-updating-software-packages" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.14</span> Intalling and updating software packages<a href="server-administrator-i---rh124.html#intalling-and-updating-software-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To have the Red Hat software update and donwload the bins from RedHat vendor we need a subscription, there are 4 basics elements :</p>
 <ol style="list-style-type: decimal">
 <li>You have to register the server with Red Hat or in fact a satellite server</li>
@@ -1877,8 +1959,8 @@ sftp&gt; put hosts
 <li>Attach to subscription : <code>subscription-manager attach --auto</code></li>
 <li>Enable repos : <code>subscription-manager repos --disable='*'--enable='repos_name'</code></li>
 </ul>
-<div id="package-manager" class="section level3">
-<h3><span class="header-section-number">2.14.1</span> Package manager</h3>
+<div id="package-manager" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.14.1</span> Package manager<a href="server-administrator-i---rh124.html#package-manager" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p><code>rpm</code> : Red Hat Package Manager is a popular format for installing software</p>
 </blockquote>
@@ -1940,8 +2022,8 @@ rpm -qi &lt;package&gt;</code></pre>
 </ul>
 <pre><code>rpm2cpio &lt;file&gt;.rpm | cpio -duim</code></pre>
 </div>
-<div id="inslalling-and-update-software-packages-with-yum" class="section level3">
-<h3><span class="header-section-number">2.14.2</span> Inslalling and Update Software Packages with <strong>Yum</strong></h3>
+<div id="inslalling-and-update-software-packages-with-yum" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.14.2</span> Inslalling and Update Software Packages with <strong>Yum</strong><a href="server-administrator-i---rh124.html#inslalling-and-update-software-packages-with-yum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Search or get info on current repos</li>
 </ul>
@@ -2006,8 +2088,8 @@ sudo yum localinstall &lt;package&gt;.rpm</code></pre>
 </ol>
 <pre><code>^list^-y install</code></pre>
 </div>
-<div id="enabling-yum-software-repositories" class="section level3">
-<h3><span class="header-section-number">2.14.3</span> Enabling Yum Software Repositories</h3>
+<div id="enabling-yum-software-repositories" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.14.3</span> Enabling Yum Software Repositories<a href="server-administrator-i---rh124.html#enabling-yum-software-repositories" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>List the repositories that we are connected and repo definition path are on <strong>/etc/yum.repos.d/</strong></li>
 </ul>
@@ -2023,12 +2105,12 @@ yum-config-manager --enable &lt;repo_name&gt;</code></pre>
 </ul>
 <pre><code>subscription-manager-repos --list</code></pre>
 </div>
-<div id="managing-packages-module-streams" class="section level3">
-<h3><span class="header-section-number">2.14.4</span> Managing Packages Module Streams</h3>
+<div id="managing-packages-module-streams" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.14.4</span> Managing Packages Module Streams<a href="server-administrator-i---rh124.html#managing-packages-module-streams" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Module is a set of RPM packages</p>
 </blockquote>
-<p><img src="img/repo_modules.png" width="90%" /></p>
+<p><img src="img/repo_modules.png" width="60%" /></p>
 <ul>
 <li>List modules and get info</li>
 </ul>
@@ -2065,8 +2147,8 @@ gpgcheck=0</code></pre>
 <pre><code>yum config-manager --add-repo &lt;URL&gt;</code></pre>
 </div>
 </div>
-<div id="accessing-linux-file-systems" class="section level2">
-<h2><span class="header-section-number">2.15</span> Accessing Linux File Systems</h2>
+<div id="accessing-linux-file-systems" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.15</span> Accessing Linux File Systems<a href="server-administrator-i---rh124.html#accessing-linux-file-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><code>df -h</code> : overview of various file systems</li>
 <li><code>blkid /dev/vda1</code> : show the UUID (<em>universally-unique identifier</em>) of file system</li>
@@ -2100,8 +2182,8 @@ brw-rw---- 1 root disk 8, 0 Aug 22 08:50 /dev/sda
 <pre><code>$du -sh /var/log
 1,3G    /var/log
 </code></pre>
-<div id="mount-and-unmounting-file-systems" class="section level3">
-<h3><span class="header-section-number">2.15.1</span> Mount and Unmounting File systems</h3>
+<div id="mount-and-unmounting-file-systems" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.15.1</span> Mount and Unmounting File systems<a href="server-administrator-i---rh124.html#mount-and-unmounting-file-systems" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>To Mount</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Check the UUID of block device using <code>blkid /dev/vb1</code> for instance</p></li>
@@ -2115,8 +2197,8 @@ brw-rw---- 1 root disk 8, 0 Aug 22 08:50 /dev/sda
 <li><code>umount &lt;/dev/vdb1&gt;</code></li>
 </ul>
 </div>
-<div id="locating-files-on-the-system" class="section level3">
-<h3><span class="header-section-number">2.15.2</span> Locating Files on the System</h3>
+<div id="locating-files-on-the-system" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.15.2</span> Locating Files on the System<a href="server-administrator-i---rh124.html#locating-files-on-the-system" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>find</strong></p>
 <p>Basic <em>find</em> syntax :</p>
 <ul>
@@ -2143,16 +2225,16 @@ brw-rw---- 1 root disk 8, 0 Aug 22 08:50 /dev/sda
 </ul>
 </div>
 </div>
-<div id="analysing-server-and-getting-support" class="section level2">
-<h2><span class="header-section-number">2.16</span> Analysing Server and Getting Support</h2>
+<div id="analysing-server-and-getting-support" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.16</span> Analysing Server and Getting Support<a href="server-administrator-i---rh124.html#analysing-server-and-getting-support" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>cockpit</strong> service used to analysing and managing remote servers, this is a web user interface that use TCP 9090</p>
 <ul>
 <li>Enable : <code>systemctl enable --now cokpit.socket</code></li>
 <li>Reload firewall daemon and set permanent : <code>firewall-cm --add-service cockpit --permanent</code> and <code>firewall-cmd --reload</code></li>
 <li>link : <a href="https://" class="uri">https://</a><server_name>:9090/system</li>
 </ul>
-<div id="deteting-and-resolving-issues-with-red-hat-insights" class="section level3">
-<h3><span class="header-section-number">2.16.1</span> Deteting and Resolving issues with Red Hat Insights</h3>
+<div id="deteting-and-resolving-issues-with-red-hat-insights" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.16.1</span> Deteting and Resolving issues with Red Hat Insights<a href="server-administrator-i---rh124.html#deteting-and-resolving-issues-with-red-hat-insights" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>It is a form of AI which is available as a software as a service</p>
 </blockquote>
@@ -2173,10 +2255,10 @@ sudo insights-client --register
 </ol>
 </div>
 </div>
-<div id="extra" class="section level2">
-<h2><span class="header-section-number">2.17</span> Extra</h2>
-<div id="create-8g-file-disk" class="section level3">
-<h3><span class="header-section-number">2.17.1</span> Create 8G file disk</h3>
+<div id="extra" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.17</span> Extra<a href="server-administrator-i---rh124.html#extra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="create-8g-file-disk" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.17.1</span> Create 8G file disk<a href="server-administrator-i---rh124.html#create-8g-file-disk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Use dd command to create 8G disk file</li>
 </ol>
@@ -2192,16 +2274,16 @@ sudo insights-client --register
 <p>4.Can use new diskfile as a device</p>
 <pre><code>fdisk /dev/loop0</code></pre>
 </div>
-<div id="find-users-wit-set-uid" class="section level3">
-<h3><span class="header-section-number">2.17.2</span> Find users wit Set UID</h3>
+<div id="find-users-wit-set-uid" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.17.2</span> Find users wit Set UID<a href="server-administrator-i---rh124.html#find-users-wit-set-uid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>find / -perm /4000 -exec ls -l {} \ 2&gt; /dev/null</code></pre>
 </div>
-<div id="show-dump-device" class="section level3">
-<h3><span class="header-section-number">2.17.3</span> Show dump device</h3>
+<div id="show-dump-device" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.17.3</span> Show dump device<a href="server-administrator-i---rh124.html#show-dump-device" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>xxd -l 512 /dev/sda | less</code></pre>
 </div>
-<div id="configure-labels-of-fs" class="section level3">
-<h3><span class="header-section-number">2.17.4</span> Configure labels of FS</h3>
+<div id="configure-labels-of-fs" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.17.4</span> Configure labels of FS<a href="server-administrator-i---rh124.html#configure-labels-of-fs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>tune2fs -L &lt;label&gt; /dev/sda&lt;number&gt;</code></pre>
 
 </div>
@@ -2267,6 +2349,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title># 3 Server Administrator II - RH134 | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="# 3 Server Administrator II - RH134 | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Those notes are for future reference" />
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2021-12-09" />
+<meta name="date" content="2022-05-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +50,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -293,7 +293,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-facts"><i class="fa fa-check"></i><b>4.3.6</b> Managing Facts</a></li>
 <li class="chapter" data-level="4.3.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#magic-variables"><i class="fa fa-check"></i><b>4.3.7</b> Magic Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a></li>
+<li class="chapter" data-level="4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#implementing-task-control"><i class="fa fa-check"></i><b>4.4</b> Implementing Task Control</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#loops"><i class="fa fa-check"></i><b>4.4.1</b> Loops</a></li>
+<li class="chapter" data-level="4.4.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#task-conditionally"><i class="fa fa-check"></i><b>4.4.2</b> Task Conditionally</a></li>
+<li class="chapter" data-level="4.4.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#handlers"><i class="fa fa-check"></i><b>4.4.3</b> Handlers</a></li>
+<li class="chapter" data-level="4.4.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#blocks"><i class="fa fa-check"></i><b>4.4.4</b> Blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-files-to-managed-hosts"><i class="fa fa-check"></i><b>4.5</b> Deploying Files to Managed Hosts</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#modifying-and-copying-files-to-hosts"><i class="fa fa-check"></i><b>4.5.1</b> Modifying and Copying Files to hosts</a></li>
+<li class="chapter" data-level="4.5.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-custom-files-with-jinja2-templates"><i class="fa fa-check"></i><b>4.5.2</b> Deploying Custom files with Jinja2 templates</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-complex-plays-and-playbooks"><i class="fa fa-check"></i><b>4.6</b> Managing Complex Plays and Playbooks</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#selecting-hosts-with-host-patterns"><i class="fa fa-check"></i><b>4.6.1</b> Selecting Hosts with Host Patterns</a></li>
+<li class="chapter" data-level="4.6.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#including-and-importing-files"><i class="fa fa-check"></i><b>4.6.2</b> Including and Importing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#simplifying-playbooks-with-roles"><i class="fa fa-check"></i><b>4.7</b> Simplifying Playbooks with Roles</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#describing-role-structure"><i class="fa fa-check"></i><b>4.7.1</b> Describing Role Structure</a></li>
+<li class="chapter" data-level="4.7.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#reusing-content-with-system-roles"><i class="fa fa-check"></i><b>4.7.2</b> Reusing Content with System Roles</a></li>
+<li class="chapter" data-level="4.7.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#creating-roles"><i class="fa fa-check"></i><b>4.7.3</b> Creating Roles</a></li>
+<li class="chapter" data-level="4.7.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#deploying-roles-with-ansible-galaxy"><i class="fa fa-check"></i><b>4.7.4</b> Deploying Roles with Ansible Galaxy</a></li>
+<li class="chapter" data-level="4.7.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#roles-and-modules-from-content-collections"><i class="fa fa-check"></i><b>4.7.5</b> Roles and Modules from Content Collections</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#troubleshooting-ansible"><i class="fa fa-check"></i><b>4.8</b> Troubleshooting Ansible</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#troubleshooting-playbooks"><i class="fa fa-check"></i><b>4.8.1</b> Troubleshooting Playbooks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#automating-linux-administration-tasks"><i class="fa fa-check"></i><b>4.9</b> Automating Linux Administration Tasks</a><ul>
+<li class="chapter" data-level="4.9.1" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-software-and-subscriptions"><i class="fa fa-check"></i><b>4.9.1</b> Managing Software and Subscriptions</a></li>
+<li class="chapter" data-level="4.9.2" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-users-and-authenticatin"><i class="fa fa-check"></i><b>4.9.2</b> Managing Users and Authenticatin</a></li>
+<li class="chapter" data-level="4.9.3" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-the-boot-process-and-scheduled-processes"><i class="fa fa-check"></i><b>4.9.3</b> Managing the Boot Process and Scheduled Processes</a></li>
+<li class="chapter" data-level="4.9.4" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-storage"><i class="fa fa-check"></i><b>4.9.4</b> Managing Storage</a></li>
+<li class="chapter" data-level="4.9.5" data-path="server-administrator-iii---rh294.html"><a href="server-administrator-iii---rh294.html#managing-network-configuration"><i class="fa fa-check"></i><b>4.9.5</b> Managing Network Configuration</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html"><i class="fa fa-check"></i><b>5</b> Red Hat OpenShift I: Containers &amp; Kubernetes - DO180</a><ul>
 <li class="chapter" data-level="5.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#intro-to-container"><i class="fa fa-check"></i><b>5.1</b> Intro to Container</a><ul>
@@ -319,6 +349,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-containerized-applications-on-openshift"><i class="fa fa-check"></i><b>5.6</b> Deploying Containerized Applications on OpenShift</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#describing-kubernetes-and-openshift-architecture"><i class="fa fa-check"></i><b>5.6.1</b> Describing Kubernetes and OpenShift Architecture</a></li>
 <li class="chapter" data-level="5.6.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-kubernetes-resources"><i class="fa fa-check"></i><b>5.6.2</b> Creating Kubernetes Resources</a></li>
+<li class="chapter" data-level="5.6.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-routes"><i class="fa fa-check"></i><b>5.6.3</b> Creating Routes</a></li>
+<li class="chapter" data-level="5.6.4" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#creating-applications-with-source-to-image"><i class="fa fa-check"></i><b>5.6.4</b> Creating Applications with Source-to-Image</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-multi-container-applications"><i class="fa fa-check"></i><b>5.7</b> Deploying Multi-Container Applications</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#considerations-for-multi-container-applications"><i class="fa fa-check"></i><b>5.7.1</b> Considerations for Multi-Container Applications</a></li>
+<li class="chapter" data-level="5.7.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-app-on-openshift"><i class="fa fa-check"></i><b>5.7.2</b> Deploying A Multi-Container App on OpenShift</a></li>
+<li class="chapter" data-level="5.7.3" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#deploying-a-multi-container-application-on-openshift-using-a-template"><i class="fa fa-check"></i><b>5.7.3</b> Deploying a Multi-container Application on OpenShift Using a Template</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications"><i class="fa fa-check"></i><b>5.8</b> Troubleshooting Containerized Applications</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-s2i-builds-and-deployments"><i class="fa fa-check"></i><b>5.8.1</b> Troubleshooting S2I Builds and Deployments</a></li>
+<li class="chapter" data-level="5.8.2" data-path="red-hat-openshift-i-containers-kubernetes---do180.html"><a href="red-hat-openshift-i-containers-kubernetes---do180.html#troubleshooting-containerized-applications-1"><i class="fa fa-check"></i><b>5.8.2</b> Troubleshooting Containerized Applications</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><i class="fa fa-check"></i><b>6</b> Red Hat OpenShift Administration II: Operating a Production Kubernetes Cluster - DO280</a><ul>
@@ -332,26 +373,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#troubleshooting-openshit-cluster-and-applications"><i class="fa fa-check"></i><b>6.2.2</b> Troubleshooting OpenShit Cluster and Applications</a></li>
 <li class="chapter" data-level="6.2.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#introducing-openshift-dynamic-storage"><i class="fa fa-check"></i><b>6.2.3</b> Introducing OpenShift Dynamic Storage</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-authentication-and-authorization"><i class="fa fa-check"></i><b>6.3</b> Configuring Authentication and Authorization</a></li>
+<li class="chapter" data-level="6.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-authentication-and-authorization"><i class="fa fa-check"></i><b>6.3</b> Configuring Authentication and Authorization</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#identity"><i class="fa fa-check"></i><b>6.3.1</b> Identity</a></li>
+<li class="chapter" data-level="6.3.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-the-htpasswd-identity-provider"><i class="fa fa-check"></i><b>6.3.2</b> Configuring the HTPasswd Identity Provider</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-application-security"><i class="fa fa-check"></i><b>6.4</b> Configuring Application Security</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#managing-sensitive-information-with-secrets"><i class="fa fa-check"></i><b>6.4.1</b> Managing Sensitive Information with secrets</a></li>
+<li class="chapter" data-level="6.4.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#controlling-application-permissions-with-security-contect-contrainst"><i class="fa fa-check"></i><b>6.4.2</b> Controlling Application Permissions with Security Contect Contrainst</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-openshift-networking-for-applications"><i class="fa fa-check"></i><b>6.5</b> Configuring OpenShift Networking For Applications</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#openshift-software-defined-networking"><i class="fa fa-check"></i><b>6.5.1</b> OpenShift Software-defined Networking</a></li>
+<li class="chapter" data-level="6.5.2" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#exposing-applications-for-external-access"><i class="fa fa-check"></i><b>6.5.2</b> Exposing Applications for External Access</a></li>
+<li class="chapter" data-level="6.5.3" data-path="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html"><a href="red-hat-openshift-administration-ii-operating-a-production-kubernetes-cluster---do280.html#configuring-network-policies"><i class="fa fa-check"></i><b>6.5.3</b> Configuring Network Policies</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="7" data-path="devops.html"><a href="devops.html"><i class="fa fa-check"></i><b>7</b> DevOps</a><ul>
 <li class="chapter" data-level="7.1" data-path="devops.html"><a href="devops.html#azure"><i class="fa fa-check"></i><b>7.1</b> Azure</a></li>
-<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a></li>
+<li class="chapter" data-level="7.2" data-path="devops.html"><a href="devops.html#aws"><i class="fa fa-check"></i><b>7.2</b> AWS</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="devops.html"><a href="devops.html#part-1-cloud-concepts"><i class="fa fa-check"></i><b>7.2.1</b> Part 1 : Cloud Concepts</a></li>
+<li class="chapter" data-level="7.2.2" data-path="devops.html"><a href="devops.html#part-2-foundation"><i class="fa fa-check"></i><b>7.2.2</b> Part 2 : Foundation</a></li>
+<li class="chapter" data-level="7.2.3" data-path="devops.html"><a href="devops.html#part-3-aws-well-architected"><i class="fa fa-check"></i><b>7.2.3</b> Part 3 : AWS Well-Architected</a></li>
+<li class="chapter" data-level="7.2.4" data-path="devops.html"><a href="devops.html#part-4-iam"><i class="fa fa-check"></i><b>7.2.4</b> Part 4 : IAM</a></li>
+<li class="chapter" data-level="7.2.5" data-path="devops.html"><a href="devops.html#part-5-iam-cont"><i class="fa fa-check"></i><b>7.2.5</b> Part 5 : IAM cont…</a></li>
+</ul></li>
 <li class="chapter" data-level="7.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>7.3</b> Docker</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>7.3.1</b> Part 1</a></li>
 <li class="chapter" data-level="7.3.2" data-path="devops.html"><a href="devops.html#part-2"><i class="fa fa-check"></i><b>7.3.2</b> Part 2</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="devops.html"><a href="devops.html#jenkins"><i class="fa fa-check"></i><b>7.4</b> Jenkins</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="devops.html"><a href="devops.html#cicd"><i class="fa fa-check"></i><b>7.4.1</b> CI/CD</a></li>
+<li class="chapter" data-level="7.4.2" data-path="devops.html"><a href="devops.html#install"><i class="fa fa-check"></i><b>7.4.2</b> Install</a></li>
+<li class="chapter" data-level="7.4.3" data-path="devops.html"><a href="devops.html#arquitecture"><i class="fa fa-check"></i><b>7.4.3</b> Arquitecture</a></li>
+<li class="chapter" data-level="7.4.4" data-path="devops.html"><a href="devops.html#job"><i class="fa fa-check"></i><b>7.4.4</b> Job</a></li>
+<li class="chapter" data-level="7.4.5" data-path="devops.html"><a href="devops.html#git-github"><i class="fa fa-check"></i><b>7.4.5</b> Git &amp; GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="devops.html"><a href="devops.html#git"><i class="fa fa-check"></i><b>7.5</b> Git</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="devops.html"><a href="devops.html#intro-2"><i class="fa fa-check"></i><b>7.5.1</b> Intro</a></li>
+<li class="chapter" data-level="7.5.2" data-path="devops.html"><a href="devops.html#setup-and-config"><i class="fa fa-check"></i><b>7.5.2</b> Setup and Config</a></li>
+<li class="chapter" data-level="7.5.3" data-path="devops.html"><a href="devops.html#working-locally"><i class="fa fa-check"></i><b>7.5.3</b> Working Locally</a></li>
+<li class="chapter" data-level="7.5.4" data-path="devops.html"><a href="devops.html#working-remote"><i class="fa fa-check"></i><b>7.5.4</b> Working Remote</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>8</b> Data Science</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-science.html"><a href="data-science.html#datacamp-python-skills-for-data-science"><i class="fa fa-check"></i><b>8.1</b> DataCamp Python Skills for Data Science</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="data-science.html"><a href="data-science.html#introduction-to-python"><i class="fa fa-check"></i><b>8.1.1</b> Introduction to Python</a></li>
-<li class="chapter" data-level="8.1.2" data-path="data-science.html"><a href="data-science.html#intermediate-pyton"><i class="fa fa-check"></i><b>8.1.2</b> Intermediate Pyton</a></li>
-<li class="chapter" data-level="8.1.3" data-path="data-science.html"><a href="data-science.html#project"><i class="fa fa-check"></i><b>8.1.3</b> Project</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="data-science.html"><a href="data-science.html#datacamp-r-skills-for-data-science"><i class="fa fa-check"></i><b>8.2</b> DataCamp R Skills for Data Science</a></li>
 <li class="chapter" data-level="8.3" data-path="data-science.html"><a href="data-science.html#azure-data-science-certification"><i class="fa fa-check"></i><b>8.3</b> Azure Data Science Certification</a></li>
-<li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a></li>
+<li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="data-science.html"><a href="data-science.html#demystifying-ai-ml-dl"><i class="fa fa-check"></i><b>8.4.1</b> Demystifying AI / ML / DL</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machine-learning-engineer"><i class="fa fa-check"></i><b>8.5</b> GCP - Professional Machine Learning Engineer</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="data-science.html"><a href="data-science.html#big-data-and-ml-fundamentals"><i class="fa fa-check"></i><b>8.5.1</b> Big Data and ML Fundamentals</a></li>
+<li class="chapter" data-level="8.5.2" data-path="data-science.html"><a href="data-science.html#recommending-products-using-cloud-sql-and-spark"><i class="fa fa-check"></i><b>8.5.2</b> Recommending Products using Cloud SQL and Spark</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="data-science.html"><a href="data-science.html#kyndryl-data-science-roudmap"><i class="fa fa-check"></i><b>8.6</b> Kyndryl Data Science Roudmap</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="data-science.html"><a href="data-science.html#data-science--project-management-methodology---crisp-dm"><i class="fa fa-check"></i><b>8.6.1</b> Data Science- Project Management Methodology - CRISP-DM</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-science.html"><a href="data-science.html#statistics-for-data-analysis-using-python"><i class="fa fa-check"></i><b>8.6.2</b> Statistics for Data Analysis Using Python</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -373,10 +453,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="server-administrator-ii---rh134" class="section level1">
-<h1><span class="header-section-number"># 3</span> Server Administrator II - RH134</h1>
-<div id="improving-command-line-productivity" class="section level2">
-<h2><span class="header-section-number">3.1</span> Improving Command Line Productivity</h2>
+<div id="server-administrator-ii---rh134" class="section level1 hasAnchor">
+<h1><span class="header-section-number"># 3</span> Server Administrator II - RH134<a href="server-administrator-ii---rh134.html#server-administrator-ii---rh134" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="improving-command-line-productivity" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.1</span> Improving Command Line Productivity<a href="server-administrator-ii---rh134.html#improving-command-line-productivity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Writing Simple Bash Scripts</strong></p>
 <p>The Bash interpreter start in the first line of script with <strong>#! /bin/bash</strong> and to run the script we need :</p>
 <ol style="list-style-type: decimal">
@@ -555,8 +635,8 @@ zoocyst
 </ul>
 <pre><code>grep -v &#39;^[#;]&#39; file</code></pre>
 </div>
-<div id="scheduling-future-tasks" class="section level2">
-<h2><span class="header-section-number">3.2</span> Scheduling Future Tasks</h2>
+<div id="scheduling-future-tasks" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.2</span> Scheduling Future Tasks<a href="server-administrator-ii---rh134.html#scheduling-future-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>One time Job</strong> : <code>at</code> command</p>
 <ul>
 <li><code>at</code> <em>TIMESPEC</em> command to schedule a new job
@@ -734,8 +814,8 @@ L /run/fstablink - root root - /etc/fstab</code></pre>
 <li>/usr/lib/tmpfiles.d/*.conf</li>
 </ul>
 </div>
-<div id="tuning-system-performance" class="section level2">
-<h2><span class="header-section-number">3.3</span> Tuning System Performance</h2>
+<div id="tuning-system-performance" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.3</span> Tuning System Performance<a href="server-administrator-ii---rh134.html#tuning-system-performance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p><strong>tuned</strong> daemon allow us optmize system performance by selection a tunning profile</p>
 </blockquote>
@@ -744,8 +824,8 @@ L /run/fstablink - root root - /etc/fstab</code></pre>
 </ul>
 <pre><code>yum install tuned
 systemctl enable --now tuned</code></pre>
-<div id="profiles" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Profiles</h3>
+<div id="profiles" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.3.1</span> Profiles<a href="server-administrator-ii---rh134.html#profiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><strong>balanced</strong> : Ideal for systems that require a compromise between power saving and performance.</p></li>
 <li><p><strong>desktop</strong> : Derived from the balanced profile. Provides faster response of interactive applications.</p></li>
@@ -760,8 +840,8 @@ expense of power consumption.</p></li>
 <li><p><strong>virtual-host</strong> : Tunes the system for maximum performance if it acts as a host for virtual machines</p></li>
 </ul>
 </div>
-<div id="managing-profiles-from-command-line" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Managing profiles from command line</h3>
+<div id="managing-profiles-from-command-line" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.3.2</span> Managing profiles from command line<a href="server-administrator-ii---rh134.html#managing-profiles-from-command-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>To active</li>
 </ul>
@@ -785,8 +865,8 @@ tuned-adm active</code></pre>
 <pre><code>tuned-adm off
 tuned-adm active</code></pre>
 </div>
-<div id="influencing-process-scheduling" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Influencing Process Scheduling</h3>
+<div id="influencing-process-scheduling" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.3.3</span> Influencing Process Scheduling<a href="server-administrator-ii---rh134.html#influencing-process-scheduling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Prioritize or de-prioritize specific process with <strong>nice</strong> and <strong>renice</strong></p>
 </blockquote>
@@ -817,8 +897,8 @@ nice -n 15 sha1sum &amp;</code></pre>
 <pre><code>renice -n &lt;level&gt; &lt;process number&gt;</code></pre>
 </div>
 </div>
-<div id="controling-access-to-files-with-acls" class="section level2">
-<h2><span class="header-section-number">3.4</span> Controling Access to Files with ACLs</h2>
+<div id="controling-access-to-files-with-acls" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.4</span> Controling Access to Files with ACLs<a href="server-administrator-ii---rh134.html#controling-access-to-files-with-acls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p>ACLs <em>Access Control List</em> are extention of permissions</p>
 </blockquote>
@@ -887,8 +967,8 @@ other::---</code></pre>
 </ul>
 <pre><code>$ setfacl -b file</code></pre>
 </div>
-<div id="managing-selinux-security" class="section level2">
-<h2><span class="header-section-number">3.5</span> Managing SELinux Security</h2>
+<div id="managing-selinux-security" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.5</span> Managing SELinux Security<a href="server-administrator-ii---rh134.html#managing-selinux-security" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p>Security Enhanced Linux (<em>SELinux</em>) is an additional layer of system security. The primary goal of SELinux is to <strong>protect user data</strong> from system services that have been compromised</p>
 </blockquote>
@@ -927,8 +1007,8 @@ Permissive</code></pre>
 <li>Check status</li>
 </ul>
 <pre><code>sestatus</code></pre>
-<div id="controlling-selinux-file-contexts" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Controlling SELinux File Contexts</h3>
+<div id="controlling-selinux-file-contexts" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.5.1</span> Controlling SELinux File Contexts<a href="server-administrator-ii---rh134.html#controlling-selinux-file-contexts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>When <strong>copy</strong> a file or <strong>create</strong> a new file the file <strong>inherits</strong> the SELinux <strong>context</strong> of the directory</li>
 <li>If I <strong>move</strong> a file it <strong>retain</strong> the SELinux <strong>context</strong></li>
@@ -956,8 +1036,8 @@ semage fcontext -lC</code></pre>
 </ul></li>
 </ul>
 </div>
-<div id="adjusting-selinux-policy-with-booleans" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> Adjusting SELinux Policy with Booleans</h3>
+<div id="adjusting-selinux-policy-with-booleans" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.5.2</span> Adjusting SELinux Policy with Booleans<a href="server-administrator-ii---rh134.html#adjusting-selinux-policy-with-booleans" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>SELinux booleans are switches that change the behavior of the SELinux policy. SELinux booleans
 are rules that can be enabled or disabled.</p>
@@ -992,8 +1072,8 @@ httpd_enable_homedirs  (on,on) Allow httpd to enable homedirs</code></pre>
 SELinux boolean       State Default Description
 cron_can_relabel        (off,on)  Allow cron to can relab</code></pre>
 </div>
-<div id="investigating-and-resolving-selinux-issues" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> Investigating and REsolving SELinux issues</h3>
+<div id="investigating-and-resolving-selinux-issues" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.5.3</span> Investigating and REsolving SELinux issues<a href="server-administrator-ii---rh134.html#investigating-and-resolving-selinux-issues" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>sealert</strong> display info during SELinux troubleshooting</li>
 </ul>
@@ -1013,10 +1093,10 @@ correctly by prohibiting the attempted access.</p></li>
 </ul>
 </div>
 </div>
-<div id="managing-basic-storage" class="section level2">
-<h2><span class="header-section-number">3.6</span> Managing Basic Storage</h2>
-<div id="adding-partition-file-systems-and-persistent-mounts" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> Adding Partition, File Systems and Persistent Mounts</h3>
+<div id="managing-basic-storage" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.6</span> Managing Basic Storage<a href="server-administrator-ii---rh134.html#managing-basic-storage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="adding-partition-file-systems-and-persistent-mounts" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.6.1</span> Adding Partition, File Systems and Persistent Mounts<a href="server-administrator-ii---rh134.html#adding-partition-file-systems-and-persistent-mounts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>MBR Partitioning Schema</strong>
 <ul>
@@ -1217,8 +1297,8 @@ yum -y install gdisk
 <p><strong>Show dump device</strong></p>
 <pre><code>xxd -l 512 /dev/sda | less</code></pre>
 </div>
-<div id="managing-swap-space" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> Managing Swap Space</h3>
+<div id="managing-swap-space" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.6.2</span> Managing Swap Space<a href="server-administrator-ii---rh134.html#managing-swap-space" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A <em>swap space</em> is an area of a disk under the control of the Linux kernel memory management
 subsystem. The kernel uses swap space to supplement the system RAM by holding inactive pages
 of memory. The combined system RAM plus swap space is called <em>virtual memory</em>.</p>
@@ -1256,10 +1336,10 @@ swapon -s
 </ul>
 </div>
 </div>
-<div id="managing-logical-volumes" class="section level2">
-<h2><span class="header-section-number">3.7</span> Managing Logical Volumes</h2>
-<div id="creating-logical-volumes" class="section level3">
-<h3><span class="header-section-number">3.7.1</span> Creating Logical Volumes</h3>
+<div id="managing-logical-volumes" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.7</span> Managing Logical Volumes<a href="server-administrator-ii---rh134.html#managing-logical-volumes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="creating-logical-volumes" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.7.1</span> Creating Logical Volumes<a href="server-administrator-ii---rh134.html#creating-logical-volumes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using Logical volumes is easier to manage disk space, we can allocate to logical volume free space from volume group and file system can be resized</p>
 <p>LVM Definitions</p>
 <p><em>Physical devices</em></p>
@@ -1384,8 +1464,8 @@ mount /mnt/data
 </ul>
 <pre><code>lvdisplay /dev/vg01/lv01</code></pre>
 </div>
-<div id="extending-and-reducing-logical-volumes" class="section level3">
-<h3><span class="header-section-number">3.7.2</span> Extending and Reducing Logical Volumes</h3>
+<div id="extending-and-reducing-logical-volumes" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.7.2</span> Extending and Reducing Logical Volumes<a href="server-administrator-ii---rh134.html#extending-and-reducing-logical-volumes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Extending Volume groups</strong> : We can add more disk space to a volume group by adding additional physical volumes. Then assign the new physical extents to logical volumes.</p>
 <p><strong>Reducing the volume group</strong> : We also can remove unused physical volume from a volume group
 * First use <code>pvmove</code> to move data from extents on one physical volume to extents on another physical extents</p>
@@ -1483,10 +1563,10 @@ mount /mnt/data
 <pre><code>swapon -va /dev/vgname/lvname</code></pre>
 </div>
 </div>
-<div id="implementing-advanced-storage-features" class="section level2">
-<h2><span class="header-section-number">3.8</span> Implementing Advanced Storage Features</h2>
-<div id="managing-storage-with-stratis" class="section level3">
-<h3><span class="header-section-number">3.8.1</span> Managing Storage with Stratis</h3>
+<div id="implementing-advanced-storage-features" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.8</span> Implementing Advanced Storage Features<a href="server-administrator-ii---rh134.html#implementing-advanced-storage-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="managing-storage-with-stratis" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.8.1</span> Managing Storage with Stratis<a href="server-administrator-ii---rh134.html#managing-storage-with-stratis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p><strong>STRATIS</strong> is a new storage-management solution for Linux, runs as a service that manages pools of physical storage devices and transparently creates and manages volumes for the newly created file system.</p>
 </blockquote>
@@ -1540,8 +1620,8 @@ UUID=31b9363b-add8-4b46-a4bf-c199cd478c55 /dir1 xfs defaults,x-systemd.requires=
 <p><em>The <strong>x-systemd.requires=stratisd.service</strong> mount option delays mounting the file system
 until after <strong>systemd</strong> starts the <strong>stratisd.service</strong> during the boot process</em></p>
 </div>
-<div id="compressing-and-deduplicating-storage-with-vdo" class="section level3">
-<h3><span class="header-section-number">3.8.2</span> Compressing and Deduplicating Storage with VDO</h3>
+<div id="compressing-and-deduplicating-storage-with-vdo" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.8.2</span> Compressing and Deduplicating Storage with VDO<a href="server-administrator-ii---rh134.html#compressing-and-deduplicating-storage-with-vdo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Virtual Data Optimizer (VDO) is a Linux device mapper driver that reduces disk space usage on block devices, and minimizes the replication of data.</p>
 <ul>
 <li><em>Kernel modules</em>
@@ -1599,10 +1679,10 @@ vdo start</code></pre>
 <pre><code>mount -o remount, rw /</code></pre>
 </div>
 </div>
-<div id="accessing-network-attached-storage" class="section level2">
-<h2><span class="header-section-number">3.9</span> Accessing Network-Attached Storage</h2>
-<div id="mounting-network-attached-storage-with-nfs" class="section level3">
-<h3><span class="header-section-number">3.9.1</span> Mounting Network-Attached Storage with NFS</h3>
+<div id="accessing-network-attached-storage" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.9</span> Accessing Network-Attached Storage<a href="server-administrator-ii---rh134.html#accessing-network-attached-storage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mounting-network-attached-storage-with-nfs" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.9.1</span> Mounting Network-Attached Storage with NFS<a href="server-administrator-ii---rh134.html#mounting-network-attached-storage-with-nfs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>NFS servers export shares (directories). NFS clients mount an exported share to a local mount
 point (directory), which must exist. NFS shares can be mounted a number of ways:</p>
 <ul>
@@ -1644,8 +1724,8 @@ serverb:/share /mountpoint nfs rw,soft 0 0</code></pre>
 <p><strong>Unmounting NFS Shares</strong></p>
 <pre><code>[user@host ~]$ sudo umount mountpoint</code></pre>
 </div>
-<div id="automounting-network-attached-storage" class="section level3">
-<h3><span class="header-section-number">3.9.2</span> Automounting Network-Attached Storage</h3>
+<div id="automounting-network-attached-storage" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.9.2</span> Automounting Network-Attached Storage<a href="server-administrator-ii---rh134.html#automounting-network-attached-storage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>The automounter is a service (<strong>autofs</strong>) that automatically mounts NFS shares <em>“on-demand”</em>, and will automatically unmount NFS shares when they are no longer being used.</p>
 </blockquote>
@@ -1695,10 +1775,10 @@ work -rw,sync serverb:/shares/work</code></pre>
 <pre><code>* -rw,sync serverb:/shares/&amp;</code></pre>
 </div>
 </div>
-<div id="controlling-the-boot-process" class="section level2">
-<h2><span class="header-section-number">3.10</span> Controlling The Boot Process</h2>
-<div id="selecting-the-boot-target" class="section level3">
-<h3><span class="header-section-number">3.10.1</span> Selecting the boot target</h3>
+<div id="controlling-the-boot-process" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.10</span> Controlling The Boot Process<a href="server-administrator-ii---rh134.html#controlling-the-boot-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="selecting-the-boot-target" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.10.1</span> Selecting the boot target<a href="server-administrator-ii---rh134.html#selecting-the-boot-target" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Describing the Red Hat Enterprise Linux 8 Boot Process</strong></p>
 <ul>
 <li>The machine is powered on the UEFI or BIOS runs <em>Power On Self Test (POST)</em> and start, <strong>F2</strong> or some system <strong>Esc</strong> usually to access configuartion and <strong>E</strong> to edit</li>
@@ -1773,8 +1853,8 @@ graphical.target
 </ol></li>
 </ul>
 </div>
-<div id="resetting-the-root-password" class="section level3">
-<h3><span class="header-section-number">3.10.2</span> Resetting the Root Password</h3>
+<div id="resetting-the-root-password" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.10.2</span> Resetting the Root Password<a href="server-administrator-ii---rh134.html#resetting-the-root-password" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Option 1</strong></p>
 <ul>
 <li>Boot the system using a Live CD</li>
@@ -1811,8 +1891,8 @@ graphical.target
 <li>Remove the debug <code>sudo systemctl stop debug-shell.service</code></li>
 </ul>
 </div>
-<div id="repairing-file-system-issues-at-boot" class="section level3">
-<h3><span class="header-section-number">3.10.3</span> Repairing File system Issues at Boot</h3>
+<div id="repairing-file-system-issues-at-boot" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.10.3</span> Repairing File system Issues at Boot<a href="server-administrator-ii---rh134.html#repairing-file-system-issues-at-boot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Errors in <strong>/etc/fstab</strong> and corrupt file systems can stop a system from booting.</p>
 </blockquote>
@@ -1824,18 +1904,18 @@ graphical.target
 <li>Incorrect mount option specified in /etc/fstab</li>
 </ul>
 </div>
-<div id="create-or-alter-grub" class="section level3">
-<h3><span class="header-section-number">3.10.4</span> Create or alter grub</h3>
+<div id="create-or-alter-grub" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.10.4</span> Create or alter grub<a href="server-administrator-ii---rh134.html#create-or-alter-grub" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The default path is <strong>/etc/default/grub</strong></p>
 <pre><code>grup2-mkconfig -o /boot/grub2/grub.cfg
 
 reboot</code></pre>
 </div>
 </div>
-<div id="managing-network-security" class="section level2">
-<h2><span class="header-section-number">3.11</span> Managing Network Security</h2>
-<div id="managing-server-firewall" class="section level3">
-<h3><span class="header-section-number">3.11.1</span> Managing Server Firewall</h3>
+<div id="managing-network-security" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.11</span> Managing Network Security<a href="server-administrator-ii---rh134.html#managing-network-security" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="managing-server-firewall" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.11.1</span> Managing Server Firewall<a href="server-administrator-ii---rh134.html#managing-server-firewall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><strong>netfilter</strong> allows other kernel modules to interface with kernel’s network stack. Any incoming, outgoing, or forwarded network packet can be inspected, modified, dropped, or routed programmatically before reaching user space components or applications.</p></li>
 <li><p><strong>nftables</strong> : a new filter and packet classification subsystem that has enhanced portions of netfilter’s code. Nftables uses the single <strong>nft</strong> user-space utility, allowing all protocol management to occur through a single interface, eliminating historical contention caused by diverse front ends and multiple netfilter interfaces.</p></li>
@@ -1887,8 +1967,8 @@ reboot</code></pre>
 [root@host ~]# firewall-cmd --permanent --zone=internal --add-service=mysql
 [root@host ~]# firewall-cmd --reload</code></pre>
 </div>
-<div id="controlling-selinux-port-labeling" class="section level3">
-<h3><span class="header-section-number">3.11.2</span> Controlling SELinux Port Labeling</h3>
+<div id="controlling-selinux-port-labeling" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.11.2</span> Controlling SELinux Port Labeling<a href="server-administrator-ii---rh134.html#controlling-selinux-port-labeling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>One of the methods that SELinux uses for controlling network traffic is labeling network ports</p>
 </blockquote>
@@ -1925,15 +2005,15 @@ not yet installed on your system, follow this procedure:</li>
 [root@host ~]# man -k _selinux</code></pre>
 </div>
 </div>
-<div id="installing-red-hat-enterprise-linux" class="section level2">
-<h2><span class="header-section-number">3.12</span> Installing Red Hat Enterprise Linux</h2>
-<div id="installing-red-hat-enterprise-linux-1" class="section level3">
-<h3><span class="header-section-number">3.12.1</span> Installing Red Hat Enterprise Linux</h3>
+<div id="installing-red-hat-enterprise-linux" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.12</span> Installing Red Hat Enterprise Linux<a href="server-administrator-ii---rh134.html#installing-red-hat-enterprise-linux" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="installing-red-hat-enterprise-linux-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.12.1</span> Installing Red Hat Enterprise Linux<a href="server-administrator-ii---rh134.html#installing-red-hat-enterprise-linux-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Supported processor architectures: x86 64-bit (AMD and Intel), IBM Power Systems (<em>Little Endian</em>), IBM Z, and ARM 64-bit.</p>
 <p>After downloading, create bootable installation media based on the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_a_standard_rhel_installation/index#making-media_preparing-for-your-installation">instructions</a></p>
 </div>
-<div id="automating-installation-with-kickstart" class="section level3">
-<h3><span class="header-section-number">3.12.2</span> Automating Installation with Kickstart</h3>
+<div id="automating-installation-with-kickstart" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.12.2</span> Automating Installation with Kickstart<a href="server-administrator-ii---rh134.html#automating-installation-with-kickstart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Text file with specification of how the machine should be configured</li>
 <li>Using <em>Kickstart</em>, you specify everything Anaconda needs to complete an installation, including
@@ -2040,8 +2120,8 @@ Anaconda installer.</p></li>
 <li><p>To boot anaconda and point it to the kickstart file, press <strong>TAB</strong> and add <strong>inst.ks=LOCATION</strong></p></li>
 </ul>
 </div>
-<div id="installing-and-configuring-virtual-machine" class="section level3">
-<h3><span class="header-section-number">3.12.3</span> Installing and Configuring Virtual Machine</h3>
+<div id="installing-and-configuring-virtual-machine" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.12.3</span> Installing and Configuring Virtual Machine<a href="server-administrator-ii---rh134.html#installing-and-configuring-virtual-machine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Red Hat Enterprise Linux 8 supports KVM (Kernel-based Virtual Machine), a full virtualization
 solution built into the standard Linux kernel. KVM can run multiple Windows and Linux guest
@@ -2077,10 +2157,10 @@ yum module install virt</code></pre>
 <pre><code>systemctl enable --now cockpit.socket</code></pre>
 </div>
 </div>
-<div id="running-containers" class="section level2">
-<h2><span class="header-section-number">3.13</span> Running Containers</h2>
-<div id="intro-1" class="section level3">
-<h3><span class="header-section-number">3.13.1</span> Intro</h3>
+<div id="running-containers" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.13</span> Running Containers<a href="server-administrator-ii---rh134.html#running-containers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="intro-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.13.1</span> Intro<a href="server-administrator-ii---rh134.html#intro-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Containers and Virtual Machines are different in the way they interact with hardware and the
 underlying operating system</p>
 <p><img src="img/container.png" width="90%" /></p>
@@ -2112,8 +2192,8 @@ start and stop and reduces storage requirements</li>
 </ul>
 <p><em>These tools are compatible with the Open Container Initiative (OCI). They can be used to manage any Linux containers created by OCI-compatible container engines, such as Docker</em></p>
 </div>
-<div id="running-a-basic-conatiner" class="section level3">
-<h3><span class="header-section-number">3.13.2</span> Running a Basic Conatiner</h3>
+<div id="running-a-basic-conatiner" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.13.2</span> Running a Basic Conatiner<a href="server-administrator-ii---rh134.html#running-a-basic-conatiner" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://access.redhat.com/containers">The Red Hat Container Catalog</a> provides a web-based interface that you can use to search these registries for certified content.</p>
 <ul>
 <li>The Container naming conventions <strong>registry_name/user_name/image_name:tag</strong>
@@ -2143,8 +2223,8 @@ start and stop and reduces storage requirements</li>
 </ul>
 <pre><code>[user@host ~]$ podman run --rm registry.access.redhat.com/ubi8/ubi cat /etc/os-release</code></pre>
 </div>
-<div id="finding-and-managing-container-images" class="section level3">
-<h3><span class="header-section-number">3.13.3</span> Finding and Managing Container Images</h3>
+<div id="finding-and-managing-container-images" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.13.3</span> Finding and Managing Container Images<a href="server-administrator-ii---rh134.html#finding-and-managing-container-images" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Podman uses a registreis.conf file :</p>
 <pre><code>grep ^[^#] /etc/containers/registreis.conf</code></pre>
 <ul>
@@ -2169,8 +2249,8 @@ podman inspect registry.redhat.io/rhel8/python-36</code></pre>
 </ul>
 <pre><code>podman rmi registry.redhat.io/rhel8/python-36:latest</code></pre>
 </div>
-<div id="performing-advanced-container-management" class="section level3">
-<h3><span class="header-section-number">3.13.4</span> Performing Advanced Container Management</h3>
+<div id="performing-advanced-container-management" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.13.4</span> Performing Advanced Container Management<a href="server-administrator-ii---rh134.html#performing-advanced-container-management" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Mapping Container Hosts Ports to the container using <code>-p</code></li>
 </ul>
@@ -2204,8 +2284,8 @@ podman inspect registry.redhat.io/rhel8/python-36</code></pre>
 mysql -h127.0.0.1 -udupsy -pbongle -P3306
 show databases;</code></pre>
 </div>
-<div id="attaching-persistent-storage-to-a-container" class="section level3">
-<h3><span class="header-section-number">3.13.5</span> Attaching Persistent Storage to a Container</h3>
+<div id="attaching-persistent-storage-to-a-container" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.13.5</span> Attaching Persistent Storage to a Container<a href="server-administrator-ii---rh134.html#attaching-persistent-storage-to-a-container" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Mounting Volume</li>
 </ul>
@@ -2215,8 +2295,8 @@ command is very long and should be entered as a single line.</p>
 <pre><code>podman run -d --name mydb -v /home/user/dbfiles:/var/lib/mysql:Z -e MYSQL_USER=user -e MYSQL_PASSWORD=redhat -e MYSQL_DATABASE=inventory registry.redhat.io/rhel8/mariadb-103:1-102</code></pre>
 <p>The dir must have the SELinux context <strong>container_file_t</strong> mke sure to use <code>:Z</code></p>
 </div>
-<div id="managing-containers-as-service" class="section level3">
-<h3><span class="header-section-number">3.13.6</span> Managing Containers as Service</h3>
+<div id="managing-containers-as-service" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.13.6</span> Managing Containers as Service<a href="server-administrator-ii---rh134.html#managing-containers-as-service" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>First step is open a new session with user</p>
 <pre><code>ssh user@localhost</code></pre>
 <ul>
@@ -2307,6 +2387,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

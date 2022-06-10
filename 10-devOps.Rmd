@@ -6,6 +6,9 @@
 
 
 
+
+
+
 ## AWS
 
 ### Part 1 : Cloud Concepts
@@ -112,11 +115,21 @@ knitr::include_graphics("img/aws_account_foundation.png")
   
 ### Part 3 : AWS Well-Architected
 
+> Framework that help you know the risks and how to fix, it contain papers and instructos to guide you on Best Practices ( pillars, design principles and questions) to apply on your account.
+
 [AWS Well-Architected Framework link ](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
 
 Best practice _Framework_
 
   * Pillars
+    * Operational Excellence Pillar
+    * Security Pillar
+    * Reliability Pillar
+    * Performance Efficiency Pillar
+    * Cost Optimization Pillar    
+    * Sustainability Pillar
+
+
   * Design Principles
   * Questions
   
@@ -143,15 +156,21 @@ Manage Security , Identity and Account
 
 
 * Define groups and attach the polices for that group
-* Create the Users and associate to groups
+
+* Create the **Users** and associate to groups
   * Always enable MFA for user authenticate 
-* Role
-  * There are several roles defined by aws but you can create your own role
+  * Service users that going to be used via API its a good practice to have `svc` or `service` on name , like , `svc-dev`, this option will enable an access key ID and secret access key for the AWS API, CLI, SDK, and other development tools
+  * The normal user will be created when you select **Password - AWS Management Console access**, that enable a password that allows users to sign-in to the AWS Management Console.
+
+
+* **Role**
+  * There are several roles defined by AWS but you can create your own role
   * Allow you enable one resource , for instance EC2, to talk with another resource like IAM without access key, only using Roles and policies
-* Policy
-  * there are several policies defined by AWS, but we can create our policy
-  * AdministratorAccess: Provide full access to AWS service and resources
-  * PowerUserAccess: Provide full access to AWS service and resources, but do not allow manage User and Groups
+
+* **Policies**
+  * There are several policies defined by AWS, but we can create our policy
+  * **AdministratorAccess**: Provide full access to AWS service and resources
+  * **PowerUserAccess**: Provide full access to AWS service and resources, but do not allow manage User and Groups
   
 
 
@@ -168,7 +187,13 @@ Links:
    
 ### Part 5 : IAM cont...
 
-* Cross Account Roles : When you create a role (type another account) on the target account associate it with account if from your master, you also have to specify the permission PowerUser or Adminsitrator for instance, with that users on that group can move between accounts 
+* Cross Account Roles : When you create a role (_type another account_) on the target account associate it with account if from your master, you also have to specify the permission PowerUser or Adminsitrator for instance, with that users on that group can move between accounts :
+
+  1. Create a role `CrossRoleDevOpsEngineers` for instance on the target account
+  2. Add the permission that you would like to have when you going to assume that role for instance `AdministratorAccess`
+  3. You will need to add the Account ID from source Account to link the source and target account.
+  4. On source or master account use the role to configure the cross account using `Swhich Role`
+  5. Inform the ID from target Account and Role that you will use.
 
 
 With that you can create users in one IAM account and the users can go to others accounts using assume roles (switch account). On that IAM account the users will only login and jump to another account we should not create resources here.
@@ -186,6 +211,21 @@ Links:
 
   
   
+  
+  
+  
+  
+  
+  
+
+### Part 6 : EC2
+
+EC2 (Elastic Compute Cloud) : Service that offer cloud compute on AWS   
+
+
+
+
+
 ## Docker
 
 [Livro Descomplicando Docker](https://livro.descomplicandodocker.com.br/chapters/chapter_00.html)
@@ -476,6 +516,8 @@ docker container run -d <nome>:<versao>
 ### Part 2
 
 
+
+
 ## Jenkins
 
 [GitHub Repository from instructor](https://github.com/anshulc55/Jenkins_Upgradev3)
@@ -558,6 +600,8 @@ Jenkins follow the master/slave architecture
   
 
 ### Git & GitHub
+
+
 
 
 ## Git

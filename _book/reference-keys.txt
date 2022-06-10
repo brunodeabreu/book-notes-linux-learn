@@ -251,3 +251,10 @@ statistics-for-data-analysis-using-python
 descriptive-statistics
 distributions
 inferencial-and-hypothesis-testing
+troubleshooting-managed-hosts
+building-custom-container-images-with-containerfiles
+machine-learning-essentials-for-business-and-technical-decision-makers
+section
+machine-learning-for-business-leaders
+part-6-ec2
+process-model-crisp-dm-on-the-aws-stack

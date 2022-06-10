@@ -105,7 +105,7 @@ Basic Commands:
 podman search <image>
 ```
 
-* To download/pull an image
+* To download/**pull** an image
 
 ```
 podman pull <image>
@@ -125,7 +125,7 @@ podman images
 Hello world!
 ```
 
-* To start a container image as a backgroupd we can use `-d` optino and to expose a port `-p <container port>` 
+* To start a container image as a background we can use `-d` option and to expose a port `-p <container port>` 
 
 ```
 [user@demo ~]$ podman run -d -p 8080 registry.redhat.io/rhel8/httpd-24
@@ -157,7 +157,23 @@ Hello world!
 > -e MYSQL_USER=redhat -e MYSQL_PASSWORD=r3dh4t \
 > -e MYSQL_ROOT_PASSWORD=r3dh4t \
 > -d registry.redhat.io/rhel8/mysql-80
+
+
+
+# test
+
+sudo podman exec -ti msql-custom /bin/bash
+msql -uroot
+show databases
+
+
 ```
+
+
+* Give a container a name `--name`, it is important because you can manage your container by name
+
+* Other common option is `-t` for pseudo terminal an `-i` keeps _stdin_ open even if not attached
+
 
 ## Managing Containers
 
@@ -497,12 +513,52 @@ podman build -t NAME:TAG DIR
 
 
 
+**Image layering**
+
+* Each instruction in a Containerfile create a new layer
 
 
 
+**Sample**
 
 
+_Creating a container file_
 
+```
+FROM rhel7:7.5
+
+MAINTAINER Bruno Machado <bmachado@kyndryl.com>
+
+LABEL description =  "A custom Apache image"
+
+ADD training.repo /etc/yum.repos.d/training.repo
+
+RUN yum install -y htppd && \
+    yum clean all
+    
+RUN echo "Hello  from  Containerfile " > /usr/share/httpd/noindex/index.html
+
+EXPOSE 80
+
+ENTRYPOINT ["httpd","-D","FOREGROUND"]
+```
+
+_Build_
+
+```
+# Build
+sudo podman build -t d080/apache .
+
+# Check images:
+sudo pdman images
+
+# Run the container
+sudo podman run --name lab-apache -d -p 10080:80 do080/apache
+
+
+# Test with curl
+curl 127.0.0.1:10080
+```
 
 
 

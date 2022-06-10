@@ -222,6 +222,188 @@ cat(
 
 ---
 
+### Machine Learning Essentials for Business and Technical Decision Makers
+
+
+**What is Machine Learning(ML) ? ** : Process of training computers, using math and statistical processes, to find and recognize patterns in data.
+
+**Iterative process**
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/ml_process_aws.png")
+```
+
+
+**How Amazon uses ML in products ? **
+
+  * Browsing and purchasing data to provide recommendations
+  * Use voice interactions with `Alexa` using NLP
+  * Use ML to ship 1.6M packages per day
+
+
+**How is machine learning helping AWS customers?**
+
+  * Amazon Forecast 
+  * Amazon Fraud Detector
+  * Amazon Personalize (_product recommendation,direct marketing_)
+  * Amazon Polly (TTS - _text-to-speech_) uses advanced deep learning technologies to synthesize natural-sounding human speech
+  * Amazon Transcribe (STT - _speech-to-text_)
+  * Amazon SageMaker
+  
+  * [Machine Learning on AWS](https://aws.amazon.com/machine-learning/?nc2=h_ql_prod_ml)
+
+
+
+<br>
+
+**How does machine learning work?**
+
+  * What is AI ? : any system that is able to ingest human-level knowledge to automate and accelerate tasks performable by humans through natural intelligence.
+    * _Narrow AI_  : where an AI imitates human intelligence in a single context  (**Today's AI**)
+      
+    * _General AI_ : where an AI learns and behaves with intelligence across multiple contexts (**Future AI**)
+
+
+
+**What kind of solutions can ML provide?**
+
+  * **Regression** : Prediction a numerical value , [Zillow case](https://aws.amazon.com/solutions/case-studies/zillow-zestimate/)
+  * **Classification** : Predicting label, [duolingo case](https://aws.amazon.com/machine-learning/customers/innovators/duolingo/)
+  * **Ranking** : Ordering items to find most relevant , [Domino's case](https://aws.amazon.com/solutions/case-studies/dominos-case-study/)
+  * **Recommendation** : Finding relevant items based on past behavior [Hyatt Hotels](https://aws.amazon.com/solutions/case-studies/hyatt-hotels-case-study/)
+  * **Clustering** : Finding patterns in examples [NASA](https://www.amazon.science/how-nasa-uses-aws-to-protect-life-and-infrastructure-on-earth)
+  * **Anomaly detection** : Finding outliers from examples, [Fraud.net case's](https://aws.amazon.com/solutions/case-studies/fraud-dot-net/)
+
+
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/sk_guide_algo.png")
+```
+
+<br>
+
+**What are some potential problems with machine learning ? **
+
+  * Ingestion of poor quality data
+  * Explain complex models
+
+
+
+
+### Machine Learning for Business Leaders
+
+**When is ML an option ?**
+  
+  * If the problem is persistent
+  * If the problem challenges progress or growth
+  * If the solution needs to scale
+  * If the problem requires personalization ir order to be solved
+
+**What Does a successfull ML solution require ? **
+
+  * People (_Data Scientist, Data Engineer, ML Scientist, Software Engineers, etc_)
+  * Time
+  * Cost
+
+
+**Ask the right questions to team**
+
+  * What are the made assumptions ? 
+  * What is your learning target (hipotesis)? 
+  * What type of ML problem is it ? 
+  * Why did you choose this algorithm ? 
+  * How will you evaluate the model performance ? 
+  * How confident are you that you can generalize the results ? 
+  
+  
+
+
+**How to define and scope a ML Problem**
+
+  * What is the specific business problem ? 
+  * What is the current state solution ?
+  * What are the current pain points ? 
+  * What is causing the pain points ? 
+  * What is the problems impact ? 
+  * How would the solution be used ? 
+  * What is out of scope ? 
+  * How do you define success (_success criteria_)? 
+  
+
+_Input Gathering_
+
+  * Do we have sufficient data ? 
+  * Is there labeled examples ? 
+  * If not , how difficult would it be to create/obtain ? 
+  * What are our features ? 
+  * What are going to be the most useful inputs ? 
+  * Where is the data ? 
+  * What is the data quality ? 
+  
+  
+_Output Definitions_  
+
+  * What business metric is defining success ? 
+  * What are the trade-offs ? 
+  * Are there existing baselines ? 
+  * If not, what is the simplest solutions ? 
+  * Is there any data validation need to green light the project ? 
+  * How important is runtime and performance ? 
+  
+  
+With those inputs and outputs we can formulate the problem as a **Learning Task**, is this a classification or regression problem ? What are the risks ? etc ...
+
+
+**When should you consider using machine learning to solve a problem ? **
+
+  * Use ML when software logic is too difficult to code
+  * Use ML when the manual process is not cost effective
+  * Use ML when there is ample training data
+  * Use ML when the problems is formalizable as an ML Problem (_reduce to well known ML problem regression, classification, cluster_)
+  
+  
+**When is Machine Learning NOT a Good Solution?**
+
+  * No data
+  * No Labels
+  * Need to launch quickly
+  * No tolerance for mistakes
+  
+
+
+**When is Machine Learning is a Good Solution ?**
+
+  * Difficult to directly code a solution
+  * Difficult to scale a code-based solution
+  * Personalized output
+  * Functions change over time
+
+
+
+
+
+  
+---  
+  
+
+
+
+
+---
+
+
+### Process Model : CRISP-DM on the AWS Stack
+
+
+
+
+
+---
+
+
 ## GCP - Professional Machine Learning Engineer
 
 ### Big Data and ML Fundamentals

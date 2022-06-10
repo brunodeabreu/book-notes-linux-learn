@@ -23,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2022-05-31" />
+<meta name="date" content="2022-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -396,6 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.3" data-path="devops.html"><a href="devops.html#part-3-aws-well-architected"><i class="fa fa-check"></i><b>7.2.3</b> Part 3 : AWS Well-Architected</a></li>
 <li class="chapter" data-level="7.2.4" data-path="devops.html"><a href="devops.html#part-4-iam"><i class="fa fa-check"></i><b>7.2.4</b> Part 4 : IAM</a></li>
 <li class="chapter" data-level="7.2.5" data-path="devops.html"><a href="devops.html#part-5-iam-cont"><i class="fa fa-check"></i><b>7.2.5</b> Part 5 : IAM cont…</a></li>
+<li class="chapter" data-level="7.2.6" data-path="devops.html"><a href="devops.html#part-6-ec2"><i class="fa fa-check"></i><b>7.2.6</b> Part 6 : EC2</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>7.3</b> Docker</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>7.3.1</b> Part 1</a></li>
@@ -423,6 +424,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="data-science.html"><a href="data-science.html#azure-data-science-certification"><i class="fa fa-check"></i><b>8.3</b> Azure Data Science Certification</a></li>
 <li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a><ul>
 <li class="chapter" data-level="8.4.1" data-path="data-science.html"><a href="data-science.html#demystifying-ai-ml-dl"><i class="fa fa-check"></i><b>8.4.1</b> Demystifying AI / ML / DL</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-science.html"><a href="data-science.html#machine-learning-essentials-for-business-and-technical-decision-makers"><i class="fa fa-check"></i><b>8.4.2</b> Machine Learning Essentials for Business and Technical Decision Makers</a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-science.html"><a href="data-science.html#machine-learning-for-business-leaders"><i class="fa fa-check"></i><b>8.4.3</b> Machine Learning for Business Leaders</a></li>
+<li class="chapter" data-level="8.4.4" data-path="data-science.html"><a href="data-science.html#process-model-crisp-dm-on-the-aws-stack"><i class="fa fa-check"></i><b>8.4.4</b> Process Model : CRISP-DM on the AWS Stack</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machine-learning-engineer"><i class="fa fa-check"></i><b>8.5</b> GCP - Professional Machine Learning Engineer</a><ul>
 <li class="chapter" data-level="8.5.1" data-path="data-science.html"><a href="data-science.html#big-data-and-ml-fundamentals"><i class="fa fa-check"></i><b>8.5.1</b> Big Data and ML Fundamentals</a></li>
@@ -545,10 +549,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="part-3-aws-well-architected" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.3</span> Part 3 : AWS Well-Architected<a href="devops.html#part-3-aws-well-architected" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Framework that help you know the risks and how to fix, it contain papers and instructos to guide you on Best Practices ( pillars, design principles and questions) to apply on your account.</p>
+</blockquote>
 <p><a href="https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html">AWS Well-Architected Framework link</a></p>
 <p>Best practice <em>Framework</em></p>
 <ul>
-<li>Pillars</li>
+<li>Pillars
+<ul>
+<li>Operational Excellence Pillar</li>
+<li>Security Pillar</li>
+<li>Reliability Pillar</li>
+<li>Performance Efficiency Pillar</li>
+<li>Cost Optimization Pillar<br />
+</li>
+<li>Sustainability Pillar</li>
+</ul></li>
 <li>Design Principles</li>
 <li>Questions</li>
 </ul>
@@ -568,21 +584,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.2.4</span> Part 4 : IAM<a href="devops.html#part-4-iam" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Manage Security , Identity and Account</p>
 <ul>
-<li>Define groups and attach the polices for that group</li>
-<li>Create the Users and associate to groups
+<li><p>Define groups and attach the polices for that group</p></li>
+<li><p>Create the <strong>Users</strong> and associate to groups</p>
 <ul>
 <li>Always enable MFA for user authenticate</li>
+<li>Service users that going to be used via API its a good practice to have <code>svc</code> or <code>service</code> on name , like , <code>svc-dev</code>, this option will enable an access key ID and secret access key for the AWS API, CLI, SDK, and other development tools</li>
+<li>The normal user will be created when you select <strong>Password - AWS Management Console access</strong>, that enable a password that allows users to sign-in to the AWS Management Console.</li>
 </ul></li>
-<li>Role
+<li><p><strong>Role</strong></p>
 <ul>
-<li>There are several roles defined by aws but you can create your own role</li>
+<li>There are several roles defined by AWS but you can create your own role</li>
 <li>Allow you enable one resource , for instance EC2, to talk with another resource like IAM without access key, only using Roles and policies</li>
 </ul></li>
-<li>Policy
+<li><p><strong>Policies</strong></p>
 <ul>
-<li>there are several policies defined by AWS, but we can create our policy</li>
-<li>AdministratorAccess: Provide full access to AWS service and resources</li>
-<li>PowerUserAccess: Provide full access to AWS service and resources, but do not allow manage User and Groups</li>
+<li>There are several policies defined by AWS, but we can create our policy</li>
+<li><strong>AdministratorAccess</strong>: Provide full access to AWS service and resources</li>
+<li><strong>PowerUserAccess</strong>: Provide full access to AWS service and resources, but do not allow manage User and Groups</li>
 </ul></li>
 </ul>
 <p>Links:</p>
@@ -593,7 +611,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="part-5-iam-cont" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.5</span> Part 5 : IAM cont…<a href="devops.html#part-5-iam-cont" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Cross Account Roles : When you create a role (type another account) on the target account associate it with account if from your master, you also have to specify the permission PowerUser or Adminsitrator for instance, with that users on that group can move between accounts</li>
+<li><p>Cross Account Roles : When you create a role (<em>type another account</em>) on the target account associate it with account if from your master, you also have to specify the permission PowerUser or Adminsitrator for instance, with that users on that group can move between accounts :</p>
+<ol style="list-style-type: decimal">
+<li>Create a role <code>CrossRoleDevOpsEngineers</code> for instance on the target account</li>
+<li>Add the permission that you would like to have when you going to assume that role for instance <code>AdministratorAccess</code></li>
+<li>You will need to add the Account ID from source Account to link the source and target account.</li>
+<li>On source or master account use the role to configure the cross account using <code>Swhich Role</code></li>
+<li>Inform the ID from target Account and Role that you will use.</li>
+</ol></li>
 </ul>
 <p>With that you can create users in one IAM account and the users can go to others accounts using assume roles (switch account). On that IAM account the users will only login and jump to another account we should not create resources here.</p>
 <p>Links:</p>
@@ -601,6 +626,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html">Identity Providers and Federantion</a></p>
 <p><a href="https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/">Habilitando ADFS para AWS</a></p>
 <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.htm">Cross Account using IAM Roles</a></p>
+</div>
+<div id="part-6-ec2" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.6</span> Part 6 : EC2<a href="devops.html#part-6-ec2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>EC2 (Elastic Compute Cloud) : Service that offer cloud compute on AWS</p>
 </div>
 </div>
 <div id="docker" class="section level2 hasAnchor">

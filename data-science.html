@@ -23,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2022-05-31" />
+<meta name="date" content="2022-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -396,6 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.3" data-path="devops.html"><a href="devops.html#part-3-aws-well-architected"><i class="fa fa-check"></i><b>7.2.3</b> Part 3 : AWS Well-Architected</a></li>
 <li class="chapter" data-level="7.2.4" data-path="devops.html"><a href="devops.html#part-4-iam"><i class="fa fa-check"></i><b>7.2.4</b> Part 4 : IAM</a></li>
 <li class="chapter" data-level="7.2.5" data-path="devops.html"><a href="devops.html#part-5-iam-cont"><i class="fa fa-check"></i><b>7.2.5</b> Part 5 : IAM cont…</a></li>
+<li class="chapter" data-level="7.2.6" data-path="devops.html"><a href="devops.html#part-6-ec2"><i class="fa fa-check"></i><b>7.2.6</b> Part 6 : EC2</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>7.3</b> Docker</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>7.3.1</b> Part 1</a></li>
@@ -423,6 +424,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="data-science.html"><a href="data-science.html#azure-data-science-certification"><i class="fa fa-check"></i><b>8.3</b> Azure Data Science Certification</a></li>
 <li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a><ul>
 <li class="chapter" data-level="8.4.1" data-path="data-science.html"><a href="data-science.html#demystifying-ai-ml-dl"><i class="fa fa-check"></i><b>8.4.1</b> Demystifying AI / ML / DL</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-science.html"><a href="data-science.html#machine-learning-essentials-for-business-and-technical-decision-makers"><i class="fa fa-check"></i><b>8.4.2</b> Machine Learning Essentials for Business and Technical Decision Makers</a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-science.html"><a href="data-science.html#machine-learning-for-business-leaders"><i class="fa fa-check"></i><b>8.4.3</b> Machine Learning for Business Leaders</a></li>
+<li class="chapter" data-level="8.4.4" data-path="data-science.html"><a href="data-science.html#process-model-crisp-dm-on-the-aws-stack"><i class="fa fa-check"></i><b>8.4.4</b> Process Model : CRISP-DM on the AWS Stack</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machine-learning-engineer"><i class="fa fa-check"></i><b>8.5</b> GCP - Professional Machine Learning Engineer</a><ul>
 <li class="chapter" data-level="8.5.1" data-path="data-science.html"><a href="data-science.html#big-data-and-ml-fundamentals"><i class="fa fa-check"></i><b>8.5.1</b> Big Data and ML Fundamentals</a></li>
@@ -602,6 +606,136 @@ print(100*1.1**7)</code></pre>
 <p>Complete sequence of videos <a href="https://www.youtube.com/watch?v=_QUEXsHfsA0&amp;list=PLfYUBJiXbdtRL3FMB3GoWHRI8ieU6FhfM">here</a></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_QUEXsHfsA0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope ; picture-in-picture">
 </iframe>
+<hr />
+</div>
+<div id="machine-learning-essentials-for-business-and-technical-decision-makers" class="section level3 hasAnchor">
+<h3><span class="header-section-number">8.4.2</span> Machine Learning Essentials for Business and Technical Decision Makers<a href="data-science.html#machine-learning-essentials-for-business-and-technical-decision-makers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>What is Machine Learning(ML) ? </strong> : Process of training computers, using math and statistical processes, to find and recognize patterns in data.</p>
+<p><strong>Iterative process</strong></p>
+<p><img src="img/ml_process_aws.png" width="90%" /></p>
+<p><strong>How Amazon uses ML in products ? </strong></p>
+<ul>
+<li>Browsing and purchasing data to provide recommendations</li>
+<li>Use voice interactions with <code>Alexa</code> using NLP</li>
+<li>Use ML to ship 1.6M packages per day</li>
+</ul>
+<p><strong>How is machine learning helping AWS customers?</strong></p>
+<ul>
+<li><p>Amazon Forecast</p></li>
+<li><p>Amazon Fraud Detector</p></li>
+<li><p>Amazon Personalize (<em>product recommendation,direct marketing</em>)</p></li>
+<li><p>Amazon Polly (TTS - <em>text-to-speech</em>) uses advanced deep learning technologies to synthesize natural-sounding human speech</p></li>
+<li><p>Amazon Transcribe (STT - <em>speech-to-text</em>)</p></li>
+<li><p>Amazon SageMaker</p></li>
+<li><p><a href="https://aws.amazon.com/machine-learning/?nc2=h_ql_prod_ml">Machine Learning on AWS</a></p></li>
+</ul>
+<p><br></p>
+<p><strong>How does machine learning work?</strong></p>
+<ul>
+<li>What is AI ? : any system that is able to ingest human-level knowledge to automate and accelerate tasks performable by humans through natural intelligence.
+<ul>
+<li><p><em>Narrow AI</em> : where an AI imitates human intelligence in a single context (<strong>Today’s AI</strong>)</p></li>
+<li><p><em>General AI</em> : where an AI learns and behaves with intelligence across multiple contexts (<strong>Future AI</strong>)</p></li>
+</ul></li>
+</ul>
+<p><strong>What kind of solutions can ML provide?</strong></p>
+<ul>
+<li><strong>Regression</strong> : Prediction a numerical value , <a href="https://aws.amazon.com/solutions/case-studies/zillow-zestimate/">Zillow case</a></li>
+<li><strong>Classification</strong> : Predicting label, <a href="https://aws.amazon.com/machine-learning/customers/innovators/duolingo/">duolingo case</a></li>
+<li><strong>Ranking</strong> : Ordering items to find most relevant , <a href="https://aws.amazon.com/solutions/case-studies/dominos-case-study/">Domino’s case</a></li>
+<li><strong>Recommendation</strong> : Finding relevant items based on past behavior <a href="https://aws.amazon.com/solutions/case-studies/hyatt-hotels-case-study/">Hyatt Hotels</a></li>
+<li><strong>Clustering</strong> : Finding patterns in examples <a href="https://www.amazon.science/how-nasa-uses-aws-to-protect-life-and-infrastructure-on-earth">NASA</a></li>
+<li><strong>Anomaly detection</strong> : Finding outliers from examples, <a href="https://aws.amazon.com/solutions/case-studies/fraud-dot-net/">Fraud.net case’s</a></li>
+</ul>
+<p><img src="img/sk_guide_algo.png" width="90%" /></p>
+<p><br></p>
+<p><strong>What are some potential problems with machine learning ? </strong></p>
+<ul>
+<li>Ingestion of poor quality data</li>
+<li>Explain complex models</li>
+</ul>
+</div>
+<div id="machine-learning-for-business-leaders" class="section level3 hasAnchor">
+<h3><span class="header-section-number">8.4.3</span> Machine Learning for Business Leaders<a href="data-science.html#machine-learning-for-business-leaders" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>When is ML an option ?</strong></p>
+<ul>
+<li>If the problem is persistent</li>
+<li>If the problem challenges progress or growth</li>
+<li>If the solution needs to scale</li>
+<li>If the problem requires personalization ir order to be solved</li>
+</ul>
+<p><strong>What Does a successfull ML solution require ? </strong></p>
+<ul>
+<li>People (<em>Data Scientist, Data Engineer, ML Scientist, Software Engineers, etc</em>)</li>
+<li>Time</li>
+<li>Cost</li>
+</ul>
+<p><strong>Ask the right questions to team</strong></p>
+<ul>
+<li>What are the made assumptions ?</li>
+<li>What is your learning target (hipotesis)?</li>
+<li>What type of ML problem is it ?</li>
+<li>Why did you choose this algorithm ?</li>
+<li>How will you evaluate the model performance ?</li>
+<li>How confident are you that you can generalize the results ?</li>
+</ul>
+<p><strong>How to define and scope a ML Problem</strong></p>
+<ul>
+<li>What is the specific business problem ?</li>
+<li>What is the current state solution ?</li>
+<li>What are the current pain points ?</li>
+<li>What is causing the pain points ?</li>
+<li>What is the problems impact ?</li>
+<li>How would the solution be used ?</li>
+<li>What is out of scope ?</li>
+<li>How do you define success (<em>success criteria</em>)?</li>
+</ul>
+<p><em>Input Gathering</em></p>
+<ul>
+<li>Do we have sufficient data ?</li>
+<li>Is there labeled examples ?</li>
+<li>If not , how difficult would it be to create/obtain ?</li>
+<li>What are our features ?</li>
+<li>What are going to be the most useful inputs ?</li>
+<li>Where is the data ?</li>
+<li>What is the data quality ?</li>
+</ul>
+<p><em>Output Definitions</em></p>
+<ul>
+<li>What business metric is defining success ?</li>
+<li>What are the trade-offs ?</li>
+<li>Are there existing baselines ?</li>
+<li>If not, what is the simplest solutions ?</li>
+<li>Is there any data validation need to green light the project ?</li>
+<li>How important is runtime and performance ?</li>
+</ul>
+<p>With those inputs and outputs we can formulate the problem as a <strong>Learning Task</strong>, is this a classification or regression problem ? What are the risks ? etc …</p>
+<p><strong>When should you consider using machine learning to solve a problem ? </strong></p>
+<ul>
+<li>Use ML when software logic is too difficult to code</li>
+<li>Use ML when the manual process is not cost effective</li>
+<li>Use ML when there is ample training data</li>
+<li>Use ML when the problems is formalizable as an ML Problem (<em>reduce to well known ML problem regression, classification, cluster</em>)</li>
+</ul>
+<p><strong>When is Machine Learning NOT a Good Solution?</strong></p>
+<ul>
+<li>No data</li>
+<li>No Labels</li>
+<li>Need to launch quickly</li>
+<li>No tolerance for mistakes</li>
+</ul>
+<p><strong>When is Machine Learning is a Good Solution ?</strong></p>
+<ul>
+<li>Difficult to directly code a solution</li>
+<li>Difficult to scale a code-based solution</li>
+<li>Personalized output</li>
+<li>Functions change over time</li>
+</ul>
+<hr />
+<hr />
+</div>
+<div id="process-model-crisp-dm-on-the-aws-stack" class="section level3 hasAnchor">
+<h3><span class="header-section-number">8.4.4</span> Process Model : CRISP-DM on the AWS Stack<a href="data-science.html#process-model-crisp-dm-on-the-aws-stack" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <hr />
 </div>
 </div>

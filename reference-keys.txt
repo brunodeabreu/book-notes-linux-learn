@@ -206,6 +206,7 @@ part-2-foundation
 part-3-aws-well-architected
 part-4-iam
 part-5-iam-cont
+part-6-ec2
 docker
 part-1
 o-que-é-container
@@ -233,6 +234,9 @@ datacamp-r-skills-for-data-science
 azure-data-science-certification
 aws-data-science-certification
 demystifying-ai-ml-dl
+machine-learning-essentials-for-business-and-technical-decision-makers
+machine-learning-for-business-leaders
+process-model-crisp-dm-on-the-aws-stack
 gcp---professional-machine-learning-engineer
 big-data-and-ml-fundamentals
 recommending-products-using-cloud-sql-and-spark

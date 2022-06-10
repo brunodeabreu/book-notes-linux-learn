@@ -23,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2022-05-31" />
+<meta name="date" content="2022-06-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -396,6 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.3" data-path="devops.html"><a href="devops.html#part-3-aws-well-architected"><i class="fa fa-check"></i><b>7.2.3</b> Part 3 : AWS Well-Architected</a></li>
 <li class="chapter" data-level="7.2.4" data-path="devops.html"><a href="devops.html#part-4-iam"><i class="fa fa-check"></i><b>7.2.4</b> Part 4 : IAM</a></li>
 <li class="chapter" data-level="7.2.5" data-path="devops.html"><a href="devops.html#part-5-iam-cont"><i class="fa fa-check"></i><b>7.2.5</b> Part 5 : IAM cont…</a></li>
+<li class="chapter" data-level="7.2.6" data-path="devops.html"><a href="devops.html#part-6-ec2"><i class="fa fa-check"></i><b>7.2.6</b> Part 6 : EC2</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="devops.html"><a href="devops.html#docker"><i class="fa fa-check"></i><b>7.3</b> Docker</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="devops.html"><a href="devops.html#part-1"><i class="fa fa-check"></i><b>7.3.1</b> Part 1</a></li>
@@ -423,6 +424,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="data-science.html"><a href="data-science.html#azure-data-science-certification"><i class="fa fa-check"></i><b>8.3</b> Azure Data Science Certification</a></li>
 <li class="chapter" data-level="8.4" data-path="data-science.html"><a href="data-science.html#aws-data-science-certification"><i class="fa fa-check"></i><b>8.4</b> AWS Data Science Certification</a><ul>
 <li class="chapter" data-level="8.4.1" data-path="data-science.html"><a href="data-science.html#demystifying-ai-ml-dl"><i class="fa fa-check"></i><b>8.4.1</b> Demystifying AI / ML / DL</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-science.html"><a href="data-science.html#machine-learning-essentials-for-business-and-technical-decision-makers"><i class="fa fa-check"></i><b>8.4.2</b> Machine Learning Essentials for Business and Technical Decision Makers</a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-science.html"><a href="data-science.html#machine-learning-for-business-leaders"><i class="fa fa-check"></i><b>8.4.3</b> Machine Learning for Business Leaders</a></li>
+<li class="chapter" data-level="8.4.4" data-path="data-science.html"><a href="data-science.html#process-model-crisp-dm-on-the-aws-stack"><i class="fa fa-check"></i><b>8.4.4</b> Process Model : CRISP-DM on the AWS Stack</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machine-learning-engineer"><i class="fa fa-check"></i><b>8.5</b> GCP - Professional Machine Learning Engineer</a><ul>
 <li class="chapter" data-level="8.5.1" data-path="data-science.html"><a href="data-science.html#big-data-and-ml-fundamentals"><i class="fa fa-check"></i><b>8.5.1</b> Big Data and ML Fundamentals</a></li>
@@ -531,7 +535,7 @@ an application to minimize the impact of any OS update to the host OS.</p>
 </ul>
 <pre><code>podman search &lt;image&gt;</code></pre>
 <ul>
-<li>To download/pull an image</li>
+<li>To download/<strong>pull</strong> an image</li>
 </ul>
 <pre><code>podman pull &lt;image&gt;</code></pre>
 <ul>
@@ -544,7 +548,7 @@ an application to minimize the impact of any OS update to the host OS.</p>
 <pre><code>[user@demo ~]$ podman run ubi8/ubi:8.3 echo &#39;Hello world!&#39;
 Hello world!</code></pre>
 <ul>
-<li>To start a container image as a backgroupd we can use <code>-d</code> optino and to expose a port <code>-p &lt;container port&gt;</code></li>
+<li>To start a container image as a background we can use <code>-d</code> option and to expose a port <code>-p &lt;container port&gt;</code></li>
 </ul>
 <pre><code>[user@demo ~]$ podman run -d -p 8080 registry.redhat.io/rhel8/httpd-24
 
@@ -567,7 +571,21 @@ Hello world!</code></pre>
 <pre><code>[user@demo ~]$ podman run --name mysql-custom \
 &gt; -e MYSQL_USER=redhat -e MYSQL_PASSWORD=r3dh4t \
 &gt; -e MYSQL_ROOT_PASSWORD=r3dh4t \
-&gt; -d registry.redhat.io/rhel8/mysql-80</code></pre>
+&gt; -d registry.redhat.io/rhel8/mysql-80
+
+
+
+# test
+
+sudo podman exec -ti msql-custom /bin/bash
+msql -uroot
+show databases
+
+</code></pre>
+<ul>
+<li><p>Give a container a name <code>--name</code>, it is important because you can manage your container by name</p></li>
+<li><p>Other common option is <code>-t</code> for pseudo terminal an <code>-i</code> keeps <em>stdin</em> open even if not attached</p></li>
+</ul>
 </div>
 <div id="managing-containers" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.3</span> Managing Containers<a href="red-hat-openshift-i-containers-kubernetes---do180.html#managing-containers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -804,6 +822,41 @@ CMD [&quot;-D&quot;, &quot;FOREGROUND&quot;]</code></pre>
 <p><strong>Building Image with Podman</strong></p>
 <p>Podman build command process the Containerfile and build a new image</p>
 <pre><code>podman build -t NAME:TAG DIR</code></pre>
+<p><strong>Image layering</strong></p>
+<ul>
+<li>Each instruction in a Containerfile create a new layer</li>
+</ul>
+<p><strong>Sample</strong></p>
+<p><em>Creating a container file</em></p>
+<pre><code>FROM rhel7:7.5
+
+MAINTAINER Bruno Machado &lt;bmachado@kyndryl.com&gt;
+
+LABEL description =  &quot;A custom Apache image&quot;
+
+ADD training.repo /etc/yum.repos.d/training.repo
+
+RUN yum install -y htppd &amp;&amp; \
+    yum clean all
+    
+RUN echo &quot;Hello  from  Containerfile &quot; &gt; /usr/share/httpd/noindex/index.html
+
+EXPOSE 80
+
+ENTRYPOINT [&quot;httpd&quot;,&quot;-D&quot;,&quot;FOREGROUND&quot;]</code></pre>
+<p><em>Build</em></p>
+<pre><code># Build
+sudo podman build -t d080/apache .
+
+# Check images:
+sudo pdman images
+
+# Run the container
+sudo podman run --name lab-apache -d -p 10080:80 do080/apache
+
+
+# Test with curl
+curl 127.0.0.1:10080</code></pre>
 </div>
 </div>
 <div id="deploying-containerized-applications-on-openshift" class="section level2 hasAnchor">

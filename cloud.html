@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Learning notes : Linux, Devops, entre outros</title>
+  <title># 7 Cloud | Learning notes : Linux, Devops, entre outros</title>
   <meta name="description" content="Those notes are for future reference" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Learning notes : Linux, Devops, entre outros" />
+  <meta property="og:title" content="# 7 Cloud | Learning notes : Linux, Devops, entre outros" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Those notes are for future reference" />
   <meta name="github-repo" content="rstudio/book-notes-linux-learn" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Learning notes : Linux, Devops, entre outros" />
+  <meta name="twitter:title" content="# 7 Cloud | Learning notes : Linux, Devops, entre outros" />
   
   <meta name="twitter:description" content="Those notes are for future reference" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="server-administrator-i---rh124.html"/>
+<link rel="prev" href="references.html"/>
+<link rel="next" href="devops.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -468,23 +468,237 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Learning notes : Linux, Devops, entre outros</h1>
-<p class="author"><em>Bruno Machado</em></p>
-<p class="date"><em>2022-06-17</em></p>
+<div id="cloud" class="section level1 hasAnchor">
+<h1><span class="header-section-number"># 7</span> Cloud<a href="cloud.html#cloud" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="azure" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.1</span> Azure<a href="cloud.html#azure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="intro" class="section level1 hasAnchor">
-<h1><span class="header-section-number"># 1</span> Intro<a href="index.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>During some Linux courses I usually take notes for future reference, so I use this notes to organize my notes for study and future projects.</p>
+<div id="aws" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.2</span> AWS<a href="cloud.html#aws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="part-1-cloud-concepts" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.1</span> Part 1 : Cloud Concepts<a href="cloud.html#part-1-cloud-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Cloud computing :</p>
+<ul>
+<li>Agility</li>
+<li>Maintenance</li>
+<li>Reliability</li>
+<li>Security</li>
+<li>Performance</li>
+<li>Scalability</li>
+<li>Cost and Elasticity
+<ul>
+<li><em>soft limit</em> : 30 ec2 per month, if need more request to aws</li>
+<li><em>hard limit</em> : data center limit</li>
+</ul></li>
+</ul></li>
+<li><p>According to <strong>NIST</strong> (<em>The National Institute of Standards and Technology</em>)</p>
+<ul>
+<li>On demand Self-service</li>
+<li>Broad network access</li>
+<li>Resource pooling</li>
+<li>Rapid elasticity</li>
+<li>Measured service</li>
+</ul></li>
+<li><p>Cloud models or Service Models</p>
+<ul>
+<li><strong>IaaS</strong> : Infra as a service</li>
+<li><strong>PaaS</strong> : Platform as a service</li>
+<li><strong>FaaS</strong> : Function as a service</li>
+</ul></li>
+<li><p>Deployment models</p>
+<ul>
+<li>Private Cloud</li>
+<li>Public Cloud</li>
+<li>Hybrid Cloud : Using Private and Public</li>
+<li>Multicloud</li>
+<li>Community</li>
+</ul></li>
+</ul>
+</div>
+<div id="part-2-foundation" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.2</span> Part 2 : Foundation<a href="cloud.html#part-2-foundation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Also known as On-boarding, but the this is the best practice to start use the cloud, or how to plan the use of AWS account. There are lot of options and layers.</p>
+<p><img src="img/aws_account_foundation.png" width="60%" /></p>
+<p><br></p>
+<p><strong>ROOT ACCOUNTS</strong></p>
+<ul>
+<li>Principal account on AWS</li>
+<li>Used to start the new account in AWS</li>
+<li>Manager <strong>billing</strong> and other accounts</li>
+<li><strong>First account to create on AWS cloud</strong>
+<em>If you going to use Production on AWS you going to have more than one account</em></li>
+</ul>
+<p><br></p>
+<p><strong>OU Organization Unit</strong></p>
+<ul>
+<li>Option to organize the account such as <em>DEV</em>, <em>QA</em>, <em>PROD</em>, we can apply rules to <strong>OU</strong> or for <strong>account</strong>, like production runs on Sao Paulo, DEV on USA, QA can only start machine from group X, etc.</li>
+<li>Can have OU for RH, Department , Business Unit, etc</li>
+</ul>
+<p><br></p>
+<p><strong>ACCOUNT</strong></p>
+<ul>
+<li>Where the resource are started or created</li>
+<li><em>Tips</em>:
+<ul>
+<li>Not use a personal email to create an account, use a team email</li>
+<li>Read the emails and attention to account to have a good <em>score</em></li>
+<li>Every account have IAM, to mange the users</li>
+</ul></li>
+<li>Create an account on <a href="aws.amazon.com">aws.amazon.com</a>
+<ul>
+<li>Need two emails , Name and credict card</li>
+</ul></li>
+</ul>
+<p><strong>Links</strong></p>
+<p><a href="https://aws.amazon.com/solutions/aws-landing-zone/">AWS Landing Zone</a></p>
+<p><a href="https://aws.amazon.com/organizations/">AWS Organizations</a></p>
+<p><a href="https://aws.amazon.com/account/">AWS Account</a></p>
+<p><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">AWS SCP</a></p>
+<p><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html">Example Service Control Policies</a></p>
+<p><a href="https://calculator.s3.amazonaws.com/index.html">AWS Calculator</a></p>
+</div>
+<div id="part-3-aws-well-architected" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.3</span> Part 3 : AWS Well-Architected<a href="cloud.html#part-3-aws-well-architected" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Framework that help you know the risks and how to fix, it contain papers and instructos to guide you on Best Practices ( pillars, design principles and questions) to apply on your account.</p>
+</blockquote>
+<p><a href="https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html">AWS Well-Architected Framework link</a></p>
+<p>Best practice <em>Framework</em></p>
+<ul>
+<li>Pillars
+<ul>
+<li>Operational Excellence Pillar</li>
+<li>Security Pillar</li>
+<li>Reliability Pillar</li>
+<li>Performance Efficiency Pillar</li>
+<li>Cost Optimization Pillar<br />
+</li>
+<li>Sustainability Pillar</li>
+</ul></li>
+<li>Design Principles</li>
+<li>Questions</li>
+</ul>
+<p>Why to use ?</p>
+<ul>
+<li>Speed</li>
+<li>Mitigate risks</li>
+<li>Make informed decisions</li>
+<li>Use AWS best practices</li>
+</ul>
+<p>Links:</p>
+<p><a href="https://aws.amazon.com/well-architected-tool/">AWS Well-Architected Tool</a></p>
+<p><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected Doc</a></p>
+<p><a href="https://aws.amazon.com/blogs/apn/the-5-pillars-of-the-aws-well-architected-framework/">The 5 Pillars of the AWS Well-Architected Framework</a></p>
+</div>
+<div id="part-4-iam" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.4</span> Part 4 : IAM<a href="cloud.html#part-4-iam" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Manage Security , Identity and Account</p>
+<ul>
+<li><p>Define groups and attach the polices for that group</p></li>
+<li><p>Create the <strong>Users</strong> and associate to groups</p>
+<ul>
+<li>Always enable MFA for user authenticate</li>
+<li>Service users that going to be used via API its a good practice to have <code>svc</code> or <code>service</code> on name , like , <code>svc-dev</code>, this option will enable an access key ID and secret access key for the AWS API, CLI, SDK, and other development tools</li>
+<li>The normal user will be created when you select <strong>Password - AWS Management Console access</strong>, that enable a password that allows users to sign-in to the AWS Management Console.</li>
+</ul></li>
+<li><p><strong>Role</strong></p>
+<ul>
+<li>There are several roles defined by AWS but you can create your own role</li>
+<li>Allow you enable one resource , for instance EC2, to talk with another resource like IAM without access key, only using Roles and policies</li>
+</ul></li>
+<li><p><strong>Policies</strong></p>
+<ul>
+<li>There are several policies defined by AWS, but we can create our policy</li>
+<li><strong>AdministratorAccess</strong>: Provide full access to AWS service and resources</li>
+<li><strong>PowerUserAccess</strong>: Provide full access to AWS service and resources, but do not allow manage User and Groups</li>
+</ul></li>
+</ul>
+<p>Links:</p>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">AWS IAM Best Practices</a></p>
+<p><a href="https://medium.com/@ashishrajan/aws-security-best-practices-access-keys-cloudsecurity-facb20aa0db6">Access keys best practices</a></p>
+<p><a href="https://aws.amazon.com/cli/">AWS CLI</a></p>
+</div>
+<div id="part-5-iam-cont" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.5</span> Part 5 : IAM cont…<a href="cloud.html#part-5-iam-cont" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Cross Account Roles : When you create a role (<em>type another account</em>) on the target account associate it with account if from your master, you also have to specify the permission PowerUser or Adminsitrator for instance, with that users on that group can move between accounts :</p>
+<ol style="list-style-type: decimal">
+<li>Create a role <code>CrossRoleDevOpsEngineers</code> for instance on the target account</li>
+<li>Add the permission that you would like to have when you going to assume that role for instance <code>AdministratorAccess</code></li>
+<li>You will need to add the Account ID from source Account to link the source and target account.</li>
+<li>On source or master account use the role to configure the cross account using <code>Swhich Role</code></li>
+<li>Inform the ID from target Account and Role that you will use.</li>
+</ol></li>
+</ul>
+<p>With that you can create users in one IAM account and the users can go to others accounts using assume roles (switch account). On that IAM account the users will only login and jump to another account we should not create resources here.</p>
+<p>Links:</p>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html?icmpid=docs_iam_console">Credential Reports</a></p>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html">Identity Providers and Federantion</a></p>
+<p><a href="https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/">Habilitando ADFS para AWS</a></p>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.htm">Cross Account using IAM Roles</a></p>
+</div>
+<div id="part-6-ec2" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.6</span> Part 6 : EC2<a href="cloud.html#part-6-ec2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>EC2 (Elastic Compute Cloud) : Service that offer cloud compute on AWS</p>
+<p><a href="https://aws.amazon.com/pt/ec2/">Amazon EC2</a></p>
+<p><a href="https://aws.amazon.com/pt/ec2/pricing/">Tipos e preços</a></p>
+<p><a href="https://aws.amazon.com/pt/ebs/">Amazon EBS</a></p>
+<p><a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Montar o EBS no Linux</a></p>
+<p><a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ec2-security-groups.html">Amazon Security Group</a></p>
+<ul>
+<li>Fazer um video criando EC2, volumes, securty group etc</li>
+</ul>
+</div>
+<div id="part-7-ec2-cont" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.7</span> Part 7 : EC2 cont …<a href="cloud.html#part-7-ec2-cont" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>With EC2 stopped we can create a snapshot of the instance, which allow us restore the image or create a new one, for that option we create an AMI image and create an ec2 instance based on that AMI.</p>
+<p>IF I need to mirgate the EC2 to another region I need to create a spanshot of volume, perform a copy of snapshot and recreate the AMI image from that copy on target region and recreate the EC2 on target region. A second option to migrate EC2 from region is performing a copy on AMI source to target region.</p>
+<p>To get information about metdata about instance we need to access the ip 169.254.169.254</p>
+<pre><code>curl http://169.254.169.254/latest/meta-data/&lt;option&gt;</code></pre>
+<p><a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">AWS EC2 Metadata</a></p>
+<p><a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html">Snapshot</a></p>
+<p><a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/WindowsGuide/AMIs.html">AMIs</a></p>
+<p><a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/WindowsGuide/placement-groups.html">Placement Groups</a></p>
+<p><a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/snapshot-lifecycle.html">Lifecycle Manager</a></p>
+</div>
+<div id="part-8-vpc" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.8</span> Part 8 : VPC<a href="cloud.html#part-8-vpc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>VPC</strong> (<em>Virtual Private Cloud</em>) Enable you to use your own isolated resources within the AWS account, it is like we have on AWS a dedicate/isolated network for our account.</p>
+</div>
+</div>
+<div id="gcp" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.3</span> GCP<a href="cloud.html#gcp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="digital-leader" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.3.1</span> Digital Leader<a href="cloud.html#digital-leader" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://cloud.google.com/certification/guides/cloud-digital-leader">Cloud Digital Leader</a></p>
+<p><strong>INTRODUCTION TO DIGITAL TRANSFORMATION WITH GOOGLE CLOUD</strong></p>
+<p><strong>What is Cloud ? </strong> : Meetaphor for the network of data centers that store and compute information available through the internet</p>
+<ul>
+<li>Technology and processes need to store, manage, and access data that is transferred over the cloud</li>
+<li>Change on how organization operates and optimezes internal resources and how it delivers value to customers</li>
+<li>Cloud enables and redefines our ability to collaborate, perceive, categorize, predict and recommend in every industry for every activity</li>
+</ul>
+</div>
+<div id="cloud-engineer" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.3.2</span> Cloud Engineer<a href="cloud.html#cloud-engineer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="machine-learning-engineer" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.3.3</span> Machine Learning Engineer<a href="cloud.html#machine-learning-engineer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="data-engineer" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.3.4</span> Data Engineer<a href="cloud.html#data-engineer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="server-administrator-i---rh124.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="devops.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -515,7 +729,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-Cloud.Rmd",
 "text": "Edit"
 },
 "history": {

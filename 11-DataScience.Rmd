@@ -398,10 +398,422 @@ With those inputs and outputs we can formulate the problem as a **Learning Task*
 ### Process Model : CRISP-DM on the AWS Stack
 
 
+**Into**
 
+> CRISP-DM "Cross Industry Standard Process - Data Mining", excelent framework to build data science project
+
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/crisp-dm-aws.png")
+```
+
+There are 6 phases and the first (_Business Understanding_) one is the most important one, in that phase you going to understand the problem and know if this suitable for ML or not.
+
+
+
+
+
+
+
+**Phase 1: BUSINESS UNDERSTANTING**
+
+This phase there are 4 tasks :
+
+1. _Understating business requiriment_ : Important to totally **understand the customer needs** and think on the **questions from a business perspective** that need to be answered (_areas and business that need to improve_) and convert that a problem that need to be solved or a problem that need to be answered, also **high the critical features** of projects (_people, resources, etc_) 
+
+
+2. _Analyzing support information_ : **Collect information** necessary based on the business question from task 1, make sure to **list all the required resources and assumptions**, analyze the risks, make a **plan for contingencies** and compare the **costs and benefits** for the project
+
+3. _Converting to a Data Mining problem_: Get the business question from task 2 and convert in machine learning objective **(_classification ? ; regression ?; clustering ? _)** problem and define a **criteria for successful**
+
+4. _Preparing a preliminary plan_: That plan should describe the project and steps to achieve the goal:
+
+    * Timeline with number of stages and duration
+    * Dependencies
+    *  Risks
+    * Business and Data Mining Goals
+    * Evaluation methods
+    * Tools and techniques necessary for each stage
+  
+  
+
+<br>
+
+**Phase 2: DATA UNDERSTANTING**
+
+This phase there are basically 3 tasks : 
+
+1. _Data Collection_ : Need to **analyze which data should be be used** for the project, detail the **sources** and **steps to extract data**, having the data analyze for additional requirements (_checking missing values, if data need to be encode or decode, if need to be normalized, check if are the specific fields that are more important to solve the problem ?_) and consider **other data sources** (_customer is an important resource because they know the domain knowledge_). 
+
+
+
+
+2. _Data properties_ : **Describe the data** (_Structured / Unstructured_), amount of data used and **metadata properties**, including the complexity of data relationships and key features, also include the **basics statistics** (_mean, median, etc_), check the correlation of the main attributes, we can use python, sql, R and reporting tools using graphs to **update the assumptions is necessary**    
+
+
+
+3. _Quality_ : How many attributes contain **errors** ? , There are **missing data** ? Check the meaning of the attributes and complete the missing data, also check the **inconsistencies** and report all problems on this task and list the steps to solve this problem
+
+
+On AWS we can perform this task using **Amazon Athena**, **Amazon QuickSight** and **AWS Glue**
+
+* **Glue** _Manage ETL service_
+  
+  * Step 1 : Build data catalog
+  * Step 2 : Dev env to test and Generate and edit transformations
+  * Step 3 : Schedule and run your jobs
+  
+  
+* **Athena** _interact query service to run SQL queries on Amazon S3_
+  
+  * Serveless where only pay for the queries
+  * Integrated with quicksight
+  * Support ANSI SQL operations and functions
+  
+  
+* **QuickSight**
+
+  * Fast cloud powered BI service
+  * We can scale 
+  * 1/10th of the cost of traditional BI solutions
+  * Secure and collaboration
+  
+
+  
+
+
+
+
+**Phase 3 & 4: DATA PREPARATION TASK & MODELING**
+
+**Phase 3** consist in two tasks
+
+* **_Final dataset selection_** : Here we should analyze the size, record selection and data types, also include and exclude columns based on data understand phase 
+
+
+* **_Preparing the data_**:
+
+  1. **Clean** for quality
+  
+      * Working on **missing data** : Dropping rows with missing values or adding a default value (_mean, median_) or work with imputation to add the missing data, we can also use statistical methods to calculate the value. It is also important to clean the corrupt data or variable noise
+  
+  
+  2. **Transforming** for the best performance of model
+  
+      * **Derive additional** attributes from the original (_Datatime to hour, month, day ..._), use **one-hot encoding** to convert the strings , also recommend to **normalize** the data
+  
+  
+  3. **Merging** all datasets in one final dataset
+  
+      * Create the final dataset using joins and concatenations , recommend to revisit the Data Understanding phase to review the attributes
+  
+  4. **Formatting** to properly work on model
+  
+      * Reformatting the data types and attributes (covert variables), randomly shuffle the data and remove unicode if necessary
+
+
+
+**Phase 3** Modeling
+
+_This phase work together with Data Preparation phase_
+
+Modeling have 3 steps:
+
+  * _Model selection and creation_ : Here we will **select a model to address the ML problem** (_Regression for numeric problems and Random forest for Classification_)
+  
+  * _Model testing plan_ : Before create the model we need to define **how to test** the model accuracy, split the data in Test and Training dataset (**30/70**), also there are other techniques, such as **k-fold**, for the model **evaluation criterion** we can use MSE, ROC, Confusion matrix, etc
+  
+  * _Model parameter tuning/testing_ :  **build the model** , train the model and tweak the best performance (document the hiperparameters and reason), build multiple models with different parameters and report the findings
+  
+
+Tools for Data Preparations and Modeling : 
+
+  * **Amazon EMR + Spark**
+  
+    * We can use EMR and the package **Spark MLlib** to create DataFrame based APIs for ML, using ipython notebooks, zepplin or R studio
+    * Support **Scala, Python, R, Java and SQL**
+    * Cost savings : Leverage spot instance for the task nodes
+  
+  * **Amazon EC2 + Deep Learning AMI**
+  
+    * The two main EC2 base ML environments are **R studio** and **AWS Deep Learning AMI**, this one preinstalled with GPU and frameworks ( _MXNet, TensorFlow, Caffe2, Tourch, Keras, etc_ ) , also include Anaconda Data Science platform with popular libraries like numpy, scikit-learn, etc
+  
+  * [To install R studio in EC2](https://aws.amazon.com/blogs/big-data/running-r-on-aws/)
+  
+
+
+
+
+
+
+**Phase 5: EVALUATION**
+
+In this phase we have two main tasks :
+
+1. Evaluate how the model is performing related to business goals
+
+    * Dependens on : 
+    
+      * Accuracy of model or evaluation criteria on planning phase
+      * Converte the assessments to business need (monetary cost)
+      * Make a summary of results, ranking the models based on successfully criteria
+      
+    
+    
+
+<br>
+
+2. Make final decision to deploy or not
+
+    * Review the project and the assess the steps taken in each phase and perform quality assurance checks (_is the data available for future training, model performance is using the determinated data_)
+
+    * If the process fail to deploy due the successfully criteria, analise the business goals and try different approache or update the business goals and try again
+
+
+
+
+
+**Phase 6: DEPLOYMENT**
+
+Tasks : 
+
+
+  1. Planning deployment
+  
+      * Runtime : Identity where it going to run (_EC2, EC2 Container Service, AWS Lambda_)
+      * Application deployment : AWS Code deploy (_EC2_), AWS OpsWorks (_use chef_), AWS Elastic Beanstalk (_run the models on virtual servers_)
+
+  
+  2. Maintenance and monitoring
+      * Infrastructure deployment : AWS CloudFormation, AWS OpsWorks, AWS Elastic Beanstalk
+      * Code Management : AWS CodeCommit, AWS CodePipeline (_CI/CD_) and AWS Elastic Beanstalk
+      * Monitoring: Amazon CloudWatch, AWS Cloud Trail and AWS Elastic Beanstalk
+
+  
+  
+  3. Final report
+  
+    * Document all steps and highlight processes used 
+    * Goals met the project goals ?
+    * Detail the findings 
+    * Identify and explain the model used and reason behind using the model
+    * Identify the customer groups to target using this model
+  
+  4. Project review
+  
+    * Outcomes of the project : Summarize results and write thorough documentation and generalize the whole process to make it useful for the next iteration
+  
+  
+
+
+* Task : create EC2 install packages and access from browser ssh `<connection> -L localhost:8888:localhost:8888`
+
+
+**Setup EC2 to run notebook**
+
+
+1. Create EC2 instance
+
+2. Connect to instance via ssh
+
+3. Install python
+
+```
+sudo yum update
+sudo yum install python
+```
+
+4. Create a virtual environment and activate
+
+```
+python3 -m venv basic
+source ~/basic/bin/activate
+```
+
+5. Install basic database science packages
+
+```
+pip install pandas numpy matplotlib seaborn scikit-learn statsmodels jupyter jupyterlab
+```
+
+6. Configure the jupyter password
+
+```
+jupyter notebook --generate-config
+jupyter notebook password
+```
+
+7. Open a tunnel and Start jupyter notebook
+
+```
+ssh -i "<key>.pem" ec2-user@<ec2 machine>m -f -N -L 8888:localhost:8888
+
+jupyter notebook --no browser
+
+```
+
+8. Access the notebook from browser http://localhost:8888/
+
+
+### Data Engineering
+
+**S3**
+
+  * Buckets must have a _global unique name_ 
+  * Objects (file) have a key. The key is the FULL path : `<my_bucket>/my_folder/my_file.txt`
+  * Max 5TB
+  * Backbone for ML services
+  * Perfect use case for **Data Lake**, with infinite size , 99.999999999%  durability across multiple AZ and 99.99% availability (_not available 53 min a year_)
+  * Obejct storage supports any file format (_CSV, JSON, Parquet, ORC, Avro, Protobuf_)
+  * We can partition the data by date, by product or any strategy we would like, some tools perform this task forus (Glue and Kinises)
+  
+<br>
+
+_[Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)_: 
+    
+| Classes 	| Details 	| Use Case 	|
+|---	|---	|---	|
+| S3 Standard - General purpose 	| * 99.99% availability (53min a year not available)<br>* Used for frequently accessed data<br>* Low latency and high throughput<br>* Sustain 2 concurrent failures 	| Big data analytics, mobile and gaming applications 	|
+| S3 Standard-Infrequent Access IA 	| * For data that is less frequently accessed, but requires rapid access when needed<br>* Low cost than S3 standard, cost on retrieval<br>* 99.9% availability <br>  	| Used for Disaster recovery 	|
+| S3 One Zone-Infrequent access 	| * High durability 99.999999999% in a single AZ, data lost when AZ distroied<br>* 99.5% availability 	| Storing secondary backup copies of on-prem data, or data you can recriate 	|
+| S3 Glacier Instant Retrieval<br><br>Low cost for archive/backup 	| **Instant retrieval** : ms retrieval , min storage duration 90 days<br><br>**Flexible Retrieval** : Expedite 1 to 5min , Standard 3 to 5 hours, min duration 90 days<br><br>**Deep Archive** : Standard 12hrs, bulk 48hrs, min duration 180 days, for long archive 	|  	|
+| S3 Intelligent Tiering 	| * Small monthly monitoring and auto-tiering fee<br>* Move objects automatically between Tiers based on usage<br>* No retrieval charge<br><br>* **Frequent Access** : default<br>* **Infrequent Access**  > 30 days<br><br>* **Archive Instant Access** > 90 days<br>* **Archive Access** 90 to 700+ days<br>* **Deep Archive Access** 180 to 700+ days<br><br>  	|  	|
+
+
+
+* We can move files between storage classes manually or via configuration using **Lifecycle Rules**
+
+
+* Security : _Encryption for objects_
+
+  * **SSE-S3** : encrypt using keys managed by AWS
+  * **SSE-KMS** : use Key Management Service  (_Customer Master Key_)
+  * **SSE-C** : when we want to manage the keys
+  * **Client Side Encryption**
+  
+_On ML , **SSE-S3** and **SSE-KMS** will be most likely be used_
+_SS3 means Service-side-encryption_
+
+  * S3 Bucket policies : We can use the policies to grant access (_including Cross Account_) to bucket or force objects to be encrypted on upload
+
+    * Today we can use the **default encryption** option on S3 and every document sent to bucket will be encrypted by default
+
+
+
+<br>
+
+
+**AWS Kinesis**
+
+**Kinesis** is a managed alternative to Apache Kafka, it is used to _real-time_ streaming process of big data, used for application logs, metrics, IoT, clickstreams and data replicated on 3 AZs
+
+  * Services :
+  
+    * [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) : low latency streaming ingest at scale
+    
+      * Stream are divided into Shards/Partitions and by default data retention is 24hrs, multiple appls can use the same stream and once data is inserted it cannot be deleted (**immutability**)
+      * It is for **real-time**
+    
+    ```{r, echo = FALSE, out.width="80%"}
+    knitr::include_graphics("img/kinesis_stram_overview.png")
+    ```
+
+
+    * [Kinesis Data Analytics](https://aws.amazon.com/kinesis/data-analytics/): real-time analytics on streams using SQL
+    
+      * Data Analytics will take data from Firehose or Data Streams, perform modifications using SQL and send it to analytic tools 
+      * Used to **streaming ETL**, continues metric and reponsive analytics (_filtering_)
+      
+      * Machine Learning on Kinesis Data Analytics  (_two algorithms_)
+        
+        * **RANDOM_CUT_FOREST** (Used for **anomaly detection** on numeric columns, use recent history to compute model)
+        * **HOTSPOTS** (locate and return information about dense regions)
+      
+    ```{r, echo = FALSE, out.width="80%"}
+    knitr::include_graphics("img/kinesis_data_analytics_aws.png")
+    ```
+      
+    
+    
+    * [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose/): load stream into S3, Redshift, ElasticSearch and splunk
+    
+      * To store data in two target destination, it reads data up to 1MB, can be transformed by lambada function and write in batches into **S3, RedShift, ElasticSearch**, custom destionation or 3rd party (splunk, mongo, etc) 
+      * It is **near real-time** to ingest massive data, auto-scale, supporting many formats (csv, json, orc)
+      
+    ```{r, echo = FALSE, out.width="80%"}
+    knitr::include_graphics("img/kinesis_firehose_aws.png")
+    ```
+    
+    
+    
+    * [Kinesis video Stream](https://aws.amazon.com/pt/kinesis/video-streams/?amazon-kinesis-video-streams-resources-blog.sort-by=item.additionalFields.createdDate&amazon-kinesis-video-streams-resources-blog.sort-order=desc): stream video in real-time
  
+      * real-time video stream to create ML applications
+      
+    ```{r, echo = FALSE, out.width="80%"}
+    knitr::include_graphics("img/kinesis_video_aws.png")
+    ```     
+      
+
+
+<br>
+
+
+**GLUE DATA CATALOG**
+
+[GLUE Documentation](https://docs.aws.amazon.com/glue/index.html)
+
+> Metadata repository for all tables
+
+  * Automated schema inference
+  * Schema visioned
+  * Integration with Athena or RedShift (_schema & data discovery_)
+  * Glue Crawlers can help build the **Data Catalog**
+
+
+
+**GLUE DATA CRAWLERS**
+
+  * Go through the data to infer schema and partitions, works in JSON,CSV and PARQUET
+  * Will extract partition based on how S3 is organized
+  
+  
+**GLUE ETL**
+
+  * **Transform data**, clean, modify (_Join, filter, dropfields, map_), generate code in python or spark and the target can be S3, JDBC, RDS, RedShift or Glue Catalog
+  * ML Transformation : **FindMatches ML** identify duplicated or matching records in database
+  * Jobs run on Spark Platform
+  * Formats (csv, json, avro, parquet, orc and xml)
+  * Also can use any apache spark transformatino (like k-means)
+
+
+
+
+<br>
+
+
+**DATA STORE IN MACHINE LEARNING**
+
+* **RedShift** : Data warehouse, OLAP processing
+* **RDS, Autora** : Relation store OLTP
+* **DynamoDB** : NoSQL data store
+* **S3**: Object store, serveless
+* **OpenSearch** (previously Elastic Search) : Indexing data
+* **ElastiCache** : Caching mechanism
+
+
+<br>
+
+
+  
+  
+
+
+
+
 
 ---
+
 
 
 ## GCP - Professional Machine Learning Engineer

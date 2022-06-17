@@ -1,0 +1,303 @@
+# Cloud
+
+
+## Azure
+
+
+
+
+
+
+
+## AWS
+
+### Part 1 : Cloud Concepts
+
+  * Cloud computing : 
+    
+      * Agility
+      * Maintenance
+      * Reliability
+      * Security
+      * Performance
+      * Scalability
+      * Cost and Elasticity
+        * _soft limit_ : 30 ec2 per month, if need more request to aws
+        * _hard limit_ : data center limit
+
+  * According to **NIST** (_The National Institute of Standards and Technology_)
+  
+      * On demand Self-service
+      * Broad network access
+      * Resource pooling
+      * Rapid elasticity
+      * Measured service
+  
+  
+  * Cloud models or Service Models
+  
+      * **IaaS** : Infra as a service
+      * **PaaS** : Platform as a service
+      * **FaaS** : Function as a service 
+    
+    
+  * Deployment models
+  
+      * Private Cloud
+      * Public Cloud
+      * Hybrid Cloud : Using Private and Public
+      * Multicloud 
+      * Community
+    
+    
+    
+  
+  
+### Part 2 : Foundation
+
+Also known as On-boarding, but the this is the best practice to start use the cloud, or how to plan the use of AWS account. There are lot of options and layers.
+
+
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/aws_account_foundation.png")
+```
+
+<br>  
+
+**ROOT ACCOUNTS**
+
+* Principal account on AWS
+* Used to start the new account in AWS
+* Manager **billing** and other accounts
+* **First account to create on AWS cloud**
+  _If you going to use Production on AWS you going to have more than one account_
+
+<br>
+  
+**OU Organization Unit**
+
+* Option to organize the account such as _DEV_, _QA_, _PROD_, we can apply rules to **OU** or for **account**, like production runs on Sao Paulo, DEV on USA, QA can only start machine from group X, etc.
+* Can have OU for RH, Department , Business Unit, etc
+
+<br>
+
+**ACCOUNT**
+
+* Where the resource are started or created
+* _Tips_: 
+  * Not use a personal email to create an account, use a team email
+  * Read the emails and attention to account to have a good _score_
+  * Every account have IAM, to mange the users
+
+* Create an account on [aws.amazon.com](aws.amazon.com)
+  * Need two emails , Name and credict card
+  
+
+**Links**
+
+[AWS Landing Zone](https://aws.amazon.com/solutions/aws-landing-zone/)
+
+[AWS Organizations](https://aws.amazon.com/organizations/)
+
+[AWS Account](https://aws.amazon.com/account/)
+
+[AWS SCP](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)
+
+[Example Service Control Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html)
+
+[AWS Calculator](https://calculator.s3.amazonaws.com/index.html)
+
+
+  
+  
+  
+  
+### Part 3 : AWS Well-Architected
+
+> Framework that help you know the risks and how to fix, it contain papers and instructos to guide you on Best Practices ( pillars, design principles and questions) to apply on your account.
+
+[AWS Well-Architected Framework link ](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
+
+Best practice _Framework_
+
+  * Pillars
+    * Operational Excellence Pillar
+    * Security Pillar
+    * Reliability Pillar
+    * Performance Efficiency Pillar
+    * Cost Optimization Pillar    
+    * Sustainability Pillar
+
+
+  * Design Principles
+  * Questions
+  
+Why to use ? 
+  
+  * Speed
+  * Mitigate risks
+  * Make informed decisions
+  * Use AWS best practices
+  
+  
+Links:
+
+[AWS Well-Architected Tool](https://aws.amazon.com/well-architected-tool/)
+
+[AWS Well-Architected Doc](https://aws.amazon.com/architecture/well-architected/)
+
+[The 5 Pillars of the AWS Well-Architected Framework](https://aws.amazon.com/blogs/apn/the-5-pillars-of-the-aws-well-architected-framework/)
+  
+  
+### Part 4 : IAM
+
+Manage Security , Identity and Account
+
+
+* Define groups and attach the polices for that group
+
+* Create the **Users** and associate to groups
+  * Always enable MFA for user authenticate 
+  * Service users that going to be used via API its a good practice to have `svc` or `service` on name , like , `svc-dev`, this option will enable an access key ID and secret access key for the AWS API, CLI, SDK, and other development tools
+  * The normal user will be created when you select **Password - AWS Management Console access**, that enable a password that allows users to sign-in to the AWS Management Console.
+
+
+* **Role**
+  * There are several roles defined by AWS but you can create your own role
+  * Allow you enable one resource , for instance EC2, to talk with another resource like IAM without access key, only using Roles and policies
+
+* **Policies**
+  * There are several policies defined by AWS, but we can create our policy
+  * **AdministratorAccess**: Provide full access to AWS service and resources
+  * **PowerUserAccess**: Provide full access to AWS service and resources, but do not allow manage User and Groups
+  
+
+
+Links:
+
+[AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+
+[Access keys best practices](https://medium.com/@ashishrajan/aws-security-best-practices-access-keys-cloudsecurity-facb20aa0db6)
+
+[AWS CLI](https://aws.amazon.com/cli/)
+  
+  
+  
+   
+### Part 5 : IAM cont...
+
+* Cross Account Roles : When you create a role (_type another account_) on the target account associate it with account if from your master, you also have to specify the permission PowerUser or Adminsitrator for instance, with that users on that group can move between accounts :
+
+  1. Create a role `CrossRoleDevOpsEngineers` for instance on the target account
+  2. Add the permission that you would like to have when you going to assume that role for instance `AdministratorAccess`
+  3. You will need to add the Account ID from source Account to link the source and target account.
+  4. On source or master account use the role to configure the cross account using `Swhich Role`
+  5. Inform the ID from target Account and Role that you will use.
+
+
+With that you can create users in one IAM account and the users can go to others accounts using assume roles (switch account). On that IAM account the users will only login and jump to another account we should not create resources here.
+
+
+Links:
+
+[Credential Reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html?icmpid=docs_iam_console)
+
+[Identity Providers and Federantion](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)
+
+[Habilitando ADFS para AWS](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
+
+[Cross Account using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.htm)
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+### Part 6 : EC2
+
+EC2 (Elastic Compute Cloud) : Service that offer cloud compute on AWS   
+
+
+
+[Amazon EC2](https://aws.amazon.com/pt/ec2/)
+
+[Tipos e preços](https://aws.amazon.com/pt/ec2/pricing/)
+
+[Amazon EBS](https://aws.amazon.com/pt/ebs/)
+
+[Montar o EBS no Linux](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
+
+[Amazon Security Group](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ec2-security-groups.html)
+
+
+* Fazer um video criando EC2, volumes, securty group etc
+
+### Part 7 : EC2 cont ...
+
+With EC2 stopped we can create a snapshot of the instance, which allow us restore the image or create a new one, for that option we create an AMI image and create an ec2 instance based on that AMI.
+
+IF I need to mirgate the EC2 to another region I need to create a spanshot of volume, perform a copy of snapshot and recreate the AMI image from that copy on target region and recreate the EC2 on target region. A second option to migrate EC2 from region is performing a copy on AMI source to target region.
+
+To get information about metdata about instance  we need to access the ip 169.254.169.254
+
+```
+curl http://169.254.169.254/latest/meta-data/<option>
+```
+
+
+[AWS EC2 Metadata](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
+
+[Snapshot](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html)
+
+[AMIs](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/WindowsGuide/AMIs.html)
+
+[Placement Groups](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/WindowsGuide/placement-groups.html)
+
+[Lifecycle Manager](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
+
+
+
+
+### Part 8 : VPC
+
+**VPC** (_Virtual Private Cloud_) Enable you to use your own isolated resources within the AWS account, it is like we have on AWS a dedicate/isolated network for our account.
+
+
+
+
+
+
+
+## GCP
+
+### Digital Leader
+
+
+[Cloud Digital Leader ](https://cloud.google.com/certification/guides/cloud-digital-leader)
+
+
+
+**INTRODUCTION TO DIGITAL TRANSFORMATION WITH GOOGLE CLOUD**
+
+**What is Cloud ? ** : Meetaphor for the network of data centers that store and compute information available through the internet
+
+  * Technology and processes need to store, manage, and access data that is transferred over the cloud
+  * Change on how organization operates and optimezes internal resources and how it delivers value to customers
+  * Cloud enables and redefines our ability to collaborate, perceive, categorize, predict and recommend in every industry for every activity
+  
+
+
+
+
+
+### Cloud Engineer
+
+
+### Machine Learning Engineer
+
+### Data Engineer

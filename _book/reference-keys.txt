@@ -198,7 +198,7 @@ configuring-openshift-networking-for-applications
 openshift-software-defined-networking
 exposing-applications-for-external-access
 configuring-network-policies
-devops
+cloud
 azure
 aws
 part-1-cloud-concepts
@@ -207,6 +207,12 @@ part-3-aws-well-architected
 part-4-iam
 part-5-iam-cont
 part-6-ec2
+gcp
+digital-leader
+cloud-engineer
+machine-learning-engineer
+data-engineer
+devops
 docker
 part-1
 o-que-é-container
@@ -237,6 +243,7 @@ demystifying-ai-ml-dl
 machine-learning-essentials-for-business-and-technical-decision-makers
 machine-learning-for-business-leaders
 process-model-crisp-dm-on-the-aws-stack
+data-engineering
 gcp---professional-machine-learning-engineer
 big-data-and-ml-fundamentals
 recommending-products-using-cloud-sql-and-spark
@@ -255,3 +262,7 @@ statistics-for-data-analysis-using-python
 descriptive-statistics
 distributions
 inferencial-and-hypothesis-testing
+troubleshooting-managed-hosts
+building-custom-container-images-with-containerfiles
+part-7-ec2-cont
+part-8-vpc

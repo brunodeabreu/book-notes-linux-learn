@@ -23,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2022-06-17" />
+<meta name="date" content="2022-06-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -398,7 +398,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="cloud.html"><a href="cloud.html#part-5-iam-cont"><i class="fa fa-check"></i><b>7.2.5</b> Part 5 : IAM cont…</a></li>
 <li class="chapter" data-level="7.2.6" data-path="cloud.html"><a href="cloud.html#part-6-ec2"><i class="fa fa-check"></i><b>7.2.6</b> Part 6 : EC2</a></li>
 <li class="chapter" data-level="7.2.7" data-path="cloud.html"><a href="cloud.html#part-7-ec2-cont"><i class="fa fa-check"></i><b>7.2.7</b> Part 7 : EC2 cont …</a></li>
-<li class="chapter" data-level="7.2.8" data-path="cloud.html"><a href="cloud.html#part-8-vpc"><i class="fa fa-check"></i><b>7.2.8</b> Part 8 : VPC</a></li>
+<li class="chapter" data-level="7.2.8" data-path="cloud.html"><a href="cloud.html#part-8-9-and-10-vpc"><i class="fa fa-check"></i><b>7.2.8</b> Part 8 , 9 and 10 : VPC</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="cloud.html"><a href="cloud.html#gcp"><i class="fa fa-check"></i><b>7.3</b> GCP</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="cloud.html"><a href="cloud.html#digital-leader"><i class="fa fa-check"></i><b>7.3.1</b> Digital Leader</a></li>
@@ -437,9 +437,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.2" data-path="data-science.html"><a href="data-science.html#machine-learning-essentials-for-business-and-technical-decision-makers"><i class="fa fa-check"></i><b>9.4.2</b> Machine Learning Essentials for Business and Technical Decision Makers</a></li>
 <li class="chapter" data-level="9.4.3" data-path="data-science.html"><a href="data-science.html#machine-learning-for-business-leaders"><i class="fa fa-check"></i><b>9.4.3</b> Machine Learning for Business Leaders</a></li>
 <li class="chapter" data-level="9.4.4" data-path="data-science.html"><a href="data-science.html#process-model-crisp-dm-on-the-aws-stack"><i class="fa fa-check"></i><b>9.4.4</b> Process Model : CRISP-DM on the AWS Stack</a></li>
-<li class="chapter" data-level="9.4.5" data-path="data-science.html"><a href="data-science.html#data-engineering"><i class="fa fa-check"></i><b>9.4.5</b> Data Engineering</a></li>
+<li class="chapter" data-level="9.4.5" data-path="data-science.html"><a href="data-science.html#machine-learning-terminology-and-process"><i class="fa fa-check"></i><b>9.4.5</b> Machine Learning Terminology and Process</a></li>
+<li class="chapter" data-level="9.4.6" data-path="data-science.html"><a href="data-science.html#data-engineering"><i class="fa fa-check"></i><b>9.4.6</b> Data Engineering</a></li>
+<li class="chapter" data-level="9.4.7" data-path="data-science.html"><a href="data-science.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>9.4.7</b> Exploratory Data Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machine-learning-engineer"><i class="fa fa-check"></i><b>9.5</b> GCP - Professional Machine Learning Engineer</a><ul>
+<li class="chapter" data-level="9.5" data-path="data-science.html"><a href="data-science.html#gcp---professional-machin-e-learning-engineer"><i class="fa fa-check"></i><b>9.5</b> GCP - Professional Machin* e Learning Engineer</a><ul>
 <li class="chapter" data-level="9.5.1" data-path="data-science.html"><a href="data-science.html#big-data-and-ml-fundamentals"><i class="fa fa-check"></i><b>9.5.1</b> Big Data and ML Fundamentals</a></li>
 <li class="chapter" data-level="9.5.2" data-path="data-science.html"><a href="data-science.html#recommending-products-using-cloud-sql-and-spark"><i class="fa fa-check"></i><b>9.5.2</b> Recommending Products using Cloud SQL and Spark</a></li>
 </ul></li>
@@ -539,8 +541,8 @@ ls --all .</code></pre>
 <span id="cb5-8"><a href="server-administrator-i---rh124.html#cb5-8"></a><span class="co"># Executing one command after the other</span></span>
 <span id="cb5-9"><a href="server-administrator-i---rh124.html#cb5-9"></a><span class="fu">date</span> +%A<span class="kw">;</span> <span class="fu">uname</span> -r<span class="kw">;</span> <span class="fu">whoami</span></span></code></pre></div>
 <pre><code>## runner
-## 2022-06-17
-## Friday
+## 2022-06-21
+## Tuesday
 ## 20.6.0
 ## runner</code></pre>
 <p><strong>Conditional commands execution <code>&amp;&amp;</code></strong></p>
@@ -556,7 +558,7 @@ ls --all .</code></pre>
 <span id="cb7-6"><a href="server-administrator-i---rh124.html#cb7-6"></a><span class="bu">echo</span></span>
 <span id="cb7-7"><a href="server-administrator-i---rh124.html#cb7-7"></a><span class="co"># If with or</span></span>
 <span id="cb7-8"><a href="server-administrator-i---rh124.html#cb7-8"></a><span class="ex">ate</span> +%F <span class="kw">||</span> <span class="fu">uname</span> -r <span class="kw">&amp;&amp;</span> <span class="fu">whoami</span></span></code></pre></div>
-<pre><code>## 2022-06-17
+<pre><code>## 2022-06-21
 ## 20.6.0
 ## runner
 ## 
@@ -663,7 +665,7 @@ cat etc/issue</code></pre>
 * date &amp; time stamps
 * paths to data on file system</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="server-administrator-i---rh124.html#cb15-1"></a><span class="fu">ls</span> -li LICENSE</span></code></pre></div>
-<pre><code>## 12893777282 -rw-r--r--  1 runner  staff  6556 Jun 17 13:49 LICENSE</code></pre>
+<pre><code>## 12893778105 -rw-r--r--  1 runner  staff  6556 Jun 21 04:11 LICENSE</code></pre>
 <ul>
 <li>40652348 : file ID (<em>inode</em>)</li>
 <li>1 : means one name using this iNode right now</li>
@@ -672,8 +674,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="server-administrator-i---rh124.html#cb17-1"></a><span class="fu">ln</span> LICENSE LIC2</span>
 <span id="cb17-2"><a href="server-administrator-i---rh124.html#cb17-2"></a><span class="fu">ls</span> -li LIC*</span></code></pre></div>
 <pre><code>## ln: LIC2: File exists
-## 12893777281 -rw-r--r--  1 runner  staff  6556 Jun 17 13:49 LIC2
-## 12893777282 -rw-r--r--  1 runner  staff  6556 Jun 17 13:49 LICENSE</code></pre>
+## 12893778104 -rw-r--r--  1 runner  staff  6556 Jun 21 04:11 LIC2
+## 12893778105 -rw-r--r--  1 runner  staff  6556 Jun 21 04:11 LICENSE</code></pre>
 <ul>
 <li>Both LIC2 and LICENSE have the same iNode but the number right now is <strong>2</strong>, not able to identify which one was create first, this is a <strong>hard link</strong></li>
 </ul>
@@ -681,8 +683,8 @@ cat etc/issue</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="server-administrator-i---rh124.html#cb19-1"></a><span class="fu">ln</span> -s README.md README_2.md</span>
 <span id="cb19-2"><a href="server-administrator-i---rh124.html#cb19-2"></a><span class="fu">ls</span> -li READ*</span></code></pre></div>
 <pre><code>## ln: README_2.md: File exists
-## 12893777283 -rw-r--r--  1 runner  staff  741 Jun 17 13:49 README.md
-## 12893777284 lrwxr-xr-x  1 runner  staff    9 Jun 17 13:49 README_2.md -&gt; README.md</code></pre>
+## 12893778106 -rw-r--r--  1 runner  staff  741 Jun 21 04:11 README.md
+## 12893778107 lrwxr-xr-x  1 runner  staff    9 Jun 21 04:11 README_2.md -&gt; README.md</code></pre>
 <ul>
 <li>Both have different iNode number, so they are two different files, the permission there are a <code>l</code> meaning link, this is a <strong>soft link</strong>, if we delete file 3 we have a broken link</li>
 </ul>
@@ -828,7 +830,7 @@ cat etc/issue</code></pre>
 <span id="cb25-5"><a href="server-administrator-i---rh124.html#cb25-5"></a><span class="co"># command substitution</span></span>
 <span id="cb25-6"><a href="server-administrator-i---rh124.html#cb25-6"></a><span class="bu">echo</span> <span class="st">&quot;Today is </span><span class="va">$(</span><span class="fu">date</span> +%A<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
 <pre><code>## value
-## Today is Friday</code></pre>
+## Today is Tuesday</code></pre>
 <p><strong>skell</strong></p>
 <p>The contenct of path <strong>/etc/skel</strong> is automatically copied to all users</p>
 </div>
@@ -1304,7 +1306,7 @@ ls -ld dirA
 <li><code>uptime</code> command review the load average</li>
 </ul>
 <div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="server-administrator-i---rh124.html#cb53-1"></a><span class="fu">uptime</span></span></code></pre></div>
-<pre><code>## 13:51  up 3 mins, 1 user, load averages: 10.62 9.00 4.04</code></pre>
+<pre><code>##  4:12  up 5 mins, 1 user, load averages: 6.09 6.81 3.57</code></pre>
 <ul>
 <li>1,24 : Last min</li>
 <li>1,07 : Last 5 min</li>

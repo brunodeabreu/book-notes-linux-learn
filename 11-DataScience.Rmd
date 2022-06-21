@@ -220,8 +220,6 @@ cat(
 
 
 
----
-
 ### Machine Learning Essentials for Business and Technical Decision Makers
 
 
@@ -386,13 +384,7 @@ With those inputs and outputs we can formulate the problem as a **Learning Task*
 
 
   
----  
-  
 
-
-
-
----
 
 
 ### Process Model : CRISP-DM on the AWS Stack
@@ -513,7 +505,7 @@ On AWS we can perform this task using **Amazon Athena**, **Amazon QuickSight** a
 
 
 
-**Phase 3** Modeling
+**Phase 4** Modeling
 
 _This phase work together with Data Preparation phase_
 
@@ -592,16 +584,15 @@ Tasks :
   
   
   3. Final report
-  
-    * Document all steps and highlight processes used 
-    * Goals met the project goals ?
-    * Detail the findings 
-    * Identify and explain the model used and reason behind using the model
-    * Identify the customer groups to target using this model
+      * Document all steps and highlight processes used 
+      * Goals met the project goals ?
+      * Detail the findings 
+      * Identify and explain the model used and reason behind using the model
+      * Identify the customer groups to target using this model
   
   4. Project review
   
-    * Outcomes of the project : Summarize results and write thorough documentation and generalize the whole process to make it useful for the next iteration
+      * Outcomes of the project : Summarize results and write thorough documentation and generalize the whole process to make it useful for the next iteration
   
   
 
@@ -653,6 +644,142 @@ jupyter notebook --no browser
 ```
 
 8. Access the notebook from browser http://localhost:8888/
+
+
+### Machine Learning Terminology and Process
+
+> End to End Machine Learning Process and common ML Terminoly
+
+**ML Terminology**
+
+* **Training** : How ML use historical dataset to build prediction algorithm(_model_)
+* **Model** : Core of ML process, enable the machine to determine an output variable(_prediction_) from an input variable
+* **Prediction** (_inference_): Best estimate of a given input would be
+
+
+**Process**
+
+1. The Business Problem
+2. The Machine Learning framing (_Transform the business problem into ML problem_), define the type of ML
+3. Data Collection and Integration (_Collect data from multiple sources_)
+4. Data Preparation (_steps before ML algorithm use the data_)
+  
+    * Data Cleaning
+    * Impute missing values (_new variable indication the missing value, remove rows, imputation(mean, media, other)_)
+    * Shuffle training data (_stract a fraction of data for training_) `train_data = train_data.sample(frac = 1)`
+    * Test-validation-train split (_20% test  ,  10% validation,  70% train_)
+    * Cross validation (_Validation(30/70 or 20/10/70), Leave-one-out, k-fold_)
+
+5. Data Visualization and Analysis (_better understand of data_)
+  
+    * Statistics
+    * Scatter-plots
+    * Histograms
+  
+6. Feature Engineering
+
+     * Binning : To introduce non-linearity into linear models
+     * Combine features together to create complex feature
+     * Take the log of feature or polinomial power of target
+     * Text-Features : 
+        
+        * Stop-words removal / Steamming
+        * Lowercasing, punctuation removal
+        * Cutting off very high/low percentiles
+        * TF-IDF normalization
+        
+      * Web-page features
+      
+        * multiple fields of text : URL, title, frames, body
+        * relative style and position
+        
+7. Model training
+
+  * **Loss Function**  (_How far predictions are from objective_)
+  
+    * Square : regression, classification
+    * Hinge : classification only (_robust to outliers_)
+    * Logistic : Classification only (_better for skewed class distribution_)
+    
+  
+  * **Regularization**
+  
+    * Prevent overfitting by constraining weights to be small
+  
+  * **Learning Parameters** (_decay rate_)  _How fast the algorithm learn_
+  
+    * Decaying too aggressively - algorithm never reaches optimum
+    * Decaying too slowly - algorithm bounces around, never converge to optimum
+    
+    
+    
+8. Model Evaluation
+
+  * **Overfitting & Underfitting**
+    
+    * Don't fit data to obtain maximum accuracy
+    
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/overfitting_underfitting_aws.png")
+    ```
+
+    * **Bias-Variance Tradeoff**
+    
+      * Bias : Difference between average model predictions and true target values
+      * Variance : Variation in predictions across different training data samples
+
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/bias_variance_trade_off_aws.png")
+    ```
+    
+    
+    * **Evaluation Metrics**  
+    
+      * Regression : 
+          
+          * RMSE - Root Meam Squared Error
+          * MAPE - Mean Absolute Percent Error
+          * R^2 - How much better is the model compared to just pick the best constrant (R^2 = 1 - (model MSE / variance))
+
+
+      * Classification : 
+      
+          * Confusion Matrix
+          * ROC Curve
+          * Precision-Recall
+          
+            * **Precision** : How correct we are when we what to predict be positive
+            * **Recall** (_Sensitivity_) : Fraction of negative that was wrongly predicted
+          
+          
+          
+          
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/confusion_matrix_prec_recal_aws.png")
+    ```
+          
+
+
+9. Business Goal Evaluation
+
+  * Evaluate how the model is performing related to **business goals**
+  * Make the final decision to deploy or not
+  
+Evaluation depends on: 
+  
+  * Accuracy
+  * Model generalization on unseen/unknown data
+  * Business success criteria
+    
+    
+    
+If we need more data or have more data we can add data (**Data Augmentation**) or feature (**Feature Augmentation**)
+  
+  
+  * Prediction : The production data MUST have the same distribution as the training data
+  
+    
+
 
 
 ### Data Engineering
@@ -795,7 +922,7 @@ _SS3 means Service-side-encryption_
 **DATA STORE IN MACHINE LEARNING**
 
 * **RedShift** : Data warehouse, OLAP processing
-* **RDS, Autora** : Relation store OLTP
+* **RDS, Aurora** : Relation store OLTP
 * **DynamoDB** : NoSQL data store
 * **S3**: Object store, serveless
 * **OpenSearch** (previously Elastic Search) : Indexing data
@@ -805,8 +932,46 @@ _SS3 means Service-side-encryption_
 <br>
 
 
+**[AWS DATA PIPELINE](https://aws.amazon.com/datapipeline/)**
+
+Service to move data from one place to another (S3, RDS, DynamoDB,Redshift, EMR), **ETL service** where we can manage the task dependencies, retry and notifies on failure
+
+_What is the difference between GLUE and DATA PIPELINE ? _
+
+  * Glue is Apache Spark focus , run Scala or Python jobs
+  * Data Pipeline is an orchestration service where we have more control over the environment, compute resources and code and allow us access EC2 or EMR
   
   
+  
+
+<br>
+
+**[AWS BATCH](https://aws.amazon.com/batch/)**
+
+
+AWS Batch run jobs as Docker images, no need to manage cluster, fully **serveless** and we can schedule batch jobs using **Cloud Watch Events** or Orchestrate batch jobs using **AWS Step Functions**
+
+
+<br>
+
+**[DMS DATABASE MIGRATION SERVICE](https://aws.amazon.com/pt/dms/)**
+
+Quickly and securely way to migrate databases to AWS, it supports Oracle to Oracle or  MSSQL to Aurora, we can use continuous Data Replication using CDC and it the replication must be performed EC2 instance 
+
+
+
+<br>
+
+**[AWS Step Functions](https://aws.amazon.com/step-functions/)**
+
+Step Functions is used to Orchestrate and design workflows 
+
+* [Train a Machine Learning Model](https://docs.aws.amazon.com/step-functions/latest/dg/sample-train-model.html)
+
+
+
+<br>
+
 
 
 
@@ -816,7 +981,264 @@ _SS3 means Service-side-encryption_
 
 
 
-## GCP - Professional Machine Learning Engineer
+
+
+
+
+
+
+---
+
+### Exploratory Data Analysis
+
+
+
+
+
+
+
+
+**PANDAS**
+
+  * Data Frames : Similar table structure
+  * Series :  1D structure
+  * Numpy : arrays and math
+    
+    * [100-numpy-exercises](https://jovian.ai/brunodeabreu/100-numpy-exercises)
+    * [100-numpy-exercises - solutions](https://github.com/rougier/numpy-100/blob/master/100_Numpy_exercises_with_hints_with_solutions.md)
+
+
+
+**[MATPLOTLIB](https://matplotlib.org/)**
+
+  * Data Visualization 
+  
+    * Boxplot
+  
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/boxplot_aws.png")
+    ```
+    
+    * [Histogram](https://matplotlib.org/stable/gallery/statistics/hist.html)
+    
+    
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/hist_aws.png")
+    ```
+
+  * [Seaborn](https://seaborn.pydata.org/) : Python data visualization library based on matplotlib
+  
+    * [Visualizing statistical relationships](https://seaborn.pydata.org/tutorial/relational.html)
+    * [Visualizing distributions of data](https://seaborn.pydata.org/tutorial/distributions.html)
+    * [Plotting with categorical data](https://seaborn.pydata.org/tutorial/categorical.html)
+    * [Visualizing regression models](https://seaborn.pydata.org/tutorial/regression.html)
+  
+
+
+
+**[Scikit_learn](https://scikit-learn.org/stable/)**
+  
+  * [Jupyter notebooks](https://jupyter.org/)
+
+
+
+
+**Type of Data**
+
+  * Numerical (_discrete_  5  , 20  **or** _continuous_  2.56, 545.67)
+  * Categorical (_qualitative_  Gender)
+  * Ordinal (_Categorical with math meaning_  Ranking)
+
+
+
+**Data Distribution**
+
+
+  * **Normal**
+  
+```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/normal_dist_aws_course.png")
+```
+
+  * **Probability Mass Function**
+  
+    * Working with **Discrete data**, visualize the probability of discrete data occur
+  
+    ```{r, echo = FALSE, out.width="90%"}
+        knitr::include_graphics("img/pmf_Aws.png")
+    ```
+
+
+    * Poisson Distribution
+    
+      * Example of probability mass function, series of events (success or failure)
+  
+  
+      ```{r, echo = FALSE, out.width="90%"}
+          knitr::include_graphics("img/poisson_dist_aws.png")
+      ```
+      
+    
+  * **Binomial Distribution**
+  
+    * Work with **discrete data**
+      
+      
+      ```{r, echo = FALSE, out.width="90%"}
+          knitr::include_graphics("img/binomial_dist_Aws.png")
+      ```
+      
+  
+
+**Time Series**
+  
+  * Trends 
+  * Seasonality 
+  
+  
+  ```{r, echo = FALSE, out.width="90%"}
+      knitr::include_graphics("img/trends_seasonality_aws.png")
+  ```
+  
+  * Seasonality + Trends + Noise = Time series
+  
+
+
+**Amazon Athena**
+
+> Serveless interactive queries of S2 data lake
+
+  * Presto under the hood
+  * Serverless
+  * Supports (_CSV, JSON, ORC, PARQUET, AVRO_)
+  * Pay-as-you-go
+  * Save money using columnar formats (ORC, Parquet)
+
+
+**Amazon QuickSight**
+
+> Business analytics and visualizations in the cloud
+
+  * Build visualizations
+  * Perform ad-hoc analysis
+  * Serveless
+  * Data Sources : RedShift,  Aurora / RDS,  EC2, Athena, S3
+  * **SPICE** : In-memory calculation makes QuickSight fast
+  * ML Insights : Anomaly detection, Forecasting, Auto-narratives
+  
+
+**Amazon EMR _Elastic MapReduce_**
+
+  * Managed Hadoop framework on EC2
+  * Includes Spark , HBase, Presto, Flink, hive and more
+  * EMR Notebooks
+      
+  ```{r, echo = FALSE, out.width="90%"}
+      knitr::include_graphics("img/emr_cluster_aws.png")
+  ```
+  * [Spark](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark.html) Components that runs on top of _spark core_
+  
+    * Spark Streaming
+    * Spark SQL
+    * Graph X
+    * MLLib
+    
+      * Classification : Logistic regression, naive bayes
+      * Regression
+      * Decision trees
+      * Recommendation ALS
+      * Cluster K-means
+      * LDA (Topic modeling)
+      * ML Workflow utilities (_pipeline, feature transformation, etc_)
+      * PCA, SVD, statistics, others 
+      
+
+
+    ```{r, echo = FALSE, out.width="90%"}
+             knitr::include_graphics("img/chossing_EMR_Types.png")
+    ```
+  
+     
+**Feature Engineering**
+
+> "Applied machine learning is basically feature engineering" - Andrew Ng
+
+  * Which features should I use ? 
+  * Do I need to transform these feature ? 
+  * How do I handle missing data ? 
+  * Should I create new feature ? Transform ? Normalize ? 
+  
+  
+**Imputing Missing Data**
+
+  * Replace by mean ? median ?
+  * Works on column level
+  * Cannot use on categorical features
+  * If not many rows and drop does not bias the data, maybe reasonable
+  * Use Machine Learning
+  
+    * KNN , average of group of features
+    * Deep Learning, build ML to impute the data, works well for categorical data
+    * Regression (_MICE_)
+  * **Get more data**
+      
+      
+
+**Unbalanced Data**
+
+> Large discrepancy between positive and negative cases
+
+  * **Oversampling** : Duplicate samples from the minority class
+  * **Undersampling** : Instead of creating more positive samples, remove negative ones, **remove data is not the right answer**
+  * **SMOTE** : _**S**ynthetic **M**inority **O**ver-sampling **TE**chnique_ generate new samples using nearest neighbors
+      
+   
+**Outliers**
+
+  * We can use Stardard deviation to identify outliers
+  * AWS Random Cut Forest : outlier detection
+
+
+    ```{r, echo = FALSE, out.width="90%"}
+        knitr::include_graphics("img/outliers_sample_aws.png")
+    ```
+   
+
+**Binning**
+
+  * Bucket observations together based on ranges of values
+  * Transform numeric data to ordinal data
+
+
+**Encoding**
+
+  * Transform data into some new representation
+  * One-Hot encoding
+
+* **Scalling / Normalization**
+
+  * Some models prefer feature data to be normally distributed
+  * Scikit learn _MinMaxScaler_
+
+
+**Amazon SageMaker Ground Truth and Label Generation**
+
+  * Ground Truth creates its own model as images are labeled by people
+
+
+
+
+
+
+
+
+
+
+
+      
+---
+
+## GCP - Professional Machin* e Learning Engineer
 
 ### Big Data and ML Fundamentals
 

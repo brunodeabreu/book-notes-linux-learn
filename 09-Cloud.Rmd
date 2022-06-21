@@ -59,7 +59,7 @@ Also known as On-boarding, but the this is the best practice to start use the cl
 
 
 
-```{r, echo = FALSE, out.width="60%"}
+```{r, echo = FALSE, out.width="80%"}
 knitr::include_graphics("img/aws_account_foundation.png")
 ```
 
@@ -263,16 +263,149 @@ curl http://169.254.169.254/latest/meta-data/<option>
 
 
 
-### Part 8 : VPC
+### Part 8 , 9 and 10 : VPC
 
-**VPC** (_Virtual Private Cloud_) Enable you to use your own isolated resources within the AWS account, it is like we have on AWS a dedicate/isolated network for our account.
+[**VPC**](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (_Virtual Private Cloud_) Enable you to use your own isolated resources within the AWS account, it is like we have on AWS a dedicate/isolated network for our account.
 
-
-
-
+Imagine is you have on AWS a dedicate/privated network to you ? Yes that is VPC, part of AWS infra is dedicate to you and you going to receive an ip interval dedicated to you.
 
 
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/netmask_aws_host_net.png")
+```
 
+
+Where you see a bit on like `1  1  1  1  1  1  1  1` or `255` is related a network, where you see the bit off `0  0  0  0  0  0  0  0` or `0` is related to hosts/ips, we can use the [Subnet-Calculater](http://www.subnet-calculator.com/cidr.php) to calculate the CIDR blocks.
+
+Related CIDR the first sample of network 10.0.0.0 have the CIDR 8 because only the first octet is on `10.0.0.0/8`, on second example of `192.168.1.0/24` the 3 first octet is on as on the figure.
+
+Also the first IP is related to gateway **10.255.255.1** and last one is broadcast **10.255.255.255** in the example of **10.0.0.0/8**
+
+On AWS : 
+
+  * 10.0.0.0 : Network address
+  * 10.0.0.1 : Reserved by AWS for VPC router
+  * 10.0.0.2 : Reserved by AWS for DNS
+  * 10.0.0.3 : Reserved for fugure use by AWS
+  * 10.0.0.255: Broadcast
+
+On AWS Expert training the instructor create this diagram to create the structure on AWS : 
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/vpn_aws_Ltips.png")
+```
+
+_**Steps : **_
+
+1. **Create a _VPC_** , you need to provide the Name and IP CIDR block like (`10.0.0.0/16`) and click in create, this step will create automatically a Route table, Network ACL , security group and internet gateway.
+
+2. **Create the _subnet_**, select the VPC that we have just created and add :
+  
+    * **1st : ** _Name Tag_ like (_public-10.0.1.0/24-az<name>_), select the Availability Zone and IPv4 CIDR block (_10.0.1.0/24_)
+  
+    * **2nd : **:  _Name Tag_ like (_private-10.0.2.0/24-az<name>_), select the Availability Zone and IPv4 CIDR block (_10.0.2.0/24_)
+  
+    * **3rd : ** :  _Name Tag_ like (_mgmt-10.0.3.0/24-az<name>_), select the Availability Zone and IPv4 CIDR block (_10.0.3.0/24_)
+  
+    * After create enable the auto assign IP settings and enable public IPv4 address to public subnet __public-10.0.1.0/24-az<name>__
+  
+  
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/subnet_creation_LTips.png")
+    ```
+
+_by default the subnet is open to internet **ATTENTION**_
+
+
+3. **Create the security groups** for each subnet : 
+
+    * Click in create security group inform the names , description and vpc : 
+    
+      * **1st : ** : (_public-sec-group_) and associate with VPC
+      * **2nd : ** : (_private-sec-group_) and associate with VPC
+      * **3rd : ** : (_mgnt-sec-group_) and associate with VPC
+
+
+    * On **public security group** add the ssh on 22 port rule open to everyone
+      * Add a HTTP rule port 80 to everone
+      * Add a HTTPS rule port 443 to everyone
+    
+    * On **private security group** add Rule for SSH source add the mgnt IP 10.0.3.0/24 or the security group info (mngt) security group, thi will allow ssh only from public subnet
+      * If there are MSQL/Aurora add a rule for port 3306 and add the security groups from public and mgnt
+    
+    * On **management security group** add ssh rule and ip for admin, idealy have a vpn to access this server
+    
+    
+4. **Create internet gateway** add the name tag, click in action and **attach** to our VPC
+
+
+5. **Create a route table** add the Name tag and vpc one for each subnet (private, public and mgnt)
+    
+    * On **_public_** add the route to internet (Destination) **0.0.0.0/0** (Target) **internet gateway** , click in edit subnet associations and add the public subnet
+    
+    * On **_private_** edit the subnet associations and add the private subnet
+    
+    * On **_mgmt_** edit and add the mgmt subet, with internet route **0.0.0.0/0** with **Internet gateway** as a Target
+    
+    
+    
+6. **Create 3 EC2 instance**
+
+    * 1 for web server on public subnet
+    * 1 for db server on private subnet
+    * 1 for admin on mgmt subnet
+    
+    
+
+7. **Create NAT Gateway**, inform the subnet, on the example the public and create new [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+
+    * To enable the dbserver that is in private subnet access the internet we need to update the route and add **0.0.0.0/0** and select nat gateway instance
+  
+    * **Creating NAT INSTANCE** , to create a nat instance we need to launch EC2 instance and select AMI of nat on community AMI's, select VPC and public subnet.
+    
+      * On Private route table select (Destination) **0.0.0.0/0** (Target) **NAT INSTANCE** 
+      * On NAT instance select Action > Network > Change Source Destination check and disable
+
+    
+    
+8. **Create network ACL**, inform name and VPC
+
+    * Select **Edit inbound rules** : Add rules
+    
+      * number `100` Type custom , port `80` source `0.0.0.0/0`, ALLOW
+      * number `200` Type HTTPS,, port `443` source `0.0.0.0/0`, ALLOW
+      * number `300` Type custom , port `22` source `0.0.0.0/0`, ALLOW
+      
+      
+    * On **Edit outbound rules** add the same rules
+  
+      * number `100` Type custom , port `80` source `0.0.0.0/0`, ALLOW
+      * number `200` Type HTTPS, port `443` source `0.0.0.0/0`, ALLOW
+      * number `300` Type custom , port `22` source `0.0.0.0/0`, ALLOW
+    
+    
+    * We will also need to add the [Ephemeral ports](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html)  
+      
+    * Edit subnet associations and add the subnet that would like to associate
+    
+
+
+
+
+
+    
+
+[VPC](https://docs.aws.amazon.com/pt_br/vpc/latest/userguide/VPC_Subnets.html)
+
+[Calculadora Subnet](http://www.subnet-calculator.com/)
+
+[Internet Gateway](https://docs.aws.amazon.com/pt_br/vpc/latest/userguide/VPC_Internet_Gateway.html)
+
+[Route Tables](https://docs.aws.amazon.com/pt_br/vpc/latest/userguide/VPC_Route_Tables.html)
+    
+    
+    
+    
 ## GCP
 
 ### Digital Leader

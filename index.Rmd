@@ -14,7 +14,7 @@ description: "Those notes are for future reference"
 
 # Intro
 
-During some Linux courses I usually take notes for future reference, so I use this notes to organize my notes for study and future projects.
+During some courses I usually take notes for future reference, so I use markdown to organize my notes for study and future projects.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

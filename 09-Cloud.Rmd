@@ -263,7 +263,7 @@ curl http://169.254.169.254/latest/meta-data/<option>
 
 
 
-### Part 8 , 9 and 10 : VPC
+### Part 8 , 9 : VPC
 
 [**VPC**](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (_Virtual Private Cloud_) Enable you to use your own isolated resources within the AWS account, it is like we have on AWS a dedicate/isolated network for our account.
 
@@ -397,12 +397,74 @@ _by default the subnet is open to internet **ATTENTION**_
 
 [VPC](https://docs.aws.amazon.com/pt_br/vpc/latest/userguide/VPC_Subnets.html)
 
+[Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html)
+
 [Calculadora Subnet](http://www.subnet-calculator.com/)
 
 [Internet Gateway](https://docs.aws.amazon.com/pt_br/vpc/latest/userguide/VPC_Internet_Gateway.html)
 
 [Route Tables](https://docs.aws.amazon.com/pt_br/vpc/latest/userguide/VPC_Route_Tables.html)
     
+    
+    
+    
+### Part 10: VPN
+
+**What is uma [VPN](https://docs.aws.amazon.com/vpn/?id=docs_gateway) ? **
+AWS Virtual Private Network (AWS VPN) establishes a secure and private tunnel from your network or device to the AWS Cloud. You can extend your existing on-premises network into a VPC, or connect to other AWS resources from a client. AWS VPN offers two types of private connectivity that feature the high availability and robust security necessary for your data.
+
+_Types : _
+
+* Site-to-Site
+* Client VPN
+
+
+_How to create / configure_
+    
+To set up a [Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html) connection using a virtual private gateway:
+
+    Step 1: Create a customer gateway 
+    Step 2: Create a target gateway
+    Step 3: Configure routing
+    Step 4: Update your security group
+    Step 5: Create a Site-to-Site VPN connection
+    Step 6: Download the configuration file
+    Step 7: Configure the customer gateway device 
+    
+
+To set up [Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-user/user-getting-started.html)
+
+    Step 1: Create a CA raiz on Certificate Manager
+    Step 2: Request a private certificate associated with CA 
+    Step 3: Create Client VPN Endpoint, use the certificated that you have just created
+    Step 4: Associate the VPN to VPC  and subnet
+    Step 5: Create anew security group or associate ao security group of subnet, remmeber to enable the port `1194` UDB on security group
+    Step 6: Add authorization rule to specific network or all (`0.0.0.0/0`)
+    Step 7: Create route, add subnet and route destionation for all (`0.0.0.0/0`)
+    Step 8: Download client configuration file
+    Step 9: Update the file adding the sections:
+            
+            * <cert> </cert> : Export the certificate PEM and add here the body
+            * <key> </key> : Private key from CA add here
+            
+    Step 10: Import the file on client VPN
+
+
+
+    
+    
+### Part 11: ELB
+
+**ELB** _Elastic Load Balancing_ 
+
+> Have a name or ip to re-direct to my target(server)
+
+  * Application Load Balancer (HTTP, HTTPS)
+  * Network Load Balancer (TCP, TLS, UDP)
+
+
+
+
     
     
     

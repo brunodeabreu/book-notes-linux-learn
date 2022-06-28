@@ -208,7 +208,9 @@ part-4-iam
 part-5-iam-cont
 part-6-ec2
 part-7-ec2-cont
-part-8-9-and-10-vpc
+part-8-9-vpc
+part-10-vpn
+part-11-elb
 gcp
 digital-leader
 cloud-engineer
@@ -246,11 +248,15 @@ machine-learning-essentials-for-business-and-technical-decision-makers
 machine-learning-for-business-leaders
 process-model-crisp-dm-on-the-aws-stack
 machine-learning-terminology-and-process
+exploring-machine-learning-toolset
+the-elements-of-data-science
 data-engineering
 exploratory-data-analysis
-gcp---professional-machin-e-learning-engineer
+modeling-part-1
+gcp---professional-machine-learning-engineer
 big-data-and-ml-fundamentals
 recommending-products-using-cloud-sql-and-spark
+predict-visitor-purchases-using-bigquery-ml
 kyndryl-data-science-roudmap
 data-science--project-management-methodology---crisp-dm
 kdd

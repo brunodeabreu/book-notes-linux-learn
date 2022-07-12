@@ -853,14 +853,14 @@ knitr::include_graphics("img/deep_lens_workflow.png")
 ```
 
 
-Step 1 : When turned on, the AWS DeepLens captures a video stream.
-Step 2 : Your AWS DeepLens produces two output streams:
+* Step 1 : When turned on, the AWS DeepLens captures a video stream.
+* Step 2 : Your AWS DeepLens produces two output streams:
   * Device stream – The video stream passed through without processing.
   * Project stream – The results of the model's processing video frames
 
-Step 3 : The Inference Lambda function receives unprocessed video frames.
-Step 4 : The Inference Lambda function passes the unprocessed frames to the project's deep learning model, where they are processed.
-Step 5 : The Inference Lambda function receives the processed frames from the model and passes the processed frames on in the project stream
+* Step 3 : The Inference Lambda function receives unprocessed video frames.
+* Step 4 : The Inference Lambda function passes the unprocessed frames to the project's deep learning model, where they are processed.
+* Step 5 : The Inference Lambda function receives the processed frames from the model and passes the processed frames on in the project stream
 
 
 
@@ -988,7 +988,7 @@ knitr::include_graphics("img/amazon_ei_accelerator_size.png")
 
 ### The Elements of Data Science
 
-INTRO TO DATA SCIENCE
+**INTRO TO DATA SCIENCE**
 
 What is Data Science ? _processes and systems to extract knowledge or insights from data (structured or unstructured)_
 
@@ -1030,6 +1030,7 @@ Key Issues in ML
     * **Underfitting** : Failure to capture important patterns, too simple, high bias (_the results show systematic lack of fit in certain regions_)
 
 
+<br>
 
 Linear methods
 
@@ -1037,10 +1038,773 @@ Linear methods
   * Methods (_Linear Regression_ and _Logistic Regression_)
 
 
+<br>
+
+
+Linear Regression
+
+  * The basic and simplest is univariant Linear Regression
+  * For Multiple linear regression includes N explanatory variables with N >= 2, scikit-learn implementation `sklearn.linear_model.LinearRegression`
+    * Sensitive to correlation between features, resulting in high variance of coefficients 
 
 ```{r, echo = FALSE, out.width="90%"}
 knitr::include_graphics("img/linear_regression_aws.png")
 ```
+
+
+<br>
+
+Logistic Regression
+
+  * Response is binary, Logistic Regression is estimate the probability of one of two classes
+  * Sigmoid function good representation of probability 
+  * Logistic Regression does not well with outliers
+  
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/sigmoid_func_aws.png")
+```
+
+
+
+<br>
+
+
+**PROBLEM FORMULATION AND EXPLORAROTY DATA ANALYSIS**
+
+> Transform business problem in a machine learning problem
+
+* Problem Formulation: _The start point for any ML project_
+
+  1. What is the problem you need to solve ? _Precisely describe the business problem that you are trying to solve._
+
+  2. What is the business metric ? _Determine the appropriate metric (Quality, Impact),  **convert the ML metric to Analytics metric**_
+
+  3. Is ML the appropriate approach ? _Always good idea start simple, can the problem be solved with standard code ?, Do we have the data ? _
+
+  4. What data is available ? _Summary the data available, determine the gaps, what are the data sources ?_
+
+  5. What type fo ML problem is it ? _Decompose the business problem into a few models_
+
+  6. What are your goals ? _Establish ML goals and criteria for success_
+
+
+<br>
+
+* Data Collection: _The process of acquiring training and/or test data_
+
+  * Does not only occur on start of Data Science project / process, it is a procedure during the entire process/project and after
+  * Before put the model into production need to collect A/B test data
+  * After put the model in production need to collect more data to analyze the model performance
+
+<br>
+
+  * Open Data : 
+    
+    * AWS provides a comprehensive tool kit for sharing and analyzing data at ny scale, when organizations make data open on AWS, the public can analyze it quickly and easily with AWS scale computing and analytics services 
+
+<br>
+
+
+  * **Sampling** : Selecting a subset of instances for training and testing
+    
+    * Representativity : sample needs to be representative of the expected population, ie, _unbiased_ 
+    
+    * Random sampling : each source data point has equal probability of being selected*
+    
+    * Stratified Sampling : 
+    
+      * **Issue : ** With random sampling, rare subpopulations can be under-represented
+      * **Stratified Sampling** apply random sampling to each subpopulation, the sampling probability usually is the same for each stratum
+  
+  
+    * Doing sampling need to pay attention on others things that may create bias on data: 
+    
+      * _Seasonality_ : Time of day, day of week, holidays, etc ... Stratified sampling across these can minimize bias
+      
+      * _Trends_ : Patterns can shift over time, and new patterns can emerge, compare models trained over different periods to detect.
+      
+      
+    * Leakage : 
+    
+      * Same point on train and test data (**Train/Test bleed**) _inadvertent overlap of training and test data when sampling to create datasets_
+      
+      * _Using information during training or validation that is not in production_
+      
+  
+  * **Labeling** : Obtaining **gold-standard** answers for supervised learning
+  
+    * The first step on any Supervised learning problem
+    * Labeling tools
+    
+      * Excel
+      * Amazon Mechanical Turk
+      * Custom-built tools
+
+
+<br>
+
+**EXPLORATORY DATA ANALYSIS**
+
+  * ML Workflow
+  
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/ml_workflow_aws.png")
+```
+
+
+
+  * **Domain Knowledge** : Is critical for success of the exploratory data analysis, understand relationships, constraints, how data is generated
+  * **AWS domain experts** is a team that can help you with your ML project, on _Amazon ML Solutions Lab_ : 
+      
+    * Brainstorming
+    * Custom modeling
+    * Training
+    * On-site with Amazon experts
+
+<br>
+
+
+  * **Data Schema** : 
+  
+    * Data from multiple source
+    
+    
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/data_sources_aws.png")
+```
+    
+  
+  * Merge/join Data,swe can use pandas to marge two data frames `df.merge(<df_1>, on=<key>, how = <'inner'> )` 
+    
+<br>
+
+  * **Data Statistics**
+    
+    * _Descriptive Statistics_
+      
+      * Overall stats : number of instance (_rows_), attribute (_columns_)
+      * Attribute stats (_univariate_)
+      
+        * Numeric : mean, median, variance using  `df.describe()`
+        * Categorical : histogram, most/last frequent values,  `distplot()`
+        * Target stats : Class distribution `df.<attribute>.value_counts()` or `np.bincount(y)`
+
+      * Multivariate Stats
+      
+        * Correlation
+        * Contingency table/Cross Tabulation
+
+      * Sample
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/brest_cancer_class_problem_explorer.png")
+```
+    * Basic Plots
+    
+      * Density Plot
+      * Histogram
+      * Boxplot
+      
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/basic_plots_aws_1.png")
+```
+      * Scatterplot
+      * Scatterplot Matrix
+      
+
+      
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_scatterplot_and_matrix_2.png")
+```
+   
+  * Correlation _how we quantify the relationship ?_
+    
+    * 1 = there is a perfect linear relationship between the variables 
+    * 0 = there is no linear relationship between the variables
+    * -1 = there is a perfect negative linear relationship between the variables
+    
+  * Correlation Matrices 
+      
+      
+    
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/correlation_matrices_seaborn.png")
+```
+    
+  * Data Issues
+      
+    * Messy data
+
+        * Data on different scale
+        * Different languages
+        * Mixed type of data
+  
+    * Noisy data
+    * Biased data
+    * Imbalanced data
+    * Correlated data
+    
+> Highly correlated features can cause collinearity problems and numerical instability    
+    
+    
+
+
+**DATA PROCESSING AND FEATURE ENGINEERING**
+
+> Algorithms typically expect to see numerical values, however, there are a lot categorical variables that can also be used.
+
+
+_Data Preprocessing_ : Encoding Categorical (_discrete_) Variables
+
+  * Examples : **Color** (Green, Red, Blue)  ;  **isFraud** (false, true)
+  
+  * Categorical Types : 
+  
+    * Ordinal (_ordered_) : Size (L > M > S)
+    * Nominal (_unordered_): Color (blue, green, orange)
+
+
+
+**Encoding Ordinals** : When mapping features variables to a predefined map, _use the **map** function in pandas_ 
+    
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/map_encoding_ordinals_Aws.png")
+```
+
+  * Encoding labels / Predictor Variable using [LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) for labels
+  
+  ```
+  from sklearn import preprocessing
+  le = preprocessing.LabelEncoder()
+  le.fit(["paris", "paris", "tokyo", "amsterdam"])
+  
+  list(le.classes_)
+  # ['amsterdam', 'paris', 'tokyo']
+
+  le.transform(["tokyo", "tokyo", "paris"])
+  # array([2, 2, 1]...)
+
+  list(le.inverse_transform([2, 2, 1]))
+  # ['tokyo', 'tokyo', 'paris']
+
+  ```
+
+<br>
+
+**Encoding Nominals** : One-Hot encoding is a better option, explode nominal attributes into many binary attributes, one for each discrete value, we can use [OndeHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from sklearn or [get_dummies](https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html) from pandas
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/oneHotEncoder_aws_preprocessing.png")
+```
+
+
+**Encoding** with many classes : we can define a hierarchy structure or group the levels by similarity
+
+
+
+**Missing Values**
+
+* To identify we can use `df.isnull().sum()`
+
+* How deal with missing values 
+
+  * Remove using `df.dropna()`, risk to losing too much data, overfitting, IC, bias
+  * Drop columns can result in underfitting and lose features
+  
+
+Before drop or imputing missing values, ask : 
+
+  * What were the mechanisms that cause the missing values ? 
+  * Are these missing values missing at random ? 
+  * Are there rows or columns missing that you are not aware of ? 
+  
+  
+Imputing missing values :
+
+  * Mean
+  * Median
+  * Most frequent (_for categorical_)
+  * Advanced Methods
+    
+    * MICE (_Multiple Imputation by Chained Equations_) : `sklearn.impute.MICEImputer`
+    
+    * Python `fancyimpute` package
+      
+      * KNN impute
+      * SoftImpute
+      * MICE
+      * ...
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/sample_imputer_missing_values_aws.png")
+```
+
+<br>
+
+
+_Feature Engineering_ : Create novel features to use inputs for ML models using domain and data knowledge, on scikit-learn we can use `skelarn.feature_extraction` package.
+
+  * Consider : 
+    
+    * Square
+    * Multiplication
+
+
+
+  * **Filtering Selection** : Selecting **relevant features** to use for model training
+  
+    * Remove channels from image
+    * Remove frequencies from audio
+  
+  * **Scaling** : when we want value between -1 and +1 or 0 to 1, the range of features should be similar, same scale
+  
+    * Common choices in sklearn
+    
+      * Mean / Variance standardization  : `sklearn.preprocessing.StandardScaler` mean = 0 , stdev = 1 for each data column
+      * MinMax Scale : `sklearn.preprocesing.MinMaxScaler` min = 0 , max =1 
+      * Maxabs Scale : `skpearn.preprocessing.MaxAbsScaler`
+      * Robusts Scale : `skpearn.preprocessing.RobustScaler`
+      * Normalizer (_for row_) :  `sklearn.preprocessing.Normalizer` stedv = 1
+      
+        * L1 norm
+        * L2 norm
+        * Max norm
+
+
+<br>
+
+_Transformation_ : 
+
+  * Polynomial : `sklearn.preprocessing.PolynomialFeatures`, beware of **overfitting** if degree is too high, consider _log_ and _sigmoid_ transformations too
+  
+  * Radial Basis Function : Widely used in SVM as a kernel and Radio Basis Neural Networks (_RBNNs_), Gaussian RBF is the most common RBF used
+  
+
+<br>
+
+_Text-Based Features_ : 
+
+  * **Bag-of-words model** : Represent document as vector of numbers, one for each word (tokenize, count and normalize), can be extended to _bag of n-grams_
+  
+  * **Count Vectorizer** : Also called as _Term frequency_, includes lowercasing and tokenization on white space and punctuation, on skelarn the package is `sklearn.feature_extraction.text.CountVectorizer`
+  
+  * **TiidfVectorizer** : Term-Frequency Times Inverse Document frequency,it down weighted for common terms (e.g., 'the'), we can use `sklearn.feature_extraction.text.TfidfVectorizer`
+
+  * **Hasing Vectorizer** : stateless mapper from text to term index, using `sklearn.feature_extraction.text.HashingVectorizer`
+  
+
+
+
+
+**MODEL TRAINING, TUNING, AND DEBUGGING**
+
+
+_Supervised Learning : Neural Networks_
+
+  * Perceptron : The simplest neural network, a single layer neural network
+  
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_perceptron_eofds.png")
+```
+  
+<br>    
+  
+  
+  * Neural network architecture : When we have multiple layers it become neural network
+  
+    * Generally hard to interpret and expensive to train
+    * Sckit-learn : `sklearn.neural_network.MLPClassifier`
+    * Deep Learning Frameworks : MXNet, TensorFlow, Caffe, Pytorch
+  
+  
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/neural_network_aws_eods.png")
+```  
+
+<br>  
+  
+  * Convolutional neural networks : Very useful for image analysis 
+  
+    * Convolution layer : is to create next layer (_Conv1D, Conv2D_)
+    * Pooling layer : dimension reduction process (_Max Pooling or Avg Pooling_)
+  
+  
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/cnn_aws_eods.png")
+```  
+  
+  
+<br>  
+
+  * Recurrent neural networks : used for time series and sequential features
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/rnn_aws_eods.png")
+```  
+
+
+<br> 
+
+_Supervised Learning : K-Nearest Neighbors_
+
+  * Define a distance metric (_Euclidean_, _Manhattan_, _Any vector norm_)
+  * Choose the number of _K_ neighbors
+  * Find the _K_ nearest neighbors fo the new observation that we want to classify
+
+  * KNN is : 
+  
+    * Non-parametric, instance-based, lazy, ie, model is not defined by fixed parameters and it memorizing training data
+    * Require to keep original data set
+    * scikit-learn : `sklearn.neighbors.KNeighborsClassfier`
+
+
+```{r, echo = FALSE, out.width="70%"}
+knitr::include_graphics("img/aws_knn_eods.png")
+```  
+
+
+<br>
+
+
+_Supervised Learning : Linear and Non-Linear Support Vector Machines_
+
+* Linear SVM
+
+  * Maximize the margin - the distance between the decision boundary (_hyperplane_) and the support vectors
+  * Scikit-learn : `sklearn.svm.SVC`
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/SVM_AWS_Linear.png")
+```  
+
+
+<br>
+
+_Supervised Learning: Decision Trees and Random Forests_
+
+
+  * **Entropy**  :  Relative measure of disorder in the data source
+  
+  
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/entropy_aws_esods.png")
+``` 
+
+
+
+  * **Decision Tree**
+  
+    * Nodes are spited based on the feature that has the largest **information gain** (_IG_) between parent node and split nodes
+    * One metric to quantify **IG** is to compare entropy before and after splitting
+    * In binary case : 
+    
+      * _Entropy is 0_ if all samples belong to the same class for a node
+      * _Entropy is 1_ if samples contain both classes with equal proportion
+    * Scikit-learn : `sklearn.tree.DecisionTreeClassifer`
+    * Must _prune_ the tree to reduce overfitting
+  
+  
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/decision_tree_aws_eofds.png")
+``` 
+
+
+  * **Ensembles** : LEarn multiple models and combine their results, usually via majority vote or averaging
+  
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/ensemble_aws_eods.png")
+``` 
+  
+
+  * **Random Forest**
+  
+    * Set of decision trees, each learned from a different randomly sampled subset with replacement
+    * Prediction : Average output probabilities
+    * scikit-learn : `sklearn.ensemble.RandomForestClassifier`
+
+
+
+<br>
+
+_Model Training : Validation Set_
+
+> Training and Tuning are iterative process
+
+  * **Model Training** : Improve the model by optimizing parameters or data
+  * **Model Tuning** : Analyze the model for generalization quality and sources of underperformance such as overfitting.
+  * Validation Set : 
+  
+    * Split training data in two parts (_training_ and _validation set_)
+    * Use training set to train models
+    * Validation set to be used on debugging and tuning phase
+    * **Test set** will be used for measuring the generalization of your final model
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/validation_set_aws_eods.png")
+``` 
+
+
+<br>
+
+_Model Training: Bias Variance Tradeoff_
+
+**Bias**: an error from flawed assumptions in the algorithm. High bias can cause an algorithm to miss important relationships between features and target outputs resulting in **underfitting**.
+
+
+**Variance**: an error from sensitivity to small variations in the training data. High variance can cause an algorithm to model random noise in the training set, resulting in **overfitting**.
+
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/bias_variance_tradeoff_aws_esods.png")
+``` 
+
+<br>
+
+
+
+_Model Tuning: Regularization_
+
+Regularization : Adding penalty score for complexity to cost function
+
+
+  * L1 : _Lasso_  - perform feature selection, in sklearn `sklearn.linear_model.Lasso`
+  
+  * L2 : _Ridge_  - reduce the weight, in sklearn `sklearn.linear_model.Ridge`
+  
+  * _Elastic Net_ : Linear regression with both `sklearn.linear_model.ElasticNet`
+  
+
+<br>
+
+
+_Model Tuning: Hyperparameter Tuning_
+
+
+Model Tuning Choices
+
+  * Neural Network : 
+    
+    * What Learning Rate ? 
+    * How many nodes ? 
+    * How many layers ? 
+    
+  * Decision Tree or Random Forest : 
+  
+    * What is the minimum number of samples ? 
+    * What I should use at the leaf node ? 
+    
+  * SVM models : 
+  
+    * What is the optimum C parameter ? 
+
+
+<br>
+
+Hyperparameter Techniques : 
+
+  * Grid search (`sklearn.grid_search.GridSearchCV`)`: Search for the best parameter combination over a set of parameters
+  
+  
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/grid_Search_aws_eods.png")
+```   
+  
+  
+  * Random search (`sklearn.grid_search.RandomizedSearchCV`) : Each setting is sampled from a distribution over possible parameters values
+
+
+
+<br>
+
+_Model Tuning : Feature Extraction_
+
+
+Techniques : 
+
+   * **PCA** (_Principal component analysis_)
+    
+      * **Unsupervised** linear approach to feature extraction
+      * Finds patterns based on correlations
+      * scikit-learn : `sklearn.decomposition.PCA`
+
+<br>
+
+   * **LDA** (_Linear discriminant analysis_)
+   
+      * **Supervised** linear approach to feature extraction
+      * Transform to subspace that maximizes **class separability**
+      * Assumes data is **normally distributes**
+      * Used for dimensionality reduction of features
+      * Sklearn : `slkearn.discriminant_analysis.LinearDiscriminantAnalysis`
+      
+<br>      
+      
+_Model Tuning: Bagging/Boosting_
+
+* **Bagging** (_Bootstrap Aggregating_)  : Randomly sampling original dataset with replacement
+
+  * High variance but low bias ? Use **bagging**
+  * Training many models on random subsets of data and average or vote on the output
+  * Reduce variance, keep bias the same
+  * Sklearn : `sklearn.ensemble.BaggingClassifier` , `sklearn.ensemble.BaggingRegressor`
+
+<br>
+
+* **Boosting** : Assign strengths to each weak learner, iteratively train learners using misclassified example by the previous weak learners
+
+  * High bias  ? **Use boosting**
+  * Training a sequence of samples to get a strong model
+  * Sklearn : `AdaBoostClassifier` , `AdaBoostRegressor` and `GradientBoostingClassifier`
+  * XGBoost 
+
+
+
+
+
+
+**MODEL EVALUATION AND MODEL PRODUCTIONIZING**
+
+
+_Using ML Models in Production_
+
+Consider :
+
+  * Model hosting, deployment
+  * Pipeline to provide feature vector
+  * Model and data updating and versioning
+  * Monitoring and alarming
+  * Data and model security
+  * Customer privacy, fairness and trust
+  
+  
+Types : 
+
+  * Batch predictions
+  * Online predictions
+  * Online training 
+  
+  
+<br>  
+
+
+_Model Evaluation Metrics_
+
+
+> Need to link Business Metrics with ML Metrics
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/confusion_matrix_prec_recal_aws.png")
+```
+
+* Accuracy : How close of far we are from true values
+* Precision : Proportion of positive predictions that are actually correct
+* Recall : Proportion of positive set that are identified as positive
+* F1-Score : Combination (_harmonic mean_) of precision and recall
+
+
+
+<br>
+
+
+_Cross-Validation_
+
+
+**K-fold** cross-validation : 
+
+  * Good for small training set
+  * Randomly partition data into k folds
+  * For each fold, train model on other k-1 folds and evaluate on that
+  * Train on all data
+  * AVG metric across K folds estimates test metric for trained model
+
+<br>
+
+**Leave-one-out cross validation**
+  
+  * K = number of data points
+  * Used for very small datasets
+  
+<br>
+
+**Stratified k-fold cross validation**
+
+  * Preserve class proportions in the folds
+  * Used for imbalanced data
+  * There are seasonality or subgroups
+
+
+<br>
+
+_Metrics for Linear Regression_
+
+
+* _Mean squared Error_ : Average squared error over entire dataset, how close the prediction is to the outcome
+  
+
+
+* _R squared_ : R² is close to one indicates that lot of variability in the data can be explained by the model, Adjusted-R² is better metric for multiple variates regression
+
+
+<br>
+
+_Using ML Models in Production: Monitoring and Maintenance_
+
+It's important to monitor quality metrics and business impacts with dashboards, alarms, user feedback, etc.:
+
+  * The real-word domain may change over time
+  * The software environment may change
+  * High profile special cases may fail
+  * There may be a change in business goals
+  
+
+Performance deterioration may require new tuning : 
+
+  * Changing goals may require new metrics
+  * A changing domain may require changes to validation set
+  * Your validation set may be replaced over time to avoid overfitting
+
+
+**Amazon SageMaker**
+
+Train, build and deploy ML models at scale
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/sagemaker_aws_eods.png")
+```
+    
+  
+<br>
+
+_Common Mistakes_
+
+
+* Solve the wrong problem
+* The data was flawed
+* The solution did not scale
+* Final result does not match with the prototype's results
+* It takes too long to fail
+* The solution was too complicated
+* There were not enough allocated engineering resources to try on long term ideas
+* There was a lack of a true collaboration
+    
+    
+    
+    
+    
+    
+
+
+
 
 
 ### Data Engineering
@@ -1244,9 +2008,6 @@ Step Functions is used to Orchestrate and design workflows
 
 
 
-
-
----
 
 ### Exploratory Data Analysis
 
@@ -1488,14 +2249,7 @@ Step Functions is used to Orchestrate and design workflows
 
 
 
-
-      
----
-
-
-
-
-### Modeling Part 1
+### Modeling Part 1 Basic
 
 **DEEP LEARNING**
 
@@ -1658,7 +2412,7 @@ Regularization
   * **Dropout** : Removing neurons at random , prevent specific neuron overfitting
   * **Early Stopping** : Stop the training after some epochs
   * L1 and L2
-    * L1 : Sum of weights, "feature selection" reduce dimensionality
+    * L1 : Sum of weights, _"feature selection"_ reduce dimensionality
     * L2 : Sum of square of weights
     
 
@@ -1682,25 +2436,46 @@ Confusion Matrix, Precision , Recall, F1, AUC
 
 
 ```{r, echo = FALSE, out.width="80%"}
-knitr::include_graphics("img/confusion matrix.png")
+knitr::include_graphics("img/confusion_matrix_prec_recal_aws.png")
 ```
 
-* Recall (_Sensitivity_) : Percent of positives rightly predicted, good for fraud detection
-* Precision : Percent of relevant results
+* **Recall** (_Sensitivity_) : Percent of positives rightly predicted, good when you care about false negatives (_fraud detection_)
+* **Precision** : Percent of relevant results, correct positives, good when care about false positives (_medical screening, drug testing_)
 
 
 ```{r, echo = FALSE, out.width="80%"}
 knitr::include_graphics("img/type1_type2_error_aws.png")
 ```
 
-
-* F1 Score : Harmonic mean of precision and sensitivity
-* RMSE : Root mean squared error, accuracy measurement
-* ROC : Recall vs false positive rate
-* AUC : Are under the curve, used to comparing classifiers
+* **Specificity** : True negative rate
+* **F1 Score** : Harmonic mean of precision and sensitivity (_recall_)
+* **RMSE** : Root mean squared error, accuracy measurement
+* **ROC** : Recall vs false positive rate
+* **AUC** : Are under the curve, used to comparing classifiers
 
 ```{r, echo = FALSE, out.width="80%"}
 knitr::include_graphics("img/roc_aws_.png")
+```
+
+
+<br>
+
+Ensemble Learning (_Bagging & Boosting_)
+
+* Bagging : Generate N new training sets by random sampling with replacement, each resampled model can be trained in parallel, avoid overfitting
+
+
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/bagging_aws_udemy_2.png")
+```
+
+
+* Boosting : Observations are weighted, some will take part in new training more often, training is sequential , each classifier takes into account the previous one's success.
+
+
+```{r, echo = FALSE, out.width="80%"}
+knitr::include_graphics("img/boosting_aws_udemy_1.png")
 ```
 
 
@@ -1708,6 +2483,383 @@ knitr::include_graphics("img/roc_aws_.png")
 
 
 
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+### Modeling Part 2 SageMaker
+
+> SageMaker is built to handle the entire Machine LEarning workflow
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/sagemaker_training_deployment_udemy.png")
+```
+
+
+**Data Prep on SageMaker**
+
+  * Data must come form S3
+  * Spark integrates with SageMaker
+  * Scikit_learn, numpy, pandas all at your disposal within a notebook
+
+<br>
+
+**Training on SageMaker**
+
+* Create a training job
+
+  * URL of S3 bucket with training data and output
+  * ML compute resources
+  * ECR (_Amazon Elastic Container Registry _) path to training code
+
+<br>
+
+* Training options
+  
+  * Built in training algorithms
+  * Spark MLLib
+  * Custom python tensorflow, pytorch, MXNet code
+  * Your own docker image
+  * Algorithm purchase from AWS marketplace
+  
+<br>  
+
+* Deploying Trained Models
+
+  * Save trained model on S3
+  * Deploy endpoint for making individual predictions on demand or via Batch transform to get predictions for an entire dataset
+  * Inference pipeline (_complex processing_)
+  * Neo for deploying to edge devices
+  * Elastic Inference, accelerating DL models
+  * Auto-scaling increase the number of endpoint as needed
+
+
+<br>
+
+
+**SageMaker Built-In Algorithms**
+
+
+* **Linear Learner**  : Can handle regression and classification, input format : RecordIO and CSV, support File or Pipe mode
+
+  * Training data must be normalized and shuffled
+  * Use SGD , Adam, AdaGrad and train multiple models in parallel tuning with L1 and L2
+  * Hyperparameters : 
+  
+    * Balance_multiclass_weights : Gives each class equel importance in loss functions
+    * Learning_rate
+    * mini_batch_size
+    * L1
+    * Wd : weight decay - L2 regularization
+  
+  * Instance Types : Single or multi-machine CPU or GPU, multi GPU does not help
+  
+<br>
+
+* **XGBoost** : e**X**treme **G**radient **B**oosting, boosted group of Decision trees, new trees correct the errors of previous one, use gradient decent to minimize loss
+
+  * Hyperparameters : 
+      
+    * Subsample : Prevent overfitting
+    * Eta : Step size shrinkage, prevents overfitting
+    * Gamma : Minimum loss reduction to create partition
+    * Alpha  : L1
+    * Lambda : L2
+    * eval_metric : optimize on AUC, error and rmse
+    * scale_pos_weight : adjust balance of positive and negative weights
+    * max_deph : max depth of the tree
+
+  * Instance Types : CPU only, Memory-bound, M5 is a good choice, if using GPU training P3
+
+<br>
+
+* **Seq2Seq** : Input and output is a sequence of tokens, use for ML translation, text summarization and speech to text, implemented with RNNs and CNNs
+
+  * Expect _RecordIO-Protobuf_ format
+  * Must provide training and validation data,also vocabulary files
+  * Pre-trained available
+  * Hyperparameters : 
+  
+    * Batch_size
+    * Optimizer ( _adam, sgd, rmsprop_ )
+    * Learning_rate
+    * Num_layers_encoder
+    * Num_layers_decoder
+    * Can optimize on Accuracy, BLEU score (_Compares against multiple reference tanslation_), perplexity (_cross-entropy_)
+  
+  * Instance Types : Can only use GPU - P3  
+
+
+<br>
+
+
+* **DeepAR** : Forecasting one-dimensional time series data, use RNNs, allows you to train the same model over several related time series and find frequencies and seasonality
+
+  * Input JSON lines
+  * Each record must contain start (_timestamp_) and target (_data time series_)
+  * Hyperparameters : 
+  
+    * Contect_lenght
+    * Epochs
+    * mini_batch_size
+    * Learning_rate
+    * Num_cells
+    
+  * Instance Types : CPU or GPU
+  
+ <br>
+ 
+* **BlazingText** : Used for text classification, predict labels for a sentence
+ 
+  * Word2vec : create a vector of words, find similar words, can be used in some modes (Cbow - Continuous Bag of Words, Skip-gram, Batch skip-gram)
+  * Hyperparameters : 
+  
+    * Word2Vec : 
+    
+      * Mode (_batch_skipgram, skipgram, cbow_)
+      * Learning_rate
+      * Window_size
+      * Vector_dim
+      * Negative_samples
+      
+    * Text Classification
+    
+      * Epochs
+      * Learning_rate
+      * Word_ngrams
+      * Vector_dim
+  
+    * Instance Types : single  CPU - C5 or GPU - P2 or P3
+
+
+ <br>
+ 
+* **Object2Vec** : It is a word2vec, generalized to handle things other than words, compute nearest neighbors of objects
+ 
+  * Input must be tokenized into integers
+  * Process data into JSON
+  * Train with two input channels (_encoders_) and a comparator
+  * Encoders : (AVG pooled, CNN or LSTM)
+  * Comparator : Feed-forward Neural Network
+  * Hyperparameters : 
+  
+    * Dropout, epochs, early stopping, LR, Batch_size, layers, activation function, optimizer, WD
+  * Instance Types : CPU or GPU
+
+
+
+
+<br>
+
+
+* **Object Detection** : Identify all objects in an image, can train from scratch or use pre-trained model based on ImageNet
+
+  * Input : Image or RecordIO
+  * Use CNN, base can be VGG-16 or ResNet-50
+  * Transfer learning mode / Incremental training 
+  * Hyperparameters : mini_batch_size, LR, Optimizer (_SGD, adam, rmsprop, adadelta_)
+  * Instance types : CPU, CPU for inference
+
+
+<br>
+
+
+* **Image Classification** : Assign one or more lables to an image
+
+  * MXNet use RecordIO format or raw jpg/png
+  * Image format requires lst to associate image index, class labels
+  * ResNet CNN under the hood
+  * Transfer learning mode
+  * Default image size 3-channel 224x224 (imageNets dataset)
+  * Hyperparameters : batch size, LR, Optimizer
+  * Optimizer : WD, beta 1, beta 2, eps, gamma
+  * Instance : CPU - P2 or P3
+
+
+<br>
+
+* **Semantic Segmentation** : Image classification, produces a segmentation mask
+
+  * Input: PNG or JPG
+  * Built on MXNet Gluon and Gluon CV
+  * Hyperparameters : Epochs, LR, batch size
+  * Instance type : only GPU P2 or P3
+
+
+<br>
+
+* **Random Cut Forest** : AWS Algorithm for Anomaly detection, unsupervised and detect unexpected spikes in time series. It creates a forest of trees where each tree is a partition of training data
+
+  * Input : CSV or RecordIO-protobuf
+  * Can use File or Pipe mode
+  * RCF is on Kinesis Analytics too, works on streaming data
+  * Hyperparameters : number of trees and num_samples_per_tree
+  * Instance type : CPU -  M4, C4, C5 for training
+  
+
+<br>
+
+* **Neural Topic Model** : Organize docs into topics, classify or summarize docs based on topics, the algorithm is _Neural Variational Inference_
+
+  * Input : CSV or RecordIO-protobuf
+  * Words must be tokenized into integers
+  * File or pipe mode
+  * Topics : You define how many topics
+  * Hyperparameters : batch_size, LR, num_topcs
+  * Instance type : CPU  or GPU
+  
+<br>
+
+* **LDA (_Latent Dirichlet Allocation_)** : Topic modeling not use DL, unsupervised and similar to Neural topic model
+
+  * Input : CSV or RecordIO-protobuf
+  * Pipe mode only support recordIO
+  * Hyperparameters : num_topcs, apha0
+  * Instance type : CPU
+  
+  
+* **KNN (_K-Nearest-Neighbors_)**:  supervised classification or regression algorithm, 
+
+  * Input : recordIO or CSV
+  * File or pipe mode
+  * Hyperparameters : K, sample_size
+  * Instance type : CPU or GPU
+  
+<br>
+
+* **K-Means** : Unsupervised clustering , divide data into K groups
+
+  * Input : CSV and recordIO
+  * File or pipe
+  * Hyperparameters: K , mini_batch_size, Extra_center_factor, init_method
+  * Instance type :  CPU or GPU
+  
+<br>
+
+* **PCA (_Principal Component Analysis_) ** : Unsupervised, dimensionality reduction
+
+  * Input :  recordIO or CSV, file or pipe mode
+  * Hyperparameters: algorithm_mode and subtract_mean
+  * Instance types: CPU or GPU
+  
+<br>
+
+* **Factorization Machines** : Supervised method Specialized in Classification or Regression in _sparce_ data (_click prediction, item recommendations_)
+
+  * Input : recordIO-protobuf with Float32
+  * Hyperparameters: Initilization methods
+  * Instance type : CPU or GPU
+  
+<br>
+
+* **IP Insights** : Unsupervised learning of IP address usage patterns, identify suspicious behavior from IP addresses
+
+  * Input : CSV
+  * Hyperparameters: Num_entity_vectors, Vector_dim, Epochs, LR, Batch Size, etc
+  * Instance type : CPU or GPU
+
+
+<br>
+
+* **Reinforcement Learning** : Use a DL framework with TensorFlow and MXNet, supports Intel Coach and Ray Rllib toolkits
+
+
+<br>
+
+* **Automatic Model tuning** : Define the hyperparameter we care about, the ranges we want to try and the metrics for optimizing
+
+  * Best Practices : 
+  
+    * Do not optimize too many hyperparameters at once
+    * Limit ranges to as small as possible
+    * Use logarithmic scales
+    * Use multiple instances
+
+
+<br>
+
+* **Spark** : Pre-process data as normal with Spark, generate _DataFrames_, we can use `sagemaker-spark` lib and `SageMakerEstimator` (_K-Means, PCA, XGBoost_)
+
+  * Connect Notebook on EMR running Spark or Zeppelin
+  * Combine pre-processing big data in Spark with training and inference in SageMaker
+
+<br>
+
+* **SageMaker Debugger** : Saves internal model state periodically, dasboards, auto generated training reports
+
+  * Supports : TensorFlow, PyTorch, MXNet, XGBoost
+
+
+<br>
+
+* **Autopilot - AutoML** : Automates, algorithm selection, data processing and model tuning
+
+  * Input : Data on S3 for training and select the target column for prediction
+  * Automatic model creation
+  * Deploy and monitor the model via notebook
+  * Algorithm types : 
+  
+    * Linear Learner
+    * XGBoost
+    * Deep Learning (MLP)
+  * Input : CSV
+  * Integrate with SageMaker Clarify for transparency on how models arrive at predictions
+
+
+<br>
+
+
+* **SageMaker Model Monitor** : Get alerts on quality deviations on deployed model (via cloudwatch)
+
+  * Visualize data drift
+  * Detect anomalies and outliers
+  * Detect new features
+  * No code needed
+  * Integrate with SageMaker Clarify (_detect potential bias_)
+  * Input : data on S3
+  * Integrates with Tensorboard, QuickSight and tableu
+  * Monitoring Types : 
+  
+    * Drift in data quality
+    * Drift in model quality
+    * Bias Drift
+  
+  
+<br>
+
+* **SageMaker Canvas** : No code ML for business analysts, works on classification and regression and perform automatic data cleaning
+
+<br>
+
+* **SageMaker Training Compiler** : Integrated into AWS DL Containers (_DLCs_)
+
+  * Compile & Optimize training jobs on GPUs, can accelerate training up 50%
+  * Tested with Hugging FAce transformers lib
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Modeling Part 3 High Level ML Services
 
 
 ## GCP - Professional Machine Learning Engineer
@@ -1878,6 +3030,11 @@ knitr::include_graphics("img/pvm_dataproc_gcp.png")
 
 
 
+
+
+
+
+---
 
 
 ## Kyndryl Data Science Roudmap
@@ -2169,7 +3326,7 @@ For Categorical we also have the **Confustion Matrix**
 
 
 ```{r, echo = FALSE, out.width="80%"}
-knitr::include_graphics("img/confusion matrix.png")
+knitr::include_graphics("img/confusion_matrix_prec_recal_aws.png")
 ```
 
   * **TP** : Correct Predictive Positive

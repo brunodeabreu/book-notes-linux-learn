@@ -11,6 +11,477 @@
 
 ## AWS
 
+
+### Basic
+
+
+**AWS CLOUD**
+
+> Cloud computing is **on demand delivery** of compute power, database, storage, applications and other IT resources via the internet with **pay-as-you-go** pricing.
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/what_is_cloud_aws_1.png")
+```
+
+
+* Benefits : 
+
+  * **Agility** : easy access to a broad range of technologies, innovate faster, create several resources in a minutes
+  * **Elasticity** : resources can be scaled up or down as business needs change 
+  * **Cost Saving** : Only pay for IT consumed
+  * **Deploy globally in minutes** : AWS have infra all over the world and acces to all client
+
+
+<br>
+
+
+**GLOBAL INFRA**
+
+Each region is complete isolate from others, some resources tied to regions
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_regions_infra.png")
+```
+
+
+
+Each region have multiple locations isolated each other, known as **Availability Zones** (_AZ_)
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_cloud_az.png")
+```
+
+
+
+* **Local Zones** : Type of infrastructure deployment with storage, database and others selected services closely to large populations  
+
+* **Wavelenght Zones** : Compute storage service for _5G_
+
+* **AWS Direct Connect Locations** : Links your network direct to AWS by pass the internet
+
+* **Edge Locations** and **Regional Edge Caches** : Cloud Front is a web service that speed the distribution of static and dynamic web content
+
+
+<br>
+
+
+**COMPUTE SERVICES**
+
+
+> Develop,deploy, run, and scale workloads in the AWS Cloud
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_compute_services_1.png")
+```
+
+
+* Benefits of EC2
+  
+  * Elasticity
+  * Control
+  * Flexibility
+  * Integrated
+  * Reliable
+  * Secure
+  * Cost-effective
+  * Easy to get start
+  
+  
+* EC2 instance Types: 
+
+  * General Purpose : Balance of compute, memory and network resources
+  
+    * Families : Mac , T, M and A1
+  
+  
+  * Compute Optimized  : High performance process
+  * Memory Optimized : Workload that process large datasets in memory 
+  * Accelerated Computing : Hardware accelerators to perform float point, graphical process, etc
+  * Storage Optimized : Workload that required large datasets in local storage
+
+
+* EC2 Auto Scaling group
+
+  * Automatically adjust resource capacity
+  * Define where Amazon EC2 Auto Scaling deploys resources
+  * Specify the Amazon VPC and subnets
+  
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/ec2_auto_scaling_group.png")
+```
+
+
+
+* Elastic Load Balancing (_Amazon ELB_)
+
+  * Automatically distribute traffic across multiple EC2 instances
+  * Increases availability and fault tolerance
+  * Configure health checks
+  * Offload encryption and decryption
+  * Types : 
+    
+    * Application Load Balancer (_app layer_)
+    * Network Load Balancer (_network layer_)
+    * Gateway Load Balancer (_third-party virtual appliances_)
+  
+  
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_elb_.png")
+```
+
+
+
+
+
+
+<br>
+
+
+**STORAGE**
+
+> A reliable, scalable and secure place for data
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_storage_services.png")
+```
+
+* Amazon Elastic Block Store (**EBS**) : _Network attached block storage for use with **EC2**_
+  
+  * Persist independently from instance
+  * Used like a physical hard drive
+  * Automatically replicated
+  * Attached to any instance in the same AZ
+  * One EBS volume to one EC2 instance
+  * EBS volumes can retain data after EC2 termination
+  * Allow point-in-time snapshots to S3 incremental
+
+* Amazon Simple Storage Service (**S32**)
+
+  * Infinite scalability, faster analysis and faster data retrieval
+  * 99.999999999% durability and 99.99% availability
+  * Used for Data lakes, backup and storage, application hosting, media and software delivery
+  * Classes : 
+    * **S3 standard** : Frequently access data
+    * **S3 Standard-IA** (_Infrequent Access_) : For data less frequently, but rapid access when need, ideal for backup, DR, etc
+    * **S3 One Zone-IA** (_Infrequent Access_) : Data less frequently , store data in a single AZ, good for secondary backups
+    * **S3 Glacier storage** : for data archive
+    * **S3 Intelligent-Tiering** : Automatically objects between tiers based on access patterns
+  
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/s3_classes_aws.png")
+```
+
+
+
+<br>
+
+
+**[DATABASE services](aws.amazon.com/databases)**
+
+* Amazon **RDS** (_**R**elational **D**atabase **S**ervice_) is a managed relational database service (Aurora, PostgreSQL, MySQL, MariaDB, Oracle, MSSQL )
+
+* Amazon **DynamoDB** is a NoSQL fast and predictable performance database
+
+* Amazon **ElastiCache** is a cache service
+
+<br>
+
+EC2-hosted vs AWS Database Service
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/db_on_ec2_vs_db_service_aws.png")
+```
+
+
+<br>
+
+
+**NETWORKING services**
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_network_services_1.2.png")
+```
+
+
+* Amazon **VPC** (**V**irtual **P**rivate **C**loud): Build a virtual network in the cloud
+
+  * With VPC customer have complete control of network environment
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/amazon_vpc_rep_basic.png")
+```
+
+
+* Security Groups : Control access to instances, _virtual firewall_ at the instance level
+
+* Network Access Control List (_NACL_)
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/securing_vpc_aws.png")
+```
+
+<br>
+
+
+
+**SECURITY**
+
+Amazon Security are split up on the following categories : 
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/AWS_security_ identity_complice_services.png")
+```
+
+<br>
+
+AWS shared responsibility model :
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_shared_reponsibility_security.png")
+```
+
+
+<br>
+
+* IAM  : Manage access to aws services and resources
+
+<br>
+
+**AWS SERVICE BREADTH AND DEPTH**
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_service_breadth_and_depth.png")
+```
+
+
+
+**Links**
+
+[What Is Cloud Computing](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/what-is-cloud-computing.html)
+
+
+[Global Infrastructure](https://aws.amazon.com/pt/about-aws/global-infrastructure/)
+
+[Compute for any workload](https://aws.amazon.com/pt/products/compute/)
+
+[Amazon EC2 Instance Types](https://aws.amazon.com/pt/ec2/instance-types/)
+
+[Elastic Load Balancing](https://aws.amazon.com/pt/elasticloadbalancing/)
+
+[Cloud Storage on AWS](https://aws.amazon.com/pt/products/storage/)
+
+[Amazon S3](https://aws.amazon.com/pt/s3/)
+
+[Amazon S3 Storage Classes](https://aws.amazon.com/pt/s3/storage-classes/)
+
+[AWS Cloud Databases](https://aws.amazon.com/pt/products/databases/)
+
+[AWS Networking and Content Delivery](https://aws.amazon.com/pt/products/networking/)
+
+[Security best practices for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-best-practices.html)
+
+[Security and Compliance](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-and-compliance.html)
+
+[Security, Identity, and Compliance on AWS](https://aws.amazon.com/pt/products/security/)
+
+[Shared Responsibility Model](https://aws.amazon.com/pt/compliance/shared-responsibility-model/)
+
+[AWS Identity and Access Management (IAM)](https://aws.amazon.com/pt/iam/)
+
+[AWS Compliance](https://aws.amazon.com/pt/compliance/)
+
+[AWS Documentation](https://docs.aws.amazon.com/)
+
+[Cloud Products](https://aws.amazon.com/pt/products/?aws-products-all.sort-by=item.additionalFields.productNameLowercase&aws-products-all.sort-order=asc&awsf.re%3AInvent=*all&awsf.Free%20Tier%20Type=*all&awsf.tech-category=*all)
+
+
+
+<br>
+
+
+**SOLUTION DESIGN**
+
+
+* AWS Solutions : 
+
+  * Machine Learning
+  * Analytics & Data Lakes
+  * IoT
+  * Serveless Computing
+  * Containers
+  * Enterprise Applications
+  * Storage
+  * Windows Workload
+  
+<br>
+
+Sample of Diagram of solution
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/sample_of_diagram_of_solution.png")
+```
+  
+<br>  
+
+* Migration Strategies
+
+
+  * Seven R's, the first 4 involve Migrating workload to the AWS Cloud
+  
+    * **Rehost**  : Recreate the on-premise network, only hosted on AWS, can be automated with tools such as _AWS Application Migration Service_, this is easier to optimize and re-architect applications after migration
+    
+    
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/rehost_lift_and_shift.png")
+    ```
+    
+    
+    * **Replataform**: Similar to re-hosting, making targeted aws cloud optimizations, for example migrating database to Amazon RDS or applicatio to Amazon Elastic Beanstalk
+     
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/replataform_aws.png")
+    ```   
+    
+    * **Relocate** : Hypervisor-level lift and shift, migration specific to VMware Cloud on AWS, for example migrate hypervisor host Oracle to VM Cloud on AWS
+    
+    
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/aws_relocate_hypervisor.png")
+    ```    
+    
+    * **Refactor** : Re-imagining how the application is architected and developed using cloud native features for example, containers.
+    
+    
+    
+    ```{r, echo = FALSE, out.width="90%"}
+    knitr::include_graphics("img/refactor_aws_2.png")
+    ```   
+    
+    * Retire  :Shutting off non-useful appls
+    * Retain : Keeping certain applications on-prem
+    * Repurchase: Moving workload to SaaS
+
+
+<br>
+
+* Architectural Best Practices
+
+  * Design for failure and nothing fails : 
+  
+    * Avoid single point of failure
+    * Multiple instances
+    * Multiple AZs
+    * Separate Single server into multiple tiered application
+    * For RDS, use Multi-AZ feature
+
+<br> 
+  * Build security in every layer
+  
+    * Encrypt Data at rest and in transit
+    * Enforce principle of least privilege in IAM
+    * Implement NACL and Security Groups
+    * Consider advanced security features and services
+
+<br> 
+  * Leverage different storage options
+  
+    * Move static web assets to S3
+    * Use Amazon CloudFront to serve globally
+    * Store session state in DynamoDB
+    * Use ElasticCache between hosts and databases
+  
+<br> 
+  * Implement Elasticity
+  
+    * Implement Auto Scaling polices
+    * Architect resiliency to reboot and relaunch
+    * Leverage managed services like S3 and DynamoDB
+    
+    
+<br> 
+  * Think parallel
+  
+    * Scale horizontally, not vertically
+    * DEcouple compute from session/state
+    * Use ELB (_Elastic Load Balancing_)
+    * Right-size your infrastructure
+
+<br>    
+  * Loose coupling sets you free
+  
+    * Instead of a single, ordered workflow, use multiple queues
+    * Use SQS (_Simple Queue Service_) and SNS (_Simple Notification Service_)
+
+
+
+
+<br>
+
+
+* **Well-Architected Framework** is a framework to ensure infrastructures secure, high-performing, resilient, efficient and sustainable
+
+  
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/the_six_pillars_aws.png")
+``` 
+
+<br> 
+
+* **AWS CAF** AWS **C**loud **A**doption **F**ramework, help companies to move to cloud on Business (_Business, People and Governance_) and Technical (_Platform, Security and Operations_) Capabilities
+
+
+
+**Sample of Cloud solution from on-prem using _Replatform_ strategy**
+
+_FROM_ : 
+
+
+```{r, echo = FALSE, out.width="60%"}
+knitr::include_graphics("img/from_archtecture_on-prem.png")
+``` 
+
+
+_TO_ :
+
+
+```{r, echo = FALSE, out.width="110%"}
+knitr::include_graphics("img/to_arch_on-cloud.png")
+``` 
+
+<br>
+
+After the you present the solution to customer and have the approval and perform the POC starts the **Migration Process** using Minimum Viable Product (_MVP_) starting on basic solution
+
+
+```{r, echo = FALSE, out.width="110%"}
+knitr::include_graphics("img/migration_process_Aws.png")
+``` 
+
+
+
+### IAM 
+
+
+
+
 ### Part 1 : Cloud Concepts
 
   * Cloud computing : 
@@ -486,6 +957,10 @@ To set up [Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-user/use
   * Cloud enables and redefines our ability to collaborate, perceive, categorize, predict and recommend in every industry for every activity
   
 
+<br>
+
+
+**Digital transformation** is about taking advantage of established global scale IT Instructures and leveranging vast compute power that makes it possible for developers to build revolutionary new applications, it is about a foundation change in how an organization operates and optimizes internal resources and how it delivers value to customer
 
 
 

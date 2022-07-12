@@ -201,6 +201,8 @@ configuring-network-policies
 cloud
 azure
 aws
+basic
+iam
 part-1-cloud-concepts
 part-2-foundation
 part-3-aws-well-architected
@@ -252,7 +254,8 @@ exploring-machine-learning-toolset
 the-elements-of-data-science
 data-engineering
 exploratory-data-analysis
-modeling-part-1
+modeling-part-1-basic
+modeling-part-2-sagemaker
 gcp---professional-machine-learning-engineer
 big-data-and-ml-fundamentals
 recommending-products-using-cloud-sql-and-spark
@@ -272,3 +275,6 @@ statistics-for-data-analysis-using-python
 descriptive-statistics
 distributions
 inferencial-and-hypothesis-testing
+troubleshooting-managed-hosts
+building-custom-container-images-with-containerfiles
+modeling-part-3-high-level-ml-services

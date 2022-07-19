@@ -921,6 +921,8 @@ Use Cases :
   
 **COMPREHEND**
 
+> NLP and Text Analytics service
+
 5 Main capabilities
 
   * **Sentiment** : understand what user say (pos, neg, neutral)
@@ -930,7 +932,7 @@ Use Cases :
   * **Topic modeling** : help organize the text in topics
 
 
-Social Abalytics : 
+Social Analytics : 
 
 ```{r, echo = FALSE, out.width="90%"}
 knitr::include_graphics("img/aws_comprehend_social_analytics.png")
@@ -976,13 +978,43 @@ knitr::include_graphics("img/amazon_ei_accelerator_size.png")
 ```
 
 
-**MARKETPLACE INTRODUCES ML CATEGORY**
+**AMAZON PERSONALIZE**
+
+* Fully-managed recommender engine
+* Real-time or batch recommendations
+* 
+* API Access
+  
+  * Feed data via S3 or API
+  * Provide schema in Avro format
+  * `GetRecommendations` (Recommended products, content, etc - similar itens)
+  * `GetPersonalizedRanking` (Rank a list of items, allows editorial control/curation)
+
+
+**Industrial Applications**
+
+  * Amazon Loockout : 
+    
+    * Equipment, metrics, vision
+    * Detects abnormalities from sensor data automatically to detect equipaments issues
+    * Monitor metrics from S3, RDs, RedShift, SaaS apps
+
+<br>
+
+  * Amazon Monitron
+  
+    * End to end system for monitoring industrial equipmenet and predictive maintenance
 
 
 
+**Putting the blocks together**
 
-
-
+  * Build our own alexa!  : Transcribe -> Lex -> Polly
+  * Universal translator: Transcribe -> TRanslate -> Polly
+  * Jeff Bezos Detector : DeepLens -> Rekognition
+  * People on the phone are happy ? : Transcribe -> Comprehend
+  
+  
 
 
 
@@ -1174,7 +1206,7 @@ knitr::include_graphics("img/data_sources_aws.png")
 ```
     
   
-  * Merge/join Data,swe can use pandas to marge two data frames `df.merge(<df_1>, on=<key>, how = <'inner'> )` 
+  * Merge/join Data, we can use pandas to marge two data frames `df.merge(<df_1>, on=<key>, how = <'inner'> )` 
     
 <br>
 
@@ -1203,10 +1235,6 @@ knitr::include_graphics("img/brest_cancer_class_problem_explorer.png")
       * Density Plot
       * Histogram
       * Boxplot
-      
-```{r, echo = FALSE, out.width="90%"}
-knitr::include_graphics("img/basic_plots_aws_1.png")
-```
       * Scatterplot
       * Scatterplot Matrix
       
@@ -1246,7 +1274,7 @@ knitr::include_graphics("img/correlation_matrices_seaborn.png")
 > Highly correlated features can cause collinearity problems and numerical instability    
     
     
-
+<br>
 
 **DATA PROCESSING AND FEATURE ENGINEERING**
 
@@ -1266,7 +1294,7 @@ _Data Preprocessing_ : Encoding Categorical (_discrete_) Variables
 
 **Encoding Ordinals** : When mapping features variables to a predefined map, _use the **map** function in pandas_ 
     
-```{r, echo = FALSE, out.width="90%"}
+```{r, echo = FALSE, out.width="70%"}
 knitr::include_graphics("img/map_encoding_ordinals_Aws.png")
 ```
 
@@ -1397,9 +1425,12 @@ _Text-Based Features_ :
 
 
 
+<br>
+
 
 **MODEL TRAINING, TUNING, AND DEBUGGING**
 
+<br>
 
 _Supervised Learning : Neural Networks_
 
@@ -1440,7 +1471,7 @@ knitr::include_graphics("img/cnn_aws_eods.png")
 
   * Recurrent neural networks : used for time series and sequential features
 
-```{r, echo = FALSE, out.width="90%"}
+```{r, echo = FALSE, out.width="80%"}
 knitr::include_graphics("img/rnn_aws_eods.png")
 ```  
 
@@ -1460,7 +1491,7 @@ _Supervised Learning : K-Nearest Neighbors_
     * scikit-learn : `sklearn.neighbors.KNeighborsClassfier`
 
 
-```{r, echo = FALSE, out.width="70%"}
+```{r, echo = FALSE, out.width="50%"}
 knitr::include_graphics("img/aws_knn_eods.png")
 ```  
 
@@ -1494,7 +1525,7 @@ _Supervised Learning: Decision Trees and Random Forests_
 knitr::include_graphics("img/entropy_aws_esods.png")
 ``` 
 
-
+<br>
 
   * **Decision Tree**
   
@@ -1507,12 +1538,14 @@ knitr::include_graphics("img/entropy_aws_esods.png")
     * Scikit-learn : `sklearn.tree.DecisionTreeClassifer`
     * Must _prune_ the tree to reduce overfitting
   
-  
+<br>  
 
 ```{r, echo = FALSE, out.width="90%"}
 knitr::include_graphics("img/decision_tree_aws_eofds.png")
 ``` 
 
+
+<br>
 
   * **Ensembles** : LEarn multiple models and combine their results, usually via majority vote or averaging
   
@@ -1521,6 +1554,7 @@ knitr::include_graphics("img/decision_tree_aws_eofds.png")
 knitr::include_graphics("img/ensemble_aws_eods.png")
 ``` 
   
+<br>
 
   * **Random Forest**
   
@@ -1568,6 +1602,7 @@ knitr::include_graphics("img/bias_variance_tradeoff_aws_esods.png")
 <br>
 
 
+<br>
 
 _Model Tuning: Regularization_
 
@@ -1804,6 +1839,267 @@ _Common Mistakes_
     
 
 
+
+
+
+### Machine Learning Security
+
+**SECURITY OF THE CLOUD**
+
+Design Principles
+
+  * **Implement a strong identity foundation** : Lesat privilege and enforce separation of duties
+  * **Enable traceability** : Monitor, alert and audit actions in real time
+  * **Apply security at all layers** : Apply a defense in depth approach
+  * **Automate security best practices** : Implement controls that are defined and managed
+  * **Protect data in transit and at rest** : Classify the datainto sesitivity levels, use encryption and access control
+  * **Enforce the principle of least privilege** : Access only to people that really need
+  * **Prepare for security events** : Have an incident management process, run simulations and use tools to increase speed for detection, investigation and recovery.
+
+<br>
+
+AWS Shared Responsibility
+
+**AWS is responsible** for protecting the global **infrastructure** that runs all of the services offered in the AWS Cloud. This infrastructure comprises the **hardware, software, networking, and facilities** that run AWS services.
+
+As an **AWS customer**, you are responsible for **securing your data, operating systems, networks, platforms, and other resources that you create in the AWS Cloud**. You are responsible for protecting the **confidentiality, integrity, and availability of your data** and for meeting any specific business and/or compliance requirements for your workloads
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_shared_responsibility_model.png")
+```
+
+<br>
+
+* Resources : 
+
+  * [AWS Cloud Adoption Framework](https://d1.awsstatic.com/whitepapers/AWS_CAF_Security_Perspective.pdf)
+  * [Model of responsibility](https://aws.amazon.com/pt/compliance/shared-responsibility-model/)
+
+
+<br>
+
+
+AWS Global Infrastructure
+
+* Availability Zones is like a logical Data Center located in a AWS Region
+* The regions are physically separated and if one goes down does not affect each other
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_regions_and _AZ_ML.png")
+```
+
+<br>
+
+* Resources : 
+
+  * [AWS Services per Refion](https://aws.amazon.com/pt/about-aws/global-infrastructure/regions_az/?p=ngi&loc=2)
+  * [AWS Global Infrastructure](https://aws.amazon.com/pt/about-aws/global-infrastructure/)
+  * [Sustainability in the Cloud](https://sustainability.aboutamazon.com/environment/the-cloud)
+
+
+<br>
+
+[Data Center](https://aws.amazon.com/pt/compliance/data-center/controls/) Security
+
+  * Perimeter Layer : Principle of least privilege, video surveillance, intrusion detection ...
+  * Environmental Layer : locations to mitigate risk like flooding and others
+  * Infrastructure Layer : backup power equipment, HVAC systems and fire suppression
+  * Data Layer : decommission using NIST800-88, external auditors to inspect DC, servers that notify any attempt to remove data
+
+
+
+<br>
+
+Compliance on AWS
+
+AWS communicates about its security and control environment to customers by:
+
+  * Obtaining industry certifications and independent third-party attestations.
+  * Publishing information about AWS security and control practices in whitepapers and website content.
+  * Providing certificates, reports, and other documentation directly to AWS customers under an NDA (as required).
+  * Providing security features and enablers, including compliance playbook and mapping documents for compliance programs.
+
+
+<br>
+
+* Resources 
+
+  * [AWS Artifact](https://aws.amazon.com/pt/artifact/)
+  * [AWS Compliance Programs](https://aws.amazon.com/pt/compliance/programs/)
+  * [AWS Compliance Center](https://aws.amazon.com/pt/financial-services/security-compliance/compliance-center/)
+  * [Compliance Best Practices and Workbooks](https://aws.amazon.com/pt/compliance/resources/)
+  * [AWS CIS Foundations Benchmark](https://d1.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf)
+
+
+
+**SECURITY IN THE CLOUD**
+
+
+Identity and Access Management (_IAM_)
+
+  * IAM is a centralized mechanism for creating and managing individual users and their permissions with your AWS account.  
+  * IAM group is a collection of users
+
+
+Type of AWS Credentials : 
+
+  * Username and Password
+  * MFA
+  * User Access Keys
+  * Amazon EC2 Key pairs
+
+<br>
+
+Detective Controls
+
+  * **AWS CloudTrail** records API calls made on your account
+  * **AWS CloudWatch** can be used to monitor resources and logs, send notifications, and initiate automated actions for remediation.
+  * **Amazon GuardDuty** is an intelligent threat detection service,  identifies suspected attackers
+  * **AWS Trusted Advisor** is a service that draws upon best practices and inspects your AWS environment making recommendations for saving money, improving system performance, or closing security gap
+  * **AWS VPC Flow logs** service that capture information about the IP traffic going to and from network interfaces in your VPC. 
+  * **AWS Security Hub** gives you a single pane of glass view of your high-priority security alerts and compliance status across AWS accounts. 
+  * **AWS Config** is a continuous monitoring and assessment service that can help you detect non-compliance configurations almost in real tim
+
+
+
+
+<br>
+
+Infrastructure Protection
+
+Amazon Virtual Private Cloud (**Amazon VPC**) allows you to isolate your AWS resources in the cloud. A VPC enables you to launch resources into a virtual network that you've defined and that closely resembles a traditional network that you'd operate in your own data center. 
+
+* **Subnet Routing** : Enable you to group isntances and resources based on security and Operational needs
+* **Network ACLs** : A layer of security within yoru VPC. A Network access control list (_ACL_) is an optional layer of security that acts as a firewall for controlling traffic at the subnet level
+* **Security Group** : acts as a virtual firewall for instance to control inbound and outbound traffic
+* **AWS Firewall Manager** : is a security management service that allows you to centrally configure and manage AWS WAF rules
+* **AWS Direct Connect** is a cloud service solution that is used to establish a dedicated and secure network connection from your premises to AWS.
+* **AWS CloudFormation** automates and simplifies the task of repeatedly creating and deploying AWS resources in a consistent manner
+* **Amazon Inspector** is an automated security assessment service that helps improve the security and compliance of applications deployed on AW
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/subnet_nacls_secGgroups_aws.png")
+```
+
+
+<br>
+
+Data Protection
+
+  * Protection at Rest : You encrypt your data before sending it to AWS and AWS sncrupts data on your behalf after it has been received.
+  * Protection in Transit : data that gets transmitted from one system to another is considered data in transit, recommend to use HTTPs, VPN, etc
+  
+  
+<br>
+
+[AWS Well-Architected Tool](https://us-east-1.console.aws.amazon.com/wellarchitected?region=us-east-1#) is a self-service tool that is designed to help customers review AWS workloads at any time.
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/Well_architected_tool_aws_simple.png")
+```
+
+
+<br>
+
+**AUTHENTICATION AND AUTHORIZATION**
+
+
+* Authentication
+
+  * **User** : Name Operator, human or machine and set of permanent credentials and authentication method
+  * **Group**: Collection of users
+  * **Role** : is not permissions, a Role is authentication method, temp credentials and also an authentication method
+  
+<br>
+  
+* Authorization
+  
+  * **Policy Docs** : Can be attached to user, group or role, list specific APIs allowing against each resources in certain conditions, check the **actions**
+
+
+<br>
+
+**SECURITY GROUPS AND NACLs**
+
+  * **Security groups** apply to instance level, works like a firewall on each EC2 instance that by default block all incoming traffic, we need to specify the rules on security group to allow specific action/traffic informing protocol and port
+  * **NACLs** apply to subnet level, inbound and outbound role set
+
+
+
+
+
+
+### Math for Machine Learning
+
+
+**INTRO**
+
+
+
+
+
+<br>
+
+**VECTORS**
+
+
+* Column Vectors, `n x 1`  
+* Row Vectors, `1 x n`       [1  0  -1  2]
+* n-Dimensional, 2D is a matrix `m x n`
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/mxn_matrix_aws_math.png")
+```
+
+<br>
+
+* Operations
+  
+  * Scalar Multiplication
+  * Transpose
+  * 
+
+
+
+
+
+
+<br>
+
+**MATRICES**
+
+
+
+
+
+
+<br>
+
+**PROBABILITY**
+
+
+
+
+
+<br>
+
+**UNIVARIATE DERIVATIVES**
+
+
+
+
+
+
+<br>
+
+**MULTIVARIATE DERIVATIVES**
 
 
 
@@ -2860,6 +3156,12 @@ knitr::include_graphics("img/sagemaker_training_deployment_udemy.png")
 
 
 ### Modeling Part 3 High Level ML Services
+
+
+
+
+
+---
 
 
 ## GCP - Professional Machine Learning Engineer

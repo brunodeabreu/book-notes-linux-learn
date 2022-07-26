@@ -216,6 +216,7 @@ part-11-elb
 gcp
 digital-leader
 cloud-engineer
+cloud-architect
 machine-learning-engineer
 data-engineer
 devops
@@ -254,6 +255,8 @@ exploring-machine-learning-toolset
 the-elements-of-data-science
 machine-learning-security
 math-for-machine-learning
+section
+deploying-machine-learning-applications
 data-engineering
 exploratory-data-analysis
 modeling-part-1-basic

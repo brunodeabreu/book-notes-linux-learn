@@ -2089,39 +2089,6 @@ knitr::include_graphics("img/mxn_matrix_aws_math.png")
 Dot Products
 
 
-###
-
-
-
-Matrix Multiplications
-
-
-
-
-
-
-
-<br>
-
-**PROBABILITY**
-
-
-
-
-
-<br>
-
-**UNIVARIATE DERIVATIVES**
-
-
-
-
-
-
-<br>
-
-**MULTIVARIATE DERIVATIVES**
-
 ### Deploying Machine Learning Applications
 
 **INTRO TO AMAZON SAGEMAKER-CR**
@@ -2197,7 +2164,7 @@ knitr::include_graphics("img/neo_framework_platform_aws.png")
 
 _Hyperparameters_
 
- * **NN**: 
+* **NN**: 
  
   * Learning Rate
   * Layers

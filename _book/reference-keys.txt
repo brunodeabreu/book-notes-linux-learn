@@ -255,7 +255,6 @@ exploring-machine-learning-toolset
 the-elements-of-data-science
 machine-learning-security
 math-for-machine-learning
-section
 deploying-machine-learning-applications
 data-engineering
 exploratory-data-analysis

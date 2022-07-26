@@ -970,7 +970,8 @@ To set up [Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-user/use
 
 ### Cloud Engineer
 
-
+ 
+### Cloud Architect
 ### Machine Learning Engineer
 
 ### Data Engineer

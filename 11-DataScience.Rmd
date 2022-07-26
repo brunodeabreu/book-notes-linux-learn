@@ -2036,15 +2036,6 @@ knitr::include_graphics("img/Well_architected_tool_aws_simple.png")
 
 ### Math for Machine Learning
 
-
-**INTRO**
-
-
-
-
-
-<br>
-
 **VECTORS**
 
 
@@ -2052,7 +2043,7 @@ knitr::include_graphics("img/Well_architected_tool_aws_simple.png")
 * Row Vectors, `1 x n`       [1  0  -1  2]
 * n-Dimensional, 2D is a matrix `m x n`
 
-
+In Machine Learning we usually work with 2D objects **m x n** matrix
 
 ```{r, echo = FALSE, out.width="90%"}
 knitr::include_graphics("img/mxn_matrix_aws_math.png")
@@ -2062,18 +2053,48 @@ knitr::include_graphics("img/mxn_matrix_aws_math.png")
 
 * Operations
   
-  * Scalar Multiplication
-  * Transpose
-  * 
+  * Addition : Element wise addition if the vectors/matrix are the same length, (_adding the number of the same position_)
+  * Scalar Multiplication: Element wise multiplication
+  * Transpose, flip over the diagonal 
+  * Subtraction as Mapping
 
 
 
+<br>
+
+* Measures of Magnitude
+
+  * **Norm** : How we measure of distance (_one vector to the other_)
+  
+    * Properties : 
+    
+      1: All distances are non-negative
+      
+      2: Distances multiply with scalar multiplication
+      
+      3: Triangle equality , If I travel from A to B then B to C, that is at least as far as going from A to C
+      
+    * Type of Norms
+    
+      * Euclidean Norm 
+      * L1 Norm : `np.linalg.norm(<vector>, ord = 1)`
+      * L2 Norm : `np.linalg.norm(<vector>, ord = 2)`
 
 
 
 <br>
 
 **MATRICES**
+
+Dot Products
+
+
+###
+
+
+
+Matrix Multiplications
+
 
 
 
@@ -2100,6 +2121,213 @@ knitr::include_graphics("img/mxn_matrix_aws_math.png")
 <br>
 
 **MULTIVARIATE DERIVATIVES**
+
+### Deploying Machine Learning Applications
+
+**INTRO TO AMAZON SAGEMAKER-CR**
+
+Componenets
+
+  * Notebook service
+  * Training Service
+  * Hosting Service
+  
+  
+<br>
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/zero_setup_sagemaker_Aws.png")
+```
+
+<br>
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/training_env_sagemaker_aws.png")
+```
+
+<br>
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/deploy_sagemaker_aws.png")
+```
+
+
+
+[Expore](github.com/awslabs/amazon-sagemaker-examples/tree/master/hyperparameter_tuning)
+ - __Targeting Direct Marketing with Amazon SageMaker XGBoost_
+
+<br>
+
+**INTRO TO AMAZON SAGEMAKER NEO-CR**
+
+
+Operationalization : 
+
+  1. **Framework** : Choose the best framework for your task
+  
+  2. **Models** : Build the model using the framework
+  
+  3. **Train Models to Make Predictions** : Train model using sample data
+  
+  4. **Integrate** : Integrate the model with the application
+  
+  5. **Deploy** : Deploy the application, the model, and the framework on a platform
+
+
+<br>
+
+_NEO_
+
+  1. The NEO Compiler reads the model and save it in several formats
+  
+  2. NEO convert the functions and operations in non-specific functions and operations
+
+  3. NEO perform several optimization (_2x faster_)
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/neo_framework_platform_aws.png")
+```
+
+
+<br>
+
+
+**AUTOMATIC MODEL TUNING IN SAGEMAKER=CR**
+
+_Hyperparameters_
+
+ * **NN**: 
+ 
+  * Learning Rate
+  * Layers
+  * Regularization
+  * Drop-out
+  
+* **Trees**:
+
+  * Number
+  * Depth
+  * Boosting step size
+  
+* **Clustering**
+
+  * Number
+  * Initialization
+  * Pre-processing
+  
+
+<br>
+
+_Tuning_
+
+
+* Manual
+  
+  * Defaults, guess, and check
+  * Experience, intuition, and heuristics
+  
+* Brute force
+
+  * Grid
+  * Random
+  * Sobol
+
+* Metal Model
+
+  * Gaussian process regression models objective metric as a function of hyperparameters
+  
+    * Assumes smoothness
+    * Low data
+    * Confidence estimates
+    
+  * Bayesian optimization decides where to search next
+  
+    * Explore and exploit
+    * Gradient free
+
+
+[Expore](github.com/awslabs/amazon-sagemaker-examples/tree/master/hyperparameter_tuning)
+  - Gluon CIFAR-10 Hyperparameter Tuning
+
+
+<br>
+
+**Advanced Analytics with Amazon SageMaker**
+
+_Building and Training ML Models using SageMaker and Spark_
+
+
+Why Spark ? 
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/spark_why_amazon_sagemaker_aws.png")
+```
+
+<br>
+
+* Spark runs locally and SageMaker noteboks
+* SageMaker-Spark SDK (_Scala and Python_)
+  
+  * SageMaker algorithms are compatible with Spark MLLib
+* Connect SageMaker notebook to a Spark Cluster (EMR)
+
+
+<br>
+
+[pyspark_mnist_kmeans.ipynb](https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-spark)
+
+
+
+
+
+
+
+
+_Building ML pipelines using SageMaker and Spark_
+
+
+ML Pipeline with PCA and K-Means
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/spark_why_amazon_sagemaker_aws.png")
+```
+
+<br>
+
+_ANOMALY DETECTION_
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/sample_anomally_detection_aws.png")
+```
+
+How **Rondom Cut** works ? 
+
+  - It is a tree based algorithm 
+  - Create multiple trees in parallel 
+  - A point is an _anomaly_ if its insertion greatly increases the tree size
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/kinesis_anomaly_detection_arch_Aws.png")
+```
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/sage_marker_anomally_detection_aws.png")
+```
+
+
+<br>
+
+
+
+
 
 
 

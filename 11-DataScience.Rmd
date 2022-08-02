@@ -2034,61 +2034,6 @@ knitr::include_graphics("img/Well_architected_tool_aws_simple.png")
 
 
 
-### Math for Machine Learning
-
-**VECTORS**
-
-
-* Column Vectors, `n x 1`  
-* Row Vectors, `1 x n`       [1  0  -1  2]
-* n-Dimensional, 2D is a matrix `m x n`
-
-In Machine Learning we usually work with 2D objects **m x n** matrix
-
-```{r, echo = FALSE, out.width="90%"}
-knitr::include_graphics("img/mxn_matrix_aws_math.png")
-```
-
-<br>
-
-* Operations
-  
-  * Addition : Element wise addition if the vectors/matrix are the same length, (_adding the number of the same position_)
-  * Scalar Multiplication: Element wise multiplication
-  * Transpose, flip over the diagonal 
-  * Subtraction as Mapping
-
-
-
-<br>
-
-* Measures of Magnitude
-
-  * **Norm** : How we measure of distance (_one vector to the other_)
-  
-    * Properties : 
-    
-      1: All distances are non-negative
-      
-      2: Distances multiply with scalar multiplication
-      
-      3: Triangle equality , If I travel from A to B then B to C, that is at least as far as going from A to C
-      
-    * Type of Norms
-    
-      * Euclidean Norm 
-      * L1 Norm : `np.linalg.norm(<vector>, ord = 1)`
-      * L2 Norm : `np.linalg.norm(<vector>, ord = 2)`
-
-
-
-<br>
-
-**MATRICES**
-
-Dot Products
-
-
 ### Deploying Machine Learning Applications
 
 **INTRO TO AMAZON SAGEMAKER-CR**
@@ -2296,6 +2241,178 @@ knitr::include_graphics("img/sage_marker_anomally_detection_aws.png")
 
 
 
+
+
+### Exam Prep
+
+> The exam validates your ability to build, train, tune, and deploy ML models using the AWS Cloud
+
+* Select and justify the appropriate ML approach for a given business problem
+* Identify appropriate AWS services to implement ML solutions
+* Design and implement scalable, cost-optimized, reliable, and secure ML solutions
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_q1_sample_ML.png")
+```
+
+
+**DATA ENGINEERING DOMAIN**
+
+* Create data repositories for ML
+
+  
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_data_lake_Formation_S2_ML.png")
+```
+
+
+  * S3
+  
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/s3_aws_ML_Storage_classes.png")
+```
+
+
+* Identify and implement a data-ingestion solution
+
+One of the core benefits of a data lake solution is the ability to quickly and easily ingest multiple types of data
+
+
+  * **Batch processing** : With batch processing, the ingestion layer periodically collects and groups source data and sends it to a destination like Amazon S3. 
+  
+  * Service can help on this process _GLUE_
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/glue_aws_ml_exam_prep.png")
+```
+
+
+  * **Stream processing** : Stream processing, which includes real-time processing, involves no grouping at all.
+  
+  
+  
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/stream_aws_ml_examprep.png")
+``` 
+
+    * Kinesis : 
+    
+      * Video Streams : Analyse video and audio data
+      * Data Streams : To process data using kinesis liberaries 
+      * Data Firehose : Batch and compress the data (Ingest data into S3 or RedShift, not read)
+      * Data Analytics : Process and transform data through Kinesis Data Streams or Firehouse
+      
+      
+  
+
+* Identify and implement a data-transformation solution
+  
+  * A key step in data transformation for ML is partitioning your dataset
+  * You can store a single source of data in Amazon S3 and perform ad hoc analysis
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_ad_hoc_analysis_ML_examprep.png")
+```   
+
+
+
+
+<br>
+
+[Test Data Engineering](https://amazonmr.au1.qualtrics.com/jfe/form/SV_dg3duwjYBh3zZnn)
+
+
+
+<br>
+
+
+**EXPLORATORY DATA ANALYSIS DOMAIN**
+
+
+* Sanitize and prepare data for modeling
+
+  * Use descriptive statistics to better understand your data
+  * Perform data cleaning (_Sanitize_)
+  * Make sure the data is on the same scale
+  * Make sure a column doesn’t include multiple features
+  * Outliers
+  * Missing data
+
+
+
+
+
+
+* Perform featuring engineering
+
+  * Squaring, cubing
+  * Multiplication
+  
+
+
+
+
+
+* Analyze and visualize data for ML
+
+  * Visualization helps you better understand your features and their relationships
+
+  * What’s the range of the data?
+  * What’s the peak of the data?
+  * Are there any outliers?
+  * Are there any interesting patterns in the data?
+
+
+
+[Test Exploratory and data analysis](https://amazonmr.au1.qualtrics.com/jfe/form/SV_d9W72HMVJckXsUJ)
+
+
+
+<br>
+
+**MODELING**
+
+* Frame business problems as ML problems
+* Select the appropriate models for a given ML problem
+* Train ML models
+* Perform hyperparameter optimization
+* Evaluate ML models
+
+
+[Test Modeling](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cOds6iMP7ekliD3)
+
+
+<br>
+
+
+**ML IMPLEMENTATION AND OPERATIONS**
+
+
+* Build ML solutions for performance, availability, scalability, resiliency, and fault tolerance
+* Apply Basic AWS security practices to ML solutions
+
+
+
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("img/aws_best_practice_ML_examprep.png")
+```   
+
+
+* Deploy and operationalize ML solutions
+
+
+[Test ML Implementation and Operations](https://amazonmr.au1.qualtrics.com/jfe/form/SV_1KOjszCqxc6qrl3)
+
+
+
+[Study Questions : ](https://amazonmr.au1.qualtrics.com/jfe/form/SV_2nt0z0Far6DzAwJ)
 
 
 ### Data Engineering

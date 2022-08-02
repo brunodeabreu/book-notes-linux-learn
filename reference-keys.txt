@@ -254,8 +254,8 @@ machine-learning-terminology-and-process
 exploring-machine-learning-toolset
 the-elements-of-data-science
 machine-learning-security
-math-for-machine-learning
 deploying-machine-learning-applications
+exam-prep
 data-engineering
 exploratory-data-analysis
 modeling-part-1-basic

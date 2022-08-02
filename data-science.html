@@ -23,7 +23,7 @@
 <meta name="author" content="Bruno Machado" />
 
 
-<meta name="date" content="2022-07-26" />
+<meta name="date" content="2022-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -446,8 +446,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.6" data-path="data-science.html"><a href="data-science.html#exploring-machine-learning-toolset"><i class="fa fa-check"></i><b>9.4.6</b> Exploring Machine Learning Toolset</a></li>
 <li class="chapter" data-level="9.4.7" data-path="data-science.html"><a href="data-science.html#the-elements-of-data-science"><i class="fa fa-check"></i><b>9.4.7</b> The Elements of Data Science</a></li>
 <li class="chapter" data-level="9.4.8" data-path="data-science.html"><a href="data-science.html#machine-learning-security"><i class="fa fa-check"></i><b>9.4.8</b> Machine Learning Security</a></li>
-<li class="chapter" data-level="9.4.9" data-path="data-science.html"><a href="data-science.html#math-for-machine-learning"><i class="fa fa-check"></i><b>9.4.9</b> Math for Machine Learning</a></li>
-<li class="chapter" data-level="9.4.10" data-path="data-science.html"><a href="data-science.html#deploying-machine-learning-applications"><i class="fa fa-check"></i><b>9.4.10</b> Deploying Machine Learning Applications</a></li>
+<li class="chapter" data-level="9.4.9" data-path="data-science.html"><a href="data-science.html#deploying-machine-learning-applications"><i class="fa fa-check"></i><b>9.4.9</b> Deploying Machine Learning Applications</a></li>
+<li class="chapter" data-level="9.4.10" data-path="data-science.html"><a href="data-science.html#exam-prep"><i class="fa fa-check"></i><b>9.4.10</b> Exam Prep</a></li>
 <li class="chapter" data-level="9.4.11" data-path="data-science.html"><a href="data-science.html#data-engineering"><i class="fa fa-check"></i><b>9.4.11</b> Data Engineering</a></li>
 <li class="chapter" data-level="9.4.12" data-path="data-science.html"><a href="data-science.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>9.4.12</b> Exploratory Data Analysis</a></li>
 <li class="chapter" data-level="9.4.13" data-path="data-science.html"><a href="data-science.html#modeling-part-1-basic"><i class="fa fa-check"></i><b>9.4.13</b> Modeling Part 1 Basic</a></li>
@@ -1986,52 +1986,8 @@ list(le.inverse_transform([2, 2, 1]))
 <li><strong>NACLs</strong> apply to subnet level, inbound and outbound role set</li>
 </ul>
 </div>
-<div id="math-for-machine-learning" class="section level3 hasAnchor">
-<h3><span class="header-section-number">9.4.9</span> Math for Machine Learning<a href="data-science.html#math-for-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>VECTORS</strong></p>
-<ul>
-<li>Column Vectors, <code>n x 1</code><br />
-</li>
-<li>Row Vectors, <code>1 x n</code> [1 0 -1 2]</li>
-<li>n-Dimensional, 2D is a matrix <code>m x n</code></li>
-</ul>
-<p>In Machine Learning we usually work with 2D objects <strong>m x n</strong> matrix</p>
-<p><img src="img/mxn_matrix_aws_math.png" width="90%" /></p>
-<p><br></p>
-<ul>
-<li><p>Operations</p>
-<ul>
-<li>Addition : Element wise addition if the vectors/matrix are the same length, (<em>adding the number of the same position</em>)</li>
-<li>Scalar Multiplication: Element wise multiplication</li>
-<li>Transpose, flip over the diagonal</li>
-<li>Subtraction as Mapping</li>
-</ul></li>
-</ul>
-<p><br></p>
-<ul>
-<li><p>Measures of Magnitude</p>
-<ul>
-<li><p><strong>Norm</strong> : How we measure of distance (<em>one vector to the other</em>)</p>
-<ul>
-<li><p>Properties :</p>
-<p>1: All distances are non-negative</p>
-<p>2: Distances multiply with scalar multiplication</p>
-<p>3: Triangle equality , If I travel from A to B then B to C, that is at least as far as going from A to C</p></li>
-<li><p>Type of Norms</p>
-<ul>
-<li>Euclidean Norm</li>
-<li>L1 Norm : <code>np.linalg.norm(&lt;vector&gt;, ord = 1)</code></li>
-<li>L2 Norm : <code>np.linalg.norm(&lt;vector&gt;, ord = 2)</code></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<p><br></p>
-<p><strong>MATRICES</strong></p>
-<p>Dot Products</p>
-</div>
 <div id="deploying-machine-learning-applications" class="section level3 hasAnchor">
-<h3><span class="header-section-number">9.4.10</span> Deploying Machine Learning Applications<a href="data-science.html#deploying-machine-learning-applications" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.4.9</span> Deploying Machine Learning Applications<a href="data-science.html#deploying-machine-learning-applications" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>INTRO TO AMAZON SAGEMAKER-CR</strong></p>
 <p>Componenets</p>
 <ul>
@@ -2151,6 +2107,107 @@ list(le.inverse_transform([2, 2, 1]))
 <p><img src="img/kinesis_anomaly_detection_arch_Aws.png" width="90%" /></p>
 <p><img src="img/sage_marker_anomally_detection_aws.png" width="90%" /></p>
 <p><br></p>
+</div>
+<div id="exam-prep" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.4.10</span> Exam Prep<a href="data-science.html#exam-prep" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>The exam validates your ability to build, train, tune, and deploy ML models using the AWS Cloud</p>
+</blockquote>
+<ul>
+<li>Select and justify the appropriate ML approach for a given business problem</li>
+<li>Identify appropriate AWS services to implement ML solutions</li>
+<li>Design and implement scalable, cost-optimized, reliable, and secure ML solutions</li>
+</ul>
+<p><img src="img/aws_q1_sample_ML.png" width="90%" /></p>
+<p><strong>DATA ENGINEERING DOMAIN</strong></p>
+<ul>
+<li>Create data repositories for ML</li>
+</ul>
+<p><img src="img/aws_data_lake_Formation_S2_ML.png" width="90%" /></p>
+<ul>
+<li>S3</li>
+</ul>
+<p><img src="img/s3_aws_ML_Storage_classes.png" width="90%" /></p>
+<ul>
+<li>Identify and implement a data-ingestion solution</li>
+</ul>
+<p>One of the core benefits of a data lake solution is the ability to quickly and easily ingest multiple types of data</p>
+<ul>
+<li><p><strong>Batch processing</strong> : With batch processing, the ingestion layer periodically collects and groups source data and sends it to a destination like Amazon S3.</p></li>
+<li><p>Service can help on this process <em>GLUE</em></p></li>
+</ul>
+<p><img src="img/glue_aws_ml_exam_prep.png" width="90%" /></p>
+<ul>
+<li><strong>Stream processing</strong> : Stream processing, which includes real-time processing, involves no grouping at all.</li>
+</ul>
+<p><img src="img/stream_aws_ml_examprep.png" width="90%" /></p>
+<pre><code>* Kinesis : 
+
+  * Video Streams : Analyse video and audio data
+  * Data Streams : To process data using kinesis liberaries 
+  * Data Firehose : Batch and compress the data (Ingest data into S3 or RedShift, not read)
+  * Data Analytics : Process and transform data through Kinesis Data Streams or Firehouse
+  
+  </code></pre>
+<ul>
+<li><p>Identify and implement a data-transformation solution</p>
+<ul>
+<li>A key step in data transformation for ML is partitioning your dataset</li>
+<li>You can store a single source of data in Amazon S3 and perform ad hoc analysis</li>
+</ul></li>
+</ul>
+<p><img src="img/aws_ad_hoc_analysis_ML_examprep.png" width="90%" /></p>
+<p><br></p>
+<p><a href="https://amazonmr.au1.qualtrics.com/jfe/form/SV_dg3duwjYBh3zZnn">Test Data Engineering</a></p>
+<p><br></p>
+<p><strong>EXPLORATORY DATA ANALYSIS DOMAIN</strong></p>
+<ul>
+<li><p>Sanitize and prepare data for modeling</p>
+<ul>
+<li>Use descriptive statistics to better understand your data</li>
+<li>Perform data cleaning (<em>Sanitize</em>)</li>
+<li>Make sure the data is on the same scale</li>
+<li>Make sure a column doesn’t include multiple features</li>
+<li>Outliers</li>
+<li>Missing data</li>
+</ul></li>
+<li><p>Perform featuring engineering</p>
+<ul>
+<li>Squaring, cubing</li>
+<li>Multiplication</li>
+</ul></li>
+<li><p>Analyze and visualize data for ML</p>
+<ul>
+<li><p>Visualization helps you better understand your features and their relationships</p></li>
+<li><p>What’s the range of the data?</p></li>
+<li><p>What’s the peak of the data?</p></li>
+<li><p>Are there any outliers?</p></li>
+<li><p>Are there any interesting patterns in the data?</p></li>
+</ul></li>
+</ul>
+<p><a href="https://amazonmr.au1.qualtrics.com/jfe/form/SV_d9W72HMVJckXsUJ">Test Exploratory and data analysis</a></p>
+<p><br></p>
+<p><strong>MODELING</strong></p>
+<ul>
+<li>Frame business problems as ML problems</li>
+<li>Select the appropriate models for a given ML problem</li>
+<li>Train ML models</li>
+<li>Perform hyperparameter optimization</li>
+<li>Evaluate ML models</li>
+</ul>
+<p><a href="https://amazonmr.au1.qualtrics.com/jfe/form/SV_cOds6iMP7ekliD3">Test Modeling</a></p>
+<p><br></p>
+<p><strong>ML IMPLEMENTATION AND OPERATIONS</strong></p>
+<ul>
+<li>Build ML solutions for performance, availability, scalability, resiliency, and fault tolerance</li>
+<li>Apply Basic AWS security practices to ML solutions</li>
+</ul>
+<p><img src="img/aws_best_practice_ML_examprep.png" width="90%" /></p>
+<ul>
+<li>Deploy and operationalize ML solutions</li>
+</ul>
+<p><a href="https://amazonmr.au1.qualtrics.com/jfe/form/SV_1KOjszCqxc6qrl3">Test ML Implementation and Operations</a></p>
+<p><a href="https://amazonmr.au1.qualtrics.com/jfe/form/SV_2nt0z0Far6DzAwJ">Study Questions :</a></p>
 </div>
 <div id="data-engineering" class="section level3 hasAnchor">
 <h3><span class="header-section-number">9.4.11</span> Data Engineering<a href="data-science.html#data-engineering" class="anchor-section" aria-label="Anchor link to header"></a></h3>

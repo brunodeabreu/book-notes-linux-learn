@@ -292,3 +292,9 @@ fundamentos
 intro-3
 projecto-1
 referencia
+troubleshooting-managed-hosts
+building-custom-container-images-with-containerfiles
+gcp---professional-machine-learning-engineer
+big-data-and-ml-fundamentals
+recommending-products-using-cloud-sql-and-spark
+predict-visitor-purchases-using-bigquery-ml

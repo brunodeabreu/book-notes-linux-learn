@@ -137,7 +137,7 @@ Exemplo simples para visualizar os modulos e a camada de atenção:
 
   * Na arquitetura transformes o mecanismo de atenção  do tipo (_Scaled dot-product_) utiliza três componentes : 
   
-    * **Q**_(Query)_ : representa parte que estamos interessados, por exemplo : Em PLN poderia ser a frase que estamos tentando traduzir. Em um modelo transformer para cada posição uma query é gerada e são usadas para pontar a qualidade da entrada.
+    * **Q**_(Query)_ : representa parte que estamos interessados, por exemplo : Em PLN poderia ser a frase que estamos tentando traduzir. Em um modelo transformer para cada posição uma query é gerada e são usadas para pontar a qualidade da entrada. 
     
     * **K**_(Key)_ : Usada para pontar a entrada e comparada com a query para determinar o grau de atenção, essa comparação resulta em um conjunto de pontuação que indica a relevancia de cada parta da entrada para representar a query
     

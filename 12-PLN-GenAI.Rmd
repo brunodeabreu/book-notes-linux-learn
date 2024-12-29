@@ -163,7 +163,7 @@ Exemplo simples para visualizar os modulos e a camada de atenção:
   * [A Comprehensive Guide to the Backpropagation Algorithm in Neural Networks](https://neptune.ai/blog/backpropagation-algorithm-in-neural-networks-guide]
   
   * [What is forward and backward propagation in Deep Learning?](https://www.nomidl.com/deep-learning/what-is-forward-and-backward-propagation-in-deep-learning/)
-  
+   
   
   *[A Deep Dive Into the Transformer Architecture –The Development of Transformer Models](https://www.exxactcorp.com/blog/Deep-Learning/a-deep-dive-into-the-transformer-architecture-the-development-of-transformer-models
   

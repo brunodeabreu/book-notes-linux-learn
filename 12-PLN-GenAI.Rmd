@@ -150,7 +150,7 @@ Exemplo simples para visualizar os modulos e a camada de atenção:
 
 
 
-### Referencia : 
+### Referencia :
 
   * [Deep Learning book](https://www.deeplearningbook.com.br/)
 

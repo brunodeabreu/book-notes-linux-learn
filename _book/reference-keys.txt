@@ -243,8 +243,8 @@ data-science
 datacamp-python-skills-for-data-science
 introduction-to-python
 python-basic
-datacamp-r-skills-for-data-science
-azure-data-science-certification
+aws-machine-learning-specialty-certification-preparation
+section
 aws-data-science-certification
 demystifying-ai-ml-dl
 machine-learning-essentials-for-business-and-technical-decision-makers
@@ -261,10 +261,6 @@ exploratory-data-analysis
 modeling-part-1-basic
 modeling-part-2-sagemaker
 modeling-part-3-high-level-ml-services
-gcp---professional-machine-learning-engineer
-big-data-and-ml-fundamentals
-recommending-products-using-cloud-sql-and-spark
-predict-visitor-purchases-using-bigquery-ml
 kyndryl-data-science-roudmap
 data-science--project-management-methodology---crisp-dm
 kdd
@@ -280,10 +276,6 @@ statistics-for-data-analysis-using-python
 descriptive-statistics
 distributions
 inferencial-and-hypothesis-testing
-troubleshooting-managed-hosts
-building-custom-container-images-with-containerfiles
-aws-machine-learning-specialty-certification-preparation
-section
 kyndryl-data-science-v2
 track-1-python
 track-2-mathematics
